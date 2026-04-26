@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 210 310" role="img" aria-label="Stylized cover for Logicomix">
+  <defs>
+    <linearGradient id="book" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#1D4ED8"/><stop offset="1" stop-color="#07111f"/></linearGradient>
+  </defs>
+  <rect x="10" y="8" width="190" height="294" rx="18" fill="url(#book)" stroke="rgba(255,255,255,0.25)" stroke-width="2"/>
+  <rect x="24" y="24" width="162" height="262" rx="12" fill="rgba(255,255,255,0.06)"/>
+  <circle cx="105" cy="82" r="34" fill="#F59E0B" opacity="0.84"/>
+  <path d="M75 86 C88 64 122 64 135 86 C123 106 88 106 75 86Z" fill="#fff" opacity="0.85"/>
+  <text x="105" y="152" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="800" fill="#ffffff"><tspan x="105" dy="0">Logicomix</tspan></text>
+  <text x="105" y="245" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="700" fill="#d7f7ff">Logic • Mathematics • Philosophy</text>
+  <rect x="28" y="268" width="154" height="2" fill="#F59E0B" opacity="0.7"/>
+</svg>
