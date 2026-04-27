@@ -2043,9 +2043,7 @@ function updateControlsForPlayType() {
 }
 
 
-function trackEvent(name, params = {}) {
-  if (typeof gtag === "function") {
-    gtag("event", name, params);
+function 
   }
 }
 
@@ -2108,11 +2106,7 @@ function unlockCard() {
   cards.push(card);
   saveCollectedCards(cards);
   showCardUnlock(card);
-  trackEvent("medcard_unlocked", {
-    word: card.word,
-    specialty: card.specialty,
-    rarity: card.rarity
-  });
+  
   return true;
 }
 
@@ -2130,7 +2124,7 @@ function openCardsModal() {
   renderCards();
   cardsModal.classList.remove("hidden");
   cardsModal.setAttribute("aria-hidden", "false");
-  trackEvent("medcards_opened", { collected: getCollectedCards().length });
+  
 }
 
 function closeCardsModal() {
@@ -2220,332 +2214,10 @@ function choosePracticeNoRepeat(pool) {
 }
 
 
-function uniqueDateKey() {
-  return new Date().toISOString().slice(0, 10);
-}
 
-function calculatePoints(won) {
-  if (!won) return 0;
-  let points = 0;
-  if (playType === "Daily Challenge") points += 100;
-  else if (playType === "Adaptive") points += 35;
-  else points += 25;
 
-  if (guesses.length === 1) points += 50;
 
-  const stats = getStats();
-  points += Math.min((stats.streak || 0) * 10, 100);
-  return points;
-}
 
-function enhanceStats(stats, won) {
-  stats.points = stats.points || 0;
-  stats.days = stats.days || {};
-  stats.dayActivity = stats.dayActivity || {};
-  stats.specialtyWins = stats.specialtyWins || {};
-  stats.dailyCompletions = stats.dailyCompletions || 0;
-
-  const key = uniqueDateKey();
-  stats.days[key] = true;
-  stats.dayActivity[key] = (stats.dayActivity[key] || 0) + 1;
-
-  if (won) {
-    stats.points += calculatePoints(true);
-    stats.specialtyWins[answerObj.specialty] = (stats.specialtyWins[answerObj.specialty] || 0) + 1;
-    if (playType === "Daily Challenge") stats.dailyCompletions += 1;
-  }
-
-  return stats;
-}
-
-function bestSpecialtyFromStats(stats) {
-  const wins = stats.specialtyWins || {};
-  const best = Object.entries(wins).sort((a, b) => b[1] - a[1])[0];
-  return best ? `${best[0]} (${best[1]})` : "None";
-}
-
-function formatDayWord(n) {
-  return `${n} day${n === 1 ? "" : "s"}`;
-}
-
-function calculateLongestStreak(activity) {
-  const keys = Object.keys(activity || {}).sort();
-  if (!keys.length) return 0;
-
-  let longest = 0;
-  let current = 0;
-  let prev = null;
-
-  keys.forEach(key => {
-    const d = new Date(key + "T00:00:00");
-    if (!prev) {
-      current = 1;
-    } else {
-      const diff = Math.round((d - prev) / 86400000);
-      current = diff === 1 ? current + 1 : 1;
-    }
-    longest = Math.max(longest, current);
-    prev = d;
-  });
-
-  return longest;
-}
-
-function calculateCurrentStreak(activity) {
-  const today = new Date();
-  let streak = 0;
-
-  for (let i = 0; i < 365; i++) {
-    const d = new Date(today);
-    d.setDate(today.getDate() - i);
-    const key = d.toISOString().slice(0, 10);
-    if (activity[key]) streak++;
-    else break;
-  }
-
-  return streak;
-}
-
-
-
-
-
-
-
-function openStatsModal() {
-  const modal = document.getElementById("statsModal");
-  if (!modal) return;
-  renderStatsDashboard();
-  modal.classList.remove("hidden");
-  modal.setAttribute("aria-hidden", "false");
-  if (typeof gtag === "function") gtag("event", "stats_opened");
-}
-
-function closeStatsModal() {
-  const modal = document.getElementById("statsModal");
-  if (!modal) return;
-  modal.classList.add("hidden");
-  modal.setAttribute("aria-hidden", "true");
-}
-
-
-/* ---------- Real-time MedWordle stats fix ---------- */
-
-function getTodayKeyForStats() {
-  return new Date().toISOString().slice(0, 10);
-}
-
-function ensureStatsShape(stats) {
-  stats.played = stats.played || 0;
-  stats.wins = stats.wins || 0;
-  stats.streak = stats.streak || 0;
-  stats.points = stats.points || 0;
-  stats.days = stats.days || {};
-  stats.dayActivity = stats.dayActivity || {};
-  stats.specialtyWins = stats.specialtyWins || {};
-  stats.dailyCompletions = stats.dailyCompletions || 0;
-  stats.lastPlayedDate = stats.lastPlayedDate || null;
-  stats.longestStreak = stats.longestStreak || 0;
-  return stats;
-}
-
-function pointsForResult(won) {
-  if (!won) return 5; // small participation credit so plays always feel tracked
-
-  let points = 0;
-  if (playType === "Daily Challenge") points += 100;
-  else if (playType === "Adaptive") points += 35;
-  else points += 25;
-
-  if (guesses.length === 1) points += 50;
-  if (guesses.length <= 3) points += 15;
-
-  return points;
-}
-
-function updateStatsRealtime(won) {
-  let stats = ensureStatsShape(getStats());
-  const today = getTodayKeyForStats();
-
-  // prevent double-counting the exact same finished board
-  const resultKey = `${today}:${playType}:${answerObj.word}:${guesses.join("-")}:${won ? "W" : "L"}`;
-  if (stats.lastResultKey === resultKey) {
-    renderStatsDashboard();
-    return;
-  }
-  stats.lastResultKey = resultKey;
-
-  stats.played += 1;
-  stats.days[today] = true;
-  stats.dayActivity[today] = (stats.dayActivity[today] || 0) + 1;
-
-  // streak counts calendar days with activity, not number of games
-  if (stats.lastPlayedDate !== today) {
-    const yesterday = new Date();
-    yesterday.setDate(yesterday.getDate() - 1);
-    const yKey = yesterday.toISOString().slice(0, 10);
-
-    if (stats.lastPlayedDate === yKey) stats.streak += 1;
-    else if (!stats.lastPlayedDate) stats.streak = 1;
-    else stats.streak = 1;
-
-    stats.lastPlayedDate = today;
-  }
-
-  if (won) {
-    stats.wins += 1;
-    stats.specialtyWins[answerObj.specialty] = (stats.specialtyWins[answerObj.specialty] || 0) + 1;
-    if (playType === "Daily Challenge") stats.dailyCompletions += 1;
-  }
-
-  stats.points += pointsForResult(won);
-  stats.longestStreak = Math.max(stats.longestStreak || 0, stats.streak || 0);
-
-  saveStats(stats);
-  renderStatsDashboard();
-}
-
-function bestSpecialtyFromStatsRealtime(stats) {
-  const wins = stats.specialtyWins || {};
-  const best = Object.entries(wins).sort((a, b) => b[1] - a[1])[0];
-  return best ? `${best[0]} (${best[1]})` : "None";
-}
-
-function calculateCurrentStreakRealtime(activity) {
-  const today = new Date();
-  let streak = 0;
-  for (let i = 0; i < 366; i++) {
-    const d = new Date(today);
-    d.setDate(today.getDate() - i);
-    const key = d.toISOString().slice(0, 10);
-    if (activity && activity[key]) streak++;
-    else break;
-  }
-  return streak;
-}
-
-function calculateLongestStreakRealtime(activity) {
-  const keys = Object.keys(activity || {}).filter(k => activity[k] > 0).sort();
-  if (!keys.length) return 0;
-
-  let longest = 0;
-  let current = 0;
-  let previous = null;
-
-  keys.forEach(key => {
-    const d = new Date(key + "T00:00:00");
-    if (!previous) current = 1;
-    else {
-      const diff = Math.round((d - previous) / 86400000);
-      current = diff === 1 ? current + 1 : 1;
-    }
-    longest = Math.max(longest, current);
-    previous = d;
-  });
-
-  return longest;
-}
-
-function renderStatsDashboard() {
-  const stats = ensureStatsShape(getStats());
-  const setText = (id, value) => {
-    const el = document.getElementById(id);
-    if (el) el.textContent = value;
-  };
-
-  setText("totalPoints", stats.points || 0);
-  setText("leaderStreak", stats.streak || calculateCurrentStreakRealtime(stats.dayActivity));
-  setText("daysPlayed", Object.keys(stats.days || {}).length);
-  setText("leaderWins", stats.wins || 0);
-  setText("dailyCompletions", stats.dailyCompletions || 0);
-  setText("bestSpecialty", bestSpecialtyFromStatsRealtime(stats));
-
-  renderHeatmap();
-}
-
-function renderHeatmap() {
-  const grid = document.getElementById("heatmapGrid");
-  if (!grid) return;
-
-  const stats = ensureStatsShape(getStats());
-  const activity = stats.dayActivity || {};
-  const today = new Date();
-  const year = today.getFullYear();
-
-  const heatmapYear = document.getElementById("heatmapYear");
-  if (heatmapYear) heatmapYear.textContent = year;
-
-  grid.innerHTML = "";
-
-  const start = new Date(year, 0, 1);
-  const end = new Date(year, 11, 31);
-  const mondayIndex = (date) => (date.getDay() + 6) % 7;
-
-  const leadingBlanks = mondayIndex(start);
-  for (let i = 0; i < leadingBlanks; i++) {
-    const blank = document.createElement("div");
-    blank.className = "heatmap-cell empty";
-    grid.appendChild(blank);
-  }
-
-  let d = new Date(start);
-  while (d <= end) {
-    const key = d.toISOString().slice(0, 10);
-    const count = activity[key] || 0;
-
-    const cell = document.createElement("div");
-    cell.className = "heatmap-cell";
-
-    if (count === 1) cell.classList.add("active");
-    if (count === 2) cell.classList.add("win");
-    if (count === 3) cell.classList.add("strong");
-    if (count >= 4) cell.classList.add("max");
-
-    cell.title = `${key}: ${count} play${count === 1 ? "" : "s"}`;
-    grid.appendChild(cell);
-    d.setDate(d.getDate() + 1);
-  }
-
-  const todayKey = today.toISOString().slice(0, 10);
-  const todayCount = activity[todayKey] || 0;
-
-  const todayText = document.getElementById("todayActivityText");
-  if (todayText) todayText.textContent = `Studied ${todayCount} card${todayCount === 1 ? "" : "s"} today.`;
-
-  const activeDays = Object.keys(activity).filter(k => k.startsWith(String(year)) && activity[k] > 0).length;
-  const totalReviews = Object.entries(activity)
-    .filter(([k]) => k.startsWith(String(year)))
-    .reduce((sum, [, value]) => sum + value, 0);
-
-  const daysInYear = Math.round((end - start) / 86400000) + 1;
-  const dailyAverage = activeDays ? Math.round(totalReviews / activeDays) : 0;
-  const percentLearned = Math.round((activeDays / daysInYear) * 100);
-  const longest = calculateLongestStreakRealtime(activity);
-  const current = calculateCurrentStreakRealtime(activity);
-
-  const dailyAverageEl = document.getElementById("dailyAverage");
-  const daysLearnedEl = document.getElementById("daysLearnedPercent");
-  const longestEl = document.getElementById("longestStreak");
-  const currentEl = document.getElementById("currentStreakText");
-
-  if (dailyAverageEl) dailyAverageEl.textContent = `${dailyAverage} review${dailyAverage === 1 ? "" : "s"}`;
-  if (daysLearnedEl) daysLearnedEl.textContent = `${percentLearned}%`;
-  if (longestEl) longestEl.textContent = `${longest} day${longest === 1 ? "" : "s"}`;
-  if (currentEl) currentEl.textContent = `${current} day${current === 1 ? "" : "s"}`;
-
-  renderMonthLabels(year);
-}
-
-function renderMonthLabels(year) {
-  const row = document.getElementById("monthLabels");
-  if (!row) return;
-  row.innerHTML = "";
-  ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"].forEach(month => {
-    const span = document.createElement("span");
-    span.textContent = month;
-    row.appendChild(span);
-  });
-}
 
 function initGame() {
   updateControlsForPlayType();
@@ -2694,8 +2366,6 @@ function recordResult(won) {
   if (currentResult !== null) return;
   currentResult = won;
 
-  updateStatsRealtime(won);
-
   if (playType === "Daily Challenge") {
     saveDailyRecord({
       won,
@@ -2754,7 +2424,7 @@ function submitGuess(rawGuess) {
     gameOver = true; input.disabled = true;
     messageEl.textContent = `Correct — ${answer}.`;
     messageEl.className = "message win";
-    showPearl(); recordResult(true); trackEvent('medwordle_completed', { result: 'win', specialty: answerObj.specialty, play_type: playType }); return;
+    showPearl(); recordResult(true);  return;
   }
 
   currentRow++;
@@ -2762,7 +2432,7 @@ function submitGuess(rawGuess) {
     gameOver = true; input.disabled = true;
     messageEl.textContent = `Good try. The answer was ${answer}.`;
     messageEl.className = "message loss";
-    showPearl(); recordResult(false); trackEvent('medwordle_completed', { result: 'loss', specialty: answerObj.specialty, play_type: playType });
+    showPearl(); recordResult(false); 
   } else {
     messageEl.textContent = `${MAX_ATTEMPTS - currentRow} guesses remaining.`;
   }
@@ -2801,31 +2471,24 @@ if (cardsModal) cardsModal.addEventListener("click", (event) => {
 });
 
 
-const __cardsBtn = document.getElementById("cardsBtn");
-const __closeCardsBtn = document.getElementById("closeCardsBtn");
-const __cardFilter = document.getElementById("cardFilter");
-const __cardsModal = document.getElementById("cardsModal");
-
-if (__cardsBtn) __cardsBtn.addEventListener("click", openCardsModal);
-if (__closeCardsBtn) __closeCardsBtn.addEventListener("click", closeCardsModal);
-if (__cardFilter) __cardFilter.addEventListener("change", renderCards);
-if (__cardsModal) __cardsModal.addEventListener("click", (event) => {
-  if (event.target === __cardsModal) closeCardsModal();
-});
 
 
-const __statsBtn = document.getElementById("statsBtn");
-const __closeStatsBtn = document.getElementById("closeStatsBtn");
-const __statsModal = document.getElementById("statsModal");
 
-if (__statsBtn) __statsBtn.addEventListener("click", openStatsModal);
-if (__closeStatsBtn) __closeStatsBtn.addEventListener("click", closeStatsModal);
-if (__statsModal) __statsModal.addEventListener("click", (event) => {
-  if (event.target === __statsModal) closeStatsModal();
+
+
+
+document.querySelectorAll(".playlist-btn").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    if (typeof gtag === "function") {
+      gtag("event", "study_playlist_clicked", {
+        platform: btn.textContent.trim()
+      });
+    }
+  });
 });
 
 initGame();
-renderStatsDashboard();
+
 });
 modeSelect.addEventListener("change", () => {
   if (playType === "Daily Challenge") {

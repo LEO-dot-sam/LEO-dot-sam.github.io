@@ -35,75 +35,6 @@
       </p>
     </section>
 
-    <section class="inline-dashboard">
-      <div class="dashboard-header">
-        <div>
-          <p class="label">Performance Dashboard</p>
-          <h2>🔥 Your MedWordle Progress</h2>
-          <p class="mode-description">Tracked locally on this device/browser.</p>
-        </div>
-      </div>
-
-      <div class="dashboard-grid">
-        <div class="dash-card points">
-          <span id="totalPoints">0</span>
-          <p>Total Points</p>
-        </div>
-        <div class="dash-card">
-          <span id="leaderStreak">0</span>
-          <p>Current Streak</p>
-        </div>
-        <div class="dash-card">
-          <span id="daysPlayed">0</span>
-          <p>Days Played</p>
-        </div>
-        <div class="dash-card">
-          <span id="leaderWins">0</span>
-          <p>Wins</p>
-        </div>
-        <div class="dash-card">
-          <span id="dailyCompletions">0</span>
-          <p>Daily Challenges</p>
-        </div>
-        <div class="dash-card">
-          <span id="bestSpecialty">None</span>
-          <p>Best Specialty</p>
-        </div>
-      </div>
-
-      <div class="heatmap-section inline anki-style">
-          <p id="todayActivityText" class="today-activity">Studied 0 cards today.</p>
-
-          <div class="heatmap-nav">
-            <button class="tiny-nav" type="button" aria-label="Previous period">&lt;</button>
-            <span id="heatmapYear">2026</span>
-            <button class="tiny-nav" type="button" aria-label="Next period">&gt;</button>
-          </div>
-
-          <div class="calendar-heatmap-wrap">
-            <div class="weekday-labels">
-              <span>Mon</span>
-              <span></span>
-              <span>Wed</span>
-              <span></span>
-              <span>Fri</span>
-              <span></span>
-              <span>Sun</span>
-            </div>
-            <div id="heatmapGrid" class="heatmap-grid calendar-grid"></div>
-          </div>
-
-          <div class="month-label-row" id="monthLabels"></div>
-
-          <div class="anki-summary">
-            <span>Daily average: <strong id="dailyAverage">0 reviews</strong></span>
-            <span>Days learned: <strong id="daysLearnedPercent">0%</strong></span>
-            <span>Longest streak: <strong id="longestStreak">0 days</strong></span>
-            <span>Current streak: <strong id="currentStreakText">0 days</strong></span>
-          </div>
-        </div>
-    </section>
-
 
     <section class="game-card">
       <div class="game-header">
@@ -173,6 +104,18 @@
         <button id="shareBtn" class="secondary" type="button">Share Result</button>
         <button id="practiceWeakBtn" class="secondary hidden" type="button">Practice Weak Topic</button>
         <button id="newGameBtn" type="button">New Word</button>
+      </div>
+
+      <div class="study-playlist">
+        <div>
+          <p class="playlist-label">Study Mode</p>
+          <p class="playlist-text">Open your favorite music app and play while you solve MedWordle.</p>
+        </div>
+        <div class="playlist-buttons">
+          <a href="https://open.spotify.com/" target="_blank" rel="noopener" class="playlist-btn">🎧 Spotify</a>
+          <a href="https://music.apple.com/" target="_blank" rel="noopener" class="playlist-btn">🍎 Apple Music</a>
+          <a href="https://music.youtube.com/" target="_blank" rel="noopener" class="playlist-btn">▶️ YouTube Music</a>
+        </div>
       </div>
 
       <p id="hint" class="hint hidden"></p>
