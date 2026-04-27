@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>MedCards Collection</title>
+  <link rel="stylesheet" href="medwordle.css">
+</head>
+<body>
+  <h1>🃏 MedCards Collection</h1>
+  <div id="cards"></div>
+
+  <script>
+    const cardsDiv = document.getElementById("cards");
+    const collected = JSON.parse(localStorage.getItem("medwordleCards") || "[]");
+
+    if (collected.length === 0) {
+      cardsDiv.innerHTML = "<p>No cards yet. Solve Daily Challenge to unlock!</p>";
+    } else {
+      collected.forEach(card => {
+        const div = document.createElement("div");
+        div.className = "card";
+        div.innerHTML = `
+          <h3>${card.word}</h3>
+          <p><strong>${card.specialty}</strong></p>
+          <p>⭐ ${card.rarity}</p>
+          <p>${card.badge}</p>
+        `;
+        cardsDiv.appendChild(div);
+      });
+    }
+  </script>
+</body>
+</html>

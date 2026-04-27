@@ -23,10 +23,12 @@ const WORDS = [
     "category": "Cardiology / High Yield",
     "hint": "Crushing chest pain with ST elevation in contiguous leads.",
     "diagnosis": "ST-elevation myocardial infarction",
-    "management": "Aspirin, anticoagulation, nitrates if appropriate, high-intensity statin, urgent reperfusion.",
-    "nextStep": "Primary PCI if available within recommended window; otherwise fibrinolysis if no contraindications."
+    "management": "Aspirin plus a P2Y12 inhibitor, anticoagulation such as unfractionated heparin or bivalirudin per protocol, high-intensity statin, nitrates if appropriate, and urgent reperfusion with PCI.",
+    "nextStep": "Activate cath lab for primary PCI if available within the appropriate window; give aspirin immediately if no contraindication."
  ,
-    "takeaway": "When a patient has ischemic chest pain with ST elevations in contiguous leads, the exam wants rapid reperfusion, not delayed testing."
+    "takeaway": "For ST-elevation MI, do not delay reperfusion for extra testing; aspirin and cath lab activation are the high-yield moves."
+ ,
+    "outline": {"section": "Cardiovascular System", "subsection": "Ischemic heart disease — acute coronary syndrome / acute myocardial infarction", "page": 18}
   },
   {
     "word": "NSTEMI",
@@ -35,10 +37,12 @@ const WORDS = [
     "category": "Cardiology / High Yield",
     "hint": "Troponin elevation without ST elevation.",
     "diagnosis": "Non-ST elevation myocardial infarction",
-    "management": "Antiplatelet therapy, anticoagulation, statin, beta blocker when appropriate.",
-    "nextStep": "Risk stratify for early invasive management."
+    "management": "Aspirin plus P2Y12 inhibitor when indicated, anticoagulation with unfractionated heparin/enoxaparin/bivalirudin per setting, high-intensity statin, beta blocker if no contraindication, nitrates for pain.",
+    "nextStep": "Obtain ECG/troponins, start ACS therapy, and risk stratify for early invasive coronary angiography."
  ,
-    "takeaway": "Troponin-positive ACS without ST elevation is managed with antithrombotic therapy and risk stratification for invasive evaluation."
+    "takeaway": "NSTEMI is troponin-positive ACS without ST elevation; stabilize medically and risk stratify for invasive management."
+ ,
+    "outline": {"section": "Cardiovascular System", "subsection": "Ischemic heart disease — acute coronary syndrome", "page": 18}
   },
   {
     "word": "AFIB",
@@ -185,10 +189,12 @@ const WORDS = [
     "category": "Pulmonology / High Yield",
     "hint": "Episodic wheezing with reversible obstruction.",
     "diagnosis": "Asthma exacerbation",
-    "management": "Inhaled beta agonist, steroids for moderate/severe exacerbation.",
-    "nextStep": "Assess severity; oxygen and bronchodilators first."
+    "management": "Inhaled albuterol; add ipratropium and systemic corticosteroids such as prednisone or IV methylprednisolone for moderate/severe exacerbations; magnesium sulfate for severe refractory exacerbation.",
+    "nextStep": "Assess severity with work of breathing, oxygenation, and peak flow if available; treat acute symptoms immediately."
  ,
-    "takeaway": "Step 2 often tests acute severity and escalation: oxygen, inhaled bronchodilator, systemic steroid, and airway support if failing."
+    "takeaway": "Asthma exacerbation questions reward quick severity assessment and escalation from SABA to steroids/oxygen/adjuncts."
+ ,
+    "outline": {"section": "Respiratory System", "subsection": "Obstructive airway disease — asthma/reactive airway disease", "page": 20}
   },
   {
     "word": "COPD",
@@ -197,10 +203,12 @@ const WORDS = [
     "category": "Pulmonology / High Yield",
     "hint": "Chronic cough, smoking history, obstructive spirometry.",
     "diagnosis": "COPD",
-    "management": "Bronchodilators, smoking cessation, steroids/antibiotics for selected exacerbations.",
-    "nextStep": "Use spirometry to confirm diagnosis."
+    "management": "Short-acting bronchodilators such as albuterol plus ipratropium, systemic corticosteroids such as prednisone 40 mg daily x5 days, and antibiotics such as azithromycin, doxycycline, or amoxicillin-clavulanate when increased sputum purulence/volume or severe exacerbation is present.",
+    "nextStep": "Assess oxygenation/ventilation and severity; obtain chest x-ray if pneumonia, pneumothorax, or heart failure is possible."
  ,
-    "takeaway": "COPD exacerbation management hinges on bronchodilators, steroids, oxygen target, and antibiotics when sputum/purulence criteria fit."
+    "takeaway": "COPD exacerbation management depends on severity, oxygenation, and whether antibiotics are indicated."
+ ,
+    "outline": {"section": "Respiratory System", "subsection": "Obstructive airway disease — COPD/chronic bronchitis/emphysema", "page": 20}
   },
   {
     "word": "ARDS",
@@ -221,10 +229,12 @@ const WORDS = [
     "category": "Pulmonology / High Yield",
     "hint": "Fever, cough, focal lung findings, infiltrate.",
     "diagnosis": "Pneumonia",
-    "management": "Empiric antibiotics based on setting and severity.",
-    "nextStep": "Chest x-ray supports diagnosis; assess need for admission."
+    "management": "Healthy outpatient adults: amoxicillin 1 g PO three times daily or doxycycline 100 mg PO twice daily. Outpatient adults with comorbidities: amoxicillin-clavulanate plus azithromycin/doxycycline, or a respiratory fluoroquinolone when appropriate.",
+    "nextStep": "Confirm suspected pneumonia with chest x-ray when clinically stable, then determine outpatient vs inpatient treatment using severity and comorbidities."
  ,
-    "takeaway": "Use severity and setting to choose empiric antibiotics and determine outpatient versus inpatient treatment."
+    "takeaway": "CAP questions test severity, site of care, and empiric antibiotic selection; avoid vague 'antibiotics' answers."
+ ,
+    "outline": {"section": "Respiratory System", "subsection": "Lower airway infections — community-acquired pneumonia", "page": 20}
   },
   {
     "word": "EMBOLUS",
@@ -233,10 +243,12 @@ const WORDS = [
     "category": "Pulmonology / High Yield",
     "hint": "Sudden dyspnea, pleuritic chest pain, tachycardia.",
     "diagnosis": "Pulmonary embolism",
-    "management": "Anticoagulation; thrombolysis if massive PE with instability.",
-    "nextStep": "Use CT pulmonary angiography if appropriate."
+    "management": "Anticoagulation with heparin/enoxaparin or a DOAC when appropriate; systemic thrombolysis such as alteplase for massive PE with hemodynamic instability if no contraindication.",
+    "nextStep": "If stable, use pretest probability/D-dimer or CT pulmonary angiography; if unstable with high suspicion, treat emergently."
  ,
-    "takeaway": "Suspected PE requires risk stratification; unstable patients may need thrombolysis, while stable patients often get CT angiography."
+    "takeaway": "For PE, stability determines whether you image first or treat immediately."
+ ,
+    "outline": {"section": "Respiratory System", "subsection": "Pulmonary vascular disorders — pulmonary embolism", "page": 21}
   },
   {
     "word": "HYPOXIA",
@@ -493,10 +505,12 @@ const WORDS = [
     "category": "Endocrinology / High Yield",
     "hint": "Anion gap acidosis with ketones.",
     "diagnosis": "Diabetic ketoacidosis",
-    "management": "IV fluids, insulin, potassium management.",
-    "nextStep": "Check potassium before insulin."
+    "management": "IV normal saline or balanced crystalloid, IV regular insulin after potassium is \u22653.3 mEq/L, potassium replacement as needed, dextrose when glucose falls, and treatment of trigger.",
+    "nextStep": "Start isotonic IV fluids and check potassium before insulin."
  ,
-    "takeaway": "DKA treatment is fluids first, then insulin after potassium is assessed; hypokalemia can be fatal."
+    "takeaway": "Potassium determines when insulin can be safely started in DKA."
+ ,
+    "outline": {"section": "Endocrine System", "subsection": "Diabetes mellitus — diabetic ketoacidosis", "page": 32}
   },
   {
     "word": "HHS",
@@ -687,10 +701,12 @@ const WORDS = [
     "category": "OB/GYN / High Yield",
     "hint": "Pregnancy with abdominal pain and bleeding.",
     "diagnosis": "Ectopic pregnancy",
-    "management": "Methotrexate if stable and eligible; surgery if unstable/ruptured.",
-    "nextStep": "Pregnancy test first in reproductive-age patient."
+    "management": "Methotrexate for stable eligible patients; urgent surgery for rupture, instability, contraindication to methotrexate, or concerning ultrasound findings.",
+    "nextStep": "In any reproductive-age patient with abdominal pain or bleeding, obtain pregnancy test first; use transvaginal ultrasound and quantitative beta-hCG when positive."
  ,
-    "takeaway": "In reproductive-age patients with abdominal pain or bleeding, pregnancy test comes first."
+    "takeaway": "Pregnancy test is the first move in reproductive-age abdominal pain/bleeding."
+ ,
+    "outline": {"section": "Pregnancy, Childbirth, & the Puerperium", "subsection": "Obstetric complications — ectopic pregnancy", "page": 27}
   },
   {
     "word": "PREVIA",
@@ -723,10 +739,12 @@ const WORDS = [
     "category": "OB/GYN / High Yield",
     "hint": "Hemolysis, elevated liver enzymes, low platelets.",
     "diagnosis": "HELLP syndrome",
-    "management": "Magnesium, BP control, delivery after stabilization.",
-    "nextStep": "Severe preeclampsia spectrum."
+    "management": "Magnesium sulfate for seizure prophylaxis, antihypertensives such as IV labetalol/hydralazine or oral nifedipine for severe BP, corticosteroids for fetal lung maturity if preterm when appropriate, delivery after stabilization.",
+    "nextStep": "Stabilize with magnesium sulfate and blood pressure control, then proceed to delivery when indicated."
  ,
-    "takeaway": "HELLP is a severe preeclampsia variant; delivery is definitive after stabilization."
+    "takeaway": "HELLP is a severe preeclampsia-spectrum disease; maternal stabilization comes before delivery."
+ ,
+    "outline": {"section": "Pregnancy, Childbirth, & the Puerperium", "subsection": "Obstetric complications — preeclampsia/eclampsia/HELLP", "page": 27}
   },
   {
     "word": "ECLAMPSIA",
@@ -735,10 +753,12 @@ const WORDS = [
     "category": "OB/GYN / High Yield",
     "hint": "Seizures in patient with preeclampsia.",
     "diagnosis": "Eclampsia",
-    "management": "Magnesium sulfate and delivery after stabilization.",
-    "nextStep": "Protect airway and control seizures first."
+    "management": "Magnesium sulfate for seizure treatment/prevention, antihypertensives such as IV labetalol/hydralazine or oral nifedipine for severe hypertension, then delivery.",
+    "nextStep": "Give magnesium sulfate and stabilize airway/breathing/circulation; delivery follows maternal stabilization."
  ,
-    "takeaway": "Seizure in preeclampsia is treated with magnesium sulfate and delivery after stabilization."
+    "takeaway": "For eclampsia, magnesium sulfate is the seizure drug of choice; delivery comes after stabilization."
+ ,
+    "outline": {"section": "Pregnancy, Childbirth, & the Puerperium", "subsection": "Obstetric complications — eclampsia", "page": 27}
   },
   {
     "word": "LOCHIA",
@@ -857,10 +877,12 @@ const WORDS = [
     "category": "Infectious Disease / High Yield",
     "hint": "Infection with organ dysfunction.",
     "diagnosis": "Sepsis",
-    "management": "Early fluids, antibiotics, cultures, source control.",
-    "nextStep": "Do not delay antibiotics in shock."
+    "management": "IV crystalloids, broad-spectrum antibiotics tailored to source such as vancomycin plus piperacillin-tazobactam/cefepime/meropenem when severe healthcare-associated infection is possible, source control, and norepinephrine if persistent shock.",
+    "nextStep": "Recognize organ dysfunction and start immediate resuscitation; obtain cultures but do not delay antibiotics in shock."
  ,
-    "takeaway": "Sepsis questions reward early recognition, prompt antibiotics, fluids, cultures, and source control."
+    "takeaway": "In septic shock, early resuscitation, antibiotics, source control, and vasopressors matter more than waiting for perfect diagnostic certainty."
+ ,
+    "outline": {"section": "Multisystem Processes & Disorders", "subsection": "Infectious disorders / toxic shock syndrome / systemic host response", "page": 34}
   },
   {
     "word": "HIV",
@@ -1285,8 +1307,12 @@ const WORDS = [
     "category": "Nephrology / High Yield",
     "hint": "Fever, flank pain, urinary symptoms.",
     "diagnosis": "Pyelonephritis",
-    "management": "Antibiotics; admit if severe or unable to tolerate PO.",
-    "nextStep": "Urine culture guides therapy."
+    "management": "Outpatient if stable: ciprofloxacin/levofloxacin when appropriate or TMP-SMX if susceptible. Inpatient/severe: IV ceftriaxone, cefepime, piperacillin-tazobactam, or carbapenem depending risk.",
+    "nextStep": "Obtain urinalysis and urine culture; assess for sepsis, pregnancy, obstruction, or inability to tolerate PO."
+ ,
+    "takeaway": "Fever/flank pain means upper tract infection; culture and severity assessment guide route and setting."
+ ,
+    "outline": {"section": "Renal & Urinary System", "subsection": "Upper urinary tract infections — pyelonephritis", "page": 25}
   },
   {
     "word": "CYSTITIS",
@@ -1295,8 +1321,12 @@ const WORDS = [
     "category": "Nephrology / High Yield",
     "hint": "Lower urinary symptoms without systemic signs.",
     "diagnosis": "Cystitis",
-    "management": "Short-course antibiotics when uncomplicated.",
-    "nextStep": "No flank pain or fever."
+    "management": "Uncomplicated cystitis: nitrofurantoin 100 mg PO BID x5 days, TMP-SMX DS BID x3 days if local resistance acceptable, or fosfomycin 3 g once.",
+    "nextStep": "Diagnose clinically in uncomplicated cases; urine testing/culture when complicated, recurrent, pregnant, or atypical."
+ ,
+    "takeaway": "Uncomplicated cystitis is treated with short-course targeted oral therapy."
+ ,
+    "outline": {"section": "Renal & Urinary System", "subsection": "Lower urinary tract infections — cystitis", "page": 25}
   },
   {
     "word": "EPILEPSY",
@@ -1479,8 +1509,12 @@ const WORDS = [
     "category": "Gastroenterology / High Yield",
     "hint": "Fever, RUQ pain, jaundice.",
     "diagnosis": "Ascending cholangitis",
-    "management": "IV antibiotics and urgent biliary drainage.",
-    "nextStep": "Charcot triad is classic."
+    "management": "Broad gram-negative and anaerobic coverage such as piperacillin-tazobactam, ceftriaxone plus metronidazole, or cefepime plus metronidazole depending severity/local resistance; ERCP for source control.",
+    "nextStep": "Start IV antibiotics and arrange urgent biliary decompression with ERCP."
+ ,
+    "takeaway": "Cholangitis needs antibiotics plus source control; ERCP is the key next step."
+ ,
+    "outline": {"section": "Gastrointestinal System", "subsection": "Biliary system — cholangitis / bile duct obstruction", "page": 23}
   },
   {
     "word": "CHOLECYSTITIS",
@@ -1541,8 +1575,12 @@ const WORDS = [
     "category": "OB/GYN / High Yield",
     "hint": "Pelvic pain, cervical motion tenderness.",
     "diagnosis": "Pelvic inflammatory disease",
-    "management": "Ceftriaxone plus doxycycline plus metronidazole.",
-    "nextStep": "Treat empirically to prevent infertility."
+    "management": "Ceftriaxone 500 mg IM once plus doxycycline 100 mg PO BID x14 days plus metronidazole 500 mg PO BID x14 days.",
+    "nextStep": "Treat empirically when pelvic pain plus cervical motion/uterine/adnexal tenderness is present and no better diagnosis."
+ ,
+    "takeaway": "Do not wait for perfect proof of PID; empiric treatment prevents infertility and chronic pelvic pain."
+ ,
+    "outline": {"section": "Female and Transgender Reproductive System & Breast", "subsection": "Infectious disorders — pelvic inflammatory disease", "page": 29}
   },
   {
     "word": "TORSION",
@@ -1621,8 +1659,12 @@ const WORDS = [
     "category": "Infectious Disease / High Yield",
     "hint": "Scrotal pain relieved by elevation.",
     "diagnosis": "Epididymitis",
-    "management": "Antibiotics based on age/STI risk.",
-    "nextStep": "Differentiate from torsion."
+    "management": "Likely STI: ceftriaxone 500 mg IM once plus doxycycline 100 mg PO BID x10 days; enteric organism risk: levofloxacin when appropriate.",
+    "nextStep": "Differentiate from torsion; use Doppler ultrasound urgently if torsion cannot be excluded."
+ ,
+    "takeaway": "In acute scrotal pain, never miss torsion; antibiotics depend on STI vs enteric risk."
+ ,
+    "outline": {"section": "Male and Transgender Reproductive System", "subsection": "Infectious disorders — epididymitis/orchitis/STIs", "page": 31}
   },
   {
     "word": "TESTICULAR",
@@ -1751,8 +1793,12 @@ const WORDS = [
     "category": "Dermatology / High Yield",
     "hint": "Warm, tender, erythematous skin infection.",
     "diagnosis": "Cellulitis",
-    "management": "Antibiotics covering streptococci +/- MRSA risk.",
-    "nextStep": "Abscess requires drainage."
+    "management": "Nonpurulent outpatient: cephalexin or dicloxacillin. MRSA risk/purulence: TMP-SMX, doxycycline, or clindamycin. Severe infection: IV vancomycin plus broader coverage if needed.",
+    "nextStep": "Determine purulent vs nonpurulent and assess systemic toxicity."
+ ,
+    "takeaway": "Cellulitis antibiotic choice depends on purulence, MRSA risk, and severity."
+ ,
+    "outline": {"section": "Skin & Subcutaneous Tissue", "subsection": "Bacterial skin infections — cellulitis/MRSA/MSSA", "page": 14}
   },
   {
     "word": "IMPETIGO",
@@ -2071,20 +2117,72 @@ function updateKeyboard(letter, status) {
   }
 }
 
+const OUTLINE_URL = "https://www.usmle.org/sites/default/files/2022-01/USMLE_Content_Outline_0.pdf";
+
+const OUTLINE_MAP = {
+  "Cardiology": { section: "Cardiovascular System", subsection: "Dysrhythmias / heart failure / ischemic heart disease / vascular disorders", page: 18 },
+  "Pulmonology": { section: "Respiratory System", subsection: "Pneumonia / obstructive airway disease / pulmonary vascular disorders", page: 20 },
+  "Gastroenterology": { section: "Gastrointestinal System", subsection: "GI bleeding / liver-biliary-pancreatic disorders / intestinal disorders", page: 22 },
+  "Nephrology": { section: "Renal & Urinary System", subsection: "AKI/CKD / urinary symptoms / renal vascular and tubular disorders", page: 25 },
+  "Endocrinology": { section: "Endocrine System", subsection: "Diabetes / thyroid / adrenal / pituitary disorders", page: 32 },
+  "Neurology": { section: "Nervous System & Special Senses", subsection: "Cerebrovascular disease / paroxysmal disorders / neuromuscular disorders", page: 10 },
+  "OB/GYN": { section: "Pregnancy, Childbirth, & the Puerperium", subsection: "Obstetric complications / labor and delivery / puerperium", page: 27 },
+  "Pediatrics": { section: "Human Development / Newborn", subsection: "Normal development / preventive care / newborn disorders", page: 4 },
+  "Psychiatry": { section: "Behavioral Health", subsection: "Mood, anxiety, psychotic, substance use, and developmental disorders", page: 8 },
+  "Infectious Disease": { section: "Multisystem Processes & Disorders / Immune System", subsection: "Infectious disorders and host response to insult", page: 34 },
+  "Hematology": { section: "Blood & Lymphoreticular System", subsection: "Anemia / coagulation disorders / leukemia-lymphoma / transfusion reactions", page: 6 },
+  "Oncology": { section: "Multisystem Processes & Disorders", subsection: "Neoplasms and related disorders", page: 34 },
+  "Dermatology": { section: "Skin & Subcutaneous Tissue", subsection: "Infectious, inflammatory, neoplastic, and drug-related skin disorders", page: 14 },
+  "Rheumatology": { section: "Multisystem Processes & Disorders", subsection: "Autoimmune arteritis/vasculitis and systemic inflammatory disorders", page: 34 },
+  "Surgery": { section: "Musculoskeletal / GI / Trauma", subsection: "Traumatic, mechanical, and operative disorders", page: 16 },
+  "Emergency Medicine": { section: "Multisystem Processes & Disorders", subsection: "Acute presentations, shock, trauma, and systemic disease", page: 34 },
+  "Pharmacology": { section: "Adverse Effects of Drugs", subsection: "Drug adverse effects by organ system", page: 7 },
+  "Pathology": { section: "Multisystem Processes & Disorders", subsection: "Neoplasms, inflammation, and systemic disease processes", page: 34 },
+  "Radiology": { section: "USMLE Organ System Outline", subsection: "Imaging-relevant diagnosis across organ systems", page: 3 },
+  "Anatomy": { section: "USMLE Organ System Outline", subsection: "Anatomic structures as tested through organ systems", page: 3 }
+};
+
+function getOutlineInfo() {
+  return answerObj.outline || OUTLINE_MAP[answerObj.specialty] || {
+    section: "USMLE Content Outline",
+    subsection: "Relevant organ system content",
+    page: 3
+  };
+}
+
 function nbmeWhyText() {
-  const specialty = answerObj.specialty || "Medicine";
-  return `This is high-yield for Step 2 because ${specialty.toLowerCase()} questions often test recognition of the clinical clue, followed by the safest next step.`;
+  const specialty = answerObj.specialty || "medicine";
+  return `Step 2 usually tests the pattern first, then the safest next best step. For ${specialty.toLowerCase()}, stabilize emergencies before definitive testing or long-term management.`;
 }
 
 function showPearl() {
+  const outline = getOutlineInfo();
+  const outlineHref = `${OUTLINE_URL}#page=${outline.page}`;
   pearlText.innerHTML = `
     <div class="pearl-row key-clue"><strong>Key Clue:</strong> ${answerObj.hint}</div>
-    <div class="pearl-row"><strong>Most Likely Diagnosis:</strong> ${answerObj.diagnosis}</div>
-    <div class="pearl-row"><strong>Initial Management:</strong> ${answerObj.management}</div>
+    <div class="pearl-row"><strong>Diagnosis:</strong> ${answerObj.diagnosis}</div>
     <div class="pearl-row next-step"><strong>Next Best Step:</strong> ${answerObj.nextStep}</div>
+    <div class="pearl-row"><strong>Management:</strong> ${answerObj.management}</div>
     <div class="pearl-row why"><strong>NBME Takeaway:</strong> ${answerObj.takeaway || nbmeWhyText()}</div>
+    <div class="pearl-row outline-link">
+      <a href="${outlineHref}" target="_blank" rel="noopener">📖 USMLE Outline: ${outline.section} — ${outline.subsection}</a>
+    </div>
   `;
   pearlBox.classList.remove("hidden");
+}
+
+
+function unlockCard() {
+  const existing = JSON.parse(localStorage.getItem("medwordleCards") || "[]");
+  if (!existing.find(c => c.word === answerObj.word)) {
+    existing.push({
+      word: answerObj.word,
+      specialty: answerObj.specialty,
+      rarity: answerObj.mode === "High Yield" ? "Rare" : "Common",
+      badge: "Unlocked via Daily Challenge"
+    });
+    localStorage.setItem("medwordleCards", JSON.stringify(existing));
+  }
 }
 
 function recordResult(won) {
@@ -2157,7 +2255,8 @@ function submitGuess(rawGuess) {
     gameOver = true; input.disabled = true;
     messageEl.textContent = `Correct — ${answer}.`;
     messageEl.className = "message win";
-    showPearl(); recordResult(true); return;
+    showPearl(); unlockCard();
+    recordResult(true); return;
   }
 
   currentRow++;
