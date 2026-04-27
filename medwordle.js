@@ -1759,10 +1759,12 @@ const WORDS = [
 ];
 
 const MAX_ATTEMPTS = 6;
+const DAILY_POOL = WORDS.filter(w => w.mode === "High Yield");
+
 let selectedSpecialty = localStorage.getItem("medwordleSpecialty") || "All Medicine";
 let selectedMode = localStorage.getItem("medwordleMode") || "High Yield";
 let playType = localStorage.getItem("medwordlePlayType") || "Practice";
-let answerObj, answer, currentRow = 0, gameOver = false, guesses = [];
+let answerObj, answer, currentRow = 0, gameOver = false, guesses = [], rowScores = [];
 let currentResult = null;
 
 const board = document.getElementById("board");
@@ -1775,15 +1777,24 @@ const input = document.getElementById("guessInput");
 const hintBtn = document.getElementById("hintBtn");
 const newGameBtn = document.getElementById("newGameBtn");
 const shareBtn = document.getElementById("shareBtn");
+const practiceWeakBtn = document.getElementById("practiceWeakBtn");
 const keyboard = document.getElementById("keyboard");
 const specialtySelect = document.getElementById("specialtySelect");
 const modeSelect = document.getElementById("modeSelect");
 const playTypeSelect = document.getElementById("playTypeSelect");
 const pearlBox = document.getElementById("pearlBox");
 const pearlText = document.getElementById("pearlText");
+const dailyBanner = document.getElementById("dailyBanner");
+const dailyTitle = document.getElementById("dailyTitle");
+const dailySubtext = document.getElementById("dailySubtext");
+const dailyStatus = document.getElementById("dailyStatus");
 
 function todayKey() {
   return new Date().toISOString().slice(0, 10);
+}
+
+function friendlyDate() {
+  return new Date().toLocaleDateString(undefined, { month: "long", day: "numeric", year: "numeric" });
 }
 
 function hashString(str) {
@@ -1811,7 +1822,9 @@ function renderStats() {
   document.getElementById("weakTopic").textContent = weak ? weak[0] : "None yet";
 }
 
-function classNameForSpecialty(specialty) { return THEMES[specialty] || "theme-all"; }
+function classNameForSpecialty(specialty) {
+  return THEMES[specialty] || "theme-all";
+}
 
 function applyTheme(specialty) {
   Object.values(THEMES).forEach(cls => document.body.classList.remove(cls));
@@ -1844,35 +1857,89 @@ function getPool() {
   return pool.length ? pool : WORDS;
 }
 
+function dailyStorageKey() {
+  return "medwordleDaily-" + todayKey();
+}
+
+function getDailyRecord() {
+  return JSON.parse(localStorage.getItem(dailyStorageKey()) || "null");
+}
+
+function saveDailyRecord(record) {
+  localStorage.setItem(dailyStorageKey(), JSON.stringify(record));
+}
+
 function chooseWord() {
-  const pool = getPool();
   if (playType === "Daily Challenge") {
-    const idx = hashString(todayKey() + selectedMode + selectedSpecialty) % pool.length;
+    // Universal daily challenge: ignores specialty and difficulty.
+    const pool = DAILY_POOL.length ? DAILY_POOL : WORDS;
+    const idx = hashString("MedWordleOfficialDaily:" + todayKey()) % pool.length;
     answerObj = pool[idx];
   } else {
+    const pool = getPool();
     answerObj = pool[Math.floor(Math.random() * pool.length)];
   }
   answer = answerObj.word.toUpperCase();
 }
 
+function updateControlsForPlayType() {
+  const isDaily = playType === "Daily Challenge";
+  specialtySelect.disabled = isDaily;
+  modeSelect.disabled = isDaily;
+
+  dailyBanner.classList.toggle("hidden", !isDaily);
+
+  if (isDaily) {
+    dailyTitle.textContent = "MedWordle Daily • " + friendlyDate();
+    dailySubtext.textContent = "One universal word per day. Specialty and difficulty are locked for the official challenge.";
+    const rec = getDailyRecord();
+    dailyStatus.textContent = rec ? (rec.won ? "Completed ✅" : "Completed") : "Available";
+    newGameBtn.disabled = true;
+    practiceWeakBtn.classList.remove("hidden");
+  } else {
+    newGameBtn.disabled = false;
+    practiceWeakBtn.classList.add("hidden");
+  }
+}
+
 function initGame() {
-  applyTheme(playType === "Adaptive" ? adaptiveSpecialty() : selectedSpecialty);
+  updateControlsForPlayType();
   chooseWord();
 
-  currentRow = 0; gameOver = false; guesses = []; currentResult = null;
-  categoryEl.textContent = `${playType} • ${answerObj.specialty} • ${selectedMode}`;
-  modeDescriptionEl.textContent = MODE_DESCRIPTIONS[selectedMode];
+  applyTheme(playType === "Daily Challenge" ? "All Medicine" : (playType === "Adaptive" ? adaptiveSpecialty() : selectedSpecialty));
+
+  currentRow = 0; gameOver = false; guesses = []; rowScores = []; currentResult = null;
+  board.innerHTML = ""; keyboard.innerHTML = "";
+  pearlBox.classList.add("hidden");
+  pearlText.innerHTML = "";
   hintEl.textContent = `Hint: ${answerObj.hint}`;
   hintEl.classList.add("hidden");
   hintBtn.textContent = "Show Hint";
-  messageEl.textContent = `Guess the ${answer.length}-letter medical term.`;
-  messageEl.className = "message";
-  pearlBox.classList.add("hidden");
-  pearlText.innerHTML = "";
-  input.value = ""; input.maxLength = answer.length; input.placeholder = `${answer.length}-letter term`; input.disabled = false;
-  board.innerHTML = ""; keyboard.innerHTML = "";
-  newGameBtn.disabled = playType === "Daily Challenge";
-  buildBoard(); buildKeyboard(); renderStats(); input.focus();
+  input.value = "";
+  input.maxLength = answer.length;
+  input.placeholder = `${answer.length}-letter term`;
+  input.disabled = false;
+
+  if (playType === "Daily Challenge") {
+    categoryEl.textContent = "Official Daily • All Medicine";
+    modeDescriptionEl.textContent = "Same word for everyone today. Come back tomorrow for a new challenge.";
+  } else {
+    categoryEl.textContent = `${playType} • ${answerObj.specialty} • ${selectedMode}`;
+    modeDescriptionEl.textContent = MODE_DESCRIPTIONS[selectedMode];
+  }
+
+  buildBoard();
+  buildKeyboard();
+  renderStats();
+
+  const dailyRecord = playType === "Daily Challenge" ? getDailyRecord() : null;
+  if (dailyRecord) {
+    restoreDailyRecord(dailyRecord);
+  } else {
+    messageEl.textContent = `Guess the ${answer.length}-letter medical term.`;
+    messageEl.className = "message";
+    input.focus();
+  }
 }
 
 function buildBoard() {
@@ -1933,6 +2000,7 @@ function showPearl() {
 function recordResult(won) {
   if (currentResult !== null) return;
   currentResult = won;
+
   const stats = getStats();
   stats.played = (stats.played || 0) + 1;
   stats.wins = (stats.wins || 0) + (won ? 1 : 0);
@@ -1942,8 +2010,42 @@ function recordResult(won) {
   saveStats(stats);
 
   if (playType === "Daily Challenge") {
-    localStorage.setItem("medwordleDaily-" + todayKey(), JSON.stringify({ won, answer, guesses: guesses.length }));
+    saveDailyRecord({
+      won,
+      answer,
+      guesses,
+      rowScores,
+      attempts: guesses.length,
+      specialty: answerObj.specialty,
+      mode: "Official Daily"
+    });
+    dailyStatus.textContent = won ? "Completed ✅" : "Completed";
   }
+}
+
+function restoreDailyRecord(record) {
+  guesses = record.guesses || [];
+  rowScores = record.rowScores || [];
+
+  guesses.forEach((guess, r) => {
+    const score = rowScores[r] || scoreGuess(guess);
+    for (let i = 0; i < answer.length; i++) {
+      const tile = document.getElementById(`tile-${r}-${i}`);
+      if (!tile) continue;
+      tile.textContent = guess[i];
+      tile.classList.add(score[i]);
+      updateKeyboard(guess[i], score[i]);
+    }
+  });
+
+  gameOver = true;
+  currentResult = !!record.won;
+  input.disabled = true;
+  messageEl.textContent = record.won
+    ? `Today's Daily Challenge completed — ${answer}.`
+    : `Today's Daily Challenge completed. The answer was ${answer}.`;
+  messageEl.className = record.won ? "message win" : "message loss";
+  showPearl();
 }
 
 function submitGuess(rawGuess) {
@@ -1954,6 +2056,8 @@ function submitGuess(rawGuess) {
 
   guesses.push(guess);
   const score = scoreGuess(guess);
+  rowScores.push(score);
+
   for (let i = 0; i < answer.length; i++) {
     const tile = document.getElementById(`tile-${currentRow}-${i}`);
     tile.textContent = guess[i]; tile.classList.add(score[i]); updateKeyboard(guess[i], score[i]);
@@ -1978,9 +2082,16 @@ function submitGuess(rawGuess) {
   input.value = ""; input.focus();
 }
 
+function emojiGrid() {
+  if (!rowScores.length) return "";
+  return rowScores.map(row => row.map(s => s === "correct" ? "🟩" : s === "present" ? "🟨" : "⬜").join("")).join("\n");
+}
+
 function resultText() {
-  const status = currentResult === true ? "Solved" : currentResult === false ? "Missed" : "In progress";
-  return `MedWordle ${todayKey()}\n${playType} • ${answerObj.specialty} • ${selectedMode}\n${status} in ${guesses.length}/${MAX_ATTEMPTS}\n${window.location.href}`;
+  const status = currentResult === true ? `${guesses.length}/${MAX_ATTEMPTS}` : currentResult === false ? `X/${MAX_ATTEMPTS}` : "in progress";
+  const title = playType === "Daily Challenge" ? `MedWordle Daily ${todayKey()}` : `MedWordle Practice ${todayKey()}`;
+  const stats = getStats();
+  return `${title}\n${status} • ${answerObj.specialty}\n${emojiGrid()}\n🔥 Streak: ${stats.streak || 0}\n${window.location.href}`;
 }
 
 specialtySelect.value = selectedSpecialty;
@@ -2008,6 +2119,12 @@ hintBtn.addEventListener("click", () => {
   hintBtn.textContent = hintEl.classList.contains("hidden") ? "Show Hint" : "Hide Hint";
 });
 newGameBtn.addEventListener("click", initGame);
+practiceWeakBtn.addEventListener("click", () => {
+  playType = "Adaptive";
+  playTypeSelect.value = playType;
+  localStorage.setItem("medwordlePlayType", playType);
+  initGame();
+});
 shareBtn.addEventListener("click", async () => {
   const text = resultText();
   try {
