@@ -23,12 +23,14 @@ const WORDS = [
     "category": "Cardiology / High Yield",
     "hint": "Crushing chest pain with ST elevation in contiguous leads.",
     "diagnosis": "ST-elevation myocardial infarction",
-    "management": "Aspirin 162\u2013325 mg chewed, P2Y12 inhibitor such as ticagrelor/prasugrel/clopidogrel, anticoagulation such as unfractionated heparin or bivalirudin per cath protocol, high-intensity atorvastatin 80 mg, nitrates if no hypotension/RV infarct/PDE-5 use, and urgent reperfusion with primary PCI.",
-    "nextStep": "Give aspirin immediately and activate the cath lab for primary PCI if it can be performed promptly."
- ,
-    "takeaway": "ST-elevation MI is a reperfusion emergency; do not delay PCI for serial biomarkers or stress testing."
- ,
-    "outline": {"section": "Cardiovascular System", "subsection": "Ischemic heart disease — acute coronary syndrome / myocardial infarction", "page": 18}
+    "management": "Aspirin 162–325 mg chewed, P2Y12 inhibitor such as ticagrelor/prasugrel/clopidogrel, anticoagulation such as unfractionated heparin or bivalirudin per cath protocol, high-intensity atorvastatin 80 mg, nitrates if no hypotension/RV infarct/PDE-5 use, and urgent reperfusion with primary PCI.",
+    "nextStep": "Give aspirin immediately and activate the cath lab for primary PCI if it can be performed promptly.",
+    "takeaway": "ST-elevation MI is a reperfusion emergency; do not delay PCI for serial biomarkers or stress testing.",
+    "outline": {
+      "section": "Cardiovascular System",
+      "subsection": "Ischemic heart disease — acute coronary syndrome / myocardial infarction",
+      "page": 18
+    }
   },
   {
     "word": "NSTEMI",
@@ -38,11 +40,13 @@ const WORDS = [
     "hint": "Troponin elevation without ST elevation.",
     "diagnosis": "Non-ST elevation myocardial infarction",
     "management": "Aspirin, P2Y12 inhibitor when appropriate, anticoagulation with unfractionated heparin/enoxaparin/bivalirudin per setting, high-intensity statin, beta blocker if no contraindication, nitroglycerin for pain if safe, and early invasive strategy for high-risk features.",
-    "nextStep": "Start ACS therapy and risk stratify for early invasive coronary angiography."
- ,
-    "takeaway": "Troponin-positive ACS without ST elevation is treated medically first, then risk-stratified for angiography."
- ,
-    "outline": {"section": "Cardiovascular System", "subsection": "Ischemic heart disease — acute coronary syndrome", "page": 18}
+    "nextStep": "Start ACS therapy and risk stratify for early invasive coronary angiography.",
+    "takeaway": "Troponin-positive ACS without ST elevation is treated medically first, then risk-stratified for angiography.",
+    "outline": {
+      "section": "Cardiovascular System",
+      "subsection": "Ischemic heart disease — acute coronary syndrome",
+      "page": 18
+    }
   },
   {
     "word": "AFIB",
@@ -52,11 +56,13 @@ const WORDS = [
     "hint": "Irregularly irregular rhythm.",
     "diagnosis": "Atrial fibrillation",
     "management": "If stable, rate control with metoprolol/diltiazem/verapamil depending comorbidities; rhythm control when appropriate; anticoagulation with apixaban/rivaroxaban/dabigatran/edoxaban or warfarin based on CHA2DS2-VASc, renal function, valves, and bleeding risk.",
-    "nextStep": "First assess stability; unstable atrial fibrillation requires synchronized cardioversion."
- ,
-    "takeaway": "In tachyarrhythmia questions, stability decides cardioversion vs medication."
- ,
-    "outline": {"section": "Cardiovascular System", "subsection": "Dysrhythmias — atrial fibrillation/flutter", "page": 18}
+    "nextStep": "First assess stability; unstable atrial fibrillation requires synchronized cardioversion.",
+    "takeaway": "In tachyarrhythmia questions, stability decides cardioversion vs medication.",
+    "outline": {
+      "section": "Cardiovascular System",
+      "subsection": "Dysrhythmias — atrial fibrillation/flutter",
+      "page": 18
+    }
   },
   {
     "word": "ANGINA",
@@ -66,7 +72,8 @@ const WORDS = [
     "hint": "Exertional chest discomfort relieved by rest.",
     "diagnosis": "Stable angina",
     "management": "Antianginal therapy and risk factor modification.",
-    "nextStep": "Stress testing if diagnosis is uncertain and patient is stable."
+    "nextStep": "Stress testing if diagnosis is uncertain and patient is stable.",
+    "takeaway": "Recognize the clinical pattern, choose the safest immediate next step, then give specific evidence-based management."
   },
   {
     "word": "CHF",
@@ -76,8 +83,7 @@ const WORDS = [
     "hint": "Dyspnea, edema, JVD, crackles, elevated BNP.",
     "diagnosis": "Heart failure",
     "management": "Diuresis for congestion; guideline-directed therapy when stable.",
-    "nextStep": "Assess volume status and treat acute decompensation first."
- ,
+    "nextStep": "Assess volume status and treat acute decompensation first.",
     "takeaway": "In acute decompensated heart failure, volume overload is treated first with diuresis and respiratory support as needed."
   },
   {
@@ -88,8 +94,7 @@ const WORDS = [
     "hint": "Unilateral leg swelling and pain after immobility.",
     "diagnosis": "Deep venous thrombosis",
     "management": "Anticoagulation unless contraindicated.",
-    "nextStep": "Compression ultrasound is the usual diagnostic next step."
- ,
+    "nextStep": "Compression ultrasound is the usual diagnostic next step.",
     "takeaway": "Unilateral swelling with risk factors should trigger compression ultrasound and anticoagulation if confirmed or highly suspected."
   },
   {
@@ -100,7 +105,8 @@ const WORDS = [
     "hint": "Turbulent flow heard on cardiac auscultation.",
     "diagnosis": "Valvular or flow murmur",
     "management": "Treat based on valve lesion and severity.",
-    "nextStep": "Use echo to characterize significant murmurs."
+    "nextStep": "Use echo to characterize significant murmurs.",
+    "takeaway": "Recognize the clinical pattern, choose the safest immediate next step, then give specific evidence-based management."
   },
   {
     "word": "SYNCOPE",
@@ -110,7 +116,8 @@ const WORDS = [
     "hint": "Brief loss of consciousness with rapid recovery.",
     "diagnosis": "Syncope",
     "management": "Treat the underlying cause.",
-    "nextStep": "Obtain ECG early; concerning cardiac features require urgent evaluation."
+    "nextStep": "Obtain ECG early; concerning cardiac features require urgent evaluation.",
+    "takeaway": "Recognize the clinical pattern, choose the safest immediate next step, then give specific evidence-based management."
   },
   {
     "word": "TAMPONADE",
@@ -120,8 +127,7 @@ const WORDS = [
     "hint": "Hypotension, JVD, muffled heart sounds.",
     "diagnosis": "Cardiac tamponade",
     "management": "Urgent pericardiocentesis if unstable.",
-    "nextStep": "Bedside echo is helpful but do not delay intervention in shock."
- ,
+    "nextStep": "Bedside echo is helpful but do not delay intervention in shock.",
     "takeaway": "Obstructive shock from tamponade is a clinical emergency; unstable patients need drainage rather than prolonged workup."
   },
   {
@@ -132,7 +138,8 @@ const WORDS = [
     "hint": "Polymorphic VT with prolonged QT.",
     "diagnosis": "Torsades de pointes",
     "management": "IV magnesium; correct electrolytes and remove QT-prolonging drugs.",
-    "nextStep": "Defibrillate if unstable or pulseless."
+    "nextStep": "Defibrillate if unstable or pulseless.",
+    "takeaway": "Recognize the clinical pattern, choose the safest immediate next step, then give specific evidence-based management."
   },
   {
     "word": "MYXOMA",
@@ -142,7 +149,8 @@ const WORDS = [
     "hint": "Positional dyspnea or embolic symptoms from atrial mass.",
     "diagnosis": "Atrial myxoma",
     "management": "Surgical resection.",
-    "nextStep": "Echocardiography is key for diagnosis."
+    "nextStep": "Echocardiography is key for diagnosis.",
+    "takeaway": "Recognize the clinical pattern, choose the safest immediate next step, then give specific evidence-based management."
   },
   {
     "word": "DISSECTION",
@@ -152,7 +160,8 @@ const WORDS = [
     "hint": "Tearing chest pain radiating to the back.",
     "diagnosis": "Aortic dissection",
     "management": "Aggressive BP/HR control; surgery for ascending dissections.",
-    "nextStep": "CT angiography if stable; TEE if unstable."
+    "nextStep": "CT angiography if stable; TEE if unstable.",
+    "takeaway": "Recognize the clinical pattern, choose the safest immediate next step, then give specific evidence-based management."
   },
   {
     "word": "ENDOCARDITIS",
@@ -162,7 +171,8 @@ const WORDS = [
     "hint": "Fever, murmur, embolic signs, positive blood cultures.",
     "diagnosis": "Infective endocarditis",
     "management": "IV antibiotics guided by cultures; surgery for complications.",
-    "nextStep": "Obtain multiple blood cultures before antibiotics if stable."
+    "nextStep": "Obtain multiple blood cultures before antibiotics if stable.",
+    "takeaway": "Recognize the clinical pattern, choose the safest immediate next step, then give specific evidence-based management."
   },
   {
     "word": "MYOCARDITIS",
@@ -172,7 +182,8 @@ const WORDS = [
     "hint": "Chest pain after viral illness with troponin elevation.",
     "diagnosis": "Myocarditis",
     "management": "Supportive care and treat heart failure/arrhythmias if present.",
-    "nextStep": "ECG, troponin, echo; cardiac MRI can help."
+    "nextStep": "ECG, troponin, echo; cardiac MRI can help.",
+    "takeaway": "Recognize the clinical pattern, choose the safest immediate next step, then give specific evidence-based management."
   },
   {
     "word": "PERICARDITIS",
@@ -182,7 +193,8 @@ const WORDS = [
     "hint": "Pleuritic chest pain better leaning forward.",
     "diagnosis": "Acute pericarditis",
     "management": "NSAIDs plus colchicine unless contraindicated.",
-    "nextStep": "Look for diffuse ST elevation and PR depression."
+    "nextStep": "Look for diffuse ST elevation and PR depression.",
+    "takeaway": "Recognize the clinical pattern, choose the safest immediate next step, then give specific evidence-based management."
   },
   {
     "word": "ASTHMA",
@@ -192,11 +204,13 @@ const WORDS = [
     "hint": "Episodic wheezing with reversible obstruction.",
     "diagnosis": "Asthma exacerbation",
     "management": "Inhaled albuterol; add ipratropium for moderate/severe exacerbation, systemic corticosteroid such as prednisone or IV methylprednisolone, oxygen, IV magnesium sulfate for severe refractory exacerbation, and intubation/ICU care if impending respiratory failure.",
-    "nextStep": "Assess work of breathing, oxygen saturation, and peak flow if available; start bronchodilator therapy immediately."
- ,
-    "takeaway": "Asthma exacerbations are managed by severity and response; do not wait for testing before bronchodilators."
- ,
-    "outline": {"section": "Respiratory System", "subsection": "Obstructive airway disease — asthma/reactive airway disease", "page": 20}
+    "nextStep": "Assess work of breathing, oxygen saturation, and peak flow if available; start bronchodilator therapy immediately.",
+    "takeaway": "Asthma exacerbations are managed by severity and response; do not wait for testing before bronchodilators.",
+    "outline": {
+      "section": "Respiratory System",
+      "subsection": "Obstructive airway disease — asthma/reactive airway disease",
+      "page": 20
+    }
   },
   {
     "word": "COPD",
@@ -205,12 +219,14 @@ const WORDS = [
     "category": "Pulmonology / High Yield",
     "hint": "Chronic cough, smoking history, obstructive spirometry.",
     "diagnosis": "COPD",
-    "management": "Albuterol plus ipratropium, prednisone 40 mg daily for 5 days for most exacerbations, controlled oxygen target often 88\u201392% if chronic CO2 retention risk, and antibiotics such as azithromycin, doxycycline, or amoxicillin-clavulanate when increased sputum purulence/volume or severe exacerbation is present.",
-    "nextStep": "Assess oxygenation/ventilation and severity; obtain chest x-ray if pneumonia, pneumothorax, or heart failure is possible."
- ,
-    "takeaway": "COPD exacerbation treatment is bronchodilator + steroid; antibiotics depend on sputum change and severity."
- ,
-    "outline": {"section": "Respiratory System", "subsection": "Obstructive airway disease — COPD/chronic bronchitis/emphysema", "page": 20}
+    "management": "Albuterol plus ipratropium, prednisone 40 mg daily for 5 days for most exacerbations, controlled oxygen target often 88–92% if chronic CO2 retention risk, and antibiotics such as azithromycin, doxycycline, or amoxicillin-clavulanate when increased sputum purulence/volume or severe exacerbation is present.",
+    "nextStep": "Assess oxygenation/ventilation and severity; obtain chest x-ray if pneumonia, pneumothorax, or heart failure is possible.",
+    "takeaway": "COPD exacerbation treatment is bronchodilator + steroid; antibiotics depend on sputum change and severity.",
+    "outline": {
+      "section": "Respiratory System",
+      "subsection": "Obstructive airway disease — COPD/chronic bronchitis/emphysema",
+      "page": 20
+    }
   },
   {
     "word": "ARDS",
@@ -220,8 +236,7 @@ const WORDS = [
     "hint": "Acute hypoxemia with bilateral infiltrates after sepsis/trauma.",
     "diagnosis": "Acute respiratory distress syndrome",
     "management": "Low tidal volume ventilation and supportive care.",
-    "nextStep": "Treat the underlying trigger and optimize oxygenation."
- ,
+    "nextStep": "Treat the underlying trigger and optimize oxygenation.",
     "takeaway": "The key management principle is lung-protective ventilation while treating the underlying trigger."
   },
   {
@@ -232,11 +247,13 @@ const WORDS = [
     "hint": "Fever, cough, focal lung findings, infiltrate.",
     "diagnosis": "Pneumonia",
     "management": "Healthy outpatient adults: amoxicillin 1 g PO TID or doxycycline 100 mg PO BID. Outpatient with comorbidities: amoxicillin-clavulanate plus azithromycin/doxycycline, or levofloxacin/moxifloxacin when appropriate. Inpatient nonsevere CAP: ceftriaxone plus azithromycin or a respiratory fluoroquinolone.",
-    "nextStep": "Obtain chest x-ray in suspected CAP if clinically stable, then decide outpatient vs inpatient treatment using severity and comorbidities."
- ,
-    "takeaway": "CAP questions test site of care and empiric regimen choice; antibiotic selection changes with comorbidities and severity."
- ,
-    "outline": {"section": "Respiratory System", "subsection": "Lower airway infections — community-acquired pneumonia", "page": 20}
+    "nextStep": "Obtain chest x-ray in suspected CAP if clinically stable, then decide outpatient vs inpatient treatment using severity and comorbidities.",
+    "takeaway": "CAP questions test site of care and empiric regimen choice; antibiotic selection changes with comorbidities and severity.",
+    "outline": {
+      "section": "Respiratory System",
+      "subsection": "Lower airway infections — community-acquired pneumonia",
+      "page": 20
+    }
   },
   {
     "word": "EMBOLUS",
@@ -246,11 +263,13 @@ const WORDS = [
     "hint": "Sudden dyspnea, pleuritic chest pain, tachycardia.",
     "diagnosis": "Pulmonary embolism",
     "management": "Anticoagulation with heparin/enoxaparin or a DOAC when appropriate; systemic thrombolysis such as alteplase for massive PE with hemodynamic instability if no contraindication.",
-    "nextStep": "If stable, use pretest probability/D-dimer or CT pulmonary angiography; if unstable with high suspicion, treat emergently."
- ,
-    "takeaway": "For PE, stability determines whether you image first or treat immediately."
- ,
-    "outline": {"section": "Respiratory System", "subsection": "Pulmonary vascular disorders — pulmonary embolism", "page": 21}
+    "nextStep": "If stable, use pretest probability/D-dimer or CT pulmonary angiography; if unstable with high suspicion, treat emergently.",
+    "takeaway": "For PE, stability determines whether you image first or treat immediately.",
+    "outline": {
+      "section": "Respiratory System",
+      "subsection": "Pulmonary vascular disorders — pulmonary embolism",
+      "page": 21
+    }
   },
   {
     "word": "HYPOXIA",
@@ -260,7 +279,8 @@ const WORDS = [
     "hint": "Low oxygen delivery to tissues.",
     "diagnosis": "Hypoxemia/hypoxia",
     "management": "Oxygen and treatment of underlying cause.",
-    "nextStep": "Assess airway, breathing, circulation immediately."
+    "nextStep": "Assess airway, breathing, circulation immediately.",
+    "takeaway": "Recognize the clinical pattern, choose the safest immediate next step, then give specific evidence-based management."
   },
   {
     "word": "PNEUMOTHORAX",
@@ -270,7 +290,8 @@ const WORDS = [
     "hint": "Sudden pleuritic chest pain with decreased breath sounds.",
     "diagnosis": "Pneumothorax",
     "management": "Needle decompression if tension physiology; chest tube if large/symptomatic.",
-    "nextStep": "Do not wait for imaging if unstable tension pneumothorax is suspected."
+    "nextStep": "Do not wait for imaging if unstable tension pneumothorax is suspected.",
+    "takeaway": "Recognize the clinical pattern, choose the safest immediate next step, then give specific evidence-based management."
   },
   {
     "word": "HEMOTHORAX",
@@ -280,7 +301,8 @@ const WORDS = [
     "hint": "Blood in pleural space after trauma.",
     "diagnosis": "Hemothorax",
     "management": "Tube thoracostomy; surgery if massive or ongoing bleeding.",
-    "nextStep": "Evaluate trauma patient with ABCs first."
+    "nextStep": "Evaluate trauma patient with ABCs first.",
+    "takeaway": "Recognize the clinical pattern, choose the safest immediate next step, then give specific evidence-based management."
   },
   {
     "word": "ATELECTASIS",
@@ -290,7 +312,8 @@ const WORDS = [
     "hint": "Postoperative fever with low lung volumes.",
     "diagnosis": "Atelectasis",
     "management": "Incentive spirometry and mobilization.",
-    "nextStep": "Common early postoperative pulmonary issue."
+    "nextStep": "Common early postoperative pulmonary issue.",
+    "takeaway": "Recognize the clinical pattern, choose the safest immediate next step, then give specific evidence-based management."
   },
   {
     "word": "ASBESTOS",
@@ -300,7 +323,8 @@ const WORDS = [
     "hint": "Pleural plaques and restrictive disease after exposure.",
     "diagnosis": "Asbestosis",
     "management": "Supportive care and cancer surveillance.",
-    "nextStep": "Ask about occupational exposure."
+    "nextStep": "Ask about occupational exposure.",
+    "takeaway": "Recognize the clinical pattern, choose the safest immediate next step, then give specific evidence-based management."
   },
   {
     "word": "SILICOSIS",
@@ -310,7 +334,8 @@ const WORDS = [
     "hint": "Upper-lobe nodules after mining/sandblasting exposure.",
     "diagnosis": "Silicosis",
     "management": "Supportive care; screen for TB risk.",
-    "nextStep": "Occupational history is key."
+    "nextStep": "Occupational history is key.",
+    "takeaway": "Recognize the clinical pattern, choose the safest immediate next step, then give specific evidence-based management."
   },
   {
     "word": "MELENA",
@@ -320,8 +345,7 @@ const WORDS = [
     "hint": "Black tarry stool.",
     "diagnosis": "Upper GI bleeding",
     "management": "Stabilize, IV PPI if suspected ulcer bleed, endoscopy.",
-    "nextStep": "Assess hemodynamics and resuscitate first."
- ,
+    "nextStep": "Assess hemodynamics and resuscitate first.",
     "takeaway": "Upper GI bleeding questions prioritize hemodynamic stabilization before diagnostic endoscopy."
   },
   {
@@ -332,7 +356,8 @@ const WORDS = [
     "hint": "Burning retrosternal pain after meals.",
     "diagnosis": "Gastroesophageal reflux disease",
     "management": "Lifestyle changes and PPI trial.",
-    "nextStep": "Endoscopy for alarm symptoms."
+    "nextStep": "Endoscopy for alarm symptoms.",
+    "takeaway": "Recognize the clinical pattern, choose the safest immediate next step, then give specific evidence-based management."
   },
   {
     "word": "CIRRHOSIS",
@@ -342,8 +367,7 @@ const WORDS = [
     "hint": "Ascites, varices, encephalopathy, thrombocytopenia.",
     "diagnosis": "Cirrhosis",
     "management": "Manage complications and screen for HCC/varices.",
-    "nextStep": "New ascites warrants diagnostic paracentesis."
- ,
+    "nextStep": "New ascites warrants diagnostic paracentesis.",
     "takeaway": "Cirrhosis questions often test complications: ascites, varices, encephalopathy, SBP, and HCC screening."
   },
   {
@@ -354,8 +378,7 @@ const WORDS = [
     "hint": "Abdominal distention with shifting dullness.",
     "diagnosis": "Ascites",
     "management": "Salt restriction, diuretics; paracentesis when new or concerning.",
-    "nextStep": "Check SAAG to classify cause."
- ,
+    "nextStep": "Check SAAG to classify cause.",
     "takeaway": "New ascites in cirrhosis should be tapped to evaluate for SBP and classify fluid with SAAG."
   },
   {
@@ -366,7 +389,8 @@ const WORDS = [
     "hint": "Yellow skin/sclera from bilirubin elevation.",
     "diagnosis": "Jaundice",
     "management": "Treat cause based on hepatocellular vs obstructive vs hemolytic pattern.",
-    "nextStep": "Fractionated bilirubin and liver tests guide next step."
+    "nextStep": "Fractionated bilirubin and liver tests guide next step.",
+    "takeaway": "Recognize the clinical pattern, choose the safest immediate next step, then give specific evidence-based management."
   },
   {
     "word": "PANCREAS",
@@ -376,7 +400,8 @@ const WORDS = [
     "hint": "Epigastric pain radiating to back with elevated lipase.",
     "diagnosis": "Acute pancreatitis",
     "management": "IV fluids, analgesia, nutrition; treat cause.",
-    "nextStep": "RUQ ultrasound if gallstones suspected."
+    "nextStep": "RUQ ultrasound if gallstones suspected.",
+    "takeaway": "Recognize the clinical pattern, choose the safest immediate next step, then give specific evidence-based management."
   },
   {
     "word": "APPENDIX",
@@ -386,8 +411,7 @@ const WORDS = [
     "hint": "Periumbilical pain migrating to RLQ.",
     "diagnosis": "Appendicitis",
     "management": "Appendectomy or antibiotics in select cases.",
-    "nextStep": "CT abdomen in many adults if diagnosis uncertain."
- ,
+    "nextStep": "CT abdomen in many adults if diagnosis uncertain.",
     "takeaway": "Migratory RLQ pain is classic; imaging is common in adults when diagnosis is uncertain."
   },
   {
@@ -398,7 +422,8 @@ const WORDS = [
     "hint": "LLQ pain, fever, bowel habit changes.",
     "diagnosis": "Diverticulitis",
     "management": "Antibiotics for selected cases; drainage/surgery if complicated.",
-    "nextStep": "CT abdomen/pelvis confirms diagnosis."
+    "nextStep": "CT abdomen/pelvis confirms diagnosis.",
+    "takeaway": "Recognize the clinical pattern, choose the safest immediate next step, then give specific evidence-based management."
   },
   {
     "word": "VOLVULUS",
@@ -408,7 +433,8 @@ const WORDS = [
     "hint": "Coffee-bean sign and large bowel obstruction.",
     "diagnosis": "Sigmoid volvulus",
     "management": "Endoscopic detorsion if no peritonitis.",
-    "nextStep": "Surgery if ischemia, perforation, or recurrent disease."
+    "nextStep": "Surgery if ischemia, perforation, or recurrent disease.",
+    "takeaway": "Recognize the clinical pattern, choose the safest immediate next step, then give specific evidence-based management."
   },
   {
     "word": "ACHALASIA",
@@ -418,7 +444,8 @@ const WORDS = [
     "hint": "Progressive dysphagia to solids and liquids.",
     "diagnosis": "Achalasia",
     "management": "Pneumatic dilation, Heller myotomy, or POEM.",
-    "nextStep": "Manometry is diagnostic."
+    "nextStep": "Manometry is diagnostic.",
+    "takeaway": "Recognize the clinical pattern, choose the safest immediate next step, then give specific evidence-based management."
   },
   {
     "word": "AKI",
@@ -428,7 +455,8 @@ const WORDS = [
     "hint": "Acute rise in creatinine or drop in urine output.",
     "diagnosis": "Acute kidney injury",
     "management": "Treat cause; optimize volume and avoid nephrotoxins.",
-    "nextStep": "Classify prerenal, intrinsic, or postrenal."
+    "nextStep": "Classify prerenal, intrinsic, or postrenal.",
+    "takeaway": "Recognize the clinical pattern, choose the safest immediate next step, then give specific evidence-based management."
   },
   {
     "word": "CKD",
@@ -438,7 +466,8 @@ const WORDS = [
     "hint": "Chronic reduced GFR or albuminuria.",
     "diagnosis": "Chronic kidney disease",
     "management": "BP control, diabetes control, ACEi/ARB when indicated.",
-    "nextStep": "Monitor anemia, bone-mineral disease, and electrolytes."
+    "nextStep": "Monitor anemia, bone-mineral disease, and electrolytes.",
+    "takeaway": "Recognize the clinical pattern, choose the safest immediate next step, then give specific evidence-based management."
   },
   {
     "word": "STONES",
@@ -448,7 +477,8 @@ const WORDS = [
     "hint": "Colicky flank pain radiating to groin with hematuria.",
     "diagnosis": "Nephrolithiasis",
     "management": "Analgesia, hydration; alpha blocker for selected stones.",
-    "nextStep": "Noncontrast CT is highly sensitive."
+    "nextStep": "Noncontrast CT is highly sensitive.",
+    "takeaway": "Recognize the clinical pattern, choose the safest immediate next step, then give specific evidence-based management."
   },
   {
     "word": "OLIGURIA",
@@ -458,7 +488,8 @@ const WORDS = [
     "hint": "Low urine output.",
     "diagnosis": "Oliguria",
     "management": "Assess volume status, perfusion, obstruction, and nephrotoxins.",
-    "nextStep": "Bladder scan can quickly assess retention."
+    "nextStep": "Bladder scan can quickly assess retention.",
+    "takeaway": "Recognize the clinical pattern, choose the safest immediate next step, then give specific evidence-based management."
   },
   {
     "word": "ANURIA",
@@ -468,7 +499,8 @@ const WORDS = [
     "hint": "Absent urine output.",
     "diagnosis": "Anuria",
     "management": "Urgently assess obstruction and severe renal failure.",
-    "nextStep": "Postrenal obstruction must be ruled out."
+    "nextStep": "Postrenal obstruction must be ruled out.",
+    "takeaway": "Recognize the clinical pattern, choose the safest immediate next step, then give specific evidence-based management."
   },
   {
     "word": "NEPHRON",
@@ -478,7 +510,8 @@ const WORDS = [
     "hint": "Functional unit of kidney.",
     "diagnosis": "Kidney physiology concept",
     "management": "Management depends on site of renal pathology.",
-    "nextStep": "Use UA and microscopy to localize renal disease."
+    "nextStep": "Use UA and microscopy to localize renal disease.",
+    "takeaway": "Recognize the clinical pattern, choose the safest immediate next step, then give specific evidence-based management."
   },
   {
     "word": "ALPORT",
@@ -488,7 +521,8 @@ const WORDS = [
     "hint": "Hematuria with hearing and ocular findings.",
     "diagnosis": "Alport syndrome",
     "management": "Supportive renal care; genetic counseling.",
-    "nextStep": "Think collagen IV defect."
+    "nextStep": "Think collagen IV defect.",
+    "takeaway": "Recognize the clinical pattern, choose the safest immediate next step, then give specific evidence-based management."
   },
   {
     "word": "FANCONI",
@@ -498,7 +532,8 @@ const WORDS = [
     "hint": "Proximal tubule wasting of glucose, phosphate, bicarbonate.",
     "diagnosis": "Fanconi syndrome",
     "management": "Treat cause and replace losses.",
-    "nextStep": "Look for non-anion gap metabolic acidosis."
+    "nextStep": "Look for non-anion gap metabolic acidosis.",
+    "takeaway": "Recognize the clinical pattern, choose the safest immediate next step, then give specific evidence-based management."
   },
   {
     "word": "DKA",
@@ -507,12 +542,14 @@ const WORDS = [
     "category": "Endocrinology / High Yield",
     "hint": "Anion gap acidosis with ketones.",
     "diagnosis": "Diabetic ketoacidosis",
-    "management": "IV normal saline or balanced crystalloid, IV regular insulin only after K+ is \u22653.3 mEq/L, potassium replacement as needed, add dextrose when glucose falls near 200 mg/dL, monitor anion gap, and treat trigger such as infection or missed insulin.",
-    "nextStep": "Start isotonic IV fluids and check potassium before insulin."
- ,
-    "takeaway": "In DKA, fluids come first and potassium determines when insulin is safe."
- ,
-    "outline": {"section": "Endocrine System", "subsection": "Diabetes mellitus — diabetic ketoacidosis", "page": 32}
+    "management": "IV normal saline or balanced crystalloid, IV regular insulin only after K+ is ≥3.3 mEq/L, potassium replacement as needed, add dextrose when glucose falls near 200 mg/dL, monitor anion gap, and treat trigger such as infection or missed insulin.",
+    "nextStep": "Start isotonic IV fluids and check potassium before insulin.",
+    "takeaway": "In DKA, fluids come first and potassium determines when insulin is safe.",
+    "outline": {
+      "section": "Endocrine System",
+      "subsection": "Diabetes mellitus — diabetic ketoacidosis",
+      "page": 32
+    }
   },
   {
     "word": "HHS",
@@ -522,8 +559,7 @@ const WORDS = [
     "hint": "Severe hyperglycemia and dehydration with minimal ketosis.",
     "diagnosis": "Hyperosmolar hyperglycemic state",
     "management": "Aggressive fluids, insulin after volume resuscitation.",
-    "nextStep": "Older type 2 diabetic patient with altered mental status is classic."
- ,
+    "nextStep": "Older type 2 diabetic patient with altered mental status is classic.",
     "takeaway": "HHS is mainly profound dehydration and hyperosmolarity, so aggressive fluids are central."
   },
   {
@@ -534,8 +570,7 @@ const WORDS = [
     "hint": "Hyperthyroidism with ophthalmopathy.",
     "diagnosis": "Graves disease",
     "management": "Beta blocker for symptoms; methimazole/PTU, radioiodine, or surgery.",
-    "nextStep": "Check TSH and free T4; TSI supports diagnosis."
- ,
+    "nextStep": "Check TSH and free T4; TSI supports diagnosis.",
     "takeaway": "Hyperthyroid symptoms plus eye findings point to Graves; beta blockers address symptoms quickly."
   },
   {
@@ -546,8 +581,7 @@ const WORDS = [
     "hint": "Hypotension, hyperpigmentation, hyponatremia, hyperkalemia.",
     "diagnosis": "Primary adrenal insufficiency",
     "management": "Glucocorticoid and mineralocorticoid replacement.",
-    "nextStep": "Adrenal crisis needs immediate stress-dose steroids."
- ,
+    "nextStep": "Adrenal crisis needs immediate stress-dose steroids.",
     "takeaway": "Adrenal crisis is treated immediately with stress-dose steroids and fluids; do not wait for confirmatory tests."
   },
   {
@@ -558,7 +592,8 @@ const WORDS = [
     "hint": "Central obesity, striae, hypertension, glucose intolerance.",
     "diagnosis": "Cushing syndrome",
     "management": "Treat underlying source of cortisol excess.",
-    "nextStep": "Screen with dexamethasone suppression, late-night salivary cortisol, or urinary cortisol."
+    "nextStep": "Screen with dexamethasone suppression, late-night salivary cortisol, or urinary cortisol.",
+    "takeaway": "Recognize the clinical pattern, choose the safest immediate next step, then give specific evidence-based management."
   },
   {
     "word": "SIADH",
@@ -568,7 +603,8 @@ const WORDS = [
     "hint": "Euvolemic hyponatremia with concentrated urine.",
     "diagnosis": "SIADH",
     "management": "Fluid restriction; hypertonic saline if severe symptoms.",
-    "nextStep": "Avoid rapid sodium correction."
+    "nextStep": "Avoid rapid sodium correction.",
+    "takeaway": "Recognize the clinical pattern, choose the safest immediate next step, then give specific evidence-based management."
   },
   {
     "word": "THYROID",
@@ -578,7 +614,8 @@ const WORDS = [
     "hint": "Neck gland controlling metabolism.",
     "diagnosis": "Thyroid disorder",
     "management": "Treat based on hypo/hyperthyroid state.",
-    "nextStep": "TSH is the usual initial test."
+    "nextStep": "TSH is the usual initial test.",
+    "takeaway": "Recognize the clinical pattern, choose the safest immediate next step, then give specific evidence-based management."
   },
   {
     "word": "GOITER",
@@ -588,7 +625,8 @@ const WORDS = [
     "hint": "Enlarged thyroid gland.",
     "diagnosis": "Goiter",
     "management": "Treat underlying thyroid dysfunction or compressive symptoms.",
-    "nextStep": "Check thyroid function tests."
+    "nextStep": "Check thyroid function tests.",
+    "takeaway": "Recognize the clinical pattern, choose the safest immediate next step, then give specific evidence-based management."
   },
   {
     "word": "STROKE",
@@ -598,8 +636,7 @@ const WORDS = [
     "hint": "Acute focal neurologic deficit.",
     "diagnosis": "Stroke",
     "management": "Reperfusion when eligible; secondary prevention afterward.",
-    "nextStep": "Time last known well is critical."
- ,
+    "nextStep": "Time last known well is critical.",
     "takeaway": "The time last known well drives eligibility for acute reperfusion therapy."
   },
   {
@@ -610,8 +647,7 @@ const WORDS = [
     "hint": "Transient abnormal neuronal activity.",
     "diagnosis": "Seizure",
     "management": "Stabilize airway; benzodiazepines for active prolonged seizure.",
-    "nextStep": "Evaluate reversible triggers after stabilization."
- ,
+    "nextStep": "Evaluate reversible triggers after stabilization.",
     "takeaway": "Active prolonged seizure is treated first with benzodiazepines, then antiseizure loading if persistent."
   },
   {
@@ -622,7 +658,8 @@ const WORDS = [
     "hint": "Headache with photophobia, nausea, possible aura.",
     "diagnosis": "Migraine",
     "management": "NSAIDs/triptans for acute therapy; prophylaxis if frequent.",
-    "nextStep": "Avoid triptans in significant vascular disease."
+    "nextStep": "Avoid triptans in significant vascular disease.",
+    "takeaway": "Recognize the clinical pattern, choose the safest immediate next step, then give specific evidence-based management."
   },
   {
     "word": "DELIRIUM",
@@ -632,8 +669,7 @@ const WORDS = [
     "hint": "Acute fluctuating attention and awareness.",
     "diagnosis": "Delirium",
     "management": "Treat underlying medical cause; reorientation and sleep hygiene.",
-    "nextStep": "Look for infection, meds, metabolic causes."
- ,
+    "nextStep": "Look for infection, meds, metabolic causes.",
     "takeaway": "Delirium is acute and fluctuating; search for medical causes and avoid assuming primary psychiatric disease."
   },
   {
@@ -644,7 +680,8 @@ const WORDS = [
     "hint": "Language impairment after dominant hemisphere injury.",
     "diagnosis": "Aphasia",
     "management": "Treat underlying cause, often stroke evaluation.",
-    "nextStep": "Differentiate from dysarthria."
+    "nextStep": "Differentiate from dysarthria.",
+    "takeaway": "Recognize the clinical pattern, choose the safest immediate next step, then give specific evidence-based management."
   },
   {
     "word": "GBS",
@@ -654,7 +691,8 @@ const WORDS = [
     "hint": "Ascending weakness after infection.",
     "diagnosis": "Guillain-Barre syndrome",
     "management": "IVIG or plasmapheresis; monitor respiratory function.",
-    "nextStep": "Check vital capacity."
+    "nextStep": "Check vital capacity.",
+    "takeaway": "Recognize the clinical pattern, choose the safest immediate next step, then give specific evidence-based management."
   },
   {
     "word": "HORNER",
@@ -664,7 +702,8 @@ const WORDS = [
     "hint": "Ptosis, miosis, anhidrosis.",
     "diagnosis": "Horner syndrome",
     "management": "Treat underlying sympathetic pathway lesion.",
-    "nextStep": "Painful Horner can suggest carotid dissection."
+    "nextStep": "Painful Horner can suggest carotid dissection.",
+    "takeaway": "Recognize the clinical pattern, choose the safest immediate next step, then give specific evidence-based management."
   },
   {
     "word": "PTOSIS",
@@ -674,7 +713,8 @@ const WORDS = [
     "hint": "Drooping eyelid.",
     "diagnosis": "Ptosis",
     "management": "Evaluate for CN III palsy, Horner, or myasthenia.",
-    "nextStep": "Pupil involvement in CN III palsy is concerning for aneurysm."
+    "nextStep": "Pupil involvement in CN III palsy is concerning for aneurysm.",
+    "takeaway": "Recognize the clinical pattern, choose the safest immediate next step, then give specific evidence-based management."
   },
   {
     "word": "BOTULISM",
@@ -684,7 +724,8 @@ const WORDS = [
     "hint": "Descending paralysis and pupillary findings.",
     "diagnosis": "Botulism",
     "management": "Antitoxin and supportive care.",
-    "nextStep": "Infant botulism associated with honey exposure."
+    "nextStep": "Infant botulism associated with honey exposure.",
+    "takeaway": "Recognize the clinical pattern, choose the safest immediate next step, then give specific evidence-based management."
   },
   {
     "word": "TETANUS",
@@ -694,7 +735,8 @@ const WORDS = [
     "hint": "Trismus and muscle spasms.",
     "diagnosis": "Tetanus",
     "management": "Immune globulin, metronidazole, wound care, vaccination.",
-    "nextStep": "Prevention through vaccination is key."
+    "nextStep": "Prevention through vaccination is key.",
+    "takeaway": "Recognize the clinical pattern, choose the safest immediate next step, then give specific evidence-based management."
   },
   {
     "word": "ECTOPIC",
@@ -704,11 +746,13 @@ const WORDS = [
     "hint": "Pregnancy with abdominal pain and bleeding.",
     "diagnosis": "Ectopic pregnancy",
     "management": "Methotrexate for stable eligible patients; urgent surgery for rupture, instability, contraindication to methotrexate, or concerning ultrasound findings.",
-    "nextStep": "In any reproductive-age patient with abdominal pain or bleeding, obtain pregnancy test first; use transvaginal ultrasound and quantitative beta-hCG when positive."
- ,
-    "takeaway": "Pregnancy test is the first move in reproductive-age abdominal pain/bleeding."
- ,
-    "outline": {"section": "Pregnancy, Childbirth, & the Puerperium", "subsection": "Obstetric complications — ectopic pregnancy", "page": 27}
+    "nextStep": "In any reproductive-age patient with abdominal pain or bleeding, obtain pregnancy test first; use transvaginal ultrasound and quantitative beta-hCG when positive.",
+    "takeaway": "Pregnancy test is the first move in reproductive-age abdominal pain/bleeding.",
+    "outline": {
+      "section": "Pregnancy, Childbirth, & the Puerperium",
+      "subsection": "Obstetric complications — ectopic pregnancy",
+      "page": 27
+    }
   },
   {
     "word": "PREVIA",
@@ -718,8 +762,7 @@ const WORDS = [
     "hint": "Painless third-trimester bleeding.",
     "diagnosis": "Placenta previa",
     "management": "Avoid digital exam; cesarean delivery if persistent.",
-    "nextStep": "Ultrasound confirms placental location."
- ,
+    "nextStep": "Ultrasound confirms placental location.",
     "takeaway": "Painless third-trimester bleeding means avoid digital cervical exam until placenta previa is excluded by ultrasound."
   },
   {
@@ -730,8 +773,7 @@ const WORDS = [
     "hint": "Painful third-trimester bleeding with uterine tenderness.",
     "diagnosis": "Placental abruption",
     "management": "Maternal stabilization and delivery depending severity.",
-    "nextStep": "Can be associated with hypertension or trauma."
- ,
+    "nextStep": "Can be associated with hypertension or trauma.",
     "takeaway": "Painful bleeding with uterine tenderness suggests abruption; prioritize maternal stabilization."
   },
   {
@@ -742,11 +784,13 @@ const WORDS = [
     "hint": "Hemolysis, elevated liver enzymes, low platelets.",
     "diagnosis": "HELLP syndrome",
     "management": "Magnesium sulfate for seizure prophylaxis, antihypertensives such as IV labetalol/hydralazine or oral nifedipine for severe BP, corticosteroids for fetal lung maturity if preterm when appropriate, delivery after stabilization.",
-    "nextStep": "Stabilize with magnesium sulfate and blood pressure control, then proceed to delivery when indicated."
- ,
-    "takeaway": "HELLP is a severe preeclampsia-spectrum disease; maternal stabilization comes before delivery."
- ,
-    "outline": {"section": "Pregnancy, Childbirth, & the Puerperium", "subsection": "Obstetric complications — preeclampsia/eclampsia/HELLP", "page": 27}
+    "nextStep": "Stabilize with magnesium sulfate and blood pressure control, then proceed to delivery when indicated.",
+    "takeaway": "HELLP is a severe preeclampsia-spectrum disease; maternal stabilization comes before delivery.",
+    "outline": {
+      "section": "Pregnancy, Childbirth, & the Puerperium",
+      "subsection": "Obstetric complications — preeclampsia/eclampsia/HELLP",
+      "page": 27
+    }
   },
   {
     "word": "ECLAMPSIA",
@@ -756,11 +800,13 @@ const WORDS = [
     "hint": "Seizures in patient with preeclampsia.",
     "diagnosis": "Eclampsia",
     "management": "Magnesium sulfate for seizure treatment/prevention, antihypertensives such as IV labetalol/hydralazine or oral nifedipine for severe hypertension, then delivery.",
-    "nextStep": "Give magnesium sulfate and stabilize airway/breathing/circulation; delivery follows maternal stabilization."
- ,
-    "takeaway": "For eclampsia, magnesium sulfate is the seizure drug of choice; delivery comes after stabilization."
- ,
-    "outline": {"section": "Pregnancy, Childbirth, & the Puerperium", "subsection": "Obstetric complications — eclampsia", "page": 27}
+    "nextStep": "Give magnesium sulfate and stabilize airway/breathing/circulation; delivery follows maternal stabilization.",
+    "takeaway": "For eclampsia, magnesium sulfate is the seizure drug of choice; delivery comes after stabilization.",
+    "outline": {
+      "section": "Pregnancy, Childbirth, & the Puerperium",
+      "subsection": "Obstetric complications — eclampsia",
+      "page": 27
+    }
   },
   {
     "word": "LOCHIA",
@@ -770,7 +816,8 @@ const WORDS = [
     "hint": "Normal postpartum vaginal discharge.",
     "diagnosis": "Lochia",
     "management": "Reassurance if normal pattern and no infection/bleeding concerns.",
-    "nextStep": "Assess fever, uterine tenderness, and heavy bleeding if abnormal."
+    "nextStep": "Assess fever, uterine tenderness, and heavy bleeding if abnormal.",
+    "takeaway": "Recognize the clinical pattern, choose the safest immediate next step, then give specific evidence-based management."
   },
   {
     "word": "VACCINE",
@@ -780,7 +827,8 @@ const WORDS = [
     "hint": "Immunization for disease prevention.",
     "diagnosis": "Routine vaccination",
     "management": "Follow age-based schedule and contraindications.",
-    "nextStep": "Preventive care is high yield."
+    "nextStep": "Preventive care is high yield.",
+    "takeaway": "Recognize the clinical pattern, choose the safest immediate next step, then give specific evidence-based management."
   },
   {
     "word": "SIDS",
@@ -790,7 +838,8 @@ const WORDS = [
     "hint": "Sudden infant death during sleep.",
     "diagnosis": "Sudden infant death syndrome",
     "management": "Back-to-sleep and safe sleep counseling.",
-    "nextStep": "Avoid prone sleeping and soft bedding."
+    "nextStep": "Avoid prone sleeping and soft bedding.",
+    "takeaway": "Recognize the clinical pattern, choose the safest immediate next step, then give specific evidence-based management."
   },
   {
     "word": "FONTANELLE",
@@ -800,7 +849,8 @@ const WORDS = [
     "hint": "Soft spot on infant skull.",
     "diagnosis": "Fontanelle finding",
     "management": "Interpret with hydration and intracranial pressure context.",
-    "nextStep": "Bulging suggests increased ICP; sunken suggests dehydration."
+    "nextStep": "Bulging suggests increased ICP; sunken suggests dehydration.",
+    "takeaway": "Recognize the clinical pattern, choose the safest immediate next step, then give specific evidence-based management."
   },
   {
     "word": "PYLORIC",
@@ -810,7 +860,8 @@ const WORDS = [
     "hint": "Projectile nonbilious vomiting in young infant.",
     "diagnosis": "Pyloric stenosis",
     "management": "Surgical pyloromyotomy after correcting electrolytes.",
-    "nextStep": "Hypochloremic metabolic alkalosis is classic."
+    "nextStep": "Hypochloremic metabolic alkalosis is classic.",
+    "takeaway": "Recognize the clinical pattern, choose the safest immediate next step, then give specific evidence-based management."
   },
   {
     "word": "MDD",
@@ -820,7 +871,8 @@ const WORDS = [
     "hint": "Depressed mood or anhedonia with neurovegetative symptoms.",
     "diagnosis": "Major depressive disorder",
     "management": "Psychotherapy and/or SSRI; assess safety.",
-    "nextStep": "Always screen for suicidal ideation."
+    "nextStep": "Always screen for suicidal ideation.",
+    "takeaway": "Recognize the clinical pattern, choose the safest immediate next step, then give specific evidence-based management."
   },
   {
     "word": "MANIA",
@@ -830,7 +882,8 @@ const WORDS = [
     "hint": "Decreased need for sleep with elevated/irritable mood.",
     "diagnosis": "Manic episode",
     "management": "Mood stabilizer or antipsychotic; hospitalization if unsafe.",
-    "nextStep": "Avoid antidepressant monotherapy in bipolar disorder."
+    "nextStep": "Avoid antidepressant monotherapy in bipolar disorder.",
+    "takeaway": "Recognize the clinical pattern, choose the safest immediate next step, then give specific evidence-based management."
   },
   {
     "word": "BIPOLAR",
@@ -840,7 +893,8 @@ const WORDS = [
     "hint": "Mood disorder with mania or hypomania.",
     "diagnosis": "Bipolar disorder",
     "management": "Mood stabilizer/atypical antipsychotic.",
-    "nextStep": "Ask about past mania before starting antidepressants."
+    "nextStep": "Ask about past mania before starting antidepressants.",
+    "takeaway": "Recognize the clinical pattern, choose the safest immediate next step, then give specific evidence-based management."
   },
   {
     "word": "PTSD",
@@ -850,7 +904,8 @@ const WORDS = [
     "hint": "Re-experiencing, avoidance, hyperarousal after trauma.",
     "diagnosis": "Post-traumatic stress disorder",
     "management": "Trauma-focused psychotherapy; SSRIs can help.",
-    "nextStep": "Symptoms persist more than one month."
+    "nextStep": "Symptoms persist more than one month.",
+    "takeaway": "Recognize the clinical pattern, choose the safest immediate next step, then give specific evidence-based management."
   },
   {
     "word": "OCD",
@@ -860,7 +915,8 @@ const WORDS = [
     "hint": "Obsessions and compulsions.",
     "diagnosis": "Obsessive-compulsive disorder",
     "management": "CBT with exposure/response prevention and SSRIs.",
-    "nextStep": "Insight may vary."
+    "nextStep": "Insight may vary.",
+    "takeaway": "Recognize the clinical pattern, choose the safest immediate next step, then give specific evidence-based management."
   },
   {
     "word": "AKATHISIA",
@@ -870,7 +926,8 @@ const WORDS = [
     "hint": "Restlessness after antipsychotic use.",
     "diagnosis": "Akathisia",
     "management": "Beta blocker or benzodiazepine; adjust offending drug.",
-    "nextStep": "Can be mistaken for anxiety."
+    "nextStep": "Can be mistaken for anxiety.",
+    "takeaway": "Recognize the clinical pattern, choose the safest immediate next step, then give specific evidence-based management."
   },
   {
     "word": "SEPSIS",
@@ -880,11 +937,13 @@ const WORDS = [
     "hint": "Infection with organ dysfunction.",
     "diagnosis": "Sepsis",
     "management": "IV crystalloid resuscitation, broad-spectrum antibiotics tailored to source such as vancomycin plus piperacillin-tazobactam/cefepime/meropenem for severe healthcare-associated sepsis, source control, and norepinephrine for persistent hypotension after fluids.",
-    "nextStep": "Recognize organ dysfunction, obtain cultures, start immediate resuscitation, and do not delay antibiotics in shock."
- ,
-    "takeaway": "Septic shock management is early antibiotics, fluids, source control, and vasopressors when hypotension persists."
- ,
-    "outline": {"section": "Multisystem Processes & Disorders", "subsection": "Infectious disorders / systemic host response / shock", "page": 34}
+    "nextStep": "Recognize organ dysfunction, obtain cultures, start immediate resuscitation, and do not delay antibiotics in shock.",
+    "takeaway": "Septic shock management is early antibiotics, fluids, source control, and vasopressors when hypotension persists.",
+    "outline": {
+      "section": "Multisystem Processes & Disorders",
+      "subsection": "Infectious disorders / systemic host response / shock",
+      "page": 34
+    }
   },
   {
     "word": "HIV",
@@ -894,8 +953,7 @@ const WORDS = [
     "hint": "Retroviral infection with immune suppression.",
     "diagnosis": "HIV infection",
     "management": "Antiretroviral therapy for all; prophylaxis by CD4 count.",
-    "nextStep": "Test with Ag/Ab screening followed by confirmatory testing."
- ,
+    "nextStep": "Test with Ag/Ab screening followed by confirmatory testing.",
     "takeaway": "CD4 count predicts opportunistic infection risk, but ART is recommended for essentially all patients."
   },
   {
@@ -906,7 +964,8 @@ const WORDS = [
     "hint": "Advanced HIV or AIDS-defining illness.",
     "diagnosis": "AIDS",
     "management": "ART plus opportunistic infection prophylaxis/treatment.",
-    "nextStep": "CD4 count helps predict infections."
+    "nextStep": "CD4 count helps predict infections.",
+    "takeaway": "Recognize the clinical pattern, choose the safest immediate next step, then give specific evidence-based management."
   },
   {
     "word": "LYME",
@@ -916,8 +975,7 @@ const WORDS = [
     "hint": "Erythema migrans after tick exposure.",
     "diagnosis": "Lyme disease",
     "management": "Doxycycline for many nonpregnant patients.",
-    "nextStep": "Clinical diagnosis with classic rash."
- ,
+    "nextStep": "Clinical diagnosis with classic rash.",
     "takeaway": "Classic erythema migrans is a clinical diagnosis and does not require serology before treatment."
   },
   {
@@ -928,7 +986,8 @@ const WORDS = [
     "hint": "Painless chancre or systemic disease with varied findings.",
     "diagnosis": "Syphilis",
     "management": "Penicillin-based therapy depending stage.",
-    "nextStep": "Screen other STIs and partners."
+    "nextStep": "Screen other STIs and partners.",
+    "takeaway": "Recognize the clinical pattern, choose the safest immediate next step, then give specific evidence-based management."
   },
   {
     "word": "MALARIA",
@@ -938,7 +997,8 @@ const WORDS = [
     "hint": "Cyclic fever after travel.",
     "diagnosis": "Malaria",
     "management": "Species/severity-directed antimalarial therapy.",
-    "nextStep": "Travel history is essential."
+    "nextStep": "Travel history is essential.",
+    "takeaway": "Recognize the clinical pattern, choose the safest immediate next step, then give specific evidence-based management."
   },
   {
     "word": "DENGUE",
@@ -948,7 +1008,8 @@ const WORDS = [
     "hint": "Fever, myalgias, thrombocytopenia after mosquito exposure.",
     "diagnosis": "Dengue",
     "management": "Supportive care; avoid NSAIDs if bleeding risk.",
-    "nextStep": "Watch for shock and hemorrhage."
+    "nextStep": "Watch for shock and hemorrhage.",
+    "takeaway": "Recognize the clinical pattern, choose the safest immediate next step, then give specific evidence-based management."
   },
   {
     "word": "KAPOSI",
@@ -958,7 +1019,8 @@ const WORDS = [
     "hint": "Purple vascular lesions in immunocompromised patient.",
     "diagnosis": "Kaposi sarcoma",
     "management": "Treat HIV with ART; oncology therapy if advanced.",
-    "nextStep": "HHV-8 associated."
+    "nextStep": "HHV-8 associated.",
+    "takeaway": "Recognize the clinical pattern, choose the safest immediate next step, then give specific evidence-based management."
   },
   {
     "word": "ANEMIA",
@@ -968,8 +1030,7 @@ const WORDS = [
     "hint": "Low hemoglobin causing fatigue/pallor.",
     "diagnosis": "Anemia",
     "management": "Treat cause; transfuse if severe/symptomatic.",
-    "nextStep": "Use MCV and reticulocyte count."
- ,
+    "nextStep": "Use MCV and reticulocyte count.",
     "takeaway": "Classify anemia by MCV and reticulocyte response before jumping to treatment."
   },
   {
@@ -980,8 +1041,7 @@ const WORDS = [
     "hint": "Pain crises and functional asplenia.",
     "diagnosis": "Sickle cell disease",
     "management": "Hydration, analgesia, hydroxyurea prevention, vaccines.",
-    "nextStep": "Fever needs urgent evaluation for infection."
- ,
+    "nextStep": "Fever needs urgent evaluation for infection.",
     "takeaway": "Fever in sickle cell disease is urgent because functional asplenia increases risk from encapsulated organisms."
   },
   {
@@ -992,8 +1052,7 @@ const WORDS = [
     "hint": "Isolated thrombocytopenia with mucosal bleeding.",
     "diagnosis": "Immune thrombocytopenia",
     "management": "Steroids or IVIG if treatment needed.",
-    "nextStep": "Platelets low with otherwise normal labs."
- ,
+    "nextStep": "Platelets low with otherwise normal labs.",
     "takeaway": "Isolated thrombocytopenia with mucosal bleeding and otherwise normal labs is classic for ITP."
   },
   {
@@ -1004,8 +1063,7 @@ const WORDS = [
     "hint": "Bleeding and thrombosis with prolonged PT/PTT.",
     "diagnosis": "Disseminated intravascular coagulation",
     "management": "Treat underlying cause and support with blood products.",
-    "nextStep": "Low fibrinogen and high D-dimer are clues."
- ,
+    "nextStep": "Low fibrinogen and high D-dimer are clues.",
     "takeaway": "DIC shows simultaneous bleeding and clotting with consumption of platelets and coagulation factors."
   },
   {
@@ -1016,7 +1074,8 @@ const WORDS = [
     "hint": "Bone pain, anemia, renal dysfunction, hypercalcemia.",
     "diagnosis": "Multiple myeloma",
     "management": "Chemotherapy/immunotherapy; bisphosphonates/supportive care.",
-    "nextStep": "Look for monoclonal protein."
+    "nextStep": "Look for monoclonal protein.",
+    "takeaway": "Recognize the clinical pattern, choose the safest immediate next step, then give specific evidence-based management."
   },
   {
     "word": "BIOPSY",
@@ -1026,7 +1085,8 @@ const WORDS = [
     "hint": "Tissue sample for diagnosis.",
     "diagnosis": "Biopsy-based diagnosis",
     "management": "Management depends on pathology result.",
-    "nextStep": "Often required for cancer diagnosis."
+    "nextStep": "Often required for cancer diagnosis.",
+    "takeaway": "Recognize the clinical pattern, choose the safest immediate next step, then give specific evidence-based management."
   },
   {
     "word": "GOUT",
@@ -1036,8 +1096,7 @@ const WORDS = [
     "hint": "Acute red painful joint, often first MTP.",
     "diagnosis": "Gout",
     "management": "NSAIDs/colchicine/steroids acutely; urate-lowering chronically if indicated.",
-    "nextStep": "Negatively birefringent needle-shaped crystals."
- ,
+    "nextStep": "Negatively birefringent needle-shaped crystals.",
     "takeaway": "Acute monoarthritis is confirmed by arthrocentesis when diagnosis is uncertain; crystals guide diagnosis."
   },
   {
@@ -1048,8 +1107,7 @@ const WORDS = [
     "hint": "Multisystem autoimmune disease.",
     "diagnosis": "Systemic lupus erythematosus",
     "management": "Hydroxychloroquine baseline; steroids/immunosuppression for organ disease.",
-    "nextStep": "Renal involvement changes management."
- ,
+    "nextStep": "Renal involvement changes management.",
     "takeaway": "SLE management depends heavily on organ involvement, especially kidney and CNS disease."
   },
   {
@@ -1060,7 +1118,8 @@ const WORDS = [
     "hint": "Color changes in fingers with cold/stress.",
     "diagnosis": "Raynaud phenomenon",
     "management": "Avoid triggers; calcium channel blockers if symptomatic.",
-    "nextStep": "Secondary causes include systemic sclerosis."
+    "nextStep": "Secondary causes include systemic sclerosis.",
+    "takeaway": "Recognize the clinical pattern, choose the safest immediate next step, then give specific evidence-based management."
   },
   {
     "word": "ECZEMA",
@@ -1070,7 +1129,8 @@ const WORDS = [
     "hint": "Pruritic inflammatory rash often in flexures.",
     "diagnosis": "Atopic dermatitis",
     "management": "Emollients and topical steroids for flares.",
-    "nextStep": "Associated with asthma/allergic rhinitis."
+    "nextStep": "Associated with asthma/allergic rhinitis.",
+    "takeaway": "Recognize the clinical pattern, choose the safest immediate next step, then give specific evidence-based management."
   },
   {
     "word": "MELANOMA",
@@ -1080,7 +1140,8 @@ const WORDS = [
     "hint": "Asymmetric pigmented lesion with irregular border/color.",
     "diagnosis": "Melanoma",
     "management": "Excisional biopsy; staging guides treatment.",
-    "nextStep": "ABCDE features help identify suspicious lesions."
+    "nextStep": "ABCDE features help identify suspicious lesions.",
+    "takeaway": "Recognize the clinical pattern, choose the safest immediate next step, then give specific evidence-based management."
   },
   {
     "word": "SCABIES",
@@ -1090,7 +1151,8 @@ const WORDS = [
     "hint": "Intense itching with burrows, worse at night.",
     "diagnosis": "Scabies",
     "management": "Permethrin for patient and close contacts.",
-    "nextStep": "Wash bedding/clothing."
+    "nextStep": "Wash bedding/clothing.",
+    "takeaway": "Recognize the clinical pattern, choose the safest immediate next step, then give specific evidence-based management."
   },
   {
     "word": "TEN",
@@ -1100,7 +1162,8 @@ const WORDS = [
     "hint": "Severe drug reaction with epidermal detachment.",
     "diagnosis": "Toxic epidermal necrolysis",
     "management": "Stop offending drug; burn-unit supportive care.",
-    "nextStep": "Mucosal involvement is common."
+    "nextStep": "Mucosal involvement is common.",
+    "takeaway": "Recognize the clinical pattern, choose the safest immediate next step, then give specific evidence-based management."
   },
   {
     "word": "FRACTURE",
@@ -1110,7 +1173,8 @@ const WORDS = [
     "hint": "Pain, deformity, loss of function after trauma.",
     "diagnosis": "Fracture",
     "management": "Immobilization, pain control, reduction/surgery if indicated.",
-    "nextStep": "Check neurovascular status before and after reduction."
+    "nextStep": "Check neurovascular status before and after reduction.",
+    "takeaway": "Recognize the clinical pattern, choose the safest immediate next step, then give specific evidence-based management."
   },
   {
     "word": "HERNIA",
@@ -1120,7 +1184,8 @@ const WORDS = [
     "hint": "Bulge through fascial defect.",
     "diagnosis": "Hernia",
     "management": "Elective repair if symptomatic; urgent surgery if strangulated.",
-    "nextStep": "Incarceration/strangulation changes urgency."
+    "nextStep": "Incarceration/strangulation changes urgency.",
+    "takeaway": "Recognize the clinical pattern, choose the safest immediate next step, then give specific evidence-based management."
   },
   {
     "word": "TRIAGE",
@@ -1130,7 +1195,8 @@ const WORDS = [
     "hint": "Prioritization by acuity.",
     "diagnosis": "Emergency triage",
     "management": "Stabilize life threats first.",
-    "nextStep": "ABCDE approach comes first."
+    "nextStep": "ABCDE approach comes first.",
+    "takeaway": "Recognize the clinical pattern, choose the safest immediate next step, then give specific evidence-based management."
   },
   {
     "word": "TRAUMA",
@@ -1140,7 +1206,8 @@ const WORDS = [
     "hint": "Injury requiring acute evaluation.",
     "diagnosis": "Trauma evaluation",
     "management": "ATLS: airway, breathing, circulation, disability, exposure.",
-    "nextStep": "Treat immediately life-threatening injuries first."
+    "nextStep": "Treat immediately life-threatening injuries first.",
+    "takeaway": "Recognize the clinical pattern, choose the safest immediate next step, then give specific evidence-based management."
   },
   {
     "word": "STATIN",
@@ -1150,7 +1217,8 @@ const WORDS = [
     "hint": "LDL-lowering drug class.",
     "diagnosis": "Hyperlipidemia treatment",
     "management": "High-intensity statin for ASCVD/high-risk patients.",
-    "nextStep": "Monitor for myopathy and liver issues when clinically indicated."
+    "nextStep": "Monitor for myopathy and liver issues when clinically indicated.",
+    "takeaway": "Recognize the clinical pattern, choose the safest immediate next step, then give specific evidence-based management."
   },
   {
     "word": "OPIOID",
@@ -1160,7 +1228,8 @@ const WORDS = [
     "hint": "Analgesic causing respiratory depression/constipation.",
     "diagnosis": "Opioid effect or overdose",
     "management": "Naloxone for overdose; bowel regimen for constipation.",
-    "nextStep": "Respiratory status is priority."
+    "nextStep": "Respiratory status is priority.",
+    "takeaway": "Recognize the clinical pattern, choose the safest immediate next step, then give specific evidence-based management."
   },
   {
     "word": "WARFARIN",
@@ -1170,7 +1239,8 @@ const WORDS = [
     "hint": "Vitamin K antagonist.",
     "diagnosis": "Anticoagulation management",
     "management": "Monitor INR; reverse with vitamin K/PCC depending severity.",
-    "nextStep": "Teratogenic; many interactions."
+    "nextStep": "Teratogenic; many interactions.",
+    "takeaway": "Recognize the clinical pattern, choose the safest immediate next step, then give specific evidence-based management."
   },
   {
     "word": "HEPARIN",
@@ -1180,17 +1250,8 @@ const WORDS = [
     "hint": "Anticoagulant that can cause HIT.",
     "diagnosis": "Heparin therapy/HIT",
     "management": "Stop heparin if HIT suspected; use non-heparin anticoagulant.",
-    "nextStep": "Platelet drop 5-10 days after exposure is classic."
-  },
-  {
-    "word": "CT",
-    "specialty": "Radiology",
-    "mode": "High Yield",
-    "category": "Radiology / High Yield",
-    "hint": "Cross-sectional x-ray imaging.",
-    "diagnosis": "CT imaging",
-    "management": "Use based on suspected diagnosis and contrast considerations.",
-    "nextStep": "Great for acute bleeding, trauma, and many abdominal diagnoses."
+    "nextStep": "Platelet drop 5-10 days after exposure is classic.",
+    "takeaway": "Recognize the clinical pattern, choose the safest immediate next step, then give specific evidence-based management."
   },
   {
     "word": "MRI",
@@ -1200,7 +1261,8 @@ const WORDS = [
     "hint": "Magnetic resonance imaging.",
     "diagnosis": "MRI imaging",
     "management": "Excellent soft tissue and neuro/MSK imaging.",
-    "nextStep": "Check implants and contraindications."
+    "nextStep": "Check implants and contraindications.",
+    "takeaway": "Recognize the clinical pattern, choose the safest immediate next step, then give specific evidence-based management."
   },
   {
     "word": "XRAY",
@@ -1210,7 +1272,8 @@ const WORDS = [
     "hint": "Basic radiographic imaging.",
     "diagnosis": "X-ray imaging",
     "management": "First-line for many chest and bone complaints.",
-    "nextStep": "Fast and accessible."
+    "nextStep": "Fast and accessible.",
+    "takeaway": "Recognize the clinical pattern, choose the safest immediate next step, then give specific evidence-based management."
   },
   {
     "word": "DOPPLER",
@@ -1220,7 +1283,8 @@ const WORDS = [
     "hint": "Ultrasound flow assessment.",
     "diagnosis": "Doppler ultrasound",
     "management": "Used for vascular flow and cardiac evaluation.",
-    "nextStep": "Helpful in DVT, torsion, and echo contexts."
+    "nextStep": "Helpful in DVT, torsion, and echo contexts.",
+    "takeaway": "Recognize the clinical pattern, choose the safest immediate next step, then give specific evidence-based management."
   },
   {
     "word": "CONTRAST",
@@ -1230,7 +1294,8 @@ const WORDS = [
     "hint": "Imaging agent to improve visualization.",
     "diagnosis": "Contrast-enhanced imaging",
     "management": "Weigh diagnostic benefit against kidney/allergy risks.",
-    "nextStep": "Check renal function when relevant."
+    "nextStep": "Check renal function when relevant.",
+    "takeaway": "Recognize the clinical pattern, choose the safest immediate next step, then give specific evidence-based management."
   },
   {
     "word": "AORTA",
@@ -1240,7 +1305,8 @@ const WORDS = [
     "hint": "Largest artery.",
     "diagnosis": "Aortic anatomy/pathology",
     "management": "Management depends on aneurysm/dissection location.",
-    "nextStep": "Ascending aortic dissection is surgical."
+    "nextStep": "Ascending aortic dissection is surgical.",
+    "takeaway": "Recognize the clinical pattern, choose the safest immediate next step, then give specific evidence-based management."
   },
   {
     "word": "PLEURA",
@@ -1250,7 +1316,8 @@ const WORDS = [
     "hint": "Membrane around lungs.",
     "diagnosis": "Pleural disease",
     "management": "Treat effusion/pneumothorax/empyema by cause.",
-    "nextStep": "Thoracentesis can diagnose pleural effusion."
+    "nextStep": "Thoracentesis can diagnose pleural effusion.",
+    "takeaway": "Recognize the clinical pattern, choose the safest immediate next step, then give specific evidence-based management."
   },
   {
     "word": "RETINA",
@@ -1260,7 +1327,8 @@ const WORDS = [
     "hint": "Light-sensitive eye tissue.",
     "diagnosis": "Retinal disease",
     "management": "Urgent ophthalmology for detachment/vascular occlusion.",
-    "nextStep": "Sudden painless vision loss is high-yield."
+    "nextStep": "Sudden painless vision loss is high-yield.",
+    "takeaway": "Recognize the clinical pattern, choose the safest immediate next step, then give specific evidence-based management."
   },
   {
     "word": "CROUP",
@@ -1270,7 +1338,8 @@ const WORDS = [
     "hint": "Barking cough and inspiratory stridor in child.",
     "diagnosis": "Croup",
     "management": "Dexamethasone; nebulized epinephrine if severe.",
-    "nextStep": "Assess airway severity first."
+    "nextStep": "Assess airway severity first.",
+    "takeaway": "Recognize the clinical pattern, choose the safest immediate next step, then give specific evidence-based management."
   },
   {
     "word": "BRONCHIOLITIS",
@@ -1280,7 +1349,8 @@ const WORDS = [
     "hint": "Infant with wheezing after viral URI.",
     "diagnosis": "Bronchiolitis",
     "management": "Supportive care with hydration/oxygen if needed.",
-    "nextStep": "RSV is a common cause."
+    "nextStep": "RSV is a common cause.",
+    "takeaway": "Recognize the clinical pattern, choose the safest immediate next step, then give specific evidence-based management."
   },
   {
     "word": "MENINGITIS",
@@ -1290,7 +1360,8 @@ const WORDS = [
     "hint": "Fever, headache, neck stiffness.",
     "diagnosis": "Meningitis",
     "management": "Empiric antibiotics after cultures; do not delay if unstable.",
-    "nextStep": "Lumbar puncture unless contraindications."
+    "nextStep": "Lumbar puncture unless contraindications.",
+    "takeaway": "Recognize the clinical pattern, choose the safest immediate next step, then give specific evidence-based management."
   },
   {
     "word": "UTI",
@@ -1300,7 +1371,8 @@ const WORDS = [
     "hint": "Dysuria, frequency, urgency.",
     "diagnosis": "Urinary tract infection",
     "management": "Antibiotics based on site and risk factors.",
-    "nextStep": "Pyelonephritis includes fever/flank pain."
+    "nextStep": "Pyelonephritis includes fever/flank pain.",
+    "takeaway": "Recognize the clinical pattern, choose the safest immediate next step, then give specific evidence-based management."
   },
   {
     "word": "PYELONEPHRITIS",
@@ -1310,11 +1382,13 @@ const WORDS = [
     "hint": "Fever, flank pain, urinary symptoms.",
     "diagnosis": "Pyelonephritis",
     "management": "Outpatient if stable: ciprofloxacin/levofloxacin when appropriate or TMP-SMX if susceptible. Inpatient/severe: IV ceftriaxone, cefepime, piperacillin-tazobactam, or carbapenem depending risk.",
-    "nextStep": "Obtain urinalysis and urine culture; assess for sepsis, pregnancy, obstruction, or inability to tolerate PO."
- ,
-    "takeaway": "Fever/flank pain means upper tract infection; culture and severity assessment guide route and setting."
- ,
-    "outline": {"section": "Renal & Urinary System", "subsection": "Upper urinary tract infections — pyelonephritis", "page": 25}
+    "nextStep": "Obtain urinalysis and urine culture; assess for sepsis, pregnancy, obstruction, or inability to tolerate PO.",
+    "takeaway": "Fever/flank pain means upper tract infection; culture and severity assessment guide route and setting.",
+    "outline": {
+      "section": "Renal & Urinary System",
+      "subsection": "Upper urinary tract infections — pyelonephritis",
+      "page": 25
+    }
   },
   {
     "word": "CYSTITIS",
@@ -1324,11 +1398,13 @@ const WORDS = [
     "hint": "Lower urinary symptoms without systemic signs.",
     "diagnosis": "Cystitis",
     "management": "Uncomplicated cystitis: nitrofurantoin 100 mg PO BID x5 days, TMP-SMX DS BID x3 days if local resistance acceptable, or fosfomycin 3 g once.",
-    "nextStep": "Diagnose clinically in uncomplicated cases; urine testing/culture when complicated, recurrent, pregnant, or atypical."
- ,
-    "takeaway": "Uncomplicated cystitis is treated with short-course targeted oral therapy."
- ,
-    "outline": {"section": "Renal & Urinary System", "subsection": "Lower urinary tract infections — cystitis", "page": 25}
+    "nextStep": "Diagnose clinically in uncomplicated cases; urine testing/culture when complicated, recurrent, pregnant, or atypical.",
+    "takeaway": "Uncomplicated cystitis is treated with short-course targeted oral therapy.",
+    "outline": {
+      "section": "Renal & Urinary System",
+      "subsection": "Lower urinary tract infections — cystitis",
+      "page": 25
+    }
   },
   {
     "word": "EPILEPSY",
@@ -1338,7 +1414,8 @@ const WORDS = [
     "hint": "Recurrent unprovoked seizures.",
     "diagnosis": "Epilepsy",
     "management": "Antiseizure medication based on seizure type.",
-    "nextStep": "Counsel on driving/safety."
+    "nextStep": "Counsel on driving/safety.",
+    "takeaway": "Recognize the clinical pattern, choose the safest immediate next step, then give specific evidence-based management."
   },
   {
     "word": "DEMENTIA",
@@ -1348,7 +1425,8 @@ const WORDS = [
     "hint": "Chronic cognitive decline impairing function.",
     "diagnosis": "Dementia",
     "management": "Treat reversible causes and provide safety planning.",
-    "nextStep": "Differentiate from delirium and depression."
+    "nextStep": "Differentiate from delirium and depression.",
+    "takeaway": "Recognize the clinical pattern, choose the safest immediate next step, then give specific evidence-based management."
   },
   {
     "word": "PARKINSON",
@@ -1358,7 +1436,8 @@ const WORDS = [
     "hint": "Bradykinesia, rigidity, resting tremor.",
     "diagnosis": "Parkinson disease",
     "management": "Levodopa/carbidopa for symptomatic treatment.",
-    "nextStep": "Asymmetric resting tremor is classic."
+    "nextStep": "Asymmetric resting tremor is classic.",
+    "takeaway": "Recognize the clinical pattern, choose the safest immediate next step, then give specific evidence-based management."
   },
   {
     "word": "CATARACT",
@@ -1368,7 +1447,8 @@ const WORDS = [
     "hint": "Painless gradual vision loss with lens opacity.",
     "diagnosis": "Cataract",
     "management": "Surgery if functionally significant.",
-    "nextStep": "Glare and decreased red reflex are common."
+    "nextStep": "Glare and decreased red reflex are common.",
+    "takeaway": "Recognize the clinical pattern, choose the safest immediate next step, then give specific evidence-based management."
   },
   {
     "word": "GLAUCOMA",
@@ -1378,7 +1458,8 @@ const WORDS = [
     "hint": "Optic nerve damage often with elevated pressure.",
     "diagnosis": "Glaucoma",
     "management": "Lower intraocular pressure.",
-    "nextStep": "Acute angle closure is painful emergency."
+    "nextStep": "Acute angle closure is painful emergency.",
+    "takeaway": "Recognize the clinical pattern, choose the safest immediate next step, then give specific evidence-based management."
   },
   {
     "word": "OTITIS",
@@ -1388,7 +1469,8 @@ const WORDS = [
     "hint": "Ear pain, fever, bulging tympanic membrane.",
     "diagnosis": "Acute otitis media",
     "management": "Analgesia; antibiotics by age/severity.",
-    "nextStep": "Pneumatic otoscopy helps diagnosis."
+    "nextStep": "Pneumatic otoscopy helps diagnosis.",
+    "takeaway": "Recognize the clinical pattern, choose the safest immediate next step, then give specific evidence-based management."
   },
   {
     "word": "SINUSITIS",
@@ -1398,7 +1480,8 @@ const WORDS = [
     "hint": "Facial pain and purulent nasal symptoms.",
     "diagnosis": "Bacterial sinusitis",
     "management": "Antibiotics if severe, prolonged, or worsening.",
-    "nextStep": "Most cases are viral initially."
+    "nextStep": "Most cases are viral initially.",
+    "takeaway": "Recognize the clinical pattern, choose the safest immediate next step, then give specific evidence-based management."
   },
   {
     "word": "ANAPHYLAXIS",
@@ -1408,8 +1491,7 @@ const WORDS = [
     "hint": "Hypotension/airway symptoms after allergen exposure.",
     "diagnosis": "Anaphylaxis",
     "management": "IM epinephrine first-line.",
-    "nextStep": "Do not delay epinephrine."
- ,
+    "nextStep": "Do not delay epinephrine.",
     "takeaway": "IM epinephrine is the first and most important treatment; antihistamines are adjuncts, not first-line."
   },
   {
@@ -1420,8 +1502,7 @@ const WORDS = [
     "hint": "Peaked T waves or dangerous high potassium.",
     "diagnosis": "Hyperkalemia",
     "management": "Calcium for ECG changes, insulin/glucose, shift/remove potassium.",
-    "nextStep": "Stabilize myocardium first if ECG changes."
- ,
+    "nextStep": "Stabilize myocardium first if ECG changes.",
     "takeaway": "ECG changes from hyperkalemia require calcium first to stabilize the myocardium."
   },
   {
@@ -1432,7 +1513,8 @@ const WORDS = [
     "hint": "Low sodium, seizures if severe.",
     "diagnosis": "Hyponatremia",
     "management": "Treat based on symptoms and volume status.",
-    "nextStep": "Avoid overly rapid correction."
+    "nextStep": "Avoid overly rapid correction.",
+    "takeaway": "Recognize the clinical pattern, choose the safest immediate next step, then give specific evidence-based management."
   },
   {
     "word": "KETOACIDOSIS",
@@ -1442,7 +1524,8 @@ const WORDS = [
     "hint": "Ketones with acidosis.",
     "diagnosis": "Ketoacidosis",
     "management": "Fluids, insulin if DKA, electrolyte correction.",
-    "nextStep": "Find precipitating trigger."
+    "nextStep": "Find precipitating trigger.",
+    "takeaway": "Recognize the clinical pattern, choose the safest immediate next step, then give specific evidence-based management."
   },
   {
     "word": "THYROTOXICOSIS",
@@ -1452,7 +1535,8 @@ const WORDS = [
     "hint": "Excess thyroid hormone symptoms.",
     "diagnosis": "Thyrotoxicosis",
     "management": "Beta blocker; antithyroid therapy depending cause.",
-    "nextStep": "Low TSH is the typical first clue."
+    "nextStep": "Low TSH is the typical first clue.",
+    "takeaway": "Recognize the clinical pattern, choose the safest immediate next step, then give specific evidence-based management."
   },
   {
     "word": "PHEOCHROMOCYTOMA",
@@ -1462,7 +1546,8 @@ const WORDS = [
     "hint": "Episodic headache, sweating, palpitations, hypertension.",
     "diagnosis": "Pheochromocytoma",
     "management": "Alpha blockade before beta blockade, then surgery.",
-    "nextStep": "Never beta-block first."
+    "nextStep": "Never beta-block first.",
+    "takeaway": "Recognize the clinical pattern, choose the safest immediate next step, then give specific evidence-based management."
   },
   {
     "word": "PROLACTINOMA",
@@ -1472,7 +1557,8 @@ const WORDS = [
     "hint": "Galactorrhea, amenorrhea, visual symptoms.",
     "diagnosis": "Prolactinoma",
     "management": "Dopamine agonist such as cabergoline.",
-    "nextStep": "Check prolactin and pituitary MRI."
+    "nextStep": "Check prolactin and pituitary MRI.",
+    "takeaway": "Recognize the clinical pattern, choose the safest immediate next step, then give specific evidence-based management."
   },
   {
     "word": "CELIAC",
@@ -1482,7 +1568,8 @@ const WORDS = [
     "hint": "Malabsorption with dermatitis herpetiformis.",
     "diagnosis": "Celiac disease",
     "management": "Gluten-free diet.",
-    "nextStep": "Check tissue transglutaminase IgA."
+    "nextStep": "Check tissue transglutaminase IgA.",
+    "takeaway": "Recognize the clinical pattern, choose the safest immediate next step, then give specific evidence-based management."
   },
   {
     "word": "CROHN",
@@ -1492,7 +1579,8 @@ const WORDS = [
     "hint": "Skip lesions and transmural inflammation.",
     "diagnosis": "Crohn disease",
     "management": "Steroids for flares; biologics/immunomodulators for maintenance.",
-    "nextStep": "Can affect mouth to anus."
+    "nextStep": "Can affect mouth to anus.",
+    "takeaway": "Recognize the clinical pattern, choose the safest immediate next step, then give specific evidence-based management."
   },
   {
     "word": "COLITIS",
@@ -1502,7 +1590,8 @@ const WORDS = [
     "hint": "Bloody diarrhea with continuous colonic inflammation.",
     "diagnosis": "Ulcerative colitis",
     "management": "5-ASA, steroids for flares, biologics if severe.",
-    "nextStep": "Starts at rectum; surgery can be curative."
+    "nextStep": "Starts at rectum; surgery can be curative.",
+    "takeaway": "Recognize the clinical pattern, choose the safest immediate next step, then give specific evidence-based management."
   },
   {
     "word": "CHOLANGITIS",
@@ -1512,11 +1601,13 @@ const WORDS = [
     "hint": "Fever, RUQ pain, jaundice.",
     "diagnosis": "Ascending cholangitis",
     "management": "Broad gram-negative and anaerobic coverage such as piperacillin-tazobactam, ceftriaxone plus metronidazole, or cefepime plus metronidazole depending severity/local resistance; ERCP for source control.",
-    "nextStep": "Start IV antibiotics and arrange urgent biliary decompression with ERCP."
- ,
-    "takeaway": "Cholangitis needs antibiotics plus source control; ERCP is the key next step."
- ,
-    "outline": {"section": "Gastrointestinal System", "subsection": "Biliary system — cholangitis / bile duct obstruction", "page": 23}
+    "nextStep": "Start IV antibiotics and arrange urgent biliary decompression with ERCP.",
+    "takeaway": "Cholangitis needs antibiotics plus source control; ERCP is the key next step.",
+    "outline": {
+      "section": "Gastrointestinal System",
+      "subsection": "Biliary system — cholangitis / bile duct obstruction",
+      "page": 23
+    }
   },
   {
     "word": "CHOLECYSTITIS",
@@ -1526,7 +1617,8 @@ const WORDS = [
     "hint": "RUQ pain, fever, positive Murphy sign.",
     "diagnosis": "Acute cholecystitis",
     "management": "Antibiotics and cholecystectomy.",
-    "nextStep": "RUQ ultrasound is first-line."
+    "nextStep": "RUQ ultrasound is first-line.",
+    "takeaway": "Recognize the clinical pattern, choose the safest immediate next step, then give specific evidence-based management."
   },
   {
     "word": "PANCREATITIS",
@@ -1536,8 +1628,7 @@ const WORDS = [
     "hint": "Epigastric pain radiating to back.",
     "diagnosis": "Acute pancreatitis",
     "management": "IV fluids, analgesia, early nutrition.",
-    "nextStep": "Gallstones and alcohol are common causes."
- ,
+    "nextStep": "Gallstones and alcohol are common causes.",
     "takeaway": "Acute pancreatitis is a clinical/lab diagnosis; management is fluids, pain control, and treating the cause."
   },
   {
@@ -1548,7 +1639,8 @@ const WORDS = [
     "hint": "Marked transaminase elevation.",
     "diagnosis": "Hepatitis",
     "management": "Treat based on cause; supportive for many viral cases.",
-    "nextStep": "Check exposure, meds, alcohol, viral serologies."
+    "nextStep": "Check exposure, meds, alcohol, viral serologies.",
+    "takeaway": "Recognize the clinical pattern, choose the safest immediate next step, then give specific evidence-based management."
   },
   {
     "word": "VARICES",
@@ -1558,7 +1650,8 @@ const WORDS = [
     "hint": "Upper GI bleed in cirrhosis.",
     "diagnosis": "Esophageal variceal bleed",
     "management": "Resuscitation, octreotide, antibiotics, endoscopic banding.",
-    "nextStep": "Airway protection may be needed."
+    "nextStep": "Airway protection may be needed.",
+    "takeaway": "Recognize the clinical pattern, choose the safest immediate next step, then give specific evidence-based management."
   },
   {
     "word": "ENCEPHALOPATHY",
@@ -1568,7 +1661,8 @@ const WORDS = [
     "hint": "Confusion in liver disease.",
     "diagnosis": "Hepatic encephalopathy",
     "management": "Lactulose +/- rifaximin.",
-    "nextStep": "Precipitants include GI bleed, infection, constipation."
+    "nextStep": "Precipitants include GI bleed, infection, constipation.",
+    "takeaway": "Recognize the clinical pattern, choose the safest immediate next step, then give specific evidence-based management."
   },
   {
     "word": "PID",
@@ -1578,11 +1672,13 @@ const WORDS = [
     "hint": "Pelvic pain, cervical motion tenderness.",
     "diagnosis": "Pelvic inflammatory disease",
     "management": "Ceftriaxone 500 mg IM once plus doxycycline 100 mg PO BID for 14 days plus metronidazole 500 mg PO BID for 14 days; treat partners and test for gonorrhea/chlamydia/HIV/syphilis.",
-    "nextStep": "Treat empirically when pelvic pain plus cervical motion, uterine, or adnexal tenderness is present and no better diagnosis explains it."
- ,
-    "takeaway": "PID is treated empirically to prevent infertility and chronic pelvic pain."
- ,
-    "outline": {"section": "Female and Transgender Reproductive System & Breast", "subsection": "Infectious disorders — pelvic inflammatory disease", "page": 29}
+    "nextStep": "Treat empirically when pelvic pain plus cervical motion, uterine, or adnexal tenderness is present and no better diagnosis explains it.",
+    "takeaway": "PID is treated empirically to prevent infertility and chronic pelvic pain.",
+    "outline": {
+      "section": "Female and Transgender Reproductive System & Breast",
+      "subsection": "Infectious disorders — pelvic inflammatory disease",
+      "page": 29
+    }
   },
   {
     "word": "TORSION",
@@ -1592,7 +1688,8 @@ const WORDS = [
     "hint": "Sudden severe unilateral pelvic pain.",
     "diagnosis": "Ovarian torsion",
     "management": "Urgent surgical detorsion.",
-    "nextStep": "Doppler ultrasound can help but does not exclude."
+    "nextStep": "Doppler ultrasound can help but does not exclude.",
+    "takeaway": "Recognize the clinical pattern, choose the safest immediate next step, then give specific evidence-based management."
   },
   {
     "word": "AMENORRHEA",
@@ -1602,7 +1699,8 @@ const WORDS = [
     "hint": "Absent menses.",
     "diagnosis": "Amenorrhea",
     "management": "Pregnancy test first.",
-    "nextStep": "Then evaluate TSH, prolactin, ovarian/hypothalamic causes."
+    "nextStep": "Then evaluate TSH, prolactin, ovarian/hypothalamic causes.",
+    "takeaway": "Recognize the clinical pattern, choose the safest immediate next step, then give specific evidence-based management."
   },
   {
     "word": "PCOS",
@@ -1612,7 +1710,8 @@ const WORDS = [
     "hint": "Irregular menses, hyperandrogenism.",
     "diagnosis": "Polycystic ovary syndrome",
     "management": "Weight loss, combined OCPs, metformin if indicated.",
-    "nextStep": "Endometrial protection matters."
+    "nextStep": "Endometrial protection matters.",
+    "takeaway": "Recognize the clinical pattern, choose the safest immediate next step, then give specific evidence-based management."
   },
   {
     "word": "ENDOMETRIOSIS",
@@ -1622,7 +1721,8 @@ const WORDS = [
     "hint": "Cyclic pelvic pain and dyspareunia.",
     "diagnosis": "Endometriosis",
     "management": "NSAIDs, hormonal suppression, laparoscopy if needed.",
-    "nextStep": "Can cause infertility."
+    "nextStep": "Can cause infertility.",
+    "takeaway": "Recognize the clinical pattern, choose the safest immediate next step, then give specific evidence-based management."
   },
   {
     "word": "FIBROID",
@@ -1632,7 +1732,8 @@ const WORDS = [
     "hint": "Heavy bleeding and enlarged irregular uterus.",
     "diagnosis": "Uterine leiomyoma",
     "management": "NSAIDs/OCPs, GnRH analogs, myomectomy/hysterectomy depending goals.",
-    "nextStep": "Ultrasound is first-line."
+    "nextStep": "Ultrasound is first-line.",
+    "takeaway": "Recognize the clinical pattern, choose the safest immediate next step, then give specific evidence-based management."
   },
   {
     "word": "MASTITIS",
@@ -1642,7 +1743,8 @@ const WORDS = [
     "hint": "Breast pain, erythema, fever during lactation.",
     "diagnosis": "Lactational mastitis",
     "management": "Continue breastfeeding and give antibiotics when bacterial.",
-    "nextStep": "Abscess needs drainage."
+    "nextStep": "Abscess needs drainage.",
+    "takeaway": "Recognize the clinical pattern, choose the safest immediate next step, then give specific evidence-based management."
   },
   {
     "word": "PROSTATITIS",
@@ -1652,7 +1754,8 @@ const WORDS = [
     "hint": "Fever, pelvic pain, tender prostate.",
     "diagnosis": "Acute bacterial prostatitis",
     "management": "Antibiotics with good prostate penetration.",
-    "nextStep": "Avoid prostate massage."
+    "nextStep": "Avoid prostate massage.",
+    "takeaway": "Recognize the clinical pattern, choose the safest immediate next step, then give specific evidence-based management."
   },
   {
     "word": "EPIDIDYMITIS",
@@ -1662,11 +1765,13 @@ const WORDS = [
     "hint": "Scrotal pain relieved by elevation.",
     "diagnosis": "Epididymitis",
     "management": "Likely STI: ceftriaxone 500 mg IM once plus doxycycline 100 mg PO BID x10 days; enteric organism risk: levofloxacin when appropriate.",
-    "nextStep": "Differentiate from torsion; use Doppler ultrasound urgently if torsion cannot be excluded."
- ,
-    "takeaway": "In acute scrotal pain, never miss torsion; antibiotics depend on STI vs enteric risk."
- ,
-    "outline": {"section": "Male and Transgender Reproductive System", "subsection": "Infectious disorders — epididymitis/orchitis/STIs", "page": 31}
+    "nextStep": "Differentiate from torsion; use Doppler ultrasound urgently if torsion cannot be excluded.",
+    "takeaway": "In acute scrotal pain, never miss torsion; antibiotics depend on STI vs enteric risk.",
+    "outline": {
+      "section": "Male and Transgender Reproductive System",
+      "subsection": "Infectious disorders — epididymitis/orchitis/STIs",
+      "page": 31
+    }
   },
   {
     "word": "TESTICULAR",
@@ -1676,7 +1781,8 @@ const WORDS = [
     "hint": "Sudden scrotal pain with absent cremasteric reflex.",
     "diagnosis": "Testicular torsion",
     "management": "Immediate surgical exploration.",
-    "nextStep": "Do not delay for imaging if high suspicion."
+    "nextStep": "Do not delay for imaging if high suspicion.",
+    "takeaway": "Recognize the clinical pattern, choose the safest immediate next step, then give specific evidence-based management."
   },
   {
     "word": "BPH",
@@ -1686,7 +1792,8 @@ const WORDS = [
     "hint": "Urinary hesitancy and weak stream in older man.",
     "diagnosis": "Benign prostatic hyperplasia",
     "management": "Alpha blocker; 5-alpha-reductase inhibitor for enlarged prostate.",
-    "nextStep": "Check for retention/renal complications."
+    "nextStep": "Check for retention/renal complications.",
+    "takeaway": "Recognize the clinical pattern, choose the safest immediate next step, then give specific evidence-based management."
   },
   {
     "word": "PSA",
@@ -1696,7 +1803,8 @@ const WORDS = [
     "hint": "Prostate cancer screening marker.",
     "diagnosis": "Prostate cancer screening",
     "management": "Shared decision-making for screening.",
-    "nextStep": "Interpret PSA in clinical context."
+    "nextStep": "Interpret PSA in clinical context.",
+    "takeaway": "Recognize the clinical pattern, choose the safest immediate next step, then give specific evidence-based management."
   },
   {
     "word": "BREAST",
@@ -1706,7 +1814,8 @@ const WORDS = [
     "hint": "Mass or abnormal mammogram.",
     "diagnosis": "Breast lesion/cancer evaluation",
     "management": "Imaging and biopsy based on age/findings.",
-    "nextStep": "Triple assessment: exam, imaging, tissue."
+    "nextStep": "Triple assessment: exam, imaging, tissue.",
+    "takeaway": "Recognize the clinical pattern, choose the safest immediate next step, then give specific evidence-based management."
   },
   {
     "word": "OVARIAN",
@@ -1716,7 +1825,8 @@ const WORDS = [
     "hint": "Bloating and adnexal mass in older patient.",
     "diagnosis": "Ovarian cancer",
     "management": "Surgical staging/debulking and chemotherapy.",
-    "nextStep": "Often presents late."
+    "nextStep": "Often presents late.",
+    "takeaway": "Recognize the clinical pattern, choose the safest immediate next step, then give specific evidence-based management."
   },
   {
     "word": "LEUKEMIA",
@@ -1726,7 +1836,8 @@ const WORDS = [
     "hint": "Blasts or abnormal WBCs with cytopenias.",
     "diagnosis": "Leukemia",
     "management": "Urgent hematology care; therapy depends on type.",
-    "nextStep": "Auer rods suggest AML."
+    "nextStep": "Auer rods suggest AML.",
+    "takeaway": "Recognize the clinical pattern, choose the safest immediate next step, then give specific evidence-based management."
   },
   {
     "word": "LYMPHOMA",
@@ -1736,7 +1847,8 @@ const WORDS = [
     "hint": "Painless lymphadenopathy with B symptoms.",
     "diagnosis": "Lymphoma",
     "management": "Biopsy and staging guide therapy.",
-    "nextStep": "Excisional biopsy often preferred."
+    "nextStep": "Excisional biopsy often preferred.",
+    "takeaway": "Recognize the clinical pattern, choose the safest immediate next step, then give specific evidence-based management."
   },
   {
     "word": "NEUTROPENIA",
@@ -1746,7 +1858,8 @@ const WORDS = [
     "hint": "Low neutrophils with fever.",
     "diagnosis": "Febrile neutropenia",
     "management": "Immediate broad-spectrum antipseudomonal antibiotics.",
-    "nextStep": "Do not wait for culture results."
+    "nextStep": "Do not wait for culture results.",
+    "takeaway": "Recognize the clinical pattern, choose the safest immediate next step, then give specific evidence-based management."
   },
   {
     "word": "THALASSEMIA",
@@ -1756,7 +1869,8 @@ const WORDS = [
     "hint": "Microcytic anemia with normal/high RBC count.",
     "diagnosis": "Thalassemia",
     "management": "Supportive care; transfusions/chelation for severe disease.",
-    "nextStep": "Hemoglobin electrophoresis can help."
+    "nextStep": "Hemoglobin electrophoresis can help.",
+    "takeaway": "Recognize the clinical pattern, choose the safest immediate next step, then give specific evidence-based management."
   },
   {
     "word": "GPD",
@@ -1766,7 +1880,8 @@ const WORDS = [
     "hint": "Hemolysis after oxidant stress.",
     "diagnosis": "G6PD deficiency",
     "management": "Avoid triggers; supportive care.",
-    "nextStep": "Bite cells/Heinz bodies are classic."
+    "nextStep": "Bite cells/Heinz bodies are classic.",
+    "takeaway": "Recognize the clinical pattern, choose the safest immediate next step, then give specific evidence-based management."
   },
   {
     "word": "SPHEROCYTOSIS",
@@ -1776,7 +1891,8 @@ const WORDS = [
     "hint": "Hemolytic anemia with splenomegaly.",
     "diagnosis": "Hereditary spherocytosis",
     "management": "Folate; splenectomy in severe cases.",
-    "nextStep": "Increased MCHC can be a clue."
+    "nextStep": "Increased MCHC can be a clue.",
+    "takeaway": "Recognize the clinical pattern, choose the safest immediate next step, then give specific evidence-based management."
   },
   {
     "word": "RASH",
@@ -1786,7 +1902,8 @@ const WORDS = [
     "hint": "Skin eruption with broad differential.",
     "diagnosis": "Rash evaluation",
     "management": "Treat cause; assess systemic symptoms and mucosal involvement.",
-    "nextStep": "Drug reactions and infections are common test themes."
+    "nextStep": "Drug reactions and infections are common test themes.",
+    "takeaway": "Recognize the clinical pattern, choose the safest immediate next step, then give specific evidence-based management."
   },
   {
     "word": "CELLULITIS",
@@ -1796,11 +1913,13 @@ const WORDS = [
     "hint": "Warm, tender, erythematous skin infection.",
     "diagnosis": "Cellulitis",
     "management": "Nonpurulent outpatient cellulitis: cephalexin or dicloxacillin. MRSA risk or purulence: TMP-SMX, doxycycline, or clindamycin. Severe infection: IV vancomycin plus broader gram-negative/anaerobic coverage when indicated.",
-    "nextStep": "Determine purulent vs nonpurulent infection and assess systemic toxicity."
- ,
-    "takeaway": "Cellulitis antibiotic choice depends on purulence, MRSA risk, and severity."
- ,
-    "outline": {"section": "Skin & Subcutaneous Tissue", "subsection": "Bacterial skin infections — cellulitis/MRSA/MSSA", "page": 14}
+    "nextStep": "Determine purulent vs nonpurulent infection and assess systemic toxicity.",
+    "takeaway": "Cellulitis antibiotic choice depends on purulence, MRSA risk, and severity.",
+    "outline": {
+      "section": "Skin & Subcutaneous Tissue",
+      "subsection": "Bacterial skin infections — cellulitis/MRSA/MSSA",
+      "page": 14
+    }
   },
   {
     "word": "IMPETIGO",
@@ -1810,7 +1929,8 @@ const WORDS = [
     "hint": "Honey-colored crusted lesions.",
     "diagnosis": "Impetigo",
     "management": "Topical mupirocin or oral antibiotics if extensive.",
-    "nextStep": "Staph aureus and Strep pyogenes."
+    "nextStep": "Staph aureus and Strep pyogenes.",
+    "takeaway": "Recognize the clinical pattern, choose the safest immediate next step, then give specific evidence-based management."
   },
   {
     "word": "PSORIASIS",
@@ -1820,7 +1940,8 @@ const WORDS = [
     "hint": "Silvery plaques on extensor surfaces.",
     "diagnosis": "Psoriasis",
     "management": "Topical steroids; systemic/biologics if severe.",
-    "nextStep": "Can be associated with arthritis."
+    "nextStep": "Can be associated with arthritis.",
+    "takeaway": "Recognize the clinical pattern, choose the safest immediate next step, then give specific evidence-based management."
   },
   {
     "word": "ROSACEA",
@@ -1830,17 +1951,8 @@ const WORDS = [
     "hint": "Facial flushing and papules.",
     "diagnosis": "Rosacea",
     "management": "Topical metronidazole/azelaic acid; avoid triggers.",
-    "nextStep": "No comedones unlike acne."
-  },
-  {
-    "word": "RA",
-    "specialty": "Rheumatology",
-    "mode": "High Yield",
-    "category": "Rheumatology / High Yield",
-    "hint": "Symmetric inflammatory small-joint arthritis.",
-    "diagnosis": "Rheumatoid arthritis",
-    "management": "DMARDs such as methotrexate.",
-    "nextStep": "Treat early to prevent joint damage."
+    "nextStep": "No comedones unlike acne.",
+    "takeaway": "Recognize the clinical pattern, choose the safest immediate next step, then give specific evidence-based management."
   },
   {
     "word": "SLE",
@@ -1850,7 +1962,8 @@ const WORDS = [
     "hint": "Multisystem autoimmune disease.",
     "diagnosis": "Systemic lupus erythematosus",
     "management": "Hydroxychloroquine; steroids/immunosuppression by severity.",
-    "nextStep": "Check renal involvement with UA/protein."
+    "nextStep": "Check renal involvement with UA/protein.",
+    "takeaway": "Recognize the clinical pattern, choose the safest immediate next step, then give specific evidence-based management."
   },
   {
     "word": "VASCULITIS",
@@ -1860,7 +1973,8 @@ const WORDS = [
     "hint": "Inflammation of blood vessels causing organ ischemia.",
     "diagnosis": "Vasculitis",
     "management": "Immunosuppression based on type/severity.",
-    "nextStep": "Biopsy or serologies can support diagnosis."
+    "nextStep": "Biopsy or serologies can support diagnosis.",
+    "takeaway": "Recognize the clinical pattern, choose the safest immediate next step, then give specific evidence-based management."
   },
   {
     "word": "SARCOID",
@@ -1870,7 +1984,8 @@ const WORDS = [
     "hint": "Noncaseating granulomas and hilar adenopathy.",
     "diagnosis": "Sarcoidosis",
     "management": "Observation if mild; steroids if organ-threatening.",
-    "nextStep": "Can affect lungs, eyes, skin, heart."
+    "nextStep": "Can affect lungs, eyes, skin, heart.",
+    "takeaway": "Recognize the clinical pattern, choose the safest immediate next step, then give specific evidence-based management."
   },
   {
     "word": "ANCA",
@@ -1880,7 +1995,8 @@ const WORDS = [
     "hint": "Antibody associated with small-vessel vasculitis.",
     "diagnosis": "ANCA-associated vasculitis",
     "management": "High-dose steroids plus immunosuppression.",
-    "nextStep": "Renal/pulmonary involvement is high-risk."
+    "nextStep": "Renal/pulmonary involvement is high-risk.",
+    "takeaway": "Recognize the clinical pattern, choose the safest immediate next step, then give specific evidence-based management."
   }
 ];
 
@@ -1915,210 +2031,6 @@ const dailyTitle = document.getElementById("dailyTitle");
 const dailySubtext = document.getElementById("dailySubtext");
 const dailyStatus = document.getElementById("dailyStatus");
 
-function todayKey() {
-  return new Date().toISOString().slice(0, 10);
-}
-
-function friendlyDate() {
-  return new Date().toLocaleDateString(undefined, { month: "long", day: "numeric", year: "numeric" });
-}
-
-function hashString(str) {
-  let hash = 0;
-  for (let i = 0; i < str.length; i++) hash = ((hash << 5) - hash) + str.charCodeAt(i);
-  return Math.abs(hash);
-}
-
-function getStats() {
-  return JSON.parse(localStorage.getItem("medwordleStats") || '{"played":0,"wins":0,"streak":0,"misses":{}}');
-}
-
-function saveStats(stats) {
-  localStorage.setItem("medwordleStats", JSON.stringify(stats));
-  renderStats();
-}
-
-function renderStats() {
-  const stats = getStats();
-  document.getElementById("gamesPlayed").textContent = stats.played || 0;
-  document.getElementById("winRate").textContent = stats.played ? Math.round((stats.wins / stats.played) * 100) + "%" : "0%";
-  document.getElementById("currentStreak").textContent = stats.streak || 0;
-  const misses = stats.misses || {};
-  const weak = Object.entries(misses).sort((a,b) => b[1] - a[1])[0];
-  document.getElementById("weakTopic").textContent = weak ? weak[0] : "None yet";
-}
-
-function classNameForSpecialty(specialty) {
-  return THEMES[specialty] || "theme-all";
-}
-
-function applyTheme(specialty) {
-  Object.values(THEMES).forEach(cls => document.body.classList.remove(cls));
-  document.body.classList.add(classNameForSpecialty(specialty));
-}
-
-function modeAllows(item) {
-  if (selectedMode === "High Yield") return item.mode === "High Yield";
-  if (selectedMode === "All Outline") return item.mode === "High Yield" || item.mode === "All Outline";
-  return true;
-}
-
-function adaptiveSpecialty() {
-  const stats = getStats();
-  const misses = stats.misses || {};
-  const weak = Object.entries(misses).sort((a,b) => b[1] - a[1])[0];
-  return weak ? weak[0] : "All Medicine";
-}
-
-function getPool() {
-  let pool = WORDS.filter(modeAllows);
-  let effectiveSpecialty = selectedSpecialty;
-
-  if (playType === "Adaptive") effectiveSpecialty = adaptiveSpecialty();
-
-  if (effectiveSpecialty !== "All Medicine") {
-    const specialtyPool = pool.filter(item => item.specialty === effectiveSpecialty);
-    if (specialtyPool.length > 0) return specialtyPool;
-  }
-  return pool.length ? pool : WORDS;
-}
-
-function dailyStorageKey() {
-  return "medwordleDaily-" + todayKey();
-}
-
-function getDailyRecord() {
-  return JSON.parse(localStorage.getItem(dailyStorageKey()) || "null");
-}
-
-function saveDailyRecord(record) {
-  localStorage.setItem(dailyStorageKey(), JSON.stringify(record));
-}
-
-function chooseWord() {
-  if (playType === "Daily Challenge") {
-    // Universal daily challenge: ignores specialty and difficulty.
-    const pool = DAILY_POOL.length ? DAILY_POOL : WORDS;
-    const idx = hashString("MedWordleOfficialDaily:" + todayKey()) % pool.length;
-    answerObj = pool[idx];
-  } else {
-    const pool = getPool();
-    answerObj = pool[Math.floor(Math.random() * pool.length)];
-  }
-  answer = answerObj.word.toUpperCase();
-}
-
-function updateControlsForPlayType() {
-  const isDaily = playType === "Daily Challenge";
-  specialtySelect.disabled = isDaily;
-  modeSelect.disabled = isDaily;
-
-  dailyBanner.classList.toggle("hidden", !isDaily);
-
-  if (isDaily) {
-    // Display locked universal settings while preserving the user's practice preferences in localStorage.
-    specialtySelect.value = "All Medicine";
-    modeSelect.value = "High Yield";
-    dailyTitle.textContent = "MedWordle Daily • " + friendlyDate();
-    dailySubtext.textContent = "One universal word per day. Specialty and difficulty are locked for the official challenge.";
-    const rec = getDailyRecord();
-    dailyStatus.textContent = rec ? (rec.won ? "Completed ✅" : "Completed") : "Available";
-    newGameBtn.disabled = true;
-    practiceWeakBtn.classList.remove("hidden");
-  } else {
-    specialtySelect.value = selectedSpecialty;
-    modeSelect.value = selectedMode;
-    newGameBtn.disabled = false;
-    practiceWeakBtn.classList.add("hidden");
-  }
-}
-
-function initGame() {
-  updateControlsForPlayType();
-  chooseWord();
-
-  applyTheme(playType === "Daily Challenge" ? "All Medicine" : (playType === "Adaptive" ? adaptiveSpecialty() : selectedSpecialty));
-
-  currentRow = 0; gameOver = false; guesses = []; rowScores = []; currentResult = null;
-  board.innerHTML = ""; keyboard.innerHTML = "";
-  pearlBox.classList.add("hidden");
-  pearlText.innerHTML = "";
-  hintEl.textContent = `Hint: ${answerObj.hint}`;
-  hintEl.classList.add("hidden");
-  hintBtn.textContent = "Show Hint";
-  input.value = "";
-  input.maxLength = answer.length;
-  input.placeholder = `${answer.length}-letter term`;
-  input.disabled = false;
-
-  if (playType === "Daily Challenge") {
-    categoryEl.textContent = "Official Daily • All Medicine";
-    modeDescriptionEl.textContent = "Same word for everyone today. Come back tomorrow for a new challenge.";
-  } else {
-    categoryEl.textContent = `${playType} • ${answerObj.specialty} • ${selectedMode}`;
-    modeDescriptionEl.textContent = MODE_DESCRIPTIONS[selectedMode];
-  }
-
-  buildBoard();
-  buildKeyboard();
-  renderStats();
-
-  const dailyRecord = playType === "Daily Challenge" ? getDailyRecord() : null;
-  if (dailyRecord) {
-    restoreDailyRecord(dailyRecord);
-  } else {
-    messageEl.textContent = `Guess the ${answer.length}-letter medical term.`;
-    messageEl.className = "message";
-    input.focus();
-  }
-}
-
-function buildBoard() {
-  for (let r = 0; r < MAX_ATTEMPTS; r++) {
-    const row = document.createElement("div");
-    row.className = "row";
-    row.style.gridTemplateColumns = `repeat(${answer.length}, auto)`;
-    for (let c = 0; c < answer.length; c++) {
-      const tile = document.createElement("div");
-      tile.className = "tile"; tile.id = `tile-${r}-${c}`;
-      row.appendChild(tile);
-    }
-    board.appendChild(row);
-  }
-}
-
-function buildKeyboard() {
-  "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("").forEach(letter => {
-    const key = document.createElement("div");
-    key.className = "key"; key.id = `key-${letter}`; key.textContent = letter;
-    keyboard.appendChild(key);
-  });
-}
-
-function scoreGuess(guess) {
-  const result = Array(answer.length).fill("absent");
-  const answerLetters = answer.split("");
-  for (let i = 0; i < answer.length; i++) {
-    if (guess[i] === answer[i]) { result[i] = "correct"; answerLetters[i] = null; }
-  }
-  for (let i = 0; i < answer.length; i++) {
-    if (result[i] === "correct") continue;
-    const foundIndex = answerLetters.indexOf(guess[i]);
-    if (foundIndex !== -1) { result[i] = "present"; answerLetters[foundIndex] = null; }
-  }
-  return result;
-}
-
-function updateKeyboard(letter, status) {
-  const key = document.getElementById(`key-${letter}`);
-  if (!key) return;
-  const rank = { absent: 1, present: 2, correct: 3 };
-  const current = key.dataset.status || "";
-  if (!current || rank[status] > rank[current]) {
-    key.className = `key ${status}`; key.dataset.status = status;
-  }
-}
-
 const OUTLINE_URL = "https://www.usmle.org/sites/default/files/2022-01/USMLE_Content_Outline_0.pdf";
 
 const OUTLINE_MAP = {
@@ -2144,19 +2056,6 @@ const OUTLINE_MAP = {
   "Anatomy": { section: "USMLE Organ System Outline", subsection: "Anatomic structures as tested through organ systems", page: 3 }
 };
 
-function getOutlineInfo() {
-  return answerObj.outline || OUTLINE_MAP[answerObj.specialty] || {
-    section: "USMLE Content Outline",
-    subsection: "Relevant organ system content",
-    page: 3
-  };
-}
-
-function nbmeWhyText() {
-  const specialty = answerObj.specialty || "medicine";
-  return `Step 2 usually tests the pattern first, then the safest next best step. For ${specialty.toLowerCase()}, stabilize emergencies before definitive testing or long-term management.`;
-}
-
 const TRIAL_REFERENCE_MAP = {
   "STEMI": { label: "DANAMI-2 / ACC-AHA ACS guidance: primary PCI strategy for STEMI", url: "https://pubmed.ncbi.nlm.nih.gov/12480399/" },
   "NSTEMI": { label: "TACTICS-TIMI 18 / ACC-AHA ACS guidance: early invasive strategy in higher-risk NSTE-ACS", url: "https://pubmed.ncbi.nlm.nih.gov/11287918/" },
@@ -2176,6 +2075,182 @@ const TRIAL_REFERENCE_MAP = {
   "CHOLANGITIS": { label: "Tokyo Guidelines: acute cholangitis source control", url: "https://pubmed.ncbi.nlm.nih.gov/29090866/" }
 };
 
+function todayKey() {
+  return new Date().toISOString().slice(0, 10);
+}
+
+function friendlyDate() {
+  return new Date().toLocaleDateString(undefined, { month: "long", day: "numeric", year: "numeric" });
+}
+
+function hashString(str) {
+  let hash = 0;
+  for (let i = 0; i < str.length; i++) hash = ((hash << 5) - hash) + str.charCodeAt(i);
+  return Math.abs(hash);
+}
+
+function classNameForSpecialty(specialty) { return THEMES[specialty] || "theme-all"; }
+
+function applyTheme(specialty) {
+  Object.values(THEMES).forEach(cls => document.body.classList.remove(cls));
+  document.body.classList.add(classNameForSpecialty(specialty));
+}
+
+function modeAllows(item) {
+  if (selectedMode === "High Yield") return item.mode === "High Yield";
+  if (selectedMode === "All Outline") return item.mode === "High Yield" || item.mode === "All Outline";
+  return true;
+}
+
+function adaptiveSpecialty() {
+  return "All Medicine";
+}
+
+function getPool() {
+  let pool = WORDS.filter(modeAllows);
+  let effectiveSpecialty = playType === "Adaptive" ? adaptiveSpecialty() : selectedSpecialty;
+
+  if (effectiveSpecialty !== "All Medicine") {
+    const specialtyPool = pool.filter(item => item.specialty === effectiveSpecialty);
+    if (specialtyPool.length > 0) return specialtyPool;
+  }
+  return pool.length ? pool : WORDS;
+}
+
+function dailyStorageKey() { return "medwordleDaily-" + todayKey(); }
+function getDailyRecord() { return JSON.parse(localStorage.getItem(dailyStorageKey()) || "null"); }
+function saveDailyRecord(record) { localStorage.setItem(dailyStorageKey(), JSON.stringify(record)); }
+
+function chooseWord() {
+  if (playType === "Daily Challenge") {
+    const pool = DAILY_POOL.length ? DAILY_POOL : WORDS;
+    const idx = hashString("MedWordleOfficialDaily:" + todayKey()) % pool.length;
+    answerObj = pool[idx];
+  } else {
+    const pool = getPool();
+    answerObj = pool[Math.floor(Math.random() * pool.length)];
+  }
+  answer = answerObj.word.toUpperCase();
+}
+
+function updateControlsForPlayType() {
+  const isDaily = playType === "Daily Challenge";
+  specialtySelect.disabled = isDaily;
+  modeSelect.disabled = isDaily;
+  dailyBanner.classList.toggle("hidden", !isDaily);
+
+  if (isDaily) {
+    specialtySelect.value = "All Medicine";
+    modeSelect.value = "High Yield";
+    dailyTitle.textContent = "MedWordle Daily • " + friendlyDate();
+    dailySubtext.textContent = "One universal word per day. Specialty and difficulty are locked for the official challenge.";
+    const rec = getDailyRecord();
+    dailyStatus.textContent = rec ? (rec.won ? "Completed ✅" : "Completed") : "Available";
+    newGameBtn.disabled = true;
+    practiceWeakBtn.classList.remove("hidden");
+  } else {
+    specialtySelect.value = selectedSpecialty;
+    modeSelect.value = selectedMode;
+    newGameBtn.disabled = false;
+    practiceWeakBtn.classList.add("hidden");
+  }
+}
+
+function initGame() {
+  updateControlsForPlayType();
+  chooseWord();
+  applyTheme(playType === "Daily Challenge" ? "All Medicine" : (playType === "Adaptive" ? adaptiveSpecialty() : selectedSpecialty));
+
+  currentRow = 0; gameOver = false; guesses = []; rowScores = []; currentResult = null;
+  board.innerHTML = ""; keyboard.innerHTML = "";
+  pearlBox.classList.add("hidden");
+  pearlText.innerHTML = "";
+  hintEl.textContent = `Hint: ${answerObj.hint}`;
+  hintEl.classList.add("hidden");
+  hintBtn.textContent = "Show Hint";
+  input.value = "";
+  input.maxLength = answer.length;
+  input.placeholder = `${answer.length}-letter term`;
+  input.disabled = false;
+
+  if (playType === "Daily Challenge") {
+    categoryEl.textContent = "Official Daily • All Medicine";
+    modeDescriptionEl.textContent = "Same word for everyone today. Come back tomorrow for a new challenge.";
+  } else {
+    categoryEl.textContent = `${playType} • ${answerObj.specialty} • ${selectedMode}`;
+    modeDescriptionEl.textContent = MODE_DESCRIPTIONS[selectedMode];
+  }
+
+  buildBoard();
+  buildKeyboard();
+
+  const dailyRecord = playType === "Daily Challenge" ? getDailyRecord() : null;
+  if (dailyRecord) restoreDailyRecord(dailyRecord);
+  else {
+    messageEl.textContent = `Guess the ${answer.length}-letter medical term.`;
+    messageEl.className = "message";
+    input.focus();
+  }
+}
+
+function buildBoard() {
+  for (let r = 0; r < MAX_ATTEMPTS; r++) {
+    const row = document.createElement("div");
+    row.className = "row";
+    row.style.gridTemplateColumns = `repeat(${answer.length}, auto)`;
+    for (let c = 0; c < answer.length; c++) {
+      const tile = document.createElement("div");
+      tile.className = "tile";
+      tile.id = `tile-${r}-${c}`;
+      row.appendChild(tile);
+    }
+    board.appendChild(row);
+  }
+}
+
+function buildKeyboard() {
+  "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("").forEach(letter => {
+    const key = document.createElement("div");
+    key.className = "key";
+    key.id = `key-${letter}`;
+    key.textContent = letter;
+    keyboard.appendChild(key);
+  });
+}
+
+function scoreGuess(guess) {
+  const result = Array(answer.length).fill("absent");
+  const answerLetters = answer.split("");
+  for (let i = 0; i < answer.length; i++) {
+    if (guess[i] === answer[i]) { result[i] = "correct"; answerLetters[i] = null; }
+  }
+  for (let i = 0; i < answer.length; i++) {
+    if (result[i] === "correct") continue;
+    const foundIndex = answerLetters.indexOf(guess[i]);
+    if (foundIndex !== -1) { result[i] = "present"; answerLetters[foundIndex] = null; }
+  }
+  return result;
+}
+
+function updateKeyboard(letter, status) {
+  const key = document.getElementById(`key-${letter}`);
+  if (!key) return;
+  const rank = { absent: 1, present: 2, correct: 3 };
+  const current = key.dataset.status || "";
+  if (!current || rank[status] > rank[current]) {
+    key.className = `key ${status}`;
+    key.dataset.status = status;
+  }
+}
+
+function getOutlineInfo() {
+  return answerObj.outline || OUTLINE_MAP[answerObj.specialty] || {
+    section: "USMLE Content Outline",
+    subsection: "Relevant organ system content",
+    page: 3
+  };
+}
+
 function getTrialReference() {
   return answerObj.trial || TRIAL_REFERENCE_MAP[answerObj.word] || null;
 }
@@ -2191,7 +2266,7 @@ function showPearl() {
     <div class="pearl-row"><strong>Diagnosis:</strong> ${answerObj.diagnosis}</div>
     <div class="pearl-row next-step"><strong>Next Best Step:</strong> ${answerObj.nextStep}</div>
     <div class="pearl-row"><strong>Management:</strong> ${answerObj.management}</div>
-    <div class="pearl-row why"><strong>NBME Takeaway:</strong> ${answerObj.takeaway || "Recognize the clinical pattern, choose the safest immediate next step, then give specific evidence-based management."}</div>
+    <div class="pearl-row why"><strong>NBME Takeaway:</strong> ${answerObj.takeaway}</div>
     <div class="pearl-row outline-link"><a href="${outlineHref}" target="_blank" rel="noopener">📖 USMLE Outline: ${outline.section} — ${outline.subsection}</a></div>
     ${trialHtml}
   `;
@@ -2212,7 +2287,7 @@ function recordResult(won) {
       specialty: answerObj.specialty,
       mode: "Official Daily"
     });
-    if (dailyStatus) dailyStatus.textContent = won ? "Completed ✅" : "Completed";
+    dailyStatus.textContent = won ? "Completed ✅" : "Completed";
   }
 }
 
@@ -2253,26 +2328,34 @@ function submitGuess(rawGuess) {
 
   for (let i = 0; i < answer.length; i++) {
     const tile = document.getElementById(`tile-${currentRow}-${i}`);
-    tile.textContent = guess[i]; tile.classList.add(score[i]); updateKeyboard(guess[i], score[i]);
+    tile.textContent = guess[i];
+    tile.classList.add(score[i]);
+    updateKeyboard(guess[i], score[i]);
   }
 
   if (guess === answer) {
-    gameOver = true; input.disabled = true;
+    gameOver = true;
+    input.disabled = true;
     messageEl.textContent = `Correct — ${answer}.`;
     messageEl.className = "message win";
-    showPearl(); recordResult(true); return;
+    showPearl();
+    recordResult(true);
+    return;
   }
 
   currentRow++;
   if (currentRow >= MAX_ATTEMPTS) {
-    gameOver = true; input.disabled = true;
+    gameOver = true;
+    input.disabled = true;
     messageEl.textContent = `Good try. The answer was ${answer}.`;
     messageEl.className = "message loss";
-    showPearl(); recordResult(false);
+    showPearl();
+    recordResult(false);
   } else {
     messageEl.textContent = `${MAX_ATTEMPTS - currentRow} guesses remaining.`;
   }
-  input.value = ""; input.focus();
+  input.value = "";
+  input.focus();
 }
 
 function emojiGrid() {
@@ -2283,22 +2366,9 @@ function emojiGrid() {
 function resultText() {
   const status = currentResult === true ? `${guesses.length}/${MAX_ATTEMPTS}` : currentResult === false ? `X/${MAX_ATTEMPTS}` : "in progress";
   const title = playType === "Daily Challenge" ? `MedWordle Daily ${todayKey()}` : `MedWordle Practice ${todayKey()}`;
-  const stats = getStats();
-  return `${title}\n${status} • ${answerObj.specialty}\n${emojiGrid()}\n🔥 Streak: ${stats.streak || 0}\n${window.location.href}`;
+  return `${title}\n${status} • ${answerObj.specialty}\n${emojiGrid()}\n${window.location.href}`;
 }
 
-specialtySelect.value = selectedSpecialty;
-modeSelect.value = selectedMode;
-playTypeSelect.value = playType;
-
-specialtySelect.addEventListener("change", () => {
-  if (playType === "Daily Challenge") {
-    specialtySelect.value = selectedSpecialty;
-    return;
-  }
-  selectedSpecialty = specialtySelect.value;
-  localStorage.setItem("medwordleSpecialty", selectedSpecialty);
-  
 function reflectionDateKey() {
   return new Date().toISOString().slice(0, 10);
 }
@@ -2308,75 +2378,53 @@ function loadReflection() {
   const today = reflections[reflectionDateKey()];
   if (!today) return;
 
-  const rose = document.getElementById("roseInput");
-  const thorn = document.getElementById("thornInput");
-  const buffalo = document.getElementById("buffaloInput");
-
-  if (rose) rose.value = today.rose || "";
-  if (thorn) thorn.value = today.thorn || "";
-  if (buffalo) buffalo.value = today.buffalo || "";
+  document.getElementById("roseInput").value = today.rose || "";
+  document.getElementById("thornInput").value = today.thorn || "";
+  document.getElementById("buffaloInput").value = today.buffalo || "";
 }
 
 function saveReflection() {
-  const rose = document.getElementById("roseInput")?.value || "";
-  const thorn = document.getElementById("thornInput")?.value || "";
-  const buffalo = document.getElementById("buffaloInput")?.value || "";
+  const rose = document.getElementById("roseInput").value || "";
+  const thorn = document.getElementById("thornInput").value || "";
+  const buffalo = document.getElementById("buffaloInput").value || "";
 
   const reflections = JSON.parse(localStorage.getItem("medwordle_reflections") || "{}");
   reflections[reflectionDateKey()] = { rose, thorn, buffalo, savedAt: new Date().toISOString() };
   localStorage.setItem("medwordle_reflections", JSON.stringify(reflections));
 
-  const status = document.getElementById("reflectionStatus");
-  if (status) status.textContent = "Saved for today ✅";
-
-  if (typeof gtag === "function") {
-    gtag("event", "reflection_saved");
-  }
+  document.getElementById("reflectionStatus").textContent = "Saved for today ✅";
+  if (typeof gtag === "function") gtag("event", "reflection_saved");
 }
 
 async function shareReflection() {
-  const rose = document.getElementById("roseInput")?.value || "";
-  const thorn = document.getElementById("thornInput")?.value || "";
-  const buffalo = document.getElementById("buffaloInput")?.value || "";
-
+  const rose = document.getElementById("roseInput").value || "";
+  const thorn = document.getElementById("thornInput").value || "";
+  const buffalo = document.getElementById("buffaloInput").value || "";
   const text = `Rose 🌹: ${rose || "—"}\nThorn 🌵: ${thorn || "—"}\nBuffalo 🐃: ${buffalo || "—"}\n\nShared from MedWordle`;
 
   try {
-    if (navigator.share) {
-      await navigator.share({ title: "Rose, Thorn & Buffalo", text });
-    } else {
+    if (navigator.share) await navigator.share({ title: "Rose, Thorn & Buffalo", text });
+    else {
       await navigator.clipboard.writeText(text);
-      const status = document.getElementById("reflectionStatus");
-      if (status) status.textContent = "Reflection copied to clipboard ✅";
+      document.getElementById("reflectionStatus").textContent = "Reflection copied to clipboard ✅";
     }
   } catch (e) {
-    const status = document.getElementById("reflectionStatus");
-    if (status) status.textContent = "Share canceled.";
+    document.getElementById("reflectionStatus").textContent = "Share canceled.";
   }
 }
 
-const saveReflectionBtn = document.getElementById("saveReflectionBtn");
-const shareReflectionBtn = document.getElementById("shareReflectionBtn");
-if (saveReflectionBtn) saveReflectionBtn.addEventListener("click", saveReflection);
-if (shareReflectionBtn) shareReflectionBtn.addEventListener("click", shareReflection);
-loadReflection();
+specialtySelect.value = selectedSpecialty;
+modeSelect.value = selectedMode;
+playTypeSelect.value = playType;
 
-
-document.querySelectorAll(".playlist-btn").forEach((btn) => {
-  btn.addEventListener("click", () => {
-    if (typeof gtag === "function") {
-      gtag("event", "study_playlist_clicked", { platform: btn.textContent.trim() });
-    }
-  });
-});
-
-initGame();
+specialtySelect.addEventListener("change", () => {
+  if (playType === "Daily Challenge") { specialtySelect.value = "All Medicine"; return; }
+  selectedSpecialty = specialtySelect.value;
+  localStorage.setItem("medwordleSpecialty", selectedSpecialty);
+  initGame();
 });
 modeSelect.addEventListener("change", () => {
-  if (playType === "Daily Challenge") {
-    modeSelect.value = selectedMode;
-    return;
-  }
+  if (playType === "Daily Challenge") { modeSelect.value = "High Yield"; return; }
   selectedMode = modeSelect.value;
   localStorage.setItem("medwordleMode", selectedMode);
   initGame();
@@ -2386,7 +2434,10 @@ playTypeSelect.addEventListener("change", () => {
   localStorage.setItem("medwordlePlayType", playType);
   initGame();
 });
-form.addEventListener("submit", event => { event.preventDefault(); submitGuess(input.value); });
+form.addEventListener("submit", event => {
+  event.preventDefault();
+  submitGuess(input.value);
+});
 hintBtn.addEventListener("click", () => {
   hintEl.classList.toggle("hidden");
   hintBtn.textContent = hintEl.classList.contains("hidden") ? "Show Hint" : "Hide Hint";
@@ -2410,6 +2461,20 @@ shareBtn.addEventListener("click", async () => {
     messageEl.textContent = "Share canceled.";
   }
 });
-input.addEventListener("input", () => { input.value = input.value.toUpperCase().replace(/[^A-Z]/g, ""); });
+input.addEventListener("input", () => {
+  input.value = input.value.toUpperCase().replace(/[^A-Z]/g, "");
+});
 
+document.querySelectorAll(".playlist-btn").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    if (typeof gtag === "function") {
+      gtag("event", "study_playlist_clicked", { platform: btn.textContent.trim() });
+    }
+  });
+});
+
+document.getElementById("saveReflectionBtn").addEventListener("click", saveReflection);
+document.getElementById("shareReflectionBtn").addEventListener("click", shareReflection);
+
+loadReflection();
 initGame();
