@@ -2012,7 +2012,7 @@ function chooseWord() {
     answerObj = pool[idx];
   } else {
     const pool = getPool();
-    answerObj = pool[Math.floor(Math.random() * pool.length)];
+    answerObj = choosePracticeNoRepeat(pool);
   }
   answer = answerObj.word.toUpperCase();
 }
@@ -2171,6 +2171,54 @@ function renderCards() {
     });
 }
 
+
+const TRIAL_REFERENCE_MAP = {
+  "STEMI": { label: "Key evidence/guideline context: Fibrinolytic Therapy Trialists’ overview; contemporary ACC/AHA ACS guidance", url: "https://www.ahajournals.org/doi/10.1161/CIR.0000000000001309" },
+  "NSTEMI": { label: "Key evidence/guideline context: TIMI risk framework; contemporary ACC/AHA ACS guidance", url: "https://www.ahajournals.org/doi/10.1161/CIR.0000000000001309" },
+  "AFIB": { label: "Key evidence/guideline context: AFFIRM trial and contemporary AF guidelines", url: "https://www.nejm.org/doi/full/10.1056/NEJMoa021328" },
+  "CHF": { label: "Key evidence/guideline context: PARADIGM-HF / modern HFrEF therapy", url: "https://www.nejm.org/doi/full/10.1056/NEJMoa1409077" },
+  "EMBOLUS": { label: "Key evidence/guideline context: PIOPED/PE diagnostic strategy and CHEST-style anticoagulation principles", url: "https://pubmed.ncbi.nlm.nih.gov/23394420/" },
+  "PNEUMONIA": { label: "Guideline context: ATS/IDSA community-acquired pneumonia guideline", url: "https://www.idsociety.org/practice-guideline/community-acquired-pneumonia-cap-in-adults/" },
+  "COPD": { label: "Guideline context: GOLD COPD exacerbation strategy", url: "https://goldcopd.org/" },
+  "ASTHMA": { label: "Guideline context: GINA asthma strategy", url: "https://ginasthma.org/" },
+  "DKA": { label: "Guideline context: ADA hyperglycemic crises standards", url: "https://diabetesjournals.org/care/issue" },
+  "SEPSIS": { label: "Key evidence/guideline context: Surviving Sepsis Campaign", url: "https://www.sccm.org/SurvivingSepsisCampaign/Guidelines" },
+  "STROKE": { label: "Key evidence context: NINDS tPA trial / acute stroke reperfusion principles", url: "https://www.nejm.org/doi/full/10.1056/NEJM199512143332401" },
+  "ECTOPIC": { label: "Guideline context: ACOG ectopic pregnancy management", url: "https://www.acog.org/clinical" },
+  "HELLP": { label: "Guideline context: ACOG hypertensive disorders of pregnancy", url: "https://www.acog.org/clinical" },
+  "ECLAMPSIA": { label: "Guideline context: ACOG hypertensive disorders of pregnancy", url: "https://www.acog.org/clinical" },
+  "PID": { label: "Guideline context: CDC STI Treatment Guidelines", url: "https://www.cdc.gov/std/treatment-guidelines/default.htm" },
+  "CYSTITIS": { label: "Guideline context: IDSA uncomplicated UTI guidance", url: "https://www.idsociety.org/practice-guideline/uncomplicated-cystitis-and-pyelonephritis-uti/" },
+  "PYELONEPHRITIS": { label: "Guideline context: IDSA uncomplicated UTI guidance", url: "https://www.idsociety.org/practice-guideline/uncomplicated-cystitis-and-pyelonephritis-uti/" },
+  "CELLULITIS": { label: "Guideline context: IDSA skin and soft tissue infection guideline", url: "https://www.idsociety.org/practice-guideline/skin-and-soft-tissue-infections/" },
+  "CHOLANGITIS": { label: "Guideline context: Tokyo Guidelines for acute cholangitis", url: "https://pubmed.ncbi.nlm.nih.gov/29090866/" }
+};
+
+function getTrialReference() {
+  return answerObj.trial || TRIAL_REFERENCE_MAP[answerObj.word] || null;
+}
+
+function poolKey(pool) {
+  const specialtyPart = playType === "Adaptive" ? adaptiveSpecialty() : selectedSpecialty;
+  return `medwordleSeen:${playType}:${specialtyPart}:${selectedMode}:${pool.map(w => w.word).join("-")}`;
+}
+
+function choosePracticeNoRepeat(pool) {
+  const key = poolKey(pool);
+  let seen = JSON.parse(localStorage.getItem(key) || "[]");
+  let available = pool.filter(item => !seen.includes(item.word));
+
+  if (!available.length) {
+    seen = [];
+    available = pool;
+  }
+
+  const selected = available[Math.floor(Math.random() * available.length)];
+  seen.push(selected.word);
+  localStorage.setItem(key, JSON.stringify(seen));
+  return selected;
+}
+
 function initGame() {
   updateControlsForPlayType();
   chooseWord();
@@ -2298,6 +2346,8 @@ function nbmeWhyText() {
 function showPearl() {
   const outline = getOutlineInfo();
   const outlineHref = `${OUTLINE_URL}#page=${outline.page}`;
+  const trial = getTrialReference();
+  const trialHtml = trial ? `<div class="pearl-row trial-link"><a href="${trial.url}" target="_blank" rel="noopener">🧪 Reference: ${trial.label}</a></div>` : "";
   pearlText.innerHTML = `
     <div class="pearl-row key-clue"><strong>Key Clue:</strong> ${answerObj.hint}</div>
     <div class="pearl-row"><strong>Diagnosis:</strong> ${answerObj.diagnosis}</div>
@@ -2307,6 +2357,7 @@ function showPearl() {
     <div class="pearl-row outline-link">
       <a href="${outlineHref}" target="_blank" rel="noopener">📖 USMLE Outline: ${outline.section} — ${outline.subsection}</a>
     </div>
+    ${trialHtml}
   `;
   pearlBox.classList.remove("hidden");
 }
@@ -2425,6 +2476,19 @@ if (closeCardsBtn) closeCardsBtn.addEventListener("click", closeCardsModal);
 if (cardFilter) cardFilter.addEventListener("change", renderCards);
 if (cardsModal) cardsModal.addEventListener("click", (event) => {
   if (event.target === cardsModal) closeCardsModal();
+});
+
+
+const __cardsBtn = document.getElementById("cardsBtn");
+const __closeCardsBtn = document.getElementById("closeCardsBtn");
+const __cardFilter = document.getElementById("cardFilter");
+const __cardsModal = document.getElementById("cardsModal");
+
+if (__cardsBtn) __cardsBtn.addEventListener("click", openCardsModal);
+if (__closeCardsBtn) __closeCardsBtn.addEventListener("click", closeCardsModal);
+if (__cardFilter) __cardFilter.addEventListener("change", renderCards);
+if (__cardsModal) __cardsModal.addEventListener("click", (event) => {
+  if (event.target === __cardsModal) closeCardsModal();
 });
 
 initGame();

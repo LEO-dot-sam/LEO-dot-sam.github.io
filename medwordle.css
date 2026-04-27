@@ -505,3 +505,34 @@ select:disabled {
     flex-direction: column;
   }
 }
+
+
+/* Bugfix helpers */
+.cards-modal.hidden,
+.card-unlock-toast.hidden {
+  display: none !important;
+}
+
+.cards-modal:not(.hidden) {
+  display: block;
+}
+
+.card-unlock-toast:not(.hidden) {
+  display: flex;
+}
+
+.trial-link {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+}
+
+.trial-link a {
+  color: var(--accent);
+  font-weight: 950;
+  text-decoration: none;
+}
+
+.trial-link a:hover {
+  text-decoration: underline;
+}
