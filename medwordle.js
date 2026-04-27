@@ -2369,112 +2369,198 @@ function resultText() {
   return `${title}\n${status} • ${answerObj.specialty}\n${emojiGrid()}\n${window.location.href}`;
 }
 
+
 function reflectionDateKey() {
   return new Date().toISOString().slice(0, 10);
 }
 
+function friendlyReflectionDate(dateKey = reflectionDateKey()) {
+  const date = new Date(dateKey + "T00:00:00");
+  return date.toLocaleDateString(undefined, { weekday: "long", month: "long", day: "numeric", year: "numeric" });
+}
+
+function getReflectionEls() {
+  return {
+    rose: document.getElementById("roseInput"),
+    thorn: document.getElementById("thornInput"),
+    buffalo: document.getElementById("buffaloInput"),
+    status: document.getElementById("reflectionStatus"),
+    saveBtn: document.getElementById("saveReflectionBtn"),
+    sendNotesBtn: document.getElementById("sendNotesBtn"),
+    copyBtn: document.getElementById("copyReflectionBtn"),
+    viewBtn: document.getElementById("viewEntriesBtn"),
+    modal: document.getElementById("journalModal"),
+    closeBtn: document.getElementById("closeJournalBtn"),
+    entriesList: document.getElementById("entriesList"),
+    journalDate: document.getElementById("journalDate")
+  };
+}
+
+function setReflectionStatus(message) {
+  const { status } = getReflectionEls();
+  if (status) status.textContent = message;
+}
+
+function getReflectionText() {
+  const { rose, thorn, buffalo } = getReflectionEls();
+  return `Rose 🌹: ${(rose?.value || "").trim() || "—"}
+Thorn 🌵: ${(thorn?.value || "").trim() || "—"}
+Buffalo 🐃: ${(buffalo?.value || "").trim() || "—"}
+
+${friendlyReflectionDate()}
+Shared from MedWordle`;
+}
+
 function loadReflection() {
+  const { rose, thorn, buffalo, journalDate } = getReflectionEls();
+  if (journalDate) journalDate.textContent = friendlyReflectionDate();
+
+  if (!rose || !thorn || !buffalo) return;
+
   const reflections = JSON.parse(localStorage.getItem("medwordle_reflections") || "{}");
   const today = reflections[reflectionDateKey()];
   if (!today) return;
 
-  document.getElementById("roseInput").value = today.rose || "";
-  document.getElementById("thornInput").value = today.thorn || "";
-  document.getElementById("buffaloInput").value = today.buffalo || "";
+  rose.value = today.rose || "";
+  thorn.value = today.thorn || "";
+  buffalo.value = today.buffalo || "";
 }
 
 function saveReflection() {
-  const rose = document.getElementById("roseInput").value || "";
-  const thorn = document.getElementById("thornInput").value || "";
-  const buffalo = document.getElementById("buffaloInput").value || "";
+  const { rose, thorn, buffalo } = getReflectionEls();
+  if (!rose || !thorn || !buffalo) {
+    setReflectionStatus("Reflection fields are not loaded yet.");
+    return;
+  }
 
   const reflections = JSON.parse(localStorage.getItem("medwordle_reflections") || "{}");
-  reflections[reflectionDateKey()] = { rose, thorn, buffalo, savedAt: new Date().toISOString() };
-  localStorage.setItem("medwordle_reflections", JSON.stringify(reflections));
+  reflections[reflectionDateKey()] = {
+    rose: rose.value.trim(),
+    thorn: thorn.value.trim(),
+    buffalo: buffalo.value.trim(),
+    savedAt: new Date().toISOString()
+  };
 
-  document.getElementById("reflectionStatus").textContent = "Saved for today ✅";
+  localStorage.setItem("medwordle_reflections", JSON.stringify(reflections));
+  setReflectionStatus("Saved for today ✅");
+
   if (typeof gtag === "function") gtag("event", "reflection_saved");
 }
 
-async function shareReflection() {
-  const rose = document.getElementById("roseInput").value || "";
-  const thorn = document.getElementById("thornInput").value || "";
-  const buffalo = document.getElementById("buffaloInput").value || "";
-  const text = `Rose 🌹: ${rose || "—"}\nThorn 🌵: ${thorn || "—"}\nBuffalo 🐃: ${buffalo || "—"}\n\nShared from MedWordle`;
+async function copyReflection() {
+  const text = getReflectionText();
 
   try {
-    if (navigator.share) await navigator.share({ title: "Rose, Thorn & Buffalo", text });
-    else {
+    if (navigator.clipboard && window.isSecureContext) {
       await navigator.clipboard.writeText(text);
-      document.getElementById("reflectionStatus").textContent = "Reflection copied to clipboard ✅";
+    } else {
+      const temp = document.createElement("textarea");
+      temp.value = text;
+      temp.setAttribute("readonly", "");
+      temp.style.position = "absolute";
+      temp.style.left = "-9999px";
+      document.body.appendChild(temp);
+      temp.select();
+      document.execCommand("copy");
+      document.body.removeChild(temp);
     }
-  } catch (e) {
-    document.getElementById("reflectionStatus").textContent = "Share canceled.";
+    setReflectionStatus("Copied to clipboard ✅");
+    if (typeof gtag === "function") gtag("event", "reflection_copied");
+  } catch (error) {
+    setReflectionStatus("Copy failed. Select the text and copy manually.");
   }
 }
 
-specialtySelect.value = selectedSpecialty;
-modeSelect.value = selectedMode;
-playTypeSelect.value = playType;
+async function sendReflectionToNotes() {
+  const text = getReflectionText();
 
-specialtySelect.addEventListener("change", () => {
-  if (playType === "Daily Challenge") { specialtySelect.value = "All Medicine"; return; }
-  selectedSpecialty = specialtySelect.value;
-  localStorage.setItem("medwordleSpecialty", selectedSpecialty);
-  initGame();
-});
-modeSelect.addEventListener("change", () => {
-  if (playType === "Daily Challenge") { modeSelect.value = "High Yield"; return; }
-  selectedMode = modeSelect.value;
-  localStorage.setItem("medwordleMode", selectedMode);
-  initGame();
-});
-playTypeSelect.addEventListener("change", () => {
-  playType = playTypeSelect.value;
-  localStorage.setItem("medwordlePlayType", playType);
-  initGame();
-});
-form.addEventListener("submit", event => {
-  event.preventDefault();
-  submitGuess(input.value);
-});
-hintBtn.addEventListener("click", () => {
-  hintEl.classList.toggle("hidden");
-  hintBtn.textContent = hintEl.classList.contains("hidden") ? "Show Hint" : "Hide Hint";
-});
-newGameBtn.addEventListener("click", initGame);
-practiceWeakBtn.addEventListener("click", () => {
-  playType = "Adaptive";
-  playTypeSelect.value = playType;
-  localStorage.setItem("medwordlePlayType", playType);
-  initGame();
-});
-shareBtn.addEventListener("click", async () => {
-  const text = resultText();
   try {
-    if (navigator.share) await navigator.share({ title: "MedWordle", text });
-    else {
-      await navigator.clipboard.writeText(text);
-      messageEl.textContent = "Result copied to clipboard.";
+    if (navigator.share) {
+      await navigator.share({
+        title: "Daily Reflection",
+        text
+      });
+      setReflectionStatus("Choose Notes from the share sheet ✅");
+    } else {
+      await copyReflection();
+      setReflectionStatus("Copied — paste into Apple Notes, Samsung Notes, Keep, or Notion ✅");
     }
-  } catch (e) {
-    messageEl.textContent = "Share canceled.";
+    if (typeof gtag === "function") gtag("event", "reflection_sent_to_notes");
+  } catch (error) {
+    setReflectionStatus("Share canceled.");
   }
-});
-input.addEventListener("input", () => {
-  input.value = input.value.toUpperCase().replace(/[^A-Z]/g, "");
-});
+}
 
-document.querySelectorAll(".playlist-btn").forEach((btn) => {
-  btn.addEventListener("click", () => {
-    if (typeof gtag === "function") {
-      gtag("event", "study_playlist_clicked", { platform: btn.textContent.trim() });
-    }
+function renderPastEntries() {
+  const { entriesList } = getReflectionEls();
+  if (!entriesList) return;
+
+  const reflections = JSON.parse(localStorage.getItem("medwordle_reflections") || "{}");
+  const entries = Object.entries(reflections).sort((a, b) => b[0].localeCompare(a[0]));
+
+  if (!entries.length) {
+    entriesList.innerHTML = `<div class="empty-journal">No saved entries yet. Save today’s reflection first.</div>`;
+    return;
+  }
+
+  entriesList.innerHTML = entries.map(([dateKey, entry]) => `
+    <article class="journal-entry">
+      <h3>${friendlyReflectionDate(dateKey)}</h3>
+      <p><strong>🌹 Rose:</strong> ${entry.rose || "—"}</p>
+      <p><strong>🌵 Thorn:</strong> ${entry.thorn || "—"}</p>
+      <p><strong>🐃 Buffalo:</strong> ${entry.buffalo || "—"}</p>
+    </article>
+  `).join("");
+}
+
+function openJournalModal() {
+  const { modal } = getReflectionEls();
+  if (!modal) return;
+  renderPastEntries();
+  modal.classList.remove("hidden");
+  modal.setAttribute("aria-hidden", "false");
+}
+
+function closeJournalModal() {
+  const { modal } = getReflectionEls();
+  if (!modal) return;
+  modal.classList.add("hidden");
+  modal.setAttribute("aria-hidden", "true");
+}
+
+function initReflectionJournal() {
+  const { saveBtn, sendNotesBtn, copyBtn, viewBtn, closeBtn, modal } = getReflectionEls();
+
+  if (saveBtn) saveBtn.addEventListener("click", (event) => {
+    event.preventDefault();
+    saveReflection();
   });
-});
 
-document.getElementById("saveReflectionBtn").addEventListener("click", saveReflection);
-document.getElementById("shareReflectionBtn").addEventListener("click", shareReflection);
+  if (sendNotesBtn) sendNotesBtn.addEventListener("click", (event) => {
+    event.preventDefault();
+    sendReflectionToNotes();
+  });
 
-loadReflection();
+  if (copyBtn) copyBtn.addEventListener("click", (event) => {
+    event.preventDefault();
+    copyReflection();
+  });
+
+  if (viewBtn) viewBtn.addEventListener("click", (event) => {
+    event.preventDefault();
+    openJournalModal();
+  });
+
+  if (closeBtn) closeBtn.addEventListener("click", closeJournalModal);
+
+  if (modal) modal.addEventListener("click", (event) => {
+    if (event.target === modal) closeJournalModal();
+  });
+
+  loadReflection();
+}
+
+initReflectionJournal();
+
+
 initGame();

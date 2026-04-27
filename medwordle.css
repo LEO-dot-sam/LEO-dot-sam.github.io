@@ -226,3 +226,142 @@ footer a { color: var(--accent); font-weight: 950; }
   .keyboard { grid-template-columns: repeat(7, minmax(24px, 1fr)); }
   .daily-banner { flex-direction: column; align-items: flex-start; }
 }
+
+
+/* Daily Reflection Journal */
+.journal-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.journal-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at top left, rgba(244, 63, 94, 0.08), transparent 32%),
+    radial-gradient(circle at bottom right, rgba(14, 165, 233, 0.08), transparent 36%);
+  pointer-events: none;
+}
+
+.journal-section > * {
+  position: relative;
+}
+
+.journal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 18px;
+}
+
+.journal-kicker {
+  margin: 0 0 8px;
+  color: var(--accent);
+  font-size: 0.76rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 950;
+}
+
+.journal-header h2 {
+  margin: 0;
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  letter-spacing: -0.04em;
+}
+
+.reflection-card .prompt {
+  margin: -4px 0 10px;
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.45;
+  font-weight: 750;
+}
+
+.reflection-card textarea {
+  min-height: 132px;
+}
+
+.reflection-actions button {
+  min-width: 140px;
+}
+
+.journal-modal.hidden {
+  display: none !important;
+}
+
+.journal-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 2500;
+  background: rgba(15, 23, 42, 0.46);
+  backdrop-filter: blur(8px);
+  padding: 22px;
+  overflow-y: auto;
+}
+
+.journal-modal-content {
+  width: min(900px, 100%);
+  margin: 24px auto;
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 32px;
+  box-shadow: 0 32px 120px rgba(15, 23, 42, 0.30);
+  padding: clamp(20px, 4vw, 34px);
+}
+
+.journal-modal-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.entries-list {
+  display: grid;
+  gap: 14px;
+}
+
+.journal-entry {
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  padding: 16px;
+  background: linear-gradient(160deg, #ffffff 0%, #f8fafc 72%);
+}
+
+.journal-entry h3 {
+  margin: 0 0 12px;
+  color: var(--text);
+  font-size: 1.05rem;
+}
+
+.journal-entry p {
+  margin: 8px 0;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.journal-entry strong {
+  color: var(--text);
+}
+
+.empty-journal {
+  text-align: center;
+  padding: 34px;
+  border-radius: 22px;
+  background: var(--soft);
+  color: var(--muted);
+  font-weight: 850;
+}
+
+@media (max-width: 760px) {
+  .journal-header,
+  .journal-modal-header {
+    flex-direction: column;
+  }
+
+  .reflection-actions button {
+    width: 100%;
+  }
+}

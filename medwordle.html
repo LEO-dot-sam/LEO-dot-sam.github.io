@@ -143,35 +143,57 @@
       </div>
     </section>
 
-    <section class="reflection-section">
-      <div class="reflection-header">
-        <h2>🌹 Rose, Thorn & Buffalo</h2>
-        <p class="reflection-subtext">Take 30 seconds after studying to reflect on your day.</p>
+    <section class="reflection-section journal-section">
+      <div class="journal-header">
+        <div>
+          <p class="journal-kicker">Daily Reflection Journal</p>
+          <h2>🌹 Rose, Thorn & Buffalo</h2>
+          <p id="journalDate" class="reflection-subtext">Today</p>
+        </div>
+        <button id="viewEntriesBtn" type="button" class="secondary">📖 View Past Entries</button>
       </div>
 
       <div class="reflection-grid">
         <div class="reflection-card rose">
-          <label for="roseInput">🌹 Rose — what went well?</label>
-          <textarea id="roseInput" placeholder="Something good that happened today..."></textarea>
+          <label for="roseInput">🌹 Rose</label>
+          <p class="prompt">What went well today?</p>
+          <textarea id="roseInput" placeholder="A win, a kind moment, something that made today better..."></textarea>
         </div>
 
         <div class="reflection-card thorn">
-          <label for="thornInput">🌵 Thorn — what was challenging?</label>
-          <textarea id="thornInput" placeholder="Something difficult, frustrating, or heavy..."></textarea>
+          <label for="thornInput">🌵 Thorn</label>
+          <p class="prompt">What was hard today?</p>
+          <textarea id="thornInput" placeholder="A challenge, frustration, mistake, or difficult feeling..."></textarea>
         </div>
 
         <div class="reflection-card buffalo">
-          <label for="buffaloInput">🐃 Buffalo — what are you looking forward to?</label>
-          <textarea id="buffaloInput" placeholder="Something ahead that gives you energy..."></textarea>
+          <label for="buffaloInput">🐃 Buffalo</label>
+          <p class="prompt">What are you looking forward to?</p>
+          <textarea id="buffaloInput" placeholder="Something ahead that gives you energy or hope..."></textarea>
         </div>
       </div>
 
       <div class="reflection-actions">
-        <button id="saveReflectionBtn" type="button">Save Reflection</button>
-        <button id="shareReflectionBtn" type="button" class="secondary">Share Reflection</button>
+        <button id="saveReflectionBtn" type="button">Save Entry</button>
+        <button id="sendNotesBtn" type="button" class="secondary">📱 Send to Notes</button>
+        <button id="copyReflectionBtn" type="button" class="secondary">📋 Copy Entry</button>
       </div>
       <p id="reflectionStatus" class="reflection-status"></p>
     </section>
+
+    <div id="journalModal" class="journal-modal hidden" aria-hidden="true">
+      <div class="journal-modal-content">
+        <div class="journal-modal-header">
+          <div>
+            <p class="journal-kicker">Reflection History</p>
+            <h2>📖 Past Entries</h2>
+            <p class="reflection-subtext">Saved on this device/browser.</p>
+          </div>
+          <button id="closeJournalBtn" type="button" class="secondary">Close</button>
+        </div>
+        <div id="entriesList" class="entries-list"></div>
+      </div>
+    </div>
   </main>
 
   <footer>
