@@ -17,50 +17,64 @@
 
   <main>
     <section class="hero">
-      <p class="eyebrow">Interactive Medical Learning</p>
+      <div class="hero-badge">Step 2 Study Tool</div>
       <h1>MedWordle</h1>
       <p class="subtitle">
-        A Wordle-style medical term game across specialties. Pick a specialty,
-        change the theme, and test your medical vocabulary.
+        A bright, specialty-themed medical Wordle game built around high-yield clinical vocabulary,
+        USMLE-style systems, hints, and learning pearls.
       </p>
     </section>
 
     <section class="game-card">
-      <div class="game-top">
+      <div class="game-header">
         <div>
-          <p class="label">Current Specialty</p>
+          <p class="label">Current Focus</p>
           <h2 id="category">All Medicine</h2>
+          <p id="modeDescription" class="mode-description">High-yield Step 2 terms across systems.</p>
         </div>
 
-        <div class="settings">
-          <label for="specialtySelect">Specialty theme</label>
-          <select id="specialtySelect">
-            <option value="All Medicine">All Medicine</option>
-            <option value="Cardiology">Cardiology</option>
-            <option value="Neurology">Neurology</option>
-            <option value="Radiology">Radiology</option>
-            <option value="Surgery">Surgery</option>
-            <option value="Pediatrics">Pediatrics</option>
-            <option value="OB/GYN">OB/GYN</option>
-            <option value="Oncology">Oncology</option>
-            <option value="Infectious Disease">Infectious Disease</option>
-            <option value="Emergency Medicine">Emergency Medicine</option>
-            <option value="Psychiatry">Psychiatry</option>
-            <option value="Dermatology">Dermatology</option>
-            <option value="Nephrology">Nephrology</option>
-            <option value="Pulmonology">Pulmonology</option>
-            <option value="Endocrinology">Endocrinology</option>
-            <option value="Hematology">Hematology</option>
-            <option value="Pharmacology">Pharmacology</option>
-            <option value="Pathology">Pathology</option>
-            <option value="Anatomy">Anatomy</option>
-          </select>
-        </div>
+        <div class="settings-grid">
+          <div class="settings">
+            <label for="specialtySelect">Specialty</label>
+            <select id="specialtySelect">
+              <option value="All Medicine">All Medicine</option>
+              <option value="Cardiology">Cardiology</option>
+              <option value="Neurology">Neurology</option>
+              <option value="Radiology">Radiology</option>
+              <option value="Surgery">Surgery</option>
+              <option value="Pediatrics">Pediatrics</option>
+              <option value="OB/GYN">OB/GYN</option>
+              <option value="Oncology">Oncology</option>
+              <option value="Infectious Disease">Infectious Disease</option>
+              <option value="Emergency Medicine">Emergency Medicine</option>
+              <option value="Psychiatry">Psychiatry</option>
+              <option value="Dermatology">Dermatology</option>
+              <option value="Nephrology">Nephrology</option>
+              <option value="Pulmonology">Pulmonology</option>
+              <option value="Endocrinology">Endocrinology</option>
+              <option value="Hematology">Hematology</option>
+              <option value="Pharmacology">Pharmacology</option>
+              <option value="Pathology">Pathology</option>
+              <option value="Anatomy">Anatomy</option>
+              <option value="Gastroenterology">Gastroenterology</option>
+              <option value="Rheumatology">Rheumatology</option>
+            </select>
+          </div>
 
-        <div class="controls">
-          <button id="hintBtn" class="secondary" type="button">Hint</button>
-          <button id="newGameBtn" type="button">New Word</button>
+          <div class="settings">
+            <label for="modeSelect">Mode</label>
+            <select id="modeSelect">
+              <option value="High Yield">High Yield</option>
+              <option value="All Outline">All Outline</option>
+              <option value="Hard Mode">Hard Mode</option>
+            </select>
+          </div>
         </div>
+      </div>
+
+      <div class="controls-row">
+        <button id="hintBtn" class="secondary" type="button">Show Hint</button>
+        <button id="newGameBtn" type="button">New Word</button>
       </div>
 
       <p id="hint" class="hint hidden"></p>
@@ -79,6 +93,11 @@
         <button type="submit">Submit</button>
       </form>
 
+      <div id="pearlBox" class="pearl hidden">
+        <p class="pearl-title">Clinical Pearl</p>
+        <p id="pearlText"></p>
+      </div>
+
       <div id="keyboard" class="keyboard" aria-label="Keyboard feedback"></div>
 
       <div class="legend">
@@ -88,12 +107,19 @@
       </div>
     </section>
 
-    <section class="about-card">
-      <h2>Specialty Themes</h2>
-      <p>
-        Each specialty has a distinct color palette. Use “All Medicine” for a
-        random mix, or choose a specialty to focus your practice.
-      </p>
+    <section class="info-grid">
+      <article class="info-card">
+        <h3>High Yield</h3>
+        <p>Core Step 2-style terms designed to be fair, memorable, and clinically useful.</p>
+      </article>
+      <article class="info-card">
+        <h3>All Outline</h3>
+        <p>Broader medical vocabulary organized by the USMLE content systems and specialties.</p>
+      </article>
+      <article class="info-card">
+        <h3>Hard Mode</h3>
+        <p>Less obvious terms, tougher clues, and challenge-level recall for spaced practice.</p>
+      </article>
     </section>
   </main>
 
