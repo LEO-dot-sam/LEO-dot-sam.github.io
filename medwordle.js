@@ -1903,17 +1903,6 @@ const input = document.getElementById("guessInput");
 const hintBtn = document.getElementById("hintBtn");
 const newGameBtn = document.getElementById("newGameBtn");
 const shareBtn = document.getElementById("shareBtn");
-const cardsBtn = document.getElementById("cardsBtn");
-const cardsModal = document.getElementById("cardsModal");
-const closeCardsBtn = document.getElementById("closeCardsBtn");
-const cardsGrid = document.getElementById("cardsGrid");
-const collectionProgress = document.getElementById("collectionProgress");
-const cardFilter = document.getElementById("cardFilter");
-const cardUnlockToast = document.getElementById("cardUnlockToast");
-const unlockRarity = document.getElementById("unlockRarity");
-const unlockWord = document.getElementById("unlockWord");
-const unlockSpecialty = document.getElementById("unlockSpecialty");
-const unlockBadge = document.getElementById("unlockBadge");
 const practiceWeakBtn = document.getElementById("practiceWeakBtn");
 const keyboard = document.getElementById("keyboard");
 const specialtySelect = document.getElementById("specialtySelect");
@@ -2014,7 +2003,7 @@ function chooseWord() {
     answerObj = pool[idx];
   } else {
     const pool = getPool();
-    answerObj = choosePracticeNoRepeat(pool);
+    answerObj = pool[Math.floor(Math.random() * pool.length)];
   }
   answer = answerObj.word.toUpperCase();
 }
@@ -2043,107 +2032,6 @@ function updateControlsForPlayType() {
     practiceWeakBtn.classList.add("hidden");
   }
 }
-
-
-function 
-  }
-}
-
-function rarityForCard(item) {
-  if (item.mode === "Hard Mode") return "Legendary";
-  if (["STEMI", "DKA", "ECTOPIC", "TAMPONADE", "TORSADES", "SEPSIS", "ECLAMPSIA", "HELLP"].includes(item.word)) return "Legendary";
-  if (item.mode === "High Yield") return "Rare";
-  if (item.mode === "All Outline") return "Uncommon";
-  return "Common";
-}
-
-function badgeForCard(item) {
-  const badges = {
-    "Cardiology": "Cath Lab Activated",
-    "Pulmonology": "Airway Secured",
-    "Gastroenterology": "Scope Ready",
-    "Nephrology": "Electrolyte Expert",
-    "Endocrinology": "Hormone Hacker",
-    "Neurology": "Localization Legend",
-    "OB/GYN": "Stabilize Then Deliver",
-    "Pediatrics": "Tiny Patient Pro",
-    "Psychiatry": "DSM Detective",
-    "Infectious Disease": "Source Control",
-    "Hematology": "CBC Sleuth",
-    "Oncology": "Tumor Board Pick",
-    "Dermatology": "Rash Recognizer",
-    "Rheumatology": "Autoimmune Ace",
-    "Emergency Medicine": "ABCDE Mode",
-    "Radiology": "Imaging Eye",
-    "Surgery": "OR Ready",
-    "Pharmacology": "Dose Boss"
-  };
-  return badges[item.specialty] || "Clinical Reasoner";
-}
-
-function getCollectedCards() {
-  return JSON.parse(localStorage.getItem("medwordleCards") || "[]");
-}
-
-function saveCollectedCards(cards) {
-  localStorage.setItem("medwordleCards", JSON.stringify(cards));
-}
-
-
-
-
-const TRIAL_REFERENCE_MAP = {
-  "STEMI": { label: "Key evidence/guideline context: Fibrinolytic Therapy Trialists’ overview; contemporary ACC/AHA ACS guidance", url: "https://www.ahajournals.org/doi/10.1161/CIR.0000000000001309" },
-  "NSTEMI": { label: "Key evidence/guideline context: TIMI risk framework; contemporary ACC/AHA ACS guidance", url: "https://www.ahajournals.org/doi/10.1161/CIR.0000000000001309" },
-  "AFIB": { label: "Key evidence/guideline context: AFFIRM trial and contemporary AF guidelines", url: "https://www.nejm.org/doi/full/10.1056/NEJMoa021328" },
-  "CHF": { label: "Key evidence/guideline context: PARADIGM-HF / modern HFrEF therapy", url: "https://www.nejm.org/doi/full/10.1056/NEJMoa1409077" },
-  "EMBOLUS": { label: "Key evidence/guideline context: PIOPED/PE diagnostic strategy and CHEST-style anticoagulation principles", url: "https://pubmed.ncbi.nlm.nih.gov/23394420/" },
-  "PNEUMONIA": { label: "Guideline context: ATS/IDSA community-acquired pneumonia guideline", url: "https://www.idsociety.org/practice-guideline/community-acquired-pneumonia-cap-in-adults/" },
-  "COPD": { label: "Guideline context: GOLD COPD exacerbation strategy", url: "https://goldcopd.org/" },
-  "ASTHMA": { label: "Guideline context: GINA asthma strategy", url: "https://ginasthma.org/" },
-  "DKA": { label: "Guideline context: ADA hyperglycemic crises standards", url: "https://diabetesjournals.org/care/issue" },
-  "SEPSIS": { label: "Key evidence/guideline context: Surviving Sepsis Campaign", url: "https://www.sccm.org/SurvivingSepsisCampaign/Guidelines" },
-  "STROKE": { label: "Key evidence context: NINDS tPA trial / acute stroke reperfusion principles", url: "https://www.nejm.org/doi/full/10.1056/NEJM199512143332401" },
-  "ECTOPIC": { label: "Guideline context: ACOG ectopic pregnancy management", url: "https://www.acog.org/clinical" },
-  "HELLP": { label: "Guideline context: ACOG hypertensive disorders of pregnancy", url: "https://www.acog.org/clinical" },
-  "ECLAMPSIA": { label: "Guideline context: ACOG hypertensive disorders of pregnancy", url: "https://www.acog.org/clinical" },
-  "PID": { label: "Guideline context: CDC STI Treatment Guidelines", url: "https://www.cdc.gov/std/treatment-guidelines/default.htm" },
-  "CYSTITIS": { label: "Guideline context: IDSA uncomplicated UTI guidance", url: "https://www.idsociety.org/practice-guideline/uncomplicated-cystitis-and-pyelonephritis-uti/" },
-  "PYELONEPHRITIS": { label: "Guideline context: IDSA uncomplicated UTI guidance", url: "https://www.idsociety.org/practice-guideline/uncomplicated-cystitis-and-pyelonephritis-uti/" },
-  "CELLULITIS": { label: "Guideline context: IDSA skin and soft tissue infection guideline", url: "https://www.idsociety.org/practice-guideline/skin-and-soft-tissue-infections/" },
-  "CHOLANGITIS": { label: "Guideline context: Tokyo Guidelines for acute cholangitis", url: "https://pubmed.ncbi.nlm.nih.gov/29090866/" }
-};
-
-function getTrialReference() {
-  return answerObj.trial || TRIAL_REFERENCE_MAP[answerObj.word] || null;
-}
-
-function poolKey(pool) {
-  const specialtyPart = playType === "Adaptive" ? adaptiveSpecialty() : selectedSpecialty;
-  return `medwordleSeen:${playType}:${specialtyPart}:${selectedMode}:${pool.map(w => w.word).join("-")}`;
-}
-
-function choosePracticeNoRepeat(pool) {
-  const key = poolKey(pool);
-  let seen = JSON.parse(localStorage.getItem(key) || "[]");
-  let available = pool.filter(item => !seen.includes(item.word));
-
-  if (!available.length) {
-    seen = [];
-    available = pool;
-  }
-
-  const selected = available[Math.floor(Math.random() * available.length)];
-  seen.push(selected.word);
-  localStorage.setItem(key, JSON.stringify(seen));
-  return selected;
-}
-
-
-
-
-
-
 
 function initGame() {
   updateControlsForPlayType();
@@ -2269,6 +2157,29 @@ function nbmeWhyText() {
   return `Step 2 usually tests the pattern first, then the safest next best step. For ${specialty.toLowerCase()}, stabilize emergencies before definitive testing or long-term management.`;
 }
 
+const TRIAL_REFERENCE_MAP = {
+  "STEMI": { label: "DANAMI-2 / ACC-AHA ACS guidance: primary PCI strategy for STEMI", url: "https://pubmed.ncbi.nlm.nih.gov/12480399/" },
+  "NSTEMI": { label: "TACTICS-TIMI 18 / ACC-AHA ACS guidance: early invasive strategy in higher-risk NSTE-ACS", url: "https://pubmed.ncbi.nlm.nih.gov/11287918/" },
+  "AFIB": { label: "AFFIRM trial: rate vs rhythm control in atrial fibrillation", url: "https://www.nejm.org/doi/full/10.1056/NEJMoa021328" },
+  "CHF": { label: "PARADIGM-HF: sacubitril/valsartan in HFrEF", url: "https://www.nejm.org/doi/full/10.1056/NEJMoa1409077" },
+  "PNEUMONIA": { label: "ATS/IDSA CAP guideline: empiric antibiotic selection by setting/comorbidity", url: "https://www.idsociety.org/practice-guideline/community-acquired-pneumonia-cap-in-adults/" },
+  "COPD": { label: "GOLD strategy: COPD exacerbation treatment", url: "https://goldcopd.org/" },
+  "ASTHMA": { label: "GINA strategy: asthma exacerbation management", url: "https://ginasthma.org/" },
+  "EMBOLUS": { label: "PIOPED evidence base and guideline approach to pulmonary embolism diagnosis", url: "https://pubmed.ncbi.nlm.nih.gov/23394420/" },
+  "SEPSIS": { label: "Surviving Sepsis Campaign: resuscitation, antibiotics, vasopressors, source control", url: "https://www.sccm.org/SurvivingSepsisCampaign/Guidelines" },
+  "STROKE": { label: "NINDS rt-PA trial: thrombolysis evidence in acute ischemic stroke", url: "https://www.nejm.org/doi/full/10.1056/NEJM199512143332401" },
+  "DKA": { label: "ADA standards: hyperglycemic crisis management", url: "https://diabetesjournals.org/care/issue" },
+  "PID": { label: "CDC STI Treatment Guidelines: PID regimen", url: "https://www.cdc.gov/std/treatment-guidelines/pid.htm" },
+  "CYSTITIS": { label: "IDSA guidance: uncomplicated cystitis/pyelonephritis", url: "https://www.idsociety.org/practice-guideline/uncomplicated-cystitis-and-pyelonephritis-uti/" },
+  "PYELONEPHRITIS": { label: "IDSA guidance: uncomplicated pyelonephritis", url: "https://www.idsociety.org/practice-guideline/uncomplicated-cystitis-and-pyelonephritis-uti/" },
+  "CELLULITIS": { label: "IDSA Skin and Soft Tissue Infection guideline", url: "https://www.idsociety.org/practice-guideline/skin-and-soft-tissue-infections/" },
+  "CHOLANGITIS": { label: "Tokyo Guidelines: acute cholangitis source control", url: "https://pubmed.ncbi.nlm.nih.gov/29090866/" }
+};
+
+function getTrialReference() {
+  return answerObj.trial || TRIAL_REFERENCE_MAP[answerObj.word] || null;
+}
+
 function showPearl() {
   const outline = getOutlineInfo();
   const outlineHref = `${OUTLINE_URL}#page=${outline.page}`;
@@ -2349,7 +2260,7 @@ function submitGuess(rawGuess) {
     gameOver = true; input.disabled = true;
     messageEl.textContent = `Correct — ${answer}.`;
     messageEl.className = "message win";
-    showPearl(); recordResult(true);  return;
+    showPearl(); recordResult(true); return;
   }
 
   currentRow++;
@@ -2357,7 +2268,7 @@ function submitGuess(rawGuess) {
     gameOver = true; input.disabled = true;
     messageEl.textContent = `Good try. The answer was ${answer}.`;
     messageEl.className = "message loss";
-    showPearl(); recordResult(false); 
+    showPearl(); recordResult(false);
   } else {
     messageEl.textContent = `${MAX_ATTEMPTS - currentRow} guesses remaining.`;
   }
@@ -2388,31 +2299,6 @@ specialtySelect.addEventListener("change", () => {
   selectedSpecialty = specialtySelect.value;
   localStorage.setItem("medwordleSpecialty", selectedSpecialty);
   
-if (cardsBtn) cardsBtn.addEventListener("click", openCardsModal);
-if (closeCardsBtn) closeCardsBtn.addEventListener("click", closeCardsModal);
-if (cardFilter) cardFilter.addEventListener("change", renderCards);
-if (cardsModal) cardsModal.addEventListener("click", (event) => {
-  if (event.target === cardsModal) closeCardsModal();
-});
-
-
-
-
-
-
-
-
-document.querySelectorAll(".playlist-btn").forEach((btn) => {
-  btn.addEventListener("click", () => {
-    if (typeof gtag === "function") {
-      gtag("event", "study_playlist_clicked", {
-        platform: btn.textContent.trim()
-      });
-    }
-  });
-});
-
-
 function reflectionDateKey() {
   return new Date().toISOString().slice(0, 10);
 }
@@ -2475,8 +2361,16 @@ if (saveReflectionBtn) saveReflectionBtn.addEventListener("click", saveReflectio
 if (shareReflectionBtn) shareReflectionBtn.addEventListener("click", shareReflection);
 loadReflection();
 
-initGame();
 
+document.querySelectorAll(".playlist-btn").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    if (typeof gtag === "function") {
+      gtag("event", "study_playlist_clicked", { platform: btn.textContent.trim() });
+    }
+  });
+});
+
+initGame();
 });
 modeSelect.addEventListener("change", () => {
   if (playType === "Daily Challenge") {
