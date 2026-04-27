@@ -1114,3 +1114,199 @@ select:disabled {
     flex: 1;
   }
 }
+
+
+/* Clean final version: hide removed dashboard/tracking/card remnants */
+.inline-dashboard,
+.stats-modal,
+.leaderboard-modal,
+.stats-grid,
+.info-grid,
+.heatmap-section,
+.points-rules,
+.card-unlock-toast,
+.cards-modal {
+  display: none !important;
+}
+
+/* Study playlist buttons */
+.study-playlist {
+  margin: 16px 0 10px;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  background: linear-gradient(160deg, #ffffff 0%, #f8fafc 60%, var(--soft) 100%);
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  align-items: center;
+}
+
+.playlist-label {
+  margin: 0 0 4px;
+  color: var(--accent);
+  font-size: 0.74rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 950;
+}
+
+.playlist-text {
+  margin: 0;
+  color: var(--muted);
+  font-weight: 700;
+  line-height: 1.45;
+}
+
+.playlist-buttons {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.playlist-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  background: white;
+  color: var(--accent);
+  padding: 10px 12px;
+  font-weight: 950;
+  text-decoration: none;
+  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.05);
+  transition: transform 0.15s ease, border-color 0.15s ease;
+}
+
+.playlist-btn:hover {
+  transform: translateY(-1px);
+  border-color: var(--accent);
+}
+
+/* Rose, Thorn & Buffalo reflection */
+.reflection-section {
+  margin-top: 24px;
+  border: 1px solid var(--line);
+  background: #ffffff;
+  border-radius: 30px;
+  box-shadow: 0 20px 70px rgba(15, 23, 42, 0.08);
+  padding: clamp(20px, 4vw, 32px);
+}
+
+.reflection-header h2 {
+  margin: 0;
+  font-size: clamp(1.6rem, 4vw, 2.3rem);
+  letter-spacing: -0.03em;
+}
+
+.reflection-subtext {
+  margin: 8px 0 0;
+  color: var(--muted);
+  line-height: 1.55;
+  font-weight: 700;
+}
+
+.reflection-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-top: 20px;
+}
+
+.reflection-card {
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  padding: 16px;
+  background: #f8fafc;
+}
+
+.reflection-card.rose {
+  background: linear-gradient(160deg, #fff1f2 0%, #ffffff 70%);
+}
+
+.reflection-card.thorn {
+  background: linear-gradient(160deg, #f0fdf4 0%, #ffffff 70%);
+}
+
+.reflection-card.buffalo {
+  background: linear-gradient(160deg, #eff6ff 0%, #ffffff 70%);
+}
+
+.reflection-card label {
+  display: block;
+  color: var(--text);
+  font-weight: 950;
+  margin-bottom: 10px;
+}
+
+.reflection-card textarea {
+  width: 100%;
+  min-height: 112px;
+  resize: vertical;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: white;
+  color: var(--text);
+  padding: 12px;
+  font: inherit;
+  line-height: 1.45;
+  outline: none;
+}
+
+.reflection-card textarea:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 5px var(--soft);
+}
+
+.reflection-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 16px;
+}
+
+.reflection-status {
+  margin: 10px 0 0;
+  color: var(--accent);
+  font-weight: 900;
+}
+
+.outline-link,
+.trial-link {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+}
+
+.outline-link a,
+.trial-link a {
+  color: var(--accent);
+  font-weight: 950;
+  text-decoration: none;
+}
+
+.outline-link a:hover,
+.trial-link a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 900px) {
+  .reflection-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 760px) {
+  .study-playlist {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .playlist-buttons {
+    justify-content: stretch;
+  }
+  .playlist-btn {
+    flex: 1;
+  }
+}

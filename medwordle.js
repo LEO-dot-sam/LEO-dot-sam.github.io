@@ -23,12 +23,12 @@ const WORDS = [
     "category": "Cardiology / High Yield",
     "hint": "Crushing chest pain with ST elevation in contiguous leads.",
     "diagnosis": "ST-elevation myocardial infarction",
-    "management": "Aspirin plus a P2Y12 inhibitor, anticoagulation such as unfractionated heparin or bivalirudin per protocol, high-intensity statin, nitrates if appropriate, and urgent reperfusion with PCI.",
-    "nextStep": "Activate cath lab for primary PCI if available within the appropriate window; give aspirin immediately if no contraindication."
+    "management": "Aspirin 162\u2013325 mg chewed, P2Y12 inhibitor such as ticagrelor/prasugrel/clopidogrel, anticoagulation such as unfractionated heparin or bivalirudin per cath protocol, high-intensity atorvastatin 80 mg, nitrates if no hypotension/RV infarct/PDE-5 use, and urgent reperfusion with primary PCI.",
+    "nextStep": "Give aspirin immediately and activate the cath lab for primary PCI if it can be performed promptly."
  ,
-    "takeaway": "For ST-elevation MI, do not delay reperfusion for extra testing; aspirin and cath lab activation are the high-yield moves."
+    "takeaway": "ST-elevation MI is a reperfusion emergency; do not delay PCI for serial biomarkers or stress testing."
  ,
-    "outline": {"section": "Cardiovascular System", "subsection": "Ischemic heart disease — acute coronary syndrome / acute myocardial infarction", "page": 18}
+    "outline": {"section": "Cardiovascular System", "subsection": "Ischemic heart disease — acute coronary syndrome / myocardial infarction", "page": 18}
   },
   {
     "word": "NSTEMI",
@@ -37,10 +37,10 @@ const WORDS = [
     "category": "Cardiology / High Yield",
     "hint": "Troponin elevation without ST elevation.",
     "diagnosis": "Non-ST elevation myocardial infarction",
-    "management": "Aspirin plus P2Y12 inhibitor when indicated, anticoagulation with unfractionated heparin/enoxaparin/bivalirudin per setting, high-intensity statin, beta blocker if no contraindication, nitrates for pain.",
-    "nextStep": "Obtain ECG/troponins, start ACS therapy, and risk stratify for early invasive coronary angiography."
+    "management": "Aspirin, P2Y12 inhibitor when appropriate, anticoagulation with unfractionated heparin/enoxaparin/bivalirudin per setting, high-intensity statin, beta blocker if no contraindication, nitroglycerin for pain if safe, and early invasive strategy for high-risk features.",
+    "nextStep": "Start ACS therapy and risk stratify for early invasive coronary angiography."
  ,
-    "takeaway": "NSTEMI is troponin-positive ACS without ST elevation; stabilize medically and risk stratify for invasive management."
+    "takeaway": "Troponin-positive ACS without ST elevation is treated medically first, then risk-stratified for angiography."
  ,
     "outline": {"section": "Cardiovascular System", "subsection": "Ischemic heart disease — acute coronary syndrome", "page": 18}
   },
@@ -51,10 +51,12 @@ const WORDS = [
     "category": "Cardiology / High Yield",
     "hint": "Irregularly irregular rhythm.",
     "diagnosis": "Atrial fibrillation",
-    "management": "Rate/rhythm control and anticoagulation based on stroke risk.",
-    "nextStep": "Assess hemodynamic stability first; unstable patients need synchronized cardioversion."
+    "management": "If stable, rate control with metoprolol/diltiazem/verapamil depending comorbidities; rhythm control when appropriate; anticoagulation with apixaban/rivaroxaban/dabigatran/edoxaban or warfarin based on CHA2DS2-VASc, renal function, valves, and bleeding risk.",
+    "nextStep": "First assess stability; unstable atrial fibrillation requires synchronized cardioversion."
  ,
-    "takeaway": "Always decide first whether the patient is unstable; unstable tachyarrhythmias require synchronized cardioversion."
+    "takeaway": "In tachyarrhythmia questions, stability decides cardioversion vs medication."
+ ,
+    "outline": {"section": "Cardiovascular System", "subsection": "Dysrhythmias — atrial fibrillation/flutter", "page": 18}
   },
   {
     "word": "ANGINA",
@@ -189,10 +191,10 @@ const WORDS = [
     "category": "Pulmonology / High Yield",
     "hint": "Episodic wheezing with reversible obstruction.",
     "diagnosis": "Asthma exacerbation",
-    "management": "Inhaled albuterol; add ipratropium and systemic corticosteroids such as prednisone or IV methylprednisolone for moderate/severe exacerbations; magnesium sulfate for severe refractory exacerbation.",
-    "nextStep": "Assess severity with work of breathing, oxygenation, and peak flow if available; treat acute symptoms immediately."
+    "management": "Inhaled albuterol; add ipratropium for moderate/severe exacerbation, systemic corticosteroid such as prednisone or IV methylprednisolone, oxygen, IV magnesium sulfate for severe refractory exacerbation, and intubation/ICU care if impending respiratory failure.",
+    "nextStep": "Assess work of breathing, oxygen saturation, and peak flow if available; start bronchodilator therapy immediately."
  ,
-    "takeaway": "Asthma exacerbation questions reward quick severity assessment and escalation from SABA to steroids/oxygen/adjuncts."
+    "takeaway": "Asthma exacerbations are managed by severity and response; do not wait for testing before bronchodilators."
  ,
     "outline": {"section": "Respiratory System", "subsection": "Obstructive airway disease — asthma/reactive airway disease", "page": 20}
   },
@@ -203,10 +205,10 @@ const WORDS = [
     "category": "Pulmonology / High Yield",
     "hint": "Chronic cough, smoking history, obstructive spirometry.",
     "diagnosis": "COPD",
-    "management": "Short-acting bronchodilators such as albuterol plus ipratropium, systemic corticosteroids such as prednisone 40 mg daily x5 days, and antibiotics such as azithromycin, doxycycline, or amoxicillin-clavulanate when increased sputum purulence/volume or severe exacerbation is present.",
+    "management": "Albuterol plus ipratropium, prednisone 40 mg daily for 5 days for most exacerbations, controlled oxygen target often 88\u201392% if chronic CO2 retention risk, and antibiotics such as azithromycin, doxycycline, or amoxicillin-clavulanate when increased sputum purulence/volume or severe exacerbation is present.",
     "nextStep": "Assess oxygenation/ventilation and severity; obtain chest x-ray if pneumonia, pneumothorax, or heart failure is possible."
  ,
-    "takeaway": "COPD exacerbation management depends on severity, oxygenation, and whether antibiotics are indicated."
+    "takeaway": "COPD exacerbation treatment is bronchodilator + steroid; antibiotics depend on sputum change and severity."
  ,
     "outline": {"section": "Respiratory System", "subsection": "Obstructive airway disease — COPD/chronic bronchitis/emphysema", "page": 20}
   },
@@ -229,10 +231,10 @@ const WORDS = [
     "category": "Pulmonology / High Yield",
     "hint": "Fever, cough, focal lung findings, infiltrate.",
     "diagnosis": "Pneumonia",
-    "management": "Healthy outpatient adults: amoxicillin 1 g PO three times daily or doxycycline 100 mg PO twice daily. Outpatient adults with comorbidities: amoxicillin-clavulanate plus azithromycin/doxycycline, or a respiratory fluoroquinolone when appropriate.",
-    "nextStep": "Confirm suspected pneumonia with chest x-ray when clinically stable, then determine outpatient vs inpatient treatment using severity and comorbidities."
+    "management": "Healthy outpatient adults: amoxicillin 1 g PO TID or doxycycline 100 mg PO BID. Outpatient with comorbidities: amoxicillin-clavulanate plus azithromycin/doxycycline, or levofloxacin/moxifloxacin when appropriate. Inpatient nonsevere CAP: ceftriaxone plus azithromycin or a respiratory fluoroquinolone.",
+    "nextStep": "Obtain chest x-ray in suspected CAP if clinically stable, then decide outpatient vs inpatient treatment using severity and comorbidities."
  ,
-    "takeaway": "CAP questions test severity, site of care, and empiric antibiotic selection; avoid vague 'antibiotics' answers."
+    "takeaway": "CAP questions test site of care and empiric regimen choice; antibiotic selection changes with comorbidities and severity."
  ,
     "outline": {"section": "Respiratory System", "subsection": "Lower airway infections — community-acquired pneumonia", "page": 20}
   },
@@ -505,10 +507,10 @@ const WORDS = [
     "category": "Endocrinology / High Yield",
     "hint": "Anion gap acidosis with ketones.",
     "diagnosis": "Diabetic ketoacidosis",
-    "management": "IV normal saline or balanced crystalloid, IV regular insulin after potassium is \u22653.3 mEq/L, potassium replacement as needed, dextrose when glucose falls, and treatment of trigger.",
+    "management": "IV normal saline or balanced crystalloid, IV regular insulin only after K+ is \u22653.3 mEq/L, potassium replacement as needed, add dextrose when glucose falls near 200 mg/dL, monitor anion gap, and treat trigger such as infection or missed insulin.",
     "nextStep": "Start isotonic IV fluids and check potassium before insulin."
  ,
-    "takeaway": "Potassium determines when insulin can be safely started in DKA."
+    "takeaway": "In DKA, fluids come first and potassium determines when insulin is safe."
  ,
     "outline": {"section": "Endocrine System", "subsection": "Diabetes mellitus — diabetic ketoacidosis", "page": 32}
   },
@@ -877,12 +879,12 @@ const WORDS = [
     "category": "Infectious Disease / High Yield",
     "hint": "Infection with organ dysfunction.",
     "diagnosis": "Sepsis",
-    "management": "IV crystalloids, broad-spectrum antibiotics tailored to source such as vancomycin plus piperacillin-tazobactam/cefepime/meropenem when severe healthcare-associated infection is possible, source control, and norepinephrine if persistent shock.",
-    "nextStep": "Recognize organ dysfunction and start immediate resuscitation; obtain cultures but do not delay antibiotics in shock."
+    "management": "IV crystalloid resuscitation, broad-spectrum antibiotics tailored to source such as vancomycin plus piperacillin-tazobactam/cefepime/meropenem for severe healthcare-associated sepsis, source control, and norepinephrine for persistent hypotension after fluids.",
+    "nextStep": "Recognize organ dysfunction, obtain cultures, start immediate resuscitation, and do not delay antibiotics in shock."
  ,
-    "takeaway": "In septic shock, early resuscitation, antibiotics, source control, and vasopressors matter more than waiting for perfect diagnostic certainty."
+    "takeaway": "Septic shock management is early antibiotics, fluids, source control, and vasopressors when hypotension persists."
  ,
-    "outline": {"section": "Multisystem Processes & Disorders", "subsection": "Infectious disorders / toxic shock syndrome / systemic host response", "page": 34}
+    "outline": {"section": "Multisystem Processes & Disorders", "subsection": "Infectious disorders / systemic host response / shock", "page": 34}
   },
   {
     "word": "HIV",
@@ -1575,10 +1577,10 @@ const WORDS = [
     "category": "OB/GYN / High Yield",
     "hint": "Pelvic pain, cervical motion tenderness.",
     "diagnosis": "Pelvic inflammatory disease",
-    "management": "Ceftriaxone 500 mg IM once plus doxycycline 100 mg PO BID x14 days plus metronidazole 500 mg PO BID x14 days.",
-    "nextStep": "Treat empirically when pelvic pain plus cervical motion/uterine/adnexal tenderness is present and no better diagnosis."
+    "management": "Ceftriaxone 500 mg IM once plus doxycycline 100 mg PO BID for 14 days plus metronidazole 500 mg PO BID for 14 days; treat partners and test for gonorrhea/chlamydia/HIV/syphilis.",
+    "nextStep": "Treat empirically when pelvic pain plus cervical motion, uterine, or adnexal tenderness is present and no better diagnosis explains it."
  ,
-    "takeaway": "Do not wait for perfect proof of PID; empiric treatment prevents infertility and chronic pelvic pain."
+    "takeaway": "PID is treated empirically to prevent infertility and chronic pelvic pain."
  ,
     "outline": {"section": "Female and Transgender Reproductive System & Breast", "subsection": "Infectious disorders — pelvic inflammatory disease", "page": 29}
   },
@@ -1793,8 +1795,8 @@ const WORDS = [
     "category": "Dermatology / High Yield",
     "hint": "Warm, tender, erythematous skin infection.",
     "diagnosis": "Cellulitis",
-    "management": "Nonpurulent outpatient: cephalexin or dicloxacillin. MRSA risk/purulence: TMP-SMX, doxycycline, or clindamycin. Severe infection: IV vancomycin plus broader coverage if needed.",
-    "nextStep": "Determine purulent vs nonpurulent and assess systemic toxicity."
+    "management": "Nonpurulent outpatient cellulitis: cephalexin or dicloxacillin. MRSA risk or purulence: TMP-SMX, doxycycline, or clindamycin. Severe infection: IV vancomycin plus broader gram-negative/anaerobic coverage when indicated.",
+    "nextStep": "Determine purulent vs nonpurulent infection and assess systemic toxicity."
  ,
     "takeaway": "Cellulitis antibiotic choice depends on purulence, MRSA risk, and severity."
  ,
@@ -2087,83 +2089,7 @@ function saveCollectedCards(cards) {
   localStorage.setItem("medwordleCards", JSON.stringify(cards));
 }
 
-function unlockCard() {
-  const cards = getCollectedCards();
-  if (cards.find(c => c.word === answerObj.word)) return false;
 
-  const card = {
-    word: answerObj.word,
-    specialty: answerObj.specialty,
-    rarity: rarityForCard(answerObj),
-    badge: badgeForCard(answerObj),
-    hint: answerObj.hint,
-    diagnosis: answerObj.diagnosis,
-    nextStep: answerObj.nextStep,
-    management: answerObj.management,
-    unlockedAt: new Date().toISOString()
-  };
-
-  cards.push(card);
-  saveCollectedCards(cards);
-  showCardUnlock(card);
-  
-  return true;
-}
-
-function showCardUnlock(card) {
-  if (!cardUnlockToast) return;
-  unlockRarity.textContent = card.rarity;
-  unlockWord.textContent = card.word;
-  unlockSpecialty.textContent = card.specialty;
-  unlockBadge.textContent = card.badge;
-  cardUnlockToast.classList.remove("hidden");
-  setTimeout(() => cardUnlockToast.classList.add("hidden"), 4200);
-}
-
-function openCardsModal() {
-  renderCards();
-  cardsModal.classList.remove("hidden");
-  cardsModal.setAttribute("aria-hidden", "false");
-  
-}
-
-function closeCardsModal() {
-  cardsModal.classList.add("hidden");
-  cardsModal.setAttribute("aria-hidden", "true");
-}
-
-function renderCards() {
-  const cards = getCollectedCards();
-  const filter = cardFilter ? cardFilter.value : "All";
-  const visible = filter === "All" ? cards : cards.filter(c => c.specialty === filter);
-  const total = WORDS.length;
-  collectionProgress.textContent = `Collected ${cards.length} / ${total} cards`;
-
-  cardsGrid.innerHTML = "";
-  if (!visible.length) {
-    cardsGrid.innerHTML = `<div class="empty-collection">No cards here yet. Solve MedWordle words to unlock collectible MedCards.</div>`;
-    return;
-  }
-
-  visible
-    .sort((a, b) => a.specialty.localeCompare(b.specialty) || a.word.localeCompare(b.word))
-    .forEach(card => {
-      const el = document.createElement("article");
-      el.className = `medcard ${card.rarity.toLowerCase()}`;
-      el.innerHTML = `
-        <div class="medcard-top">
-          <span class="medcard-specialty">${card.specialty}</span>
-          <span class="medcard-rarity">${card.rarity}</span>
-        </div>
-        <div class="medcard-word">${card.word}</div>
-        <div class="medcard-badge">${card.badge}</div>
-        <p class="medcard-detail"><strong>Dx:</strong> ${card.diagnosis || card.word}</p>
-        <p class="medcard-detail"><strong>Clue:</strong> ${card.hint || "High-yield clinical pattern"}</p>
-        <p class="medcard-detail"><strong>Next:</strong> ${card.nextStep || "Recognize the pattern and choose the safest next step."}</p>
-      `;
-      cardsGrid.appendChild(el);
-    });
-}
 
 
 const TRIAL_REFERENCE_MAP = {
@@ -2347,16 +2273,15 @@ function showPearl() {
   const outline = getOutlineInfo();
   const outlineHref = `${OUTLINE_URL}#page=${outline.page}`;
   const trial = getTrialReference();
-  const trialHtml = trial ? `<div class="pearl-row trial-link"><a href="${trial.url}" target="_blank" rel="noopener">🧪 Reference: ${trial.label}</a></div>` : "";
+  const trialHtml = trial ? `<div class="pearl-row trial-link"><a href="${trial.url}" target="_blank" rel="noopener">🧪 Evidence/Guideline Reference: ${trial.label}</a></div>` : "";
+
   pearlText.innerHTML = `
     <div class="pearl-row key-clue"><strong>Key Clue:</strong> ${answerObj.hint}</div>
     <div class="pearl-row"><strong>Diagnosis:</strong> ${answerObj.diagnosis}</div>
     <div class="pearl-row next-step"><strong>Next Best Step:</strong> ${answerObj.nextStep}</div>
     <div class="pearl-row"><strong>Management:</strong> ${answerObj.management}</div>
-    <div class="pearl-row why"><strong>NBME Takeaway:</strong> ${answerObj.takeaway || nbmeWhyText()}</div>
-    <div class="pearl-row outline-link">
-      <a href="${outlineHref}" target="_blank" rel="noopener">📖 USMLE Outline: ${outline.section} — ${outline.subsection}</a>
-    </div>
+    <div class="pearl-row why"><strong>NBME Takeaway:</strong> ${answerObj.takeaway || "Recognize the clinical pattern, choose the safest immediate next step, then give specific evidence-based management."}</div>
+    <div class="pearl-row outline-link"><a href="${outlineHref}" target="_blank" rel="noopener">📖 USMLE Outline: ${outline.section} — ${outline.subsection}</a></div>
     ${trialHtml}
   `;
   pearlBox.classList.remove("hidden");
@@ -2486,6 +2411,69 @@ document.querySelectorAll(".playlist-btn").forEach((btn) => {
     }
   });
 });
+
+
+function reflectionDateKey() {
+  return new Date().toISOString().slice(0, 10);
+}
+
+function loadReflection() {
+  const reflections = JSON.parse(localStorage.getItem("medwordle_reflections") || "{}");
+  const today = reflections[reflectionDateKey()];
+  if (!today) return;
+
+  const rose = document.getElementById("roseInput");
+  const thorn = document.getElementById("thornInput");
+  const buffalo = document.getElementById("buffaloInput");
+
+  if (rose) rose.value = today.rose || "";
+  if (thorn) thorn.value = today.thorn || "";
+  if (buffalo) buffalo.value = today.buffalo || "";
+}
+
+function saveReflection() {
+  const rose = document.getElementById("roseInput")?.value || "";
+  const thorn = document.getElementById("thornInput")?.value || "";
+  const buffalo = document.getElementById("buffaloInput")?.value || "";
+
+  const reflections = JSON.parse(localStorage.getItem("medwordle_reflections") || "{}");
+  reflections[reflectionDateKey()] = { rose, thorn, buffalo, savedAt: new Date().toISOString() };
+  localStorage.setItem("medwordle_reflections", JSON.stringify(reflections));
+
+  const status = document.getElementById("reflectionStatus");
+  if (status) status.textContent = "Saved for today ✅";
+
+  if (typeof gtag === "function") {
+    gtag("event", "reflection_saved");
+  }
+}
+
+async function shareReflection() {
+  const rose = document.getElementById("roseInput")?.value || "";
+  const thorn = document.getElementById("thornInput")?.value || "";
+  const buffalo = document.getElementById("buffaloInput")?.value || "";
+
+  const text = `Rose 🌹: ${rose || "—"}\nThorn 🌵: ${thorn || "—"}\nBuffalo 🐃: ${buffalo || "—"}\n\nShared from MedWordle`;
+
+  try {
+    if (navigator.share) {
+      await navigator.share({ title: "Rose, Thorn & Buffalo", text });
+    } else {
+      await navigator.clipboard.writeText(text);
+      const status = document.getElementById("reflectionStatus");
+      if (status) status.textContent = "Reflection copied to clipboard ✅";
+    }
+  } catch (e) {
+    const status = document.getElementById("reflectionStatus");
+    if (status) status.textContent = "Share canceled.";
+  }
+}
+
+const saveReflectionBtn = document.getElementById("saveReflectionBtn");
+const shareReflectionBtn = document.getElementById("shareReflectionBtn");
+if (saveReflectionBtn) saveReflectionBtn.addEventListener("click", saveReflection);
+if (shareReflectionBtn) shareReflectionBtn.addEventListener("click", shareReflection);
+loadReflection();
 
 initGame();
 

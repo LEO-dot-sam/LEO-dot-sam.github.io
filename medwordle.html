@@ -141,16 +141,40 @@
         <span><b class="tile absent">A</b> not in word</span>
       </div>
     </section>
+      </div>
+    </div>
 
-    <section class="info-grid">
-      <article class="info-card"><h3>Daily Challenge</h3><p>One universal fixed word per day, same for every user, with a shareable emoji result.</p></article>
-      <article class="info-card"><h3>Practice Mode</h3><p>Unlimited specialty-based review with Step 2-style hints and pearls.</p></article>
-      <article class="info-card"><h3>Adaptive Mode</h3><p>Automatically emphasizes specialties you miss most often.</p></article>
+  
+    <section class="reflection-section">
+      <div class="reflection-header">
+        <p class="label">Human Connection</p>
+        <h2>🌹 Rose, Thorn & Buffalo</h2>
+        <p class="reflection-subtext">Take 30 seconds after studying to reflect on your day.</p>
+      </div>
+
+      <div class="reflection-grid">
+        <div class="reflection-card rose">
+          <label for="roseInput">🌹 Rose — what went well?</label>
+          <textarea id="roseInput" placeholder="Something good that happened today..."></textarea>
+        </div>
+
+        <div class="reflection-card thorn">
+          <label for="thornInput">🌵 Thorn — what was challenging?</label>
+          <textarea id="thornInput" placeholder="Something difficult, frustrating, or heavy..."></textarea>
+        </div>
+
+        <div class="reflection-card buffalo">
+          <label for="buffaloInput">🐃 Buffalo — what are you looking forward to?</label>
+          <textarea id="buffaloInput" placeholder="Something ahead that gives you energy..."></textarea>
+        </div>
+      </div>
+
+      <div class="reflection-actions">
+        <button id="saveReflectionBtn" type="button">Save Reflection</button>
+        <button id="shareReflectionBtn" type="button" class="secondary">Share Reflection</button>
+      </div>
+      <p id="reflectionStatus" class="reflection-status"></p>
     </section>
-
-        
-
-        
 
   </main>
 
