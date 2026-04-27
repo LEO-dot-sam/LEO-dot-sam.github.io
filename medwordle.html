@@ -35,12 +35,61 @@
       </p>
     </section>
 
-    <section class="stats-grid">
-      <div class="stat-card"><span id="gamesPlayed">0</span><p>Played</p></div>
-      <div class="stat-card"><span id="winRate">0%</span><p>Win Rate</p></div>
-      <div class="stat-card"><span id="currentStreak">0</span><p>Streak</p></div>
-      <div class="stat-card"><span id="weakTopic">None yet</span><p>Weak Topic</p></div>
+    <section class="inline-dashboard">
+      <div class="dashboard-header">
+        <div>
+          <p class="label">Performance Dashboard</p>
+          <h2>🔥 Your MedWordle Progress</h2>
+          <p class="mode-description">Tracked locally on this device/browser.</p>
+        </div>
+      </div>
+
+      <div class="dashboard-grid">
+        <div class="dash-card points">
+          <span id="totalPoints">0</span>
+          <p>Total Points</p>
+        </div>
+        <div class="dash-card">
+          <span id="leaderStreak">0</span>
+          <p>Current Streak</p>
+        </div>
+        <div class="dash-card">
+          <span id="daysPlayed">0</span>
+          <p>Days Played</p>
+        </div>
+        <div class="dash-card">
+          <span id="leaderWins">0</span>
+          <p>Wins</p>
+        </div>
+        <div class="dash-card">
+          <span id="dailyCompletions">0</span>
+          <p>Daily Challenges</p>
+        </div>
+        <div class="dash-card">
+          <span id="bestSpecialty">None</span>
+          <p>Best Specialty</p>
+        </div>
+      </div>
+
+      <div class="heatmap-section inline">
+        <div class="heatmap-title-row">
+          <div>
+            <h3>Activity Heatmap</h3>
+            <p>Last 28 days</p>
+          </div>
+          <div class="heatmap-legend">
+            <span>Less</span>
+            <i class="heatbox none"></i>
+            <i class="heatbox low"></i>
+            <i class="heatbox med"></i>
+            <i class="heatbox high"></i>
+            <span>More</span>
+          </div>
+        </div>
+        <div id="heatmapGrid" class="heatmap-grid"></div>
+      </div>
     </section>
+
 
     <section class="game-card">
       <div class="game-header">
@@ -108,7 +157,6 @@
       <div class="controls-row">
         <button id="hintBtn" class="secondary" type="button">Show Hint</button>
         <button id="shareBtn" class="secondary" type="button">Share Result</button>
-        <button id="statsBtn" class="secondary" type="button">🏆 Your Stats</button>
         <button id="practiceWeakBtn" class="secondary hidden" type="button">Practice Weak Topic</button>
         <button id="newGameBtn" type="button">New Word</button>
       </div>
@@ -142,45 +190,6 @@
       <article class="info-card"><h3>Practice Mode</h3><p>Unlimited specialty-based review with Step 2-style hints and pearls.</p></article>
       <article class="info-card"><h3>Adaptive Mode</h3><p>Automatically emphasizes specialties you miss most often.</p></article>
     </section>
-
-  
-    <div id="statsModal" class="stats-modal hidden" aria-hidden="true">
-      <div class="stats-content">
-        <div class="stats-header">
-          <div>
-            <p class="label">Performance Dashboard</p>
-            <h2>🏆 Your MedWordle Stats</h2>
-            <p class="mode-description">Saved locally on this device/browser.</p>
-          </div>
-          <button id="closeStatsBtn" class="secondary" type="button">Close</button>
-        </div>
-
-        <div class="leaderboard-grid">
-          <div class="leader-card big">
-            <span id="totalPoints">0</span>
-            <p>Total Points</p>
-          </div>
-          <div class="leader-card">
-            <span id="leaderStreak">0</span>
-            <p>Current Streak</p>
-          </div>
-          <div class="leader-card">
-            <span id="daysPlayed">0</span>
-            <p>Days Played</p>
-          </div>
-          <div class="leader-card">
-            <span id="leaderWins">0</span>
-            <p>Wins</p>
-          </div>
-          <div class="leader-card">
-            <span id="bestSpecialty">None</span>
-            <p>Best Specialty</p>
-          </div>
-          <div class="leader-card">
-            <span id="dailyCompletions">0</span>
-            <p>Daily Challenges</p>
-          </div>
-        </div>
 
         <div class="heatmap-section">
           <h3>🔥 Activity Heatmap</h3>

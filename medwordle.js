@@ -2473,6 +2473,7 @@ function recordResult(won) {
   if (!won) stats.misses[answerObj.specialty] = (stats.misses[answerObj.specialty] || 0) + 1;
   enhanceStats(stats, won);
   saveStats(stats);
+  renderStatsDashboard();
 
   if (playType === "Daily Challenge") {
     saveDailyRecord({
@@ -2603,6 +2604,7 @@ if (__statsModal) __statsModal.addEventListener("click", (event) => {
 });
 
 initGame();
+renderStatsDashboard();
 });
 modeSelect.addEventListener("change", () => {
   if (playType === "Daily Challenge") {
