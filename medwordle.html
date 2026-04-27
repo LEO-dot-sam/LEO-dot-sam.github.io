@@ -80,7 +80,20 @@
             <button class="tiny-nav" type="button" aria-label="Next period">&gt;</button>
           </div>
 
-          <div id="heatmapGrid" class="heatmap-grid anki-grid"></div>
+          <div class="calendar-heatmap-wrap">
+            <div class="weekday-labels">
+              <span>Mon</span>
+              <span></span>
+              <span>Wed</span>
+              <span></span>
+              <span>Fri</span>
+              <span></span>
+              <span>Sun</span>
+            </div>
+            <div id="heatmapGrid" class="heatmap-grid calendar-grid"></div>
+          </div>
+
+          <div class="month-label-row" id="monthLabels"></div>
 
           <div class="anki-summary">
             <span>Daily average: <strong id="dailyAverage">0 reviews</strong></span>
