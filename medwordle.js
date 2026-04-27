@@ -2264,6 +2264,48 @@ function bestSpecialtyFromStats(stats) {
   return best ? `${best[0]} (${best[1]})` : "None";
 }
 
+function formatDayWord(n) {
+  return `${n} day${n === 1 ? "" : "s"}`;
+}
+
+function calculateLongestStreak(activity) {
+  const keys = Object.keys(activity || {}).sort();
+  if (!keys.length) return 0;
+
+  let longest = 0;
+  let current = 0;
+  let prev = null;
+
+  keys.forEach(key => {
+    const d = new Date(key + "T00:00:00");
+    if (!prev) {
+      current = 1;
+    } else {
+      const diff = Math.round((d - prev) / 86400000);
+      current = diff === 1 ? current + 1 : 1;
+    }
+    longest = Math.max(longest, current);
+    prev = d;
+  });
+
+  return longest;
+}
+
+function calculateCurrentStreak(activity) {
+  const today = new Date();
+  let streak = 0;
+
+  for (let i = 0; i < 365; i++) {
+    const d = new Date(today);
+    d.setDate(today.getDate() - i);
+    const key = d.toISOString().slice(0, 10);
+    if (activity[key]) streak++;
+    else break;
+  }
+
+  return streak;
+}
+
 function renderHeatmap() {
   const grid = document.getElementById("heatmapGrid");
   if (!grid) return;
@@ -2271,9 +2313,16 @@ function renderHeatmap() {
   const stats = getStats();
   const activity = stats.dayActivity || {};
   const today = new Date();
+  const year = today.getFullYear();
+
+  const heatmapYear = document.getElementById("heatmapYear");
+  if (heatmapYear) heatmapYear.textContent = year;
+
   grid.innerHTML = "";
 
-  for (let i = 27; i >= 0; i--) {
+  const daysToShow = 154; // 22 weeks, close to the compact Anki strip in the screenshot
+
+  for (let i = daysToShow - 1; i >= 0; i--) {
     const d = new Date(today);
     d.setDate(today.getDate() - i);
     const key = d.toISOString().slice(0, 10);
@@ -2281,12 +2330,40 @@ function renderHeatmap() {
 
     const cell = document.createElement("div");
     cell.className = "heatmap-cell";
+
     if (count === 1) cell.classList.add("active");
     if (count === 2) cell.classList.add("win");
-    if (count >= 3) cell.classList.add("strong");
-    cell.title = `${key}: ${count} game${count === 1 ? "" : "s"}`;
+    if (count === 3) cell.classList.add("strong");
+    if (count >= 4) cell.classList.add("max");
+
+    cell.title = `${key}: ${count} review${count === 1 ? "" : "s"}`;
     grid.appendChild(cell);
   }
+
+  const todayKey = today.toISOString().slice(0, 10);
+  const todayCount = activity[todayKey] || 0;
+
+  const todayText = document.getElementById("todayActivityText");
+  if (todayText) {
+    todayText.textContent = `Studied ${todayCount} card${todayCount === 1 ? "" : "s"} today.`;
+  }
+
+  const activeDays = Object.keys(activity).filter(k => activity[k] > 0).length;
+  const totalReviews = Object.values(activity).reduce((a, b) => a + b, 0);
+  const dailyAverage = activeDays ? Math.round(totalReviews / activeDays) : 0;
+  const percentLearned = Math.round((activeDays / daysToShow) * 100);
+  const longest = calculateLongestStreak(activity);
+  const current = calculateCurrentStreak(activity);
+
+  const dailyAverageEl = document.getElementById("dailyAverage");
+  const daysLearnedEl = document.getElementById("daysLearnedPercent");
+  const longestEl = document.getElementById("longestStreak");
+  const currentEl = document.getElementById("currentStreakText");
+
+  if (dailyAverageEl) dailyAverageEl.textContent = `${dailyAverage} review${dailyAverage === 1 ? "" : "s"}`;
+  if (daysLearnedEl) daysLearnedEl.textContent = `${percentLearned}%`;
+  if (longestEl) longestEl.textContent = formatDayWord(longest);
+  if (currentEl) currentEl.textContent = formatDayWord(current);
 }
 
 function renderStatsDashboard() {

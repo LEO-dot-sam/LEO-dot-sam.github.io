@@ -71,23 +71,24 @@
         </div>
       </div>
 
-      <div class="heatmap-section inline">
-        <div class="heatmap-title-row">
-          <div>
-            <h3>Activity Heatmap</h3>
-            <p>Last 28 days</p>
+      <div class="heatmap-section inline anki-style">
+          <p id="todayActivityText" class="today-activity">Studied 0 cards today.</p>
+
+          <div class="heatmap-nav">
+            <button class="tiny-nav" type="button" aria-label="Previous period">&lt;</button>
+            <span id="heatmapYear">2026</span>
+            <button class="tiny-nav" type="button" aria-label="Next period">&gt;</button>
           </div>
-          <div class="heatmap-legend">
-            <span>Less</span>
-            <i class="heatbox none"></i>
-            <i class="heatbox low"></i>
-            <i class="heatbox med"></i>
-            <i class="heatbox high"></i>
-            <span>More</span>
+
+          <div id="heatmapGrid" class="heatmap-grid anki-grid"></div>
+
+          <div class="anki-summary">
+            <span>Daily average: <strong id="dailyAverage">0 reviews</strong></span>
+            <span>Days learned: <strong id="daysLearnedPercent">0%</strong></span>
+            <span>Longest streak: <strong id="longestStreak">0 days</strong></span>
+            <span>Current streak: <strong id="currentStreakText">0 days</strong></span>
           </div>
         </div>
-        <div id="heatmapGrid" class="heatmap-grid"></div>
-      </div>
     </section>
 
 
