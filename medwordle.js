@@ -2135,6 +2135,9 @@ function chooseWord() {
 
 function updateControlsForPlayType() {
   const isDaily = playType === "Daily Challenge";
+
+  if (playTypeSelect) playTypeSelect.value = playType;
+
   specialtySelect.disabled = isDaily;
   modeSelect.disabled = isDaily;
   dailyBanner.classList.toggle("hidden", !isDaily);
@@ -2185,10 +2188,13 @@ function initGame() {
   buildKeyboard();
 
   const dailyRecord = playType === "Daily Challenge" ? getDailyRecord() : null;
-  if (dailyRecord) restoreDailyRecord(dailyRecord);
-  else {
+
+  if (dailyRecord) {
+    restoreDailyRecord(dailyRecord);
+  } else {
     messageEl.textContent = `Guess the ${answer.length}-letter medical term.`;
     messageEl.className = "message";
+    input.disabled = false;
     input.focus();
   }
 }
@@ -2558,6 +2564,24 @@ function initReflectionJournal() {
   });
 
   loadReflection();
+
+// Make active mode match the visible dropdown, not stale localStorage.
+function syncInitialModeFromDropdown() {
+  if (playTypeSelect && playTypeSelect.value && playTypeSelect.value !== playType) {
+    playType = playTypeSelect.value;
+    localStorage.setItem("medwordlePlayType", playType);
+  }
+  if (specialtySelect && specialtySelect.value && playType !== "Daily Challenge") {
+    selectedSpecialty = specialtySelect.value;
+    localStorage.setItem("medwordleSpecialty", selectedSpecialty);
+  }
+  if (modeSelect && modeSelect.value && playType !== "Daily Challenge") {
+    selectedMode = modeSelect.value;
+    localStorage.setItem("medwordleMode", selectedMode);
+  }
+}
+
+syncInitialModeFromDropdown();
 }
 
 initReflectionJournal();
