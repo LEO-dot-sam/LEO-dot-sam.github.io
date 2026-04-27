@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MedWordle | Lionel Sam</title>
+  <title>MedWordle | Step 2 Study Game</title>
   <link rel="stylesheet" href="medwordle.css" />
 </head>
 <body>
@@ -20,9 +20,16 @@
       <div class="hero-badge">Step 2 Study Tool</div>
       <h1>MedWordle</h1>
       <p class="subtitle">
-        A bright, specialty-themed medical Wordle game built around high-yield clinical vocabulary,
-        USMLE-style systems, hints, and learning pearls.
+        A bright, specialty-themed medical Wordle game with hints, diagnosis-based pearls,
+        management, next-step reasoning, scoring, weak-topic tracking, and adaptive practice.
       </p>
+    </section>
+
+    <section class="stats-grid">
+      <div class="stat-card"><span id="gamesPlayed">0</span><p>Played</p></div>
+      <div class="stat-card"><span id="winRate">0%</span><p>Win Rate</p></div>
+      <div class="stat-card"><span id="currentStreak">0</span><p>Streak</p></div>
+      <div class="stat-card"><span id="weakTopic">None yet</span><p>Weak Topic</p></div>
     </section>
 
     <section class="game-card">
@@ -34,6 +41,14 @@
         </div>
 
         <div class="settings-grid">
+          <div class="settings">
+            <label for="playTypeSelect">Play Type</label>
+            <select id="playTypeSelect">
+              <option value="Practice">Practice</option>
+              <option value="Daily Challenge">Daily Challenge</option>
+              <option value="Adaptive">Adaptive Weak Topics</option>
+            </select>
+          </div>
           <div class="settings">
             <label for="specialtySelect">Specialty</label>
             <select id="specialtySelect">
@@ -60,9 +75,8 @@
               <option value="Rheumatology">Rheumatology</option>
             </select>
           </div>
-
           <div class="settings">
-            <label for="modeSelect">Mode</label>
+            <label for="modeSelect">Difficulty</label>
             <select id="modeSelect">
               <option value="High Yield">High Yield</option>
               <option value="All Outline">All Outline</option>
@@ -74,6 +88,7 @@
 
       <div class="controls-row">
         <button id="hintBtn" class="secondary" type="button">Show Hint</button>
+        <button id="shareBtn" class="secondary" type="button">Share Result</button>
         <button id="newGameBtn" type="button">New Word</button>
       </div>
 
@@ -83,19 +98,13 @@
       <div id="board" class="board" aria-label="MedWordle board"></div>
 
       <form id="guessForm" class="guess-form">
-        <input
-          id="guessInput"
-          type="text"
-          autocomplete="off"
-          placeholder="Enter medical term"
-          aria-label="Enter guess"
-        />
+        <input id="guessInput" type="text" autocomplete="off" placeholder="Enter medical term" aria-label="Enter guess" />
         <button type="submit">Submit</button>
       </form>
 
       <div id="pearlBox" class="pearl hidden">
-        <p class="pearl-title">Clinical Pearl</p>
-        <p id="pearlText"></p>
+        <p class="pearl-title">Step 2 Clinical Pearl</p>
+        <div id="pearlText"></div>
       </div>
 
       <div id="keyboard" class="keyboard" aria-label="Keyboard feedback"></div>
@@ -108,18 +117,9 @@
     </section>
 
     <section class="info-grid">
-      <article class="info-card">
-        <h3>High Yield</h3>
-        <p>Core Step 2-style terms designed to be fair, memorable, and clinically useful.</p>
-      </article>
-      <article class="info-card">
-        <h3>All Outline</h3>
-        <p>Broader medical vocabulary organized by the USMLE content systems and specialties.</p>
-      </article>
-      <article class="info-card">
-        <h3>Hard Mode</h3>
-        <p>Less obvious terms, tougher clues, and challenge-level recall for spaced practice.</p>
-      </article>
+      <article class="info-card"><h3>Daily Challenge</h3><p>One fixed medical word per day, based on the date.</p></article>
+      <article class="info-card"><h3>Practice Mode</h3><p>Unlimited specialty-based review with Step 2-style hints and pearls.</p></article>
+      <article class="info-card"><h3>Adaptive Mode</h3><p>Automatically emphasizes specialties you miss most often.</p></article>
     </section>
   </main>
 

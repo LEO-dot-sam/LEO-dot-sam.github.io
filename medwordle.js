@@ -1,25 +1,12 @@
 const THEMES = {
-  "All Medicine": "theme-all",
-  "Cardiology": "theme-cardiology",
-  "Neurology": "theme-neurology",
-  "Radiology": "theme-radiology",
-  "Surgery": "theme-surgery",
-  "Pediatrics": "theme-pediatrics",
-  "OB/GYN": "theme-obgyn",
-  "Oncology": "theme-oncology",
-  "Infectious Disease": "theme-infectious-disease",
-  "Emergency Medicine": "theme-emergency-medicine",
-  "Psychiatry": "theme-psychiatry",
-  "Dermatology": "theme-dermatology",
-  "Nephrology": "theme-nephrology",
-  "Pulmonology": "theme-pulmonology",
-  "Endocrinology": "theme-endocrinology",
-  "Hematology": "theme-hematology",
-  "Pharmacology": "theme-pharmacology",
-  "Pathology": "theme-pathology",
-  "Anatomy": "theme-anatomy",
-  "Gastroenterology": "theme-gastroenterology",
-  "Rheumatology": "theme-rheumatology"
+  "All Medicine": "theme-all", "Cardiology": "theme-cardiology", "Neurology": "theme-neurology",
+  "Radiology": "theme-radiology", "Surgery": "theme-surgery", "Pediatrics": "theme-pediatrics",
+  "OB/GYN": "theme-obgyn", "Oncology": "theme-oncology", "Infectious Disease": "theme-infectious-disease",
+  "Emergency Medicine": "theme-emergency-medicine", "Psychiatry": "theme-psychiatry",
+  "Dermatology": "theme-dermatology", "Nephrology": "theme-nephrology", "Pulmonology": "theme-pulmonology",
+  "Endocrinology": "theme-endocrinology", "Hematology": "theme-hematology",
+  "Pharmacology": "theme-pharmacology", "Pathology": "theme-pathology", "Anatomy": "theme-anatomy",
+  "Gastroenterology": "theme-gastroenterology", "Rheumatology": "theme-rheumatology"
 };
 
 const MODE_DESCRIPTIONS = {
@@ -28,36 +15,26 @@ const MODE_DESCRIPTIONS = {
   "Hard Mode": "Tougher and less obvious terms for challenge-level recall."
 };
 
-const MODE_RANK = {
-  "High Yield": 1,
-  "All Outline": 2,
-  "Hard Mode": 3
-};
-
 const WORDS = [
   {
     "word": "STEMI",
     "specialty": "Cardiology",
     "mode": "High Yield",
     "category": "Cardiology / High Yield",
-    "hint": "ST elevation myocardial infarction pattern in contiguous leads.",
-    "pearl": "Immediate reperfusion with PCI is key when criteria are met."
+    "hint": "Crushing chest pain with ST elevation in contiguous leads.",
+    "diagnosis": "ST-elevation myocardial infarction",
+    "management": "Aspirin, anticoagulation, nitrates if appropriate, high-intensity statin, urgent reperfusion.",
+    "nextStep": "Primary PCI if available within recommended window; otherwise fibrinolysis if no contraindications."
   },
   {
     "word": "NSTEMI",
     "specialty": "Cardiology",
     "mode": "High Yield",
     "category": "Cardiology / High Yield",
-    "hint": "Myocardial infarction without ST elevation.",
-    "pearl": "Treat ACS with antiplatelet/anticoagulation strategy and risk stratify."
-  },
-  {
-    "word": "ANGINA",
-    "specialty": "Cardiology",
-    "mode": "High Yield",
-    "category": "Cardiology / High Yield",
-    "hint": "Chest pain from myocardial ischemia.",
-    "pearl": "Stable angina is exertional and relieved by rest or nitroglycerin."
+    "hint": "Troponin elevation without ST elevation.",
+    "diagnosis": "Non-ST elevation myocardial infarction",
+    "management": "Antiplatelet therapy, anticoagulation, statin, beta blocker when appropriate.",
+    "nextStep": "Risk stratify for early invasive management."
   },
   {
     "word": "AFIB",
@@ -65,119 +42,129 @@ const WORDS = [
     "mode": "High Yield",
     "category": "Cardiology / High Yield",
     "hint": "Irregularly irregular rhythm.",
-    "pearl": "Anticoagulation decisions are guided by stroke risk."
+    "diagnosis": "Atrial fibrillation",
+    "management": "Rate/rhythm control and anticoagulation based on stroke risk.",
+    "nextStep": "Assess hemodynamic stability first; unstable patients need synchronized cardioversion."
+  },
+  {
+    "word": "ANGINA",
+    "specialty": "Cardiology",
+    "mode": "High Yield",
+    "category": "Cardiology / High Yield",
+    "hint": "Exertional chest discomfort relieved by rest.",
+    "diagnosis": "Stable angina",
+    "management": "Antianginal therapy and risk factor modification.",
+    "nextStep": "Stress testing if diagnosis is uncertain and patient is stable."
   },
   {
     "word": "CHF",
     "specialty": "Cardiology",
     "mode": "High Yield",
     "category": "Cardiology / High Yield",
-    "hint": "Syndrome of impaired cardiac filling or pumping.",
-    "pearl": "Look for dyspnea, edema, JVD, crackles, and BNP elevation."
-  },
-  {
-    "word": "MURMUR",
-    "specialty": "Cardiology",
-    "mode": "High Yield",
-    "category": "Cardiology / High Yield",
-    "hint": "Abnormal heart sound from turbulent flow.",
-    "pearl": "Timing and radiation help identify the valve lesion."
-  },
-  {
-    "word": "STENT",
-    "specialty": "Cardiology",
-    "mode": "High Yield",
-    "category": "Cardiology / High Yield",
-    "hint": "Device placed to keep a vessel open.",
-    "pearl": "Dual antiplatelet therapy is commonly needed after coronary stenting."
-  },
-  {
-    "word": "VALVE",
-    "specialty": "Cardiology",
-    "mode": "High Yield",
-    "category": "Cardiology / High Yield",
-    "hint": "Prevents backward blood flow.",
-    "pearl": "Valve lesions are classic physical diagnosis questions."
-  },
-  {
-    "word": "AORTA",
-    "specialty": "Cardiology",
-    "mode": "High Yield",
-    "category": "Cardiology / High Yield",
-    "hint": "Largest artery in the body.",
-    "pearl": "Chest/back tearing pain raises concern for aortic dissection."
-  },
-  {
-    "word": "SYNCOPE",
-    "specialty": "Cardiology",
-    "mode": "High Yield",
-    "category": "Cardiology / High Yield",
-    "hint": "Transient loss of consciousness.",
-    "pearl": "Cardiac syncope is concerning when exertional or associated with abnormal ECG."
-  },
-  {
-    "word": "TAMPONADE",
-    "specialty": "Cardiology",
-    "mode": "All Outline",
-    "category": "Cardiology / All Outline",
-    "hint": "Obstructive shock from pericardial fluid compression.",
-    "pearl": "Beck triad: hypotension, JVD, muffled heart sounds."
-  },
-  {
-    "word": "TORSADES",
-    "specialty": "Cardiology",
-    "mode": "Hard Mode",
-    "category": "Cardiology / Hard Mode",
-    "hint": "Polymorphic VT associated with prolonged QT.",
-    "pearl": "Treat unstable torsades with defibrillation; magnesium is classic therapy."
-  },
-  {
-    "word": "MYXOMA",
-    "specialty": "Cardiology",
-    "mode": "Hard Mode",
-    "category": "Cardiology / Hard Mode",
-    "hint": "Benign cardiac tumor often in left atrium.",
-    "pearl": "Can present with positional symptoms or embolic phenomena."
-  },
-  {
-    "word": "QT",
-    "specialty": "Cardiology",
-    "mode": "All Outline",
-    "category": "Cardiology / All Outline",
-    "hint": "ECG interval affected by many drugs.",
-    "pearl": "Prolonged QT increases torsades risk."
+    "hint": "Dyspnea, edema, JVD, crackles, elevated BNP.",
+    "diagnosis": "Heart failure",
+    "management": "Diuresis for congestion; guideline-directed therapy when stable.",
+    "nextStep": "Assess volume status and treat acute decompensation first."
   },
   {
     "word": "DVT",
     "specialty": "Cardiology",
     "mode": "High Yield",
     "category": "Cardiology / High Yield",
-    "hint": "Deep venous thrombosis.",
-    "pearl": "Risk factors include surgery, immobility, cancer, pregnancy, and thrombophilia."
+    "hint": "Unilateral leg swelling and pain after immobility.",
+    "diagnosis": "Deep venous thrombosis",
+    "management": "Anticoagulation unless contraindicated.",
+    "nextStep": "Compression ultrasound is the usual diagnostic next step."
   },
   {
-    "word": "PAD",
+    "word": "MURMUR",
     "specialty": "Cardiology",
     "mode": "High Yield",
     "category": "Cardiology / High Yield",
-    "hint": "Peripheral arterial disease.",
-    "pearl": "Claudication with exertion suggests arterial insufficiency."
+    "hint": "Turbulent flow heard on cardiac auscultation.",
+    "diagnosis": "Valvular or flow murmur",
+    "management": "Treat based on valve lesion and severity.",
+    "nextStep": "Use echo to characterize significant murmurs."
   },
   {
-    "word": "VSD",
+    "word": "SYNCOPE",
+    "specialty": "Cardiology",
+    "mode": "High Yield",
+    "category": "Cardiology / High Yield",
+    "hint": "Brief loss of consciousness with rapid recovery.",
+    "diagnosis": "Syncope",
+    "management": "Treat the underlying cause.",
+    "nextStep": "Obtain ECG early; concerning cardiac features require urgent evaluation."
+  },
+  {
+    "word": "TAMPONADE",
+    "specialty": "Cardiology",
+    "mode": "High Yield",
+    "category": "Cardiology / High Yield",
+    "hint": "Hypotension, JVD, muffled heart sounds.",
+    "diagnosis": "Cardiac tamponade",
+    "management": "Urgent pericardiocentesis if unstable.",
+    "nextStep": "Bedside echo is helpful but do not delay intervention in shock."
+  },
+  {
+    "word": "TORSADES",
+    "specialty": "Cardiology",
+    "mode": "Hard Mode",
+    "category": "Cardiology / Hard Mode",
+    "hint": "Polymorphic VT with prolonged QT.",
+    "diagnosis": "Torsades de pointes",
+    "management": "IV magnesium; correct electrolytes and remove QT-prolonging drugs.",
+    "nextStep": "Defibrillate if unstable or pulseless."
+  },
+  {
+    "word": "MYXOMA",
+    "specialty": "Cardiology",
+    "mode": "Hard Mode",
+    "category": "Cardiology / Hard Mode",
+    "hint": "Positional dyspnea or embolic symptoms from atrial mass.",
+    "diagnosis": "Atrial myxoma",
+    "management": "Surgical resection.",
+    "nextStep": "Echocardiography is key for diagnosis."
+  },
+  {
+    "word": "DISSECTION",
     "specialty": "Cardiology",
     "mode": "All Outline",
     "category": "Cardiology / All Outline",
-    "hint": "Ventricular septal defect.",
-    "pearl": "Left-to-right shunts can lead to pulmonary hypertension if severe."
+    "hint": "Tearing chest pain radiating to the back.",
+    "diagnosis": "Aortic dissection",
+    "management": "Aggressive BP/HR control; surgery for ascending dissections.",
+    "nextStep": "CT angiography if stable; TEE if unstable."
   },
   {
-    "word": "ASD",
+    "word": "ENDOCARDITIS",
     "specialty": "Cardiology",
     "mode": "All Outline",
     "category": "Cardiology / All Outline",
-    "hint": "Atrial septal defect.",
-    "pearl": "Fixed split S2 is a classic clue."
+    "hint": "Fever, murmur, embolic signs, positive blood cultures.",
+    "diagnosis": "Infective endocarditis",
+    "management": "IV antibiotics guided by cultures; surgery for complications.",
+    "nextStep": "Obtain multiple blood cultures before antibiotics if stable."
+  },
+  {
+    "word": "MYOCARDITIS",
+    "specialty": "Cardiology",
+    "mode": "All Outline",
+    "category": "Cardiology / All Outline",
+    "hint": "Chest pain after viral illness with troponin elevation.",
+    "diagnosis": "Myocarditis",
+    "management": "Supportive care and treat heart failure/arrhythmias if present.",
+    "nextStep": "ECG, troponin, echo; cardiac MRI can help."
+  },
+  {
+    "word": "PERICARDITIS",
+    "specialty": "Cardiology",
+    "mode": "All Outline",
+    "category": "Cardiology / All Outline",
+    "hint": "Pleuritic chest pain better leaning forward.",
+    "diagnosis": "Acute pericarditis",
+    "management": "NSAIDs plus colchicine unless contraindicated.",
+    "nextStep": "Look for diffuse ST elevation and PR depression."
   },
   {
     "word": "ASTHMA",
@@ -185,79 +172,109 @@ const WORDS = [
     "mode": "High Yield",
     "category": "Pulmonology / High Yield",
     "hint": "Episodic wheezing with reversible obstruction.",
-    "pearl": "First-line rescue therapy is an inhaled short-acting beta agonist."
+    "diagnosis": "Asthma exacerbation",
+    "management": "Inhaled beta agonist, steroids for moderate/severe exacerbation.",
+    "nextStep": "Assess severity; oxygen and bronchodilators first."
   },
   {
     "word": "COPD",
     "specialty": "Pulmonology",
     "mode": "High Yield",
     "category": "Pulmonology / High Yield",
-    "hint": "Chronic obstructive lung disease from airflow limitation.",
-    "pearl": "Smoking is the major risk factor; spirometry confirms obstruction."
+    "hint": "Chronic cough, smoking history, obstructive spirometry.",
+    "diagnosis": "COPD",
+    "management": "Bronchodilators, smoking cessation, steroids/antibiotics for selected exacerbations.",
+    "nextStep": "Use spirometry to confirm diagnosis."
   },
   {
     "word": "ARDS",
     "specialty": "Pulmonology",
     "mode": "High Yield",
     "category": "Pulmonology / High Yield",
-    "hint": "Acute hypoxemic respiratory failure with bilateral infiltrates.",
-    "pearl": "Use low tidal volume ventilation."
+    "hint": "Acute hypoxemia with bilateral infiltrates after sepsis/trauma.",
+    "diagnosis": "Acute respiratory distress syndrome",
+    "management": "Low tidal volume ventilation and supportive care.",
+    "nextStep": "Treat the underlying trigger and optimize oxygenation."
   },
   {
     "word": "PNEUMONIA",
     "specialty": "Pulmonology",
     "mode": "High Yield",
     "category": "Pulmonology / High Yield",
-    "hint": "Infection of lung parenchyma.",
-    "pearl": "Fever, cough, focal findings, and infiltrate support diagnosis."
+    "hint": "Fever, cough, focal lung findings, infiltrate.",
+    "diagnosis": "Pneumonia",
+    "management": "Empiric antibiotics based on setting and severity.",
+    "nextStep": "Chest x-ray supports diagnosis; assess need for admission."
   },
   {
     "word": "EMBOLUS",
     "specialty": "Pulmonology",
-    "mode": "All Outline",
-    "category": "Pulmonology / All Outline",
-    "hint": "Material obstructing a vessel.",
-    "pearl": "Pulmonary embolism classically causes sudden dyspnea and tachycardia."
+    "mode": "High Yield",
+    "category": "Pulmonology / High Yield",
+    "hint": "Sudden dyspnea, pleuritic chest pain, tachycardia.",
+    "diagnosis": "Pulmonary embolism",
+    "management": "Anticoagulation; thrombolysis if massive PE with instability.",
+    "nextStep": "Use CT pulmonary angiography if appropriate."
   },
   {
     "word": "HYPOXIA",
     "specialty": "Pulmonology",
     "mode": "High Yield",
     "category": "Pulmonology / High Yield",
-    "hint": "Low tissue oxygen availability.",
-    "pearl": "Always assess airway, breathing, and circulation first."
+    "hint": "Low oxygen delivery to tissues.",
+    "diagnosis": "Hypoxemia/hypoxia",
+    "management": "Oxygen and treatment of underlying cause.",
+    "nextStep": "Assess airway, breathing, circulation immediately."
   },
   {
-    "word": "PLEURITIS",
+    "word": "PNEUMOTHORAX",
     "specialty": "Pulmonology",
     "mode": "All Outline",
     "category": "Pulmonology / All Outline",
-    "hint": "Inflammation causing pleuritic chest pain.",
-    "pearl": "Pain worsens with inspiration."
+    "hint": "Sudden pleuritic chest pain with decreased breath sounds.",
+    "diagnosis": "Pneumothorax",
+    "management": "Needle decompression if tension physiology; chest tube if large/symptomatic.",
+    "nextStep": "Do not wait for imaging if unstable tension pneumothorax is suspected."
   },
   {
-    "word": "EMPHYSEMA",
+    "word": "HEMOTHORAX",
     "specialty": "Pulmonology",
     "mode": "All Outline",
     "category": "Pulmonology / All Outline",
-    "hint": "Alveolar wall destruction causing air trapping.",
-    "pearl": "Associated with smoking and alpha-1 antitrypsin deficiency."
+    "hint": "Blood in pleural space after trauma.",
+    "diagnosis": "Hemothorax",
+    "management": "Tube thoracostomy; surgery if massive or ongoing bleeding.",
+    "nextStep": "Evaluate trauma patient with ABCs first."
+  },
+  {
+    "word": "ATELECTASIS",
+    "specialty": "Pulmonology",
+    "mode": "All Outline",
+    "category": "Pulmonology / All Outline",
+    "hint": "Postoperative fever with low lung volumes.",
+    "diagnosis": "Atelectasis",
+    "management": "Incentive spirometry and mobilization.",
+    "nextStep": "Common early postoperative pulmonary issue."
   },
   {
     "word": "ASBESTOS",
     "specialty": "Pulmonology",
     "mode": "Hard Mode",
     "category": "Pulmonology / Hard Mode",
-    "hint": "Occupational exposure linked with lung disease.",
-    "pearl": "Classically associated with pleural plaques and mesothelioma."
+    "hint": "Pleural plaques and restrictive disease after exposure.",
+    "diagnosis": "Asbestosis",
+    "management": "Supportive care and cancer surveillance.",
+    "nextStep": "Ask about occupational exposure."
   },
   {
-    "word": "TB",
+    "word": "SILICOSIS",
     "specialty": "Pulmonology",
-    "mode": "High Yield",
-    "category": "Pulmonology / High Yield",
-    "hint": "Mycobacterial infection affecting lungs and other organs.",
-    "pearl": "Consider in chronic cough, weight loss, night sweats, and risk exposure."
+    "mode": "Hard Mode",
+    "category": "Pulmonology / Hard Mode",
+    "hint": "Upper-lobe nodules after mining/sandblasting exposure.",
+    "diagnosis": "Silicosis",
+    "management": "Supportive care; screen for TB risk.",
+    "nextStep": "Occupational history is key."
   },
   {
     "word": "MELENA",
@@ -265,111 +282,129 @@ const WORDS = [
     "mode": "High Yield",
     "category": "Gastroenterology / High Yield",
     "hint": "Black tarry stool.",
-    "pearl": "Often suggests upper GI bleeding."
+    "diagnosis": "Upper GI bleeding",
+    "management": "Stabilize, IV PPI if suspected ulcer bleed, endoscopy.",
+    "nextStep": "Assess hemodynamics and resuscitate first."
   },
   {
     "word": "GERD",
     "specialty": "Gastroenterology",
     "mode": "High Yield",
     "category": "Gastroenterology / High Yield",
-    "hint": "Reflux of gastric contents into esophagus.",
-    "pearl": "Alarm symptoms warrant endoscopy."
-  },
-  {
-    "word": "IBD",
-    "specialty": "Gastroenterology",
-    "mode": "High Yield",
-    "category": "Gastroenterology / High Yield",
-    "hint": "Inflammatory bowel disease.",
-    "pearl": "Crohn is transmural; ulcerative colitis starts at rectum and is continuous."
+    "hint": "Burning retrosternal pain after meals.",
+    "diagnosis": "Gastroesophageal reflux disease",
+    "management": "Lifestyle changes and PPI trial.",
+    "nextStep": "Endoscopy for alarm symptoms."
   },
   {
     "word": "CIRRHOSIS",
     "specialty": "Gastroenterology",
     "mode": "High Yield",
     "category": "Gastroenterology / High Yield",
-    "hint": "End-stage liver fibrosis.",
-    "pearl": "Complications include ascites, varices, encephalopathy, and HCC."
+    "hint": "Ascites, varices, encephalopathy, thrombocytopenia.",
+    "diagnosis": "Cirrhosis",
+    "management": "Manage complications and screen for HCC/varices.",
+    "nextStep": "New ascites warrants diagnostic paracentesis."
   },
   {
     "word": "ASCITES",
     "specialty": "Gastroenterology",
     "mode": "High Yield",
     "category": "Gastroenterology / High Yield",
-    "hint": "Free fluid in the peritoneal cavity.",
-    "pearl": "New ascites requires diagnostic paracentesis."
+    "hint": "Abdominal distention with shifting dullness.",
+    "diagnosis": "Ascites",
+    "management": "Salt restriction, diuretics; paracentesis when new or concerning.",
+    "nextStep": "Check SAAG to classify cause."
   },
   {
     "word": "JAUNDICE",
     "specialty": "Gastroenterology",
     "mode": "High Yield",
     "category": "Gastroenterology / High Yield",
-    "hint": "Yellowing due to bilirubin elevation.",
-    "pearl": "Differentiate hepatocellular, obstructive, and hemolytic patterns."
-  },
-  {
-    "word": "APPENDIX",
-    "specialty": "Gastroenterology",
-    "mode": "All Outline",
-    "category": "Gastroenterology / All Outline",
-    "hint": "Inflamed structure in appendicitis.",
-    "pearl": "Classically migratory periumbilical pain to RLQ."
+    "hint": "Yellow skin/sclera from bilirubin elevation.",
+    "diagnosis": "Jaundice",
+    "management": "Treat cause based on hepatocellular vs obstructive vs hemolytic pattern.",
+    "nextStep": "Fractionated bilirubin and liver tests guide next step."
   },
   {
     "word": "PANCREAS",
     "specialty": "Gastroenterology",
+    "mode": "High Yield",
+    "category": "Gastroenterology / High Yield",
+    "hint": "Epigastric pain radiating to back with elevated lipase.",
+    "diagnosis": "Acute pancreatitis",
+    "management": "IV fluids, analgesia, nutrition; treat cause.",
+    "nextStep": "RUQ ultrasound if gallstones suspected."
+  },
+  {
+    "word": "APPENDIX",
+    "specialty": "Gastroenterology",
+    "mode": "High Yield",
+    "category": "Gastroenterology / High Yield",
+    "hint": "Periumbilical pain migrating to RLQ.",
+    "diagnosis": "Appendicitis",
+    "management": "Appendectomy or antibiotics in select cases.",
+    "nextStep": "CT abdomen in many adults if diagnosis uncertain."
+  },
+  {
+    "word": "DIVERTICULITIS",
+    "specialty": "Gastroenterology",
     "mode": "All Outline",
     "category": "Gastroenterology / All Outline",
-    "hint": "Organ involved in endocrine and exocrine function.",
-    "pearl": "Pancreatitis causes epigastric pain radiating to the back."
+    "hint": "LLQ pain, fever, bowel habit changes.",
+    "diagnosis": "Diverticulitis",
+    "management": "Antibiotics for selected cases; drainage/surgery if complicated.",
+    "nextStep": "CT abdomen/pelvis confirms diagnosis."
   },
   {
     "word": "VOLVULUS",
     "specialty": "Gastroenterology",
     "mode": "Hard Mode",
     "category": "Gastroenterology / Hard Mode",
-    "hint": "Twisting of bowel causing obstruction.",
-    "pearl": "Sigmoid volvulus shows a coffee-bean sign."
+    "hint": "Coffee-bean sign and large bowel obstruction.",
+    "diagnosis": "Sigmoid volvulus",
+    "management": "Endoscopic detorsion if no peritonitis.",
+    "nextStep": "Surgery if ischemia, perforation, or recurrent disease."
   },
   {
     "word": "ACHALASIA",
     "specialty": "Gastroenterology",
     "mode": "Hard Mode",
     "category": "Gastroenterology / Hard Mode",
-    "hint": "Failure of LES relaxation.",
-    "pearl": "Bird-beak appearance can be seen on barium swallow."
+    "hint": "Progressive dysphagia to solids and liquids.",
+    "diagnosis": "Achalasia",
+    "management": "Pneumatic dilation, Heller myotomy, or POEM.",
+    "nextStep": "Manometry is diagnostic."
   },
   {
     "word": "AKI",
     "specialty": "Nephrology",
     "mode": "High Yield",
     "category": "Nephrology / High Yield",
-    "hint": "Acute kidney injury.",
-    "pearl": "Separate prerenal, intrinsic, and postrenal causes."
+    "hint": "Acute rise in creatinine or drop in urine output.",
+    "diagnosis": "Acute kidney injury",
+    "management": "Treat cause; optimize volume and avoid nephrotoxins.",
+    "nextStep": "Classify prerenal, intrinsic, or postrenal."
   },
   {
     "word": "CKD",
     "specialty": "Nephrology",
     "mode": "High Yield",
     "category": "Nephrology / High Yield",
-    "hint": "Chronic kidney disease.",
-    "pearl": "Track GFR, albuminuria, anemia, bone-mineral disease, and BP control."
+    "hint": "Chronic reduced GFR or albuminuria.",
+    "diagnosis": "Chronic kidney disease",
+    "management": "BP control, diabetes control, ACEi/ARB when indicated.",
+    "nextStep": "Monitor anemia, bone-mineral disease, and electrolytes."
   },
   {
     "word": "STONES",
     "specialty": "Nephrology",
     "mode": "High Yield",
     "category": "Nephrology / High Yield",
-    "hint": "Renal calculi.",
-    "pearl": "Colicky flank pain with hematuria is classic."
-  },
-  {
-    "word": "ANURIA",
-    "specialty": "Nephrology",
-    "mode": "All Outline",
-    "category": "Nephrology / All Outline",
-    "hint": "Absent urine output.",
-    "pearl": "Think obstruction, severe AKI, or shock."
+    "hint": "Colicky flank pain radiating to groin with hematuria.",
+    "diagnosis": "Nephrolithiasis",
+    "management": "Analgesia, hydration; alpha blocker for selected stones.",
+    "nextStep": "Noncontrast CT is highly sensitive."
   },
   {
     "word": "OLIGURIA",
@@ -377,167 +412,179 @@ const WORDS = [
     "mode": "All Outline",
     "category": "Nephrology / All Outline",
     "hint": "Low urine output.",
-    "pearl": "Assess volume status and kidney perfusion."
+    "diagnosis": "Oliguria",
+    "management": "Assess volume status, perfusion, obstruction, and nephrotoxins.",
+    "nextStep": "Bladder scan can quickly assess retention."
+  },
+  {
+    "word": "ANURIA",
+    "specialty": "Nephrology",
+    "mode": "All Outline",
+    "category": "Nephrology / All Outline",
+    "hint": "Absent urine output.",
+    "diagnosis": "Anuria",
+    "management": "Urgently assess obstruction and severe renal failure.",
+    "nextStep": "Postrenal obstruction must be ruled out."
   },
   {
     "word": "NEPHRON",
     "specialty": "Nephrology",
     "mode": "All Outline",
     "category": "Nephrology / All Outline",
-    "hint": "Functional unit of the kidney.",
-    "pearl": "Glomerulus filters; tubules reabsorb and secrete."
+    "hint": "Functional unit of kidney.",
+    "diagnosis": "Kidney physiology concept",
+    "management": "Management depends on site of renal pathology.",
+    "nextStep": "Use UA and microscopy to localize renal disease."
   },
   {
     "word": "ALPORT",
     "specialty": "Nephrology",
     "mode": "Hard Mode",
     "category": "Nephrology / Hard Mode",
-    "hint": "Hereditary nephritis syndrome.",
-    "pearl": "Hematuria plus hearing/ocular findings is classic."
+    "hint": "Hematuria with hearing and ocular findings.",
+    "diagnosis": "Alport syndrome",
+    "management": "Supportive renal care; genetic counseling.",
+    "nextStep": "Think collagen IV defect."
   },
   {
     "word": "FANCONI",
     "specialty": "Nephrology",
     "mode": "Hard Mode",
     "category": "Nephrology / Hard Mode",
-    "hint": "Proximal tubule dysfunction.",
-    "pearl": "Causes glucose, amino acid, phosphate, and bicarbonate wasting."
-  },
-  {
-    "word": "LITHIUM",
-    "specialty": "Nephrology",
-    "mode": "All Outline",
-    "category": "Nephrology / All Outline",
-    "hint": "Drug associated with renal/endocrine effects.",
-    "pearl": "Can cause nephrogenic diabetes insipidus."
+    "hint": "Proximal tubule wasting of glucose, phosphate, bicarbonate.",
+    "diagnosis": "Fanconi syndrome",
+    "management": "Treat cause and replace losses.",
+    "nextStep": "Look for non-anion gap metabolic acidosis."
   },
   {
     "word": "DKA",
     "specialty": "Endocrinology",
     "mode": "High Yield",
     "category": "Endocrinology / High Yield",
-    "hint": "Diabetic ketoacidosis.",
-    "pearl": "Anion gap acidosis, ketones, hyperglycemia; treat fluids, insulin, potassium."
+    "hint": "Anion gap acidosis with ketones.",
+    "diagnosis": "Diabetic ketoacidosis",
+    "management": "IV fluids, insulin, potassium management.",
+    "nextStep": "Check potassium before insulin."
   },
   {
     "word": "HHS",
     "specialty": "Endocrinology",
     "mode": "High Yield",
     "category": "Endocrinology / High Yield",
-    "hint": "Hyperosmolar hyperglycemic state.",
-    "pearl": "Severe hyperglycemia and dehydration with minimal ketosis."
-  },
-  {
-    "word": "THYROID",
-    "specialty": "Endocrinology",
-    "mode": "High Yield",
-    "category": "Endocrinology / High Yield",
-    "hint": "Endocrine gland regulating metabolism.",
-    "pearl": "TSH is usually the first screening test."
+    "hint": "Severe hyperglycemia and dehydration with minimal ketosis.",
+    "diagnosis": "Hyperosmolar hyperglycemic state",
+    "management": "Aggressive fluids, insulin after volume resuscitation.",
+    "nextStep": "Older type 2 diabetic patient with altered mental status is classic."
   },
   {
     "word": "GRAVES",
     "specialty": "Endocrinology",
     "mode": "High Yield",
     "category": "Endocrinology / High Yield",
-    "hint": "Autoimmune hyperthyroidism.",
-    "pearl": "Look for ophthalmopathy, diffuse goiter, and low TSH."
+    "hint": "Hyperthyroidism with ophthalmopathy.",
+    "diagnosis": "Graves disease",
+    "management": "Beta blocker for symptoms; methimazole/PTU, radioiodine, or surgery.",
+    "nextStep": "Check TSH and free T4; TSI supports diagnosis."
   },
   {
     "word": "ADDISON",
     "specialty": "Endocrinology",
     "mode": "High Yield",
     "category": "Endocrinology / High Yield",
-    "hint": "Primary adrenal insufficiency.",
-    "pearl": "Hyperpigmentation, hypotension, hyponatremia, hyperkalemia."
+    "hint": "Hypotension, hyperpigmentation, hyponatremia, hyperkalemia.",
+    "diagnosis": "Primary adrenal insufficiency",
+    "management": "Glucocorticoid and mineralocorticoid replacement.",
+    "nextStep": "Adrenal crisis needs immediate stress-dose steroids."
   },
   {
     "word": "CUSHING",
     "specialty": "Endocrinology",
     "mode": "High Yield",
     "category": "Endocrinology / High Yield",
-    "hint": "Excess cortisol state.",
-    "pearl": "Central obesity, striae, hypertension, glucose intolerance."
+    "hint": "Central obesity, striae, hypertension, glucose intolerance.",
+    "diagnosis": "Cushing syndrome",
+    "management": "Treat underlying source of cortisol excess.",
+    "nextStep": "Screen with dexamethasone suppression, late-night salivary cortisol, or urinary cortisol."
   },
   {
     "word": "SIADH",
     "specialty": "Endocrinology",
     "mode": "All Outline",
     "category": "Endocrinology / All Outline",
-    "hint": "Excess ADH causing euvolemic hyponatremia.",
-    "pearl": "Treat based on severity; fluid restriction is common for mild cases."
+    "hint": "Euvolemic hyponatremia with concentrated urine.",
+    "diagnosis": "SIADH",
+    "management": "Fluid restriction; hypertonic saline if severe symptoms.",
+    "nextStep": "Avoid rapid sodium correction."
   },
   {
-    "word": "MEN",
+    "word": "THYROID",
     "specialty": "Endocrinology",
-    "mode": "Hard Mode",
-    "category": "Endocrinology / Hard Mode",
-    "hint": "Multiple endocrine neoplasia syndrome.",
-    "pearl": "Know MEN1 vs MEN2 tumor patterns."
+    "mode": "All Outline",
+    "category": "Endocrinology / All Outline",
+    "hint": "Neck gland controlling metabolism.",
+    "diagnosis": "Thyroid disorder",
+    "management": "Treat based on hypo/hyperthyroid state.",
+    "nextStep": "TSH is the usual initial test."
   },
   {
     "word": "GOITER",
     "specialty": "Endocrinology",
     "mode": "All Outline",
     "category": "Endocrinology / All Outline",
-    "hint": "Thyroid enlargement.",
-    "pearl": "Can occur with hypo-, hyper-, or euthyroid states."
+    "hint": "Enlarged thyroid gland.",
+    "diagnosis": "Goiter",
+    "management": "Treat underlying thyroid dysfunction or compressive symptoms.",
+    "nextStep": "Check thyroid function tests."
   },
   {
     "word": "STROKE",
     "specialty": "Neurology",
     "mode": "High Yield",
     "category": "Neurology / High Yield",
-    "hint": "Acute neurologic deficit due to vascular injury.",
-    "pearl": "Time last known well determines thrombolysis/thrombectomy eligibility."
+    "hint": "Acute focal neurologic deficit.",
+    "diagnosis": "Stroke",
+    "management": "Reperfusion when eligible; secondary prevention afterward.",
+    "nextStep": "Time last known well is critical."
   },
   {
     "word": "SEIZURE",
     "specialty": "Neurology",
     "mode": "High Yield",
     "category": "Neurology / High Yield",
-    "hint": "Abnormal synchronous neuronal activity.",
-    "pearl": "First seizure workup often includes labs, imaging, and EEG depending context."
+    "hint": "Transient abnormal neuronal activity.",
+    "diagnosis": "Seizure",
+    "management": "Stabilize airway; benzodiazepines for active prolonged seizure.",
+    "nextStep": "Evaluate reversible triggers after stabilization."
   },
   {
     "word": "MIGRAINE",
     "specialty": "Neurology",
     "mode": "High Yield",
     "category": "Neurology / High Yield",
-    "hint": "Recurrent headache often with photophobia/nausea.",
-    "pearl": "Triptans are abortive therapy unless contraindicated."
+    "hint": "Headache with photophobia, nausea, possible aura.",
+    "diagnosis": "Migraine",
+    "management": "NSAIDs/triptans for acute therapy; prophylaxis if frequent.",
+    "nextStep": "Avoid triptans in significant vascular disease."
   },
   {
     "word": "DELIRIUM",
     "specialty": "Neurology",
     "mode": "High Yield",
     "category": "Neurology / High Yield",
-    "hint": "Acute fluctuating inattention and awareness.",
-    "pearl": "Search for underlying medical causes."
+    "hint": "Acute fluctuating attention and awareness.",
+    "diagnosis": "Delirium",
+    "management": "Treat underlying medical cause; reorientation and sleep hygiene.",
+    "nextStep": "Look for infection, meds, metabolic causes."
   },
   {
     "word": "APHASIA",
     "specialty": "Neurology",
     "mode": "High Yield",
     "category": "Neurology / High Yield",
-    "hint": "Language impairment.",
-    "pearl": "Dominant hemisphere lesions are classic."
-  },
-  {
-    "word": "PTOSIS",
-    "specialty": "Neurology",
-    "mode": "All Outline",
-    "category": "Neurology / All Outline",
-    "hint": "Drooping eyelid.",
-    "pearl": "Can suggest CN III palsy, Horner syndrome, or myasthenia."
-  },
-  {
-    "word": "HORNER",
-    "specialty": "Neurology",
-    "mode": "All Outline",
-    "category": "Neurology / All Outline",
-    "hint": "Ptosis, miosis, anhidrosis.",
-    "pearl": "Consider sympathetic pathway disruption."
+    "hint": "Language impairment after dominant hemisphere injury.",
+    "diagnosis": "Aphasia",
+    "management": "Treat underlying cause, often stroke evaluation.",
+    "nextStep": "Differentiate from dysarthria."
   },
   {
     "word": "GBS",
@@ -545,47 +592,79 @@ const WORDS = [
     "mode": "High Yield",
     "category": "Neurology / High Yield",
     "hint": "Ascending weakness after infection.",
-    "pearl": "Monitor respiratory function; treat with IVIG or plasmapheresis."
+    "diagnosis": "Guillain-Barre syndrome",
+    "management": "IVIG or plasmapheresis; monitor respiratory function.",
+    "nextStep": "Check vital capacity."
   },
   {
-    "word": "TETANUS",
+    "word": "HORNER",
     "specialty": "Neurology",
-    "mode": "Hard Mode",
-    "category": "Neurology / Hard Mode",
-    "hint": "Toxin-mediated spastic paralysis.",
-    "pearl": "Prevention with vaccination is key."
+    "mode": "All Outline",
+    "category": "Neurology / All Outline",
+    "hint": "Ptosis, miosis, anhidrosis.",
+    "diagnosis": "Horner syndrome",
+    "management": "Treat underlying sympathetic pathway lesion.",
+    "nextStep": "Painful Horner can suggest carotid dissection."
+  },
+  {
+    "word": "PTOSIS",
+    "specialty": "Neurology",
+    "mode": "All Outline",
+    "category": "Neurology / All Outline",
+    "hint": "Drooping eyelid.",
+    "diagnosis": "Ptosis",
+    "management": "Evaluate for CN III palsy, Horner, or myasthenia.",
+    "nextStep": "Pupil involvement in CN III palsy is concerning for aneurysm."
   },
   {
     "word": "BOTULISM",
     "specialty": "Neurology",
     "mode": "Hard Mode",
     "category": "Neurology / Hard Mode",
-    "hint": "Descending flaccid paralysis.",
-    "pearl": "Caused by toxin blocking acetylcholine release."
+    "hint": "Descending paralysis and pupillary findings.",
+    "diagnosis": "Botulism",
+    "management": "Antitoxin and supportive care.",
+    "nextStep": "Infant botulism associated with honey exposure."
+  },
+  {
+    "word": "TETANUS",
+    "specialty": "Neurology",
+    "mode": "Hard Mode",
+    "category": "Neurology / Hard Mode",
+    "hint": "Trismus and muscle spasms.",
+    "diagnosis": "Tetanus",
+    "management": "Immune globulin, metronidazole, wound care, vaccination.",
+    "nextStep": "Prevention through vaccination is key."
   },
   {
     "word": "ECTOPIC",
     "specialty": "OB/GYN",
     "mode": "High Yield",
     "category": "OB/GYN / High Yield",
-    "hint": "Pregnancy implanted outside uterus.",
-    "pearl": "Reproductive-age patient with pain/bleeding: check pregnancy test first."
-  },
-  {
-    "word": "ABRUPTION",
-    "specialty": "OB/GYN",
-    "mode": "High Yield",
-    "category": "OB/GYN / High Yield",
-    "hint": "Premature placental separation.",
-    "pearl": "Painful bleeding with uterine tenderness is classic."
+    "hint": "Pregnancy with abdominal pain and bleeding.",
+    "diagnosis": "Ectopic pregnancy",
+    "management": "Methotrexate if stable and eligible; surgery if unstable/ruptured.",
+    "nextStep": "Pregnancy test first in reproductive-age patient."
   },
   {
     "word": "PREVIA",
     "specialty": "OB/GYN",
     "mode": "High Yield",
     "category": "OB/GYN / High Yield",
-    "hint": "Placenta covering cervical os.",
-    "pearl": "Painless third-trimester bleeding; avoid digital exam until ruled out."
+    "hint": "Painless third-trimester bleeding.",
+    "diagnosis": "Placenta previa",
+    "management": "Avoid digital exam; cesarean delivery if persistent.",
+    "nextStep": "Ultrasound confirms placental location."
+  },
+  {
+    "word": "ABRUPTION",
+    "specialty": "OB/GYN",
+    "mode": "High Yield",
+    "category": "OB/GYN / High Yield",
+    "hint": "Painful third-trimester bleeding with uterine tenderness.",
+    "diagnosis": "Placental abruption",
+    "management": "Maternal stabilization and delivery depending severity.",
+    "nextStep": "Can be associated with hypertension or trauma."
   },
   {
     "word": "HELLP",
@@ -593,39 +672,49 @@ const WORDS = [
     "mode": "High Yield",
     "category": "OB/GYN / High Yield",
     "hint": "Hemolysis, elevated liver enzymes, low platelets.",
-    "pearl": "Severe preeclampsia spectrum; delivery is definitive."
+    "diagnosis": "HELLP syndrome",
+    "management": "Magnesium, BP control, delivery after stabilization.",
+    "nextStep": "Severe preeclampsia spectrum."
+  },
+  {
+    "word": "ECLAMPSIA",
+    "specialty": "OB/GYN",
+    "mode": "High Yield",
+    "category": "OB/GYN / High Yield",
+    "hint": "Seizures in patient with preeclampsia.",
+    "diagnosis": "Eclampsia",
+    "management": "Magnesium sulfate and delivery after stabilization.",
+    "nextStep": "Protect airway and control seizures first."
   },
   {
     "word": "LOCHIA",
     "specialty": "OB/GYN",
     "mode": "All Outline",
     "category": "OB/GYN / All Outline",
-    "hint": "Postpartum vaginal discharge.",
-    "pearl": "Normal postpartum finding that changes over time."
-  },
-  {
-    "word": "UTERUS",
-    "specialty": "OB/GYN",
-    "mode": "All Outline",
-    "category": "OB/GYN / All Outline",
-    "hint": "Muscular organ of pregnancy.",
-    "pearl": "Uterine atony is a leading cause of postpartum hemorrhage."
+    "hint": "Normal postpartum vaginal discharge.",
+    "diagnosis": "Lochia",
+    "management": "Reassurance if normal pattern and no infection/bleeding concerns.",
+    "nextStep": "Assess fever, uterine tenderness, and heavy bleeding if abnormal."
   },
   {
     "word": "VACCINE",
     "specialty": "Pediatrics",
     "mode": "High Yield",
     "category": "Pediatrics / High Yield",
-    "hint": "Biologic that stimulates immunity.",
-    "pearl": "Routine immunization schedules are high-yield preventive medicine."
+    "hint": "Immunization for disease prevention.",
+    "diagnosis": "Routine vaccination",
+    "management": "Follow age-based schedule and contraindications.",
+    "nextStep": "Preventive care is high yield."
   },
   {
-    "word": "JAUNDICE",
+    "word": "SIDS",
     "specialty": "Pediatrics",
     "mode": "High Yield",
     "category": "Pediatrics / High Yield",
-    "hint": "Yellowing in newborns from bilirubin.",
-    "pearl": "Assess age in hours and risk factors."
+    "hint": "Sudden infant death during sleep.",
+    "diagnosis": "Sudden infant death syndrome",
+    "management": "Back-to-sleep and safe sleep counseling.",
+    "nextStep": "Avoid prone sleeping and soft bedding."
   },
   {
     "word": "FONTANELLE",
@@ -633,47 +722,59 @@ const WORDS = [
     "mode": "All Outline",
     "category": "Pediatrics / All Outline",
     "hint": "Soft spot on infant skull.",
-    "pearl": "Bulging may suggest increased intracranial pressure."
+    "diagnosis": "Fontanelle finding",
+    "management": "Interpret with hydration and intracranial pressure context.",
+    "nextStep": "Bulging suggests increased ICP; sunken suggests dehydration."
   },
   {
-    "word": "SIDS",
+    "word": "PYLORIC",
     "specialty": "Pediatrics",
-    "mode": "All Outline",
-    "category": "Pediatrics / All Outline",
-    "hint": "Sudden infant death syndrome.",
-    "pearl": "Back-to-sleep positioning reduces risk."
+    "mode": "Hard Mode",
+    "category": "Pediatrics / Hard Mode",
+    "hint": "Projectile nonbilious vomiting in young infant.",
+    "diagnosis": "Pyloric stenosis",
+    "management": "Surgical pyloromyotomy after correcting electrolytes.",
+    "nextStep": "Hypochloremic metabolic alkalosis is classic."
   },
   {
     "word": "MDD",
     "specialty": "Psychiatry",
     "mode": "High Yield",
     "category": "Psychiatry / High Yield",
-    "hint": "Major depressive disorder.",
-    "pearl": "Screen for suicidality and functional impairment."
+    "hint": "Depressed mood or anhedonia with neurovegetative symptoms.",
+    "diagnosis": "Major depressive disorder",
+    "management": "Psychotherapy and/or SSRI; assess safety.",
+    "nextStep": "Always screen for suicidal ideation."
   },
   {
     "word": "MANIA",
     "specialty": "Psychiatry",
     "mode": "High Yield",
     "category": "Psychiatry / High Yield",
-    "hint": "Elevated mood with decreased need for sleep.",
-    "pearl": "Bipolar disorder changes antidepressant strategy."
+    "hint": "Decreased need for sleep with elevated/irritable mood.",
+    "diagnosis": "Manic episode",
+    "management": "Mood stabilizer or antipsychotic; hospitalization if unsafe.",
+    "nextStep": "Avoid antidepressant monotherapy in bipolar disorder."
   },
   {
     "word": "BIPOLAR",
     "specialty": "Psychiatry",
     "mode": "High Yield",
     "category": "Psychiatry / High Yield",
-    "hint": "Mood disorder with mania/hypomania.",
-    "pearl": "Mood stabilizers are central treatment."
+    "hint": "Mood disorder with mania or hypomania.",
+    "diagnosis": "Bipolar disorder",
+    "management": "Mood stabilizer/atypical antipsychotic.",
+    "nextStep": "Ask about past mania before starting antidepressants."
   },
   {
     "word": "PTSD",
     "specialty": "Psychiatry",
     "mode": "High Yield",
     "category": "Psychiatry / High Yield",
-    "hint": "Trauma-related disorder with re-experiencing/avoidance.",
-    "pearl": "Symptoms persist beyond one month after trauma."
+    "hint": "Re-experiencing, avoidance, hyperarousal after trauma.",
+    "diagnosis": "Post-traumatic stress disorder",
+    "management": "Trauma-focused psychotherapy; SSRIs can help.",
+    "nextStep": "Symptoms persist more than one month."
   },
   {
     "word": "OCD",
@@ -681,271 +782,319 @@ const WORDS = [
     "mode": "High Yield",
     "category": "Psychiatry / High Yield",
     "hint": "Obsessions and compulsions.",
-    "pearl": "SSRIs and CBT with exposure/response prevention are classic."
-  },
-  {
-    "word": "DELUSION",
-    "specialty": "Psychiatry",
-    "mode": "All Outline",
-    "category": "Psychiatry / All Outline",
-    "hint": "Fixed false belief.",
-    "pearl": "Assess psychosis, mood symptoms, substances, and medical causes."
-  },
-  {
-    "word": "AUTISM",
-    "specialty": "Psychiatry",
-    "mode": "All Outline",
-    "category": "Psychiatry / All Outline",
-    "hint": "Neurodevelopmental disorder with social communication deficits.",
-    "pearl": "Restricted/repetitive behaviors are part of criteria."
+    "diagnosis": "Obsessive-compulsive disorder",
+    "management": "CBT with exposure/response prevention and SSRIs.",
+    "nextStep": "Insight may vary."
   },
   {
     "word": "AKATHISIA",
     "specialty": "Psychiatry",
     "mode": "Hard Mode",
     "category": "Psychiatry / Hard Mode",
-    "hint": "Restlessness from dopamine-blocking meds.",
-    "pearl": "Can be mistaken for anxiety/agitation."
-  },
-  {
-    "word": "HIV",
-    "specialty": "Infectious Disease",
-    "mode": "High Yield",
-    "category": "Infectious Disease / High Yield",
-    "hint": "Retroviral infection causing immune suppression.",
-    "pearl": "CD4 count guides opportunistic infection risk."
-  },
-  {
-    "word": "AIDS",
-    "specialty": "Infectious Disease",
-    "mode": "High Yield",
-    "category": "Infectious Disease / High Yield",
-    "hint": "Advanced HIV disease.",
-    "pearl": "Defined by low CD4 or AIDS-defining illness."
+    "hint": "Restlessness after antipsychotic use.",
+    "diagnosis": "Akathisia",
+    "management": "Beta blocker or benzodiazepine; adjust offending drug.",
+    "nextStep": "Can be mistaken for anxiety."
   },
   {
     "word": "SEPSIS",
     "specialty": "Infectious Disease",
     "mode": "High Yield",
     "category": "Infectious Disease / High Yield",
-    "hint": "Life-threatening organ dysfunction due to infection.",
-    "pearl": "Early antibiotics and source control matter."
+    "hint": "Infection with organ dysfunction.",
+    "diagnosis": "Sepsis",
+    "management": "Early fluids, antibiotics, cultures, source control.",
+    "nextStep": "Do not delay antibiotics in shock."
+  },
+  {
+    "word": "HIV",
+    "specialty": "Infectious Disease",
+    "mode": "High Yield",
+    "category": "Infectious Disease / High Yield",
+    "hint": "Retroviral infection with immune suppression.",
+    "diagnosis": "HIV infection",
+    "management": "Antiretroviral therapy for all; prophylaxis by CD4 count.",
+    "nextStep": "Test with Ag/Ab screening followed by confirmatory testing."
+  },
+  {
+    "word": "AIDS",
+    "specialty": "Infectious Disease",
+    "mode": "High Yield",
+    "category": "Infectious Disease / High Yield",
+    "hint": "Advanced HIV or AIDS-defining illness.",
+    "diagnosis": "AIDS",
+    "management": "ART plus opportunistic infection prophylaxis/treatment.",
+    "nextStep": "CD4 count helps predict infections."
   },
   {
     "word": "LYME",
     "specialty": "Infectious Disease",
     "mode": "High Yield",
     "category": "Infectious Disease / High Yield",
-    "hint": "Tick-borne Borrelia infection.",
-    "pearl": "Erythema migrans is diagnostic clinically."
+    "hint": "Erythema migrans after tick exposure.",
+    "diagnosis": "Lyme disease",
+    "management": "Doxycycline for many nonpregnant patients.",
+    "nextStep": "Clinical diagnosis with classic rash."
   },
   {
     "word": "SYPHILIS",
     "specialty": "Infectious Disease",
     "mode": "High Yield",
     "category": "Infectious Disease / High Yield",
-    "hint": "Treponema pallidum infection.",
-    "pearl": "Can mimic many diseases; treat with penicillin when indicated."
+    "hint": "Painless chancre or systemic disease with varied findings.",
+    "diagnosis": "Syphilis",
+    "management": "Penicillin-based therapy depending stage.",
+    "nextStep": "Screen other STIs and partners."
   },
   {
     "word": "MALARIA",
     "specialty": "Infectious Disease",
     "mode": "All Outline",
     "category": "Infectious Disease / All Outline",
-    "hint": "Plasmodium infection.",
-    "pearl": "Cyclic fevers after travel are a classic clue."
+    "hint": "Cyclic fever after travel.",
+    "diagnosis": "Malaria",
+    "management": "Species/severity-directed antimalarial therapy.",
+    "nextStep": "Travel history is essential."
   },
   {
     "word": "DENGUE",
     "specialty": "Infectious Disease",
     "mode": "All Outline",
     "category": "Infectious Disease / All Outline",
-    "hint": "Mosquito-borne viral illness.",
-    "pearl": "Severe disease can cause plasma leakage and shock."
+    "hint": "Fever, myalgias, thrombocytopenia after mosquito exposure.",
+    "diagnosis": "Dengue",
+    "management": "Supportive care; avoid NSAIDs if bleeding risk.",
+    "nextStep": "Watch for shock and hemorrhage."
   },
   {
     "word": "KAPOSI",
     "specialty": "Infectious Disease",
     "mode": "Hard Mode",
     "category": "Infectious Disease / Hard Mode",
-    "hint": "HHV-8 associated vascular tumor.",
-    "pearl": "Classically seen in immunocompromised patients."
+    "hint": "Purple vascular lesions in immunocompromised patient.",
+    "diagnosis": "Kaposi sarcoma",
+    "management": "Treat HIV with ART; oncology therapy if advanced.",
+    "nextStep": "HHV-8 associated."
   },
   {
     "word": "ANEMIA",
     "specialty": "Hematology",
     "mode": "High Yield",
     "category": "Hematology / High Yield",
-    "hint": "Low hemoglobin or red cell mass.",
-    "pearl": "Use MCV and reticulocyte count to guide differential."
+    "hint": "Low hemoglobin causing fatigue/pallor.",
+    "diagnosis": "Anemia",
+    "management": "Treat cause; transfuse if severe/symptomatic.",
+    "nextStep": "Use MCV and reticulocyte count."
   },
   {
     "word": "SICKLE",
     "specialty": "Hematology",
     "mode": "High Yield",
     "category": "Hematology / High Yield",
-    "hint": "Hemoglobinopathy causing vaso-occlusion.",
-    "pearl": "Functional asplenia increases encapsulated bacteria risk."
+    "hint": "Pain crises and functional asplenia.",
+    "diagnosis": "Sickle cell disease",
+    "management": "Hydration, analgesia, hydroxyurea prevention, vaccines.",
+    "nextStep": "Fever needs urgent evaluation for infection."
   },
   {
     "word": "ITP",
     "specialty": "Hematology",
     "mode": "High Yield",
     "category": "Hematology / High Yield",
-    "hint": "Immune thrombocytopenic purpura.",
-    "pearl": "Isolated thrombocytopenia with mucocutaneous bleeding."
+    "hint": "Isolated thrombocytopenia with mucosal bleeding.",
+    "diagnosis": "Immune thrombocytopenia",
+    "management": "Steroids or IVIG if treatment needed.",
+    "nextStep": "Platelets low with otherwise normal labs."
   },
   {
     "word": "DIC",
     "specialty": "Hematology",
     "mode": "High Yield",
     "category": "Hematology / High Yield",
-    "hint": "Consumptive coagulopathy.",
-    "pearl": "Bleeding plus thrombosis with prolonged PT/PTT and low fibrinogen."
-  },
-  {
-    "word": "LEUKEMIA",
-    "specialty": "Hematology",
-    "mode": "All Outline",
-    "category": "Hematology / All Outline",
-    "hint": "Malignancy of blood-forming tissues.",
-    "pearl": "Acute leukemias can present with blasts and cytopenias."
-  },
-  {
-    "word": "LYMPHOMA",
-    "specialty": "Hematology",
-    "mode": "All Outline",
-    "category": "Hematology / All Outline",
-    "hint": "Lymphoid malignancy.",
-    "pearl": "B symptoms and lymphadenopathy are classic."
+    "hint": "Bleeding and thrombosis with prolonged PT/PTT.",
+    "diagnosis": "Disseminated intravascular coagulation",
+    "management": "Treat underlying cause and support with blood products.",
+    "nextStep": "Low fibrinogen and high D-dimer are clues."
   },
   {
     "word": "MYELOMA",
     "specialty": "Hematology",
     "mode": "Hard Mode",
     "category": "Hematology / Hard Mode",
-    "hint": "Plasma cell malignancy.",
-    "pearl": "CRAB findings: calcium, renal, anemia, bone lesions."
+    "hint": "Bone pain, anemia, renal dysfunction, hypercalcemia.",
+    "diagnosis": "Multiple myeloma",
+    "management": "Chemotherapy/immunotherapy; bisphosphonates/supportive care.",
+    "nextStep": "Look for monoclonal protein."
   },
   {
     "word": "BIOPSY",
     "specialty": "Pathology",
     "mode": "High Yield",
     "category": "Pathology / High Yield",
-    "hint": "Tissue sampling for diagnosis.",
-    "pearl": "Often needed for definitive diagnosis of malignancy."
-  },
-  {
-    "word": "NECROSIS",
-    "specialty": "Pathology",
-    "mode": "All Outline",
-    "category": "Pathology / All Outline",
-    "hint": "Cell death from injury.",
-    "pearl": "Patterns of necrosis can suggest etiology."
-  },
-  {
-    "word": "TRIAGE",
-    "specialty": "Emergency Medicine",
-    "mode": "High Yield",
-    "category": "Emergency Medicine / High Yield",
-    "hint": "Prioritizing patients by acuity.",
-    "pearl": "Unstable patients are addressed first."
-  },
-  {
-    "word": "TRAUMA",
-    "specialty": "Emergency Medicine",
-    "mode": "High Yield",
-    "category": "Emergency Medicine / High Yield",
-    "hint": "Physical injury requiring acute evaluation.",
-    "pearl": "ATLS begins with airway, breathing, circulation."
-  },
-  {
-    "word": "SUTURE",
-    "specialty": "Surgery",
-    "mode": "All Outline",
-    "category": "Surgery / All Outline",
-    "hint": "Material used to close tissue.",
-    "pearl": "Wound care includes irrigation, debridement, and tetanus assessment."
-  },
-  {
-    "word": "SCALPEL",
-    "specialty": "Surgery",
-    "mode": "All Outline",
-    "category": "Surgery / All Outline",
-    "hint": "Surgical cutting instrument.",
-    "pearl": "Sterile technique and anatomy matter."
-  },
-  {
-    "word": "HERNIA",
-    "specialty": "Surgery",
-    "mode": "High Yield",
-    "category": "Surgery / High Yield",
-    "hint": "Protrusion through a defect.",
-    "pearl": "Strangulation causes ischemia and requires urgent surgery."
+    "hint": "Tissue sample for diagnosis.",
+    "diagnosis": "Biopsy-based diagnosis",
+    "management": "Management depends on pathology result.",
+    "nextStep": "Often required for cancer diagnosis."
   },
   {
     "word": "GOUT",
     "specialty": "Rheumatology",
     "mode": "High Yield",
     "category": "Rheumatology / High Yield",
-    "hint": "Crystal arthritis from monosodium urate.",
-    "pearl": "Needle-shaped negatively birefringent crystals."
+    "hint": "Acute red painful joint, often first MTP.",
+    "diagnosis": "Gout",
+    "management": "NSAIDs/colchicine/steroids acutely; urate-lowering chronically if indicated.",
+    "nextStep": "Negatively birefringent needle-shaped crystals."
   },
   {
     "word": "LUPUS",
     "specialty": "Rheumatology",
     "mode": "High Yield",
     "category": "Rheumatology / High Yield",
-    "hint": "Systemic autoimmune disease.",
-    "pearl": "Can affect skin, joints, kidneys, CNS, and blood counts."
+    "hint": "Multisystem autoimmune disease.",
+    "diagnosis": "Systemic lupus erythematosus",
+    "management": "Hydroxychloroquine baseline; steroids/immunosuppression for organ disease.",
+    "nextStep": "Renal involvement changes management."
   },
   {
     "word": "RAYNAUD",
     "specialty": "Rheumatology",
     "mode": "All Outline",
     "category": "Rheumatology / All Outline",
-    "hint": "Vasospasm causing color changes in digits.",
-    "pearl": "Can be primary or secondary to autoimmune disease."
+    "hint": "Color changes in fingers with cold/stress.",
+    "diagnosis": "Raynaud phenomenon",
+    "management": "Avoid triggers; calcium channel blockers if symptomatic.",
+    "nextStep": "Secondary causes include systemic sclerosis."
   },
   {
     "word": "ECZEMA",
     "specialty": "Dermatology",
     "mode": "High Yield",
     "category": "Dermatology / High Yield",
-    "hint": "Inflammatory itchy skin condition.",
-    "pearl": "Atopic dermatitis is associated with asthma/allergic rhinitis."
+    "hint": "Pruritic inflammatory rash often in flexures.",
+    "diagnosis": "Atopic dermatitis",
+    "management": "Emollients and topical steroids for flares.",
+    "nextStep": "Associated with asthma/allergic rhinitis."
   },
   {
     "word": "MELANOMA",
     "specialty": "Dermatology",
     "mode": "High Yield",
     "category": "Dermatology / High Yield",
-    "hint": "Malignant melanocytic tumor.",
-    "pearl": "ABCDE features help screen suspicious lesions."
+    "hint": "Asymmetric pigmented lesion with irregular border/color.",
+    "diagnosis": "Melanoma",
+    "management": "Excisional biopsy; staging guides treatment.",
+    "nextStep": "ABCDE features help identify suspicious lesions."
   },
   {
     "word": "SCABIES",
     "specialty": "Dermatology",
     "mode": "All Outline",
     "category": "Dermatology / All Outline",
-    "hint": "Mite infestation causing intense itching.",
-    "pearl": "Burrows and interdigital involvement are classic."
+    "hint": "Intense itching with burrows, worse at night.",
+    "diagnosis": "Scabies",
+    "management": "Permethrin for patient and close contacts.",
+    "nextStep": "Wash bedding/clothing."
   },
   {
     "word": "TEN",
     "specialty": "Dermatology",
     "mode": "Hard Mode",
     "category": "Dermatology / Hard Mode",
-    "hint": "Toxic epidermal necrolysis.",
-    "pearl": "Life-threatening drug reaction with skin sloughing."
+    "hint": "Severe drug reaction with epidermal detachment.",
+    "diagnosis": "Toxic epidermal necrolysis",
+    "management": "Stop offending drug; burn-unit supportive care.",
+    "nextStep": "Mucosal involvement is common."
+  },
+  {
+    "word": "FRACTURE",
+    "specialty": "Surgery",
+    "mode": "High Yield",
+    "category": "Surgery / High Yield",
+    "hint": "Pain, deformity, loss of function after trauma.",
+    "diagnosis": "Fracture",
+    "management": "Immobilization, pain control, reduction/surgery if indicated.",
+    "nextStep": "Check neurovascular status before and after reduction."
+  },
+  {
+    "word": "HERNIA",
+    "specialty": "Surgery",
+    "mode": "High Yield",
+    "category": "Surgery / High Yield",
+    "hint": "Bulge through fascial defect.",
+    "diagnosis": "Hernia",
+    "management": "Elective repair if symptomatic; urgent surgery if strangulated.",
+    "nextStep": "Incarceration/strangulation changes urgency."
+  },
+  {
+    "word": "TRIAGE",
+    "specialty": "Emergency Medicine",
+    "mode": "High Yield",
+    "category": "Emergency Medicine / High Yield",
+    "hint": "Prioritization by acuity.",
+    "diagnosis": "Emergency triage",
+    "management": "Stabilize life threats first.",
+    "nextStep": "ABCDE approach comes first."
+  },
+  {
+    "word": "TRAUMA",
+    "specialty": "Emergency Medicine",
+    "mode": "High Yield",
+    "category": "Emergency Medicine / High Yield",
+    "hint": "Injury requiring acute evaluation.",
+    "diagnosis": "Trauma evaluation",
+    "management": "ATLS: airway, breathing, circulation, disability, exposure.",
+    "nextStep": "Treat immediately life-threatening injuries first."
+  },
+  {
+    "word": "STATIN",
+    "specialty": "Pharmacology",
+    "mode": "High Yield",
+    "category": "Pharmacology / High Yield",
+    "hint": "LDL-lowering drug class.",
+    "diagnosis": "Hyperlipidemia treatment",
+    "management": "High-intensity statin for ASCVD/high-risk patients.",
+    "nextStep": "Monitor for myopathy and liver issues when clinically indicated."
+  },
+  {
+    "word": "OPIOID",
+    "specialty": "Pharmacology",
+    "mode": "High Yield",
+    "category": "Pharmacology / High Yield",
+    "hint": "Analgesic causing respiratory depression/constipation.",
+    "diagnosis": "Opioid effect or overdose",
+    "management": "Naloxone for overdose; bowel regimen for constipation.",
+    "nextStep": "Respiratory status is priority."
+  },
+  {
+    "word": "WARFARIN",
+    "specialty": "Pharmacology",
+    "mode": "High Yield",
+    "category": "Pharmacology / High Yield",
+    "hint": "Vitamin K antagonist.",
+    "diagnosis": "Anticoagulation management",
+    "management": "Monitor INR; reverse with vitamin K/PCC depending severity.",
+    "nextStep": "Teratogenic; many interactions."
+  },
+  {
+    "word": "HEPARIN",
+    "specialty": "Pharmacology",
+    "mode": "High Yield",
+    "category": "Pharmacology / High Yield",
+    "hint": "Anticoagulant that can cause HIT.",
+    "diagnosis": "Heparin therapy/HIT",
+    "management": "Stop heparin if HIT suspected; use non-heparin anticoagulant.",
+    "nextStep": "Platelet drop 5-10 days after exposure is classic."
   },
   {
     "word": "CT",
     "specialty": "Radiology",
     "mode": "High Yield",
     "category": "Radiology / High Yield",
-    "hint": "Cross-sectional imaging using x-rays.",
-    "pearl": "Contrast choices depend on suspected diagnosis and renal function."
+    "hint": "Cross-sectional x-ray imaging.",
+    "diagnosis": "CT imaging",
+    "management": "Use based on suspected diagnosis and contrast considerations.",
+    "nextStep": "Great for acute bleeding, trauma, and many abdominal diagnoses."
   },
   {
     "word": "MRI",
@@ -953,66 +1102,668 @@ const WORDS = [
     "mode": "High Yield",
     "category": "Radiology / High Yield",
     "hint": "Magnetic resonance imaging.",
-    "pearl": "Excellent soft tissue contrast; check contraindications."
+    "diagnosis": "MRI imaging",
+    "management": "Excellent soft tissue and neuro/MSK imaging.",
+    "nextStep": "Check implants and contraindications."
   },
   {
     "word": "XRAY",
     "specialty": "Radiology",
     "mode": "High Yield",
     "category": "Radiology / High Yield",
-    "hint": "Basic imaging using ionizing radiation.",
-    "pearl": "Often first-line for bones and chest evaluation."
+    "hint": "Basic radiographic imaging.",
+    "diagnosis": "X-ray imaging",
+    "management": "First-line for many chest and bone complaints.",
+    "nextStep": "Fast and accessible."
   },
   {
     "word": "DOPPLER",
     "specialty": "Radiology",
     "mode": "All Outline",
     "category": "Radiology / All Outline",
-    "hint": "Ultrasound technique assessing flow.",
-    "pearl": "Used in vascular studies and echocardiography."
+    "hint": "Ultrasound flow assessment.",
+    "diagnosis": "Doppler ultrasound",
+    "management": "Used for vascular flow and cardiac evaluation.",
+    "nextStep": "Helpful in DVT, torsion, and echo contexts."
   },
   {
     "word": "CONTRAST",
     "specialty": "Radiology",
     "mode": "All Outline",
     "category": "Radiology / All Outline",
-    "hint": "Agent used to improve visualization.",
-    "pearl": "Consider allergy history and kidney function."
+    "hint": "Imaging agent to improve visualization.",
+    "diagnosis": "Contrast-enhanced imaging",
+    "management": "Weigh diagnostic benefit against kidney/allergy risks.",
+    "nextStep": "Check renal function when relevant."
   },
   {
     "word": "AORTA",
     "specialty": "Anatomy",
     "mode": "High Yield",
     "category": "Anatomy / High Yield",
-    "hint": "Major systemic artery.",
-    "pearl": "Anatomy is essential for imaging and procedures."
+    "hint": "Largest artery.",
+    "diagnosis": "Aortic anatomy/pathology",
+    "management": "Management depends on aneurysm/dissection location.",
+    "nextStep": "Ascending aortic dissection is surgical."
   },
   {
     "word": "PLEURA",
     "specialty": "Anatomy",
     "mode": "All Outline",
     "category": "Anatomy / All Outline",
-    "hint": "Membrane surrounding lungs.",
-    "pearl": "Pleural disease can cause effusion or pneumothorax."
+    "hint": "Membrane around lungs.",
+    "diagnosis": "Pleural disease",
+    "management": "Treat effusion/pneumothorax/empyema by cause.",
+    "nextStep": "Thoracentesis can diagnose pleural effusion."
   },
   {
     "word": "RETINA",
     "specialty": "Anatomy",
     "mode": "All Outline",
     "category": "Anatomy / All Outline",
-    "hint": "Light-sensitive tissue in the eye.",
-    "pearl": "Vascular occlusions can cause sudden painless vision loss."
+    "hint": "Light-sensitive eye tissue.",
+    "diagnosis": "Retinal disease",
+    "management": "Urgent ophthalmology for detachment/vascular occlusion.",
+    "nextStep": "Sudden painless vision loss is high-yield."
+  },
+  {
+    "word": "CROUP",
+    "specialty": "Pediatrics",
+    "mode": "High Yield",
+    "category": "Pediatrics / High Yield",
+    "hint": "Barking cough and inspiratory stridor in child.",
+    "diagnosis": "Croup",
+    "management": "Dexamethasone; nebulized epinephrine if severe.",
+    "nextStep": "Assess airway severity first."
+  },
+  {
+    "word": "BRONCHIOLITIS",
+    "specialty": "Pediatrics",
+    "mode": "High Yield",
+    "category": "Pediatrics / High Yield",
+    "hint": "Infant with wheezing after viral URI.",
+    "diagnosis": "Bronchiolitis",
+    "management": "Supportive care with hydration/oxygen if needed.",
+    "nextStep": "RSV is a common cause."
+  },
+  {
+    "word": "MENINGITIS",
+    "specialty": "Infectious Disease",
+    "mode": "High Yield",
+    "category": "Infectious Disease / High Yield",
+    "hint": "Fever, headache, neck stiffness.",
+    "diagnosis": "Meningitis",
+    "management": "Empiric antibiotics after cultures; do not delay if unstable.",
+    "nextStep": "Lumbar puncture unless contraindications."
+  },
+  {
+    "word": "UTI",
+    "specialty": "Nephrology",
+    "mode": "High Yield",
+    "category": "Nephrology / High Yield",
+    "hint": "Dysuria, frequency, urgency.",
+    "diagnosis": "Urinary tract infection",
+    "management": "Antibiotics based on site and risk factors.",
+    "nextStep": "Pyelonephritis includes fever/flank pain."
+  },
+  {
+    "word": "PYELONEPHRITIS",
+    "specialty": "Nephrology",
+    "mode": "High Yield",
+    "category": "Nephrology / High Yield",
+    "hint": "Fever, flank pain, urinary symptoms.",
+    "diagnosis": "Pyelonephritis",
+    "management": "Antibiotics; admit if severe or unable to tolerate PO.",
+    "nextStep": "Urine culture guides therapy."
+  },
+  {
+    "word": "CYSTITIS",
+    "specialty": "Nephrology",
+    "mode": "High Yield",
+    "category": "Nephrology / High Yield",
+    "hint": "Lower urinary symptoms without systemic signs.",
+    "diagnosis": "Cystitis",
+    "management": "Short-course antibiotics when uncomplicated.",
+    "nextStep": "No flank pain or fever."
+  },
+  {
+    "word": "EPILEPSY",
+    "specialty": "Neurology",
+    "mode": "All Outline",
+    "category": "Neurology / All Outline",
+    "hint": "Recurrent unprovoked seizures.",
+    "diagnosis": "Epilepsy",
+    "management": "Antiseizure medication based on seizure type.",
+    "nextStep": "Counsel on driving/safety."
+  },
+  {
+    "word": "DEMENTIA",
+    "specialty": "Neurology",
+    "mode": "High Yield",
+    "category": "Neurology / High Yield",
+    "hint": "Chronic cognitive decline impairing function.",
+    "diagnosis": "Dementia",
+    "management": "Treat reversible causes and provide safety planning.",
+    "nextStep": "Differentiate from delirium and depression."
+  },
+  {
+    "word": "PARKINSON",
+    "specialty": "Neurology",
+    "mode": "High Yield",
+    "category": "Neurology / High Yield",
+    "hint": "Bradykinesia, rigidity, resting tremor.",
+    "diagnosis": "Parkinson disease",
+    "management": "Levodopa/carbidopa for symptomatic treatment.",
+    "nextStep": "Asymmetric resting tremor is classic."
+  },
+  {
+    "word": "CATARACT",
+    "specialty": "Radiology",
+    "mode": "All Outline",
+    "category": "Radiology / All Outline",
+    "hint": "Painless gradual vision loss with lens opacity.",
+    "diagnosis": "Cataract",
+    "management": "Surgery if functionally significant.",
+    "nextStep": "Glare and decreased red reflex are common."
+  },
+  {
+    "word": "GLAUCOMA",
+    "specialty": "Radiology",
+    "mode": "High Yield",
+    "category": "Radiology / High Yield",
+    "hint": "Optic nerve damage often with elevated pressure.",
+    "diagnosis": "Glaucoma",
+    "management": "Lower intraocular pressure.",
+    "nextStep": "Acute angle closure is painful emergency."
+  },
+  {
+    "word": "OTITIS",
+    "specialty": "Pediatrics",
+    "mode": "High Yield",
+    "category": "Pediatrics / High Yield",
+    "hint": "Ear pain, fever, bulging tympanic membrane.",
+    "diagnosis": "Acute otitis media",
+    "management": "Analgesia; antibiotics by age/severity.",
+    "nextStep": "Pneumatic otoscopy helps diagnosis."
+  },
+  {
+    "word": "SINUSITIS",
+    "specialty": "Infectious Disease",
+    "mode": "All Outline",
+    "category": "Infectious Disease / All Outline",
+    "hint": "Facial pain and purulent nasal symptoms.",
+    "diagnosis": "Bacterial sinusitis",
+    "management": "Antibiotics if severe, prolonged, or worsening.",
+    "nextStep": "Most cases are viral initially."
+  },
+  {
+    "word": "ANAPHYLAXIS",
+    "specialty": "Emergency Medicine",
+    "mode": "High Yield",
+    "category": "Emergency Medicine / High Yield",
+    "hint": "Hypotension/airway symptoms after allergen exposure.",
+    "diagnosis": "Anaphylaxis",
+    "management": "IM epinephrine first-line.",
+    "nextStep": "Do not delay epinephrine."
+  },
+  {
+    "word": "HYPERKALEMIA",
+    "specialty": "Nephrology",
+    "mode": "High Yield",
+    "category": "Nephrology / High Yield",
+    "hint": "Peaked T waves or dangerous high potassium.",
+    "diagnosis": "Hyperkalemia",
+    "management": "Calcium for ECG changes, insulin/glucose, shift/remove potassium.",
+    "nextStep": "Stabilize myocardium first if ECG changes."
+  },
+  {
+    "word": "HYPONATREMIA",
+    "specialty": "Endocrinology",
+    "mode": "High Yield",
+    "category": "Endocrinology / High Yield",
+    "hint": "Low sodium, seizures if severe.",
+    "diagnosis": "Hyponatremia",
+    "management": "Treat based on symptoms and volume status.",
+    "nextStep": "Avoid overly rapid correction."
+  },
+  {
+    "word": "KETOACIDOSIS",
+    "specialty": "Endocrinology",
+    "mode": "All Outline",
+    "category": "Endocrinology / All Outline",
+    "hint": "Ketones with acidosis.",
+    "diagnosis": "Ketoacidosis",
+    "management": "Fluids, insulin if DKA, electrolyte correction.",
+    "nextStep": "Find precipitating trigger."
+  },
+  {
+    "word": "THYROTOXICOSIS",
+    "specialty": "Endocrinology",
+    "mode": "All Outline",
+    "category": "Endocrinology / All Outline",
+    "hint": "Excess thyroid hormone symptoms.",
+    "diagnosis": "Thyrotoxicosis",
+    "management": "Beta blocker; antithyroid therapy depending cause.",
+    "nextStep": "Low TSH is the typical first clue."
+  },
+  {
+    "word": "PHEOCHROMOCYTOMA",
+    "specialty": "Endocrinology",
+    "mode": "Hard Mode",
+    "category": "Endocrinology / Hard Mode",
+    "hint": "Episodic headache, sweating, palpitations, hypertension.",
+    "diagnosis": "Pheochromocytoma",
+    "management": "Alpha blockade before beta blockade, then surgery.",
+    "nextStep": "Never beta-block first."
+  },
+  {
+    "word": "PROLACTINOMA",
+    "specialty": "Endocrinology",
+    "mode": "Hard Mode",
+    "category": "Endocrinology / Hard Mode",
+    "hint": "Galactorrhea, amenorrhea, visual symptoms.",
+    "diagnosis": "Prolactinoma",
+    "management": "Dopamine agonist such as cabergoline.",
+    "nextStep": "Check prolactin and pituitary MRI."
+  },
+  {
+    "word": "CELIAC",
+    "specialty": "Gastroenterology",
+    "mode": "High Yield",
+    "category": "Gastroenterology / High Yield",
+    "hint": "Malabsorption with dermatitis herpetiformis.",
+    "diagnosis": "Celiac disease",
+    "management": "Gluten-free diet.",
+    "nextStep": "Check tissue transglutaminase IgA."
+  },
+  {
+    "word": "CROHN",
+    "specialty": "Gastroenterology",
+    "mode": "High Yield",
+    "category": "Gastroenterology / High Yield",
+    "hint": "Skip lesions and transmural inflammation.",
+    "diagnosis": "Crohn disease",
+    "management": "Steroids for flares; biologics/immunomodulators for maintenance.",
+    "nextStep": "Can affect mouth to anus."
+  },
+  {
+    "word": "COLITIS",
+    "specialty": "Gastroenterology",
+    "mode": "High Yield",
+    "category": "Gastroenterology / High Yield",
+    "hint": "Bloody diarrhea with continuous colonic inflammation.",
+    "diagnosis": "Ulcerative colitis",
+    "management": "5-ASA, steroids for flares, biologics if severe.",
+    "nextStep": "Starts at rectum; surgery can be curative."
+  },
+  {
+    "word": "CHOLANGITIS",
+    "specialty": "Gastroenterology",
+    "mode": "High Yield",
+    "category": "Gastroenterology / High Yield",
+    "hint": "Fever, RUQ pain, jaundice.",
+    "diagnosis": "Ascending cholangitis",
+    "management": "IV antibiotics and urgent biliary drainage.",
+    "nextStep": "Charcot triad is classic."
+  },
+  {
+    "word": "CHOLECYSTITIS",
+    "specialty": "Gastroenterology",
+    "mode": "High Yield",
+    "category": "Gastroenterology / High Yield",
+    "hint": "RUQ pain, fever, positive Murphy sign.",
+    "diagnosis": "Acute cholecystitis",
+    "management": "Antibiotics and cholecystectomy.",
+    "nextStep": "RUQ ultrasound is first-line."
+  },
+  {
+    "word": "PANCREATITIS",
+    "specialty": "Gastroenterology",
+    "mode": "High Yield",
+    "category": "Gastroenterology / High Yield",
+    "hint": "Epigastric pain radiating to back.",
+    "diagnosis": "Acute pancreatitis",
+    "management": "IV fluids, analgesia, early nutrition.",
+    "nextStep": "Gallstones and alcohol are common causes."
+  },
+  {
+    "word": "HEPATITIS",
+    "specialty": "Gastroenterology",
+    "mode": "High Yield",
+    "category": "Gastroenterology / High Yield",
+    "hint": "Marked transaminase elevation.",
+    "diagnosis": "Hepatitis",
+    "management": "Treat based on cause; supportive for many viral cases.",
+    "nextStep": "Check exposure, meds, alcohol, viral serologies."
+  },
+  {
+    "word": "VARICES",
+    "specialty": "Gastroenterology",
+    "mode": "High Yield",
+    "category": "Gastroenterology / High Yield",
+    "hint": "Upper GI bleed in cirrhosis.",
+    "diagnosis": "Esophageal variceal bleed",
+    "management": "Resuscitation, octreotide, antibiotics, endoscopic banding.",
+    "nextStep": "Airway protection may be needed."
+  },
+  {
+    "word": "ENCEPHALOPATHY",
+    "specialty": "Gastroenterology",
+    "mode": "All Outline",
+    "category": "Gastroenterology / All Outline",
+    "hint": "Confusion in liver disease.",
+    "diagnosis": "Hepatic encephalopathy",
+    "management": "Lactulose +/- rifaximin.",
+    "nextStep": "Precipitants include GI bleed, infection, constipation."
+  },
+  {
+    "word": "PID",
+    "specialty": "OB/GYN",
+    "mode": "High Yield",
+    "category": "OB/GYN / High Yield",
+    "hint": "Pelvic pain, cervical motion tenderness.",
+    "diagnosis": "Pelvic inflammatory disease",
+    "management": "Ceftriaxone plus doxycycline plus metronidazole.",
+    "nextStep": "Treat empirically to prevent infertility."
+  },
+  {
+    "word": "TORSION",
+    "specialty": "OB/GYN",
+    "mode": "High Yield",
+    "category": "OB/GYN / High Yield",
+    "hint": "Sudden severe unilateral pelvic pain.",
+    "diagnosis": "Ovarian torsion",
+    "management": "Urgent surgical detorsion.",
+    "nextStep": "Doppler ultrasound can help but does not exclude."
+  },
+  {
+    "word": "AMENORRHEA",
+    "specialty": "OB/GYN",
+    "mode": "High Yield",
+    "category": "OB/GYN / High Yield",
+    "hint": "Absent menses.",
+    "diagnosis": "Amenorrhea",
+    "management": "Pregnancy test first.",
+    "nextStep": "Then evaluate TSH, prolactin, ovarian/hypothalamic causes."
+  },
+  {
+    "word": "PCOS",
+    "specialty": "OB/GYN",
+    "mode": "High Yield",
+    "category": "OB/GYN / High Yield",
+    "hint": "Irregular menses, hyperandrogenism.",
+    "diagnosis": "Polycystic ovary syndrome",
+    "management": "Weight loss, combined OCPs, metformin if indicated.",
+    "nextStep": "Endometrial protection matters."
+  },
+  {
+    "word": "ENDOMETRIOSIS",
+    "specialty": "OB/GYN",
+    "mode": "High Yield",
+    "category": "OB/GYN / High Yield",
+    "hint": "Cyclic pelvic pain and dyspareunia.",
+    "diagnosis": "Endometriosis",
+    "management": "NSAIDs, hormonal suppression, laparoscopy if needed.",
+    "nextStep": "Can cause infertility."
+  },
+  {
+    "word": "FIBROID",
+    "specialty": "OB/GYN",
+    "mode": "High Yield",
+    "category": "OB/GYN / High Yield",
+    "hint": "Heavy bleeding and enlarged irregular uterus.",
+    "diagnosis": "Uterine leiomyoma",
+    "management": "NSAIDs/OCPs, GnRH analogs, myomectomy/hysterectomy depending goals.",
+    "nextStep": "Ultrasound is first-line."
+  },
+  {
+    "word": "MASTITIS",
+    "specialty": "OB/GYN",
+    "mode": "All Outline",
+    "category": "OB/GYN / All Outline",
+    "hint": "Breast pain, erythema, fever during lactation.",
+    "diagnosis": "Lactational mastitis",
+    "management": "Continue breastfeeding and give antibiotics when bacterial.",
+    "nextStep": "Abscess needs drainage."
+  },
+  {
+    "word": "PROSTATITIS",
+    "specialty": "Infectious Disease",
+    "mode": "All Outline",
+    "category": "Infectious Disease / All Outline",
+    "hint": "Fever, pelvic pain, tender prostate.",
+    "diagnosis": "Acute bacterial prostatitis",
+    "management": "Antibiotics with good prostate penetration.",
+    "nextStep": "Avoid prostate massage."
+  },
+  {
+    "word": "EPIDIDYMITIS",
+    "specialty": "Infectious Disease",
+    "mode": "High Yield",
+    "category": "Infectious Disease / High Yield",
+    "hint": "Scrotal pain relieved by elevation.",
+    "diagnosis": "Epididymitis",
+    "management": "Antibiotics based on age/STI risk.",
+    "nextStep": "Differentiate from torsion."
+  },
+  {
+    "word": "TESTICULAR",
+    "specialty": "Surgery",
+    "mode": "High Yield",
+    "category": "Surgery / High Yield",
+    "hint": "Sudden scrotal pain with absent cremasteric reflex.",
+    "diagnosis": "Testicular torsion",
+    "management": "Immediate surgical exploration.",
+    "nextStep": "Do not delay for imaging if high suspicion."
+  },
+  {
+    "word": "BPH",
+    "specialty": "Surgery",
+    "mode": "High Yield",
+    "category": "Surgery / High Yield",
+    "hint": "Urinary hesitancy and weak stream in older man.",
+    "diagnosis": "Benign prostatic hyperplasia",
+    "management": "Alpha blocker; 5-alpha-reductase inhibitor for enlarged prostate.",
+    "nextStep": "Check for retention/renal complications."
+  },
+  {
+    "word": "PSA",
+    "specialty": "Oncology",
+    "mode": "All Outline",
+    "category": "Oncology / All Outline",
+    "hint": "Prostate cancer screening marker.",
+    "diagnosis": "Prostate cancer screening",
+    "management": "Shared decision-making for screening.",
+    "nextStep": "Interpret PSA in clinical context."
+  },
+  {
+    "word": "BREAST",
+    "specialty": "Oncology",
+    "mode": "High Yield",
+    "category": "Oncology / High Yield",
+    "hint": "Mass or abnormal mammogram.",
+    "diagnosis": "Breast lesion/cancer evaluation",
+    "management": "Imaging and biopsy based on age/findings.",
+    "nextStep": "Triple assessment: exam, imaging, tissue."
+  },
+  {
+    "word": "OVARIAN",
+    "specialty": "Oncology",
+    "mode": "Hard Mode",
+    "category": "Oncology / Hard Mode",
+    "hint": "Bloating and adnexal mass in older patient.",
+    "diagnosis": "Ovarian cancer",
+    "management": "Surgical staging/debulking and chemotherapy.",
+    "nextStep": "Often presents late."
+  },
+  {
+    "word": "LEUKEMIA",
+    "specialty": "Hematology",
+    "mode": "All Outline",
+    "category": "Hematology / All Outline",
+    "hint": "Blasts or abnormal WBCs with cytopenias.",
+    "diagnosis": "Leukemia",
+    "management": "Urgent hematology care; therapy depends on type.",
+    "nextStep": "Auer rods suggest AML."
+  },
+  {
+    "word": "LYMPHOMA",
+    "specialty": "Hematology",
+    "mode": "All Outline",
+    "category": "Hematology / All Outline",
+    "hint": "Painless lymphadenopathy with B symptoms.",
+    "diagnosis": "Lymphoma",
+    "management": "Biopsy and staging guide therapy.",
+    "nextStep": "Excisional biopsy often preferred."
+  },
+  {
+    "word": "NEUTROPENIA",
+    "specialty": "Hematology",
+    "mode": "High Yield",
+    "category": "Hematology / High Yield",
+    "hint": "Low neutrophils with fever.",
+    "diagnosis": "Febrile neutropenia",
+    "management": "Immediate broad-spectrum antipseudomonal antibiotics.",
+    "nextStep": "Do not wait for culture results."
+  },
+  {
+    "word": "THALASSEMIA",
+    "specialty": "Hematology",
+    "mode": "All Outline",
+    "category": "Hematology / All Outline",
+    "hint": "Microcytic anemia with normal/high RBC count.",
+    "diagnosis": "Thalassemia",
+    "management": "Supportive care; transfusions/chelation for severe disease.",
+    "nextStep": "Hemoglobin electrophoresis can help."
+  },
+  {
+    "word": "GPD",
+    "specialty": "Hematology",
+    "mode": "High Yield",
+    "category": "Hematology / High Yield",
+    "hint": "Hemolysis after oxidant stress.",
+    "diagnosis": "G6PD deficiency",
+    "management": "Avoid triggers; supportive care.",
+    "nextStep": "Bite cells/Heinz bodies are classic."
+  },
+  {
+    "word": "SPHEROCYTOSIS",
+    "specialty": "Hematology",
+    "mode": "Hard Mode",
+    "category": "Hematology / Hard Mode",
+    "hint": "Hemolytic anemia with splenomegaly.",
+    "diagnosis": "Hereditary spherocytosis",
+    "management": "Folate; splenectomy in severe cases.",
+    "nextStep": "Increased MCHC can be a clue."
+  },
+  {
+    "word": "RASH",
+    "specialty": "Dermatology",
+    "mode": "All Outline",
+    "category": "Dermatology / All Outline",
+    "hint": "Skin eruption with broad differential.",
+    "diagnosis": "Rash evaluation",
+    "management": "Treat cause; assess systemic symptoms and mucosal involvement.",
+    "nextStep": "Drug reactions and infections are common test themes."
+  },
+  {
+    "word": "CELLULITIS",
+    "specialty": "Dermatology",
+    "mode": "High Yield",
+    "category": "Dermatology / High Yield",
+    "hint": "Warm, tender, erythematous skin infection.",
+    "diagnosis": "Cellulitis",
+    "management": "Antibiotics covering streptococci +/- MRSA risk.",
+    "nextStep": "Abscess requires drainage."
+  },
+  {
+    "word": "IMPETIGO",
+    "specialty": "Dermatology",
+    "mode": "High Yield",
+    "category": "Dermatology / High Yield",
+    "hint": "Honey-colored crusted lesions.",
+    "diagnosis": "Impetigo",
+    "management": "Topical mupirocin or oral antibiotics if extensive.",
+    "nextStep": "Staph aureus and Strep pyogenes."
+  },
+  {
+    "word": "PSORIASIS",
+    "specialty": "Dermatology",
+    "mode": "High Yield",
+    "category": "Dermatology / High Yield",
+    "hint": "Silvery plaques on extensor surfaces.",
+    "diagnosis": "Psoriasis",
+    "management": "Topical steroids; systemic/biologics if severe.",
+    "nextStep": "Can be associated with arthritis."
+  },
+  {
+    "word": "ROSACEA",
+    "specialty": "Dermatology",
+    "mode": "All Outline",
+    "category": "Dermatology / All Outline",
+    "hint": "Facial flushing and papules.",
+    "diagnosis": "Rosacea",
+    "management": "Topical metronidazole/azelaic acid; avoid triggers.",
+    "nextStep": "No comedones unlike acne."
+  },
+  {
+    "word": "RA",
+    "specialty": "Rheumatology",
+    "mode": "High Yield",
+    "category": "Rheumatology / High Yield",
+    "hint": "Symmetric inflammatory small-joint arthritis.",
+    "diagnosis": "Rheumatoid arthritis",
+    "management": "DMARDs such as methotrexate.",
+    "nextStep": "Treat early to prevent joint damage."
+  },
+  {
+    "word": "SLE",
+    "specialty": "Rheumatology",
+    "mode": "High Yield",
+    "category": "Rheumatology / High Yield",
+    "hint": "Multisystem autoimmune disease.",
+    "diagnosis": "Systemic lupus erythematosus",
+    "management": "Hydroxychloroquine; steroids/immunosuppression by severity.",
+    "nextStep": "Check renal involvement with UA/protein."
+  },
+  {
+    "word": "VASCULITIS",
+    "specialty": "Rheumatology",
+    "mode": "All Outline",
+    "category": "Rheumatology / All Outline",
+    "hint": "Inflammation of blood vessels causing organ ischemia.",
+    "diagnosis": "Vasculitis",
+    "management": "Immunosuppression based on type/severity.",
+    "nextStep": "Biopsy or serologies can support diagnosis."
+  },
+  {
+    "word": "SARCOID",
+    "specialty": "Pulmonology",
+    "mode": "All Outline",
+    "category": "Pulmonology / All Outline",
+    "hint": "Noncaseating granulomas and hilar adenopathy.",
+    "diagnosis": "Sarcoidosis",
+    "management": "Observation if mild; steroids if organ-threatening.",
+    "nextStep": "Can affect lungs, eyes, skin, heart."
+  },
+  {
+    "word": "ANCA",
+    "specialty": "Rheumatology",
+    "mode": "Hard Mode",
+    "category": "Rheumatology / Hard Mode",
+    "hint": "Antibody associated with small-vessel vasculitis.",
+    "diagnosis": "ANCA-associated vasculitis",
+    "management": "High-dose steroids plus immunosuppression.",
+    "nextStep": "Renal/pulmonary involvement is high-risk."
   }
 ];
 
 const MAX_ATTEMPTS = 6;
 let selectedSpecialty = localStorage.getItem("medwordleSpecialty") || "All Medicine";
 let selectedMode = localStorage.getItem("medwordleMode") || "High Yield";
-let answerObj;
-let answer;
-let currentRow = 0;
-let gameOver = false;
-let guesses = [];
+let playType = localStorage.getItem("medwordlePlayType") || "Practice";
+let answerObj, answer, currentRow = 0, gameOver = false, guesses = [];
+let currentResult = null;
 
 const board = document.getElementById("board");
 const categoryEl = document.getElementById("category");
@@ -1023,15 +1774,44 @@ const form = document.getElementById("guessForm");
 const input = document.getElementById("guessInput");
 const hintBtn = document.getElementById("hintBtn");
 const newGameBtn = document.getElementById("newGameBtn");
+const shareBtn = document.getElementById("shareBtn");
 const keyboard = document.getElementById("keyboard");
 const specialtySelect = document.getElementById("specialtySelect");
 const modeSelect = document.getElementById("modeSelect");
+const playTypeSelect = document.getElementById("playTypeSelect");
 const pearlBox = document.getElementById("pearlBox");
 const pearlText = document.getElementById("pearlText");
 
-function classNameForSpecialty(specialty) {
-  return THEMES[specialty] || "theme-all";
+function todayKey() {
+  return new Date().toISOString().slice(0, 10);
 }
+
+function hashString(str) {
+  let hash = 0;
+  for (let i = 0; i < str.length; i++) hash = ((hash << 5) - hash) + str.charCodeAt(i);
+  return Math.abs(hash);
+}
+
+function getStats() {
+  return JSON.parse(localStorage.getItem("medwordleStats") || '{"played":0,"wins":0,"streak":0,"misses":{}}');
+}
+
+function saveStats(stats) {
+  localStorage.setItem("medwordleStats", JSON.stringify(stats));
+  renderStats();
+}
+
+function renderStats() {
+  const stats = getStats();
+  document.getElementById("gamesPlayed").textContent = stats.played || 0;
+  document.getElementById("winRate").textContent = stats.played ? Math.round((stats.wins / stats.played) * 100) + "%" : "0%";
+  document.getElementById("currentStreak").textContent = stats.streak || 0;
+  const misses = stats.misses || {};
+  const weak = Object.entries(misses).sort((a,b) => b[1] - a[1])[0];
+  document.getElementById("weakTopic").textContent = weak ? weak[0] : "None yet";
+}
+
+function classNameForSpecialty(specialty) { return THEMES[specialty] || "theme-all"; }
 
 function applyTheme(specialty) {
   Object.values(THEMES).forEach(cls => document.body.classList.remove(cls));
@@ -1044,36 +1824,43 @@ function modeAllows(item) {
   return true;
 }
 
+function adaptiveSpecialty() {
+  const stats = getStats();
+  const misses = stats.misses || {};
+  const weak = Object.entries(misses).sort((a,b) => b[1] - a[1])[0];
+  return weak ? weak[0] : "All Medicine";
+}
+
 function getPool() {
   let pool = WORDS.filter(modeAllows);
+  let effectiveSpecialty = selectedSpecialty;
 
-  if (selectedSpecialty !== "All Medicine") {
-    const specialtyPool = pool.filter(item => item.specialty === selectedSpecialty);
+  if (playType === "Adaptive") effectiveSpecialty = adaptiveSpecialty();
+
+  if (effectiveSpecialty !== "All Medicine") {
+    const specialtyPool = pool.filter(item => item.specialty === effectiveSpecialty);
     if (specialtyPool.length > 0) return specialtyPool;
   }
-
   return pool.length ? pool : WORDS;
 }
 
 function chooseWord() {
   const pool = getPool();
-  const index = Math.floor(Math.random() * pool.length);
-  answerObj = pool[index];
+  if (playType === "Daily Challenge") {
+    const idx = hashString(todayKey() + selectedMode + selectedSpecialty) % pool.length;
+    answerObj = pool[idx];
+  } else {
+    answerObj = pool[Math.floor(Math.random() * pool.length)];
+  }
   answer = answerObj.word.toUpperCase();
 }
 
 function initGame() {
-  applyTheme(selectedSpecialty);
+  applyTheme(playType === "Adaptive" ? adaptiveSpecialty() : selectedSpecialty);
   chooseWord();
 
-  currentRow = 0;
-  gameOver = false;
-  guesses = [];
-
-  categoryEl.textContent = selectedSpecialty === "All Medicine"
-    ? `${answerObj.specialty} • ${selectedMode}`
-    : `${selectedSpecialty} • ${selectedMode}`;
-
+  currentRow = 0; gameOver = false; guesses = []; currentResult = null;
+  categoryEl.textContent = `${playType} • ${answerObj.specialty} • ${selectedMode}`;
   modeDescriptionEl.textContent = MODE_DESCRIPTIONS[selectedMode];
   hintEl.textContent = `Hint: ${answerObj.hint}`;
   hintEl.classList.add("hidden");
@@ -1081,43 +1868,31 @@ function initGame() {
   messageEl.textContent = `Guess the ${answer.length}-letter medical term.`;
   messageEl.className = "message";
   pearlBox.classList.add("hidden");
-  pearlText.textContent = "";
-  input.value = "";
-  input.maxLength = answer.length;
-  input.placeholder = `${answer.length}-letter term`;
-  input.disabled = false;
-  board.innerHTML = "";
-  keyboard.innerHTML = "";
-  buildBoard();
-  buildKeyboard();
-  input.focus();
+  pearlText.innerHTML = "";
+  input.value = ""; input.maxLength = answer.length; input.placeholder = `${answer.length}-letter term`; input.disabled = false;
+  board.innerHTML = ""; keyboard.innerHTML = "";
+  newGameBtn.disabled = playType === "Daily Challenge";
+  buildBoard(); buildKeyboard(); renderStats(); input.focus();
 }
 
 function buildBoard() {
-  board.style.gridTemplateRows = `repeat(${MAX_ATTEMPTS}, auto)`;
-
   for (let r = 0; r < MAX_ATTEMPTS; r++) {
     const row = document.createElement("div");
     row.className = "row";
     row.style.gridTemplateColumns = `repeat(${answer.length}, auto)`;
-
     for (let c = 0; c < answer.length; c++) {
       const tile = document.createElement("div");
-      tile.className = "tile";
-      tile.id = `tile-${r}-${c}`;
+      tile.className = "tile"; tile.id = `tile-${r}-${c}`;
       row.appendChild(tile);
     }
-
     board.appendChild(row);
   }
 }
 
 function buildKeyboard() {
-  "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("").forEach((letter) => {
+  "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("").forEach(letter => {
     const key = document.createElement("div");
-    key.className = "key";
-    key.id = `key-${letter}`;
-    key.textContent = letter;
+    key.className = "key"; key.id = `key-${letter}`; key.textContent = letter;
     keyboard.appendChild(key);
   });
 }
@@ -1125,123 +1900,126 @@ function buildKeyboard() {
 function scoreGuess(guess) {
   const result = Array(answer.length).fill("absent");
   const answerLetters = answer.split("");
-
   for (let i = 0; i < answer.length; i++) {
-    if (guess[i] === answer[i]) {
-      result[i] = "correct";
-      answerLetters[i] = null;
-    }
+    if (guess[i] === answer[i]) { result[i] = "correct"; answerLetters[i] = null; }
   }
-
   for (let i = 0; i < answer.length; i++) {
     if (result[i] === "correct") continue;
     const foundIndex = answerLetters.indexOf(guess[i]);
-    if (foundIndex !== -1) {
-      result[i] = "present";
-      answerLetters[foundIndex] = null;
-    }
+    if (foundIndex !== -1) { result[i] = "present"; answerLetters[foundIndex] = null; }
   }
-
   return result;
 }
 
 function updateKeyboard(letter, status) {
   const key = document.getElementById(`key-${letter}`);
   if (!key) return;
-
   const rank = { absent: 1, present: 2, correct: 3 };
   const current = key.dataset.status || "";
   if (!current || rank[status] > rank[current]) {
-    key.className = `key ${status}`;
-    key.dataset.status = status;
+    key.className = `key ${status}`; key.dataset.status = status;
   }
 }
 
 function showPearl() {
-  pearlText.textContent = answerObj.pearl || "Review the clinical context and management associations for this term.";
+  pearlText.innerHTML = `
+    <div class="pearl-row"><strong>Diagnosis:</strong> ${answerObj.diagnosis}</div>
+    <div class="pearl-row"><strong>Management:</strong> ${answerObj.management}</div>
+    <div class="pearl-row"><strong>Next Step:</strong> ${answerObj.nextStep}</div>
+  `;
   pearlBox.classList.remove("hidden");
+}
+
+function recordResult(won) {
+  if (currentResult !== null) return;
+  currentResult = won;
+  const stats = getStats();
+  stats.played = (stats.played || 0) + 1;
+  stats.wins = (stats.wins || 0) + (won ? 1 : 0);
+  stats.streak = won ? ((stats.streak || 0) + 1) : 0;
+  stats.misses = stats.misses || {};
+  if (!won) stats.misses[answerObj.specialty] = (stats.misses[answerObj.specialty] || 0) + 1;
+  saveStats(stats);
+
+  if (playType === "Daily Challenge") {
+    localStorage.setItem("medwordleDaily-" + todayKey(), JSON.stringify({ won, answer, guesses: guesses.length }));
+  }
 }
 
 function submitGuess(rawGuess) {
   if (gameOver) return;
-
   const guess = rawGuess.toUpperCase().replace(/[^A-Z]/g, "");
-
-  if (guess.length !== answer.length) {
-    messageEl.textContent = `Enter exactly ${answer.length} letters.`;
-    return;
-  }
-
-  if (guesses.includes(guess)) {
-    messageEl.textContent = "You already tried that word.";
-    return;
-  }
+  if (guess.length !== answer.length) { messageEl.textContent = `Enter exactly ${answer.length} letters.`; return; }
+  if (guesses.includes(guess)) { messageEl.textContent = "You already tried that word."; return; }
 
   guesses.push(guess);
   const score = scoreGuess(guess);
-
   for (let i = 0; i < answer.length; i++) {
     const tile = document.getElementById(`tile-${currentRow}-${i}`);
-    tile.textContent = guess[i];
-    tile.classList.add(score[i]);
-    updateKeyboard(guess[i], score[i]);
+    tile.textContent = guess[i]; tile.classList.add(score[i]); updateKeyboard(guess[i], score[i]);
   }
 
   if (guess === answer) {
-    gameOver = true;
-    input.disabled = true;
+    gameOver = true; input.disabled = true;
     messageEl.textContent = `Correct — ${answer}.`;
     messageEl.className = "message win";
-    showPearl();
-    return;
+    showPearl(); recordResult(true); return;
   }
 
   currentRow++;
-
   if (currentRow >= MAX_ATTEMPTS) {
-    gameOver = true;
-    input.disabled = true;
+    gameOver = true; input.disabled = true;
     messageEl.textContent = `Good try. The answer was ${answer}.`;
     messageEl.className = "message loss";
-    showPearl();
+    showPearl(); recordResult(false);
   } else {
     messageEl.textContent = `${MAX_ATTEMPTS - currentRow} guesses remaining.`;
   }
+  input.value = ""; input.focus();
+}
 
-  input.value = "";
-  input.focus();
+function resultText() {
+  const status = currentResult === true ? "Solved" : currentResult === false ? "Missed" : "In progress";
+  return `MedWordle ${todayKey()}\n${playType} • ${answerObj.specialty} • ${selectedMode}\n${status} in ${guesses.length}/${MAX_ATTEMPTS}\n${window.location.href}`;
 }
 
 specialtySelect.value = selectedSpecialty;
 modeSelect.value = selectedMode;
-applyTheme(selectedSpecialty);
+playTypeSelect.value = playType;
 
 specialtySelect.addEventListener("change", () => {
   selectedSpecialty = specialtySelect.value;
   localStorage.setItem("medwordleSpecialty", selectedSpecialty);
   initGame();
 });
-
 modeSelect.addEventListener("change", () => {
   selectedMode = modeSelect.value;
   localStorage.setItem("medwordleMode", selectedMode);
   initGame();
 });
-
-form.addEventListener("submit", (event) => {
-  event.preventDefault();
-  submitGuess(input.value);
+playTypeSelect.addEventListener("change", () => {
+  playType = playTypeSelect.value;
+  localStorage.setItem("medwordlePlayType", playType);
+  initGame();
 });
-
+form.addEventListener("submit", event => { event.preventDefault(); submitGuess(input.value); });
 hintBtn.addEventListener("click", () => {
   hintEl.classList.toggle("hidden");
   hintBtn.textContent = hintEl.classList.contains("hidden") ? "Show Hint" : "Hide Hint";
 });
-
 newGameBtn.addEventListener("click", initGame);
-
-input.addEventListener("input", () => {
-  input.value = input.value.toUpperCase().replace(/[^A-Z]/g, "");
+shareBtn.addEventListener("click", async () => {
+  const text = resultText();
+  try {
+    if (navigator.share) await navigator.share({ title: "MedWordle", text });
+    else {
+      await navigator.clipboard.writeText(text);
+      messageEl.textContent = "Result copied to clipboard.";
+    }
+  } catch (e) {
+    messageEl.textContent = "Share canceled.";
+  }
 });
+input.addEventListener("input", () => { input.value = input.value.toUpperCase().replace(/[^A-Z]/g, ""); });
 
 initGame();
