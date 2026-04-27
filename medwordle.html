@@ -1,33 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-  <meta charset="UTF-8" />
-
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <title>MedWordle | Step 2 Study Game | Lionel Sam</title>
-
-  <meta name="description" content="MedWordle is a daily medical Wordle-style game for Step 2 learning, clinical reasoning, and NBME-style practice by Lionel Sam.">
-
-  <!-- 📊 Google Analytics -->
-
+  <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-NSW6R43VFE"></script>
-
   <script>
-
     window.dataLayer = window.dataLayer || [];
-
     function gtag(){dataLayer.push(arguments);}
-
     gtag('js', new Date());
-
     gtag('config', 'G-NSW6R43VFE');
-
   </script>
 
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MedWordle | Step 2 Study Game | Lionel Sam</title>
+  <meta name="description" content="MedWordle is a daily medical Wordle-style game for Step 2 learning, NBME-style practice, and collectible MedCards by Lionel Sam.">
   <link rel="stylesheet" href="medwordle.css" />
-
 </head>
 <body>
   <header class="site-header">
@@ -121,6 +108,7 @@
       <div class="controls-row">
         <button id="hintBtn" class="secondary" type="button">Show Hint</button>
         <button id="shareBtn" class="secondary" type="button">Share Result</button>
+        <button id="cardsBtn" class="secondary cards-button" type="button">🃏 My MedCards</button>
         <button id="practiceWeakBtn" class="secondary hidden" type="button">Practice Weak Topic</button>
         <button id="newGameBtn" type="button">New Word</button>
       </div>
@@ -154,6 +142,55 @@
       <article class="info-card"><h3>Practice Mode</h3><p>Unlimited specialty-based review with Step 2-style hints and pearls.</p></article>
       <article class="info-card"><h3>Adaptive Mode</h3><p>Automatically emphasizes specialties you miss most often.</p></article>
     </section>
+  
+    <div id="cardUnlockToast" class="card-unlock-toast hidden">
+      <div class="mini-medcard">
+        <p class="card-rarity" id="unlockRarity">Rare</p>
+        <h3 id="unlockWord">STEMI</h3>
+        <p id="unlockSpecialty">Cardiology</p>
+      </div>
+      <div>
+        <p class="unlock-title">New MedCard Unlocked!</p>
+        <p class="unlock-subtitle" id="unlockBadge">Cath Lab Activated</p>
+      </div>
+    </div>
+
+    <div id="cardsModal" class="cards-modal hidden" aria-hidden="true">
+      <div class="cards-modal-content">
+        <div class="cards-modal-header">
+          <div>
+            <p class="label">Collection</p>
+            <h2>🃏 My MedCards</h2>
+            <p id="collectionProgress" class="mode-description">Collected 0 / 0 cards</p>
+          </div>
+          <button id="closeCardsBtn" class="secondary" type="button">Close</button>
+        </div>
+
+        <div class="collection-toolbar">
+          <select id="cardFilter">
+            <option value="All">All Specialties</option>
+            <option value="Cardiology">Cardiology</option>
+            <option value="Pulmonology">Pulmonology</option>
+            <option value="Gastroenterology">Gastroenterology</option>
+            <option value="Nephrology">Nephrology</option>
+            <option value="Endocrinology">Endocrinology</option>
+            <option value="Neurology">Neurology</option>
+            <option value="OB/GYN">OB/GYN</option>
+            <option value="Pediatrics">Pediatrics</option>
+            <option value="Psychiatry">Psychiatry</option>
+            <option value="Infectious Disease">Infectious Disease</option>
+            <option value="Hematology">Hematology</option>
+            <option value="Dermatology">Dermatology</option>
+            <option value="Rheumatology">Rheumatology</option>
+            <option value="Emergency Medicine">Emergency Medicine</option>
+            <option value="Radiology">Radiology</option>
+          </select>
+        </div>
+
+        <div id="cardsGrid" class="cards-grid"></div>
+      </div>
+    </div>
+
   </main>
 
   <footer>

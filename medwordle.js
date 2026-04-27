@@ -1901,6 +1901,17 @@ const input = document.getElementById("guessInput");
 const hintBtn = document.getElementById("hintBtn");
 const newGameBtn = document.getElementById("newGameBtn");
 const shareBtn = document.getElementById("shareBtn");
+const cardsBtn = document.getElementById("cardsBtn");
+const cardsModal = document.getElementById("cardsModal");
+const closeCardsBtn = document.getElementById("closeCardsBtn");
+const cardsGrid = document.getElementById("cardsGrid");
+const collectionProgress = document.getElementById("collectionProgress");
+const cardFilter = document.getElementById("cardFilter");
+const cardUnlockToast = document.getElementById("cardUnlockToast");
+const unlockRarity = document.getElementById("unlockRarity");
+const unlockWord = document.getElementById("unlockWord");
+const unlockSpecialty = document.getElementById("unlockSpecialty");
+const unlockBadge = document.getElementById("unlockBadge");
 const practiceWeakBtn = document.getElementById("practiceWeakBtn");
 const keyboard = document.getElementById("keyboard");
 const specialtySelect = document.getElementById("specialtySelect");
@@ -2029,6 +2040,135 @@ function updateControlsForPlayType() {
     newGameBtn.disabled = false;
     practiceWeakBtn.classList.add("hidden");
   }
+}
+
+
+function trackEvent(name, params = {}) {
+  if (typeof gtag === "function") {
+    gtag("event", name, params);
+  }
+}
+
+function rarityForCard(item) {
+  if (item.mode === "Hard Mode") return "Legendary";
+  if (["STEMI", "DKA", "ECTOPIC", "TAMPONADE", "TORSADES", "SEPSIS", "ECLAMPSIA", "HELLP"].includes(item.word)) return "Legendary";
+  if (item.mode === "High Yield") return "Rare";
+  if (item.mode === "All Outline") return "Uncommon";
+  return "Common";
+}
+
+function badgeForCard(item) {
+  const badges = {
+    "Cardiology": "Cath Lab Activated",
+    "Pulmonology": "Airway Secured",
+    "Gastroenterology": "Scope Ready",
+    "Nephrology": "Electrolyte Expert",
+    "Endocrinology": "Hormone Hacker",
+    "Neurology": "Localization Legend",
+    "OB/GYN": "Stabilize Then Deliver",
+    "Pediatrics": "Tiny Patient Pro",
+    "Psychiatry": "DSM Detective",
+    "Infectious Disease": "Source Control",
+    "Hematology": "CBC Sleuth",
+    "Oncology": "Tumor Board Pick",
+    "Dermatology": "Rash Recognizer",
+    "Rheumatology": "Autoimmune Ace",
+    "Emergency Medicine": "ABCDE Mode",
+    "Radiology": "Imaging Eye",
+    "Surgery": "OR Ready",
+    "Pharmacology": "Dose Boss"
+  };
+  return badges[item.specialty] || "Clinical Reasoner";
+}
+
+function getCollectedCards() {
+  return JSON.parse(localStorage.getItem("medwordleCards") || "[]");
+}
+
+function saveCollectedCards(cards) {
+  localStorage.setItem("medwordleCards", JSON.stringify(cards));
+}
+
+function unlockCard() {
+  const cards = getCollectedCards();
+  if (cards.find(c => c.word === answerObj.word)) return false;
+
+  const card = {
+    word: answerObj.word,
+    specialty: answerObj.specialty,
+    rarity: rarityForCard(answerObj),
+    badge: badgeForCard(answerObj),
+    hint: answerObj.hint,
+    diagnosis: answerObj.diagnosis,
+    nextStep: answerObj.nextStep,
+    management: answerObj.management,
+    unlockedAt: new Date().toISOString()
+  };
+
+  cards.push(card);
+  saveCollectedCards(cards);
+  showCardUnlock(card);
+  trackEvent("medcard_unlocked", {
+    word: card.word,
+    specialty: card.specialty,
+    rarity: card.rarity
+  });
+  return true;
+}
+
+function showCardUnlock(card) {
+  if (!cardUnlockToast) return;
+  unlockRarity.textContent = card.rarity;
+  unlockWord.textContent = card.word;
+  unlockSpecialty.textContent = card.specialty;
+  unlockBadge.textContent = card.badge;
+  cardUnlockToast.classList.remove("hidden");
+  setTimeout(() => cardUnlockToast.classList.add("hidden"), 4200);
+}
+
+function openCardsModal() {
+  renderCards();
+  cardsModal.classList.remove("hidden");
+  cardsModal.setAttribute("aria-hidden", "false");
+  trackEvent("medcards_opened", { collected: getCollectedCards().length });
+}
+
+function closeCardsModal() {
+  cardsModal.classList.add("hidden");
+  cardsModal.setAttribute("aria-hidden", "true");
+}
+
+function renderCards() {
+  const cards = getCollectedCards();
+  const filter = cardFilter ? cardFilter.value : "All";
+  const visible = filter === "All" ? cards : cards.filter(c => c.specialty === filter);
+  const total = WORDS.length;
+  collectionProgress.textContent = `Collected ${cards.length} / ${total} cards`;
+
+  cardsGrid.innerHTML = "";
+  if (!visible.length) {
+    cardsGrid.innerHTML = `<div class="empty-collection">No cards here yet. Solve MedWordle words to unlock collectible MedCards.</div>`;
+    return;
+  }
+
+  visible
+    .sort((a, b) => a.specialty.localeCompare(b.specialty) || a.word.localeCompare(b.word))
+    .forEach(card => {
+      const el = document.createElement("article");
+      el.className = `medcard ${card.rarity.toLowerCase()}`;
+      el.innerHTML = `
+        <div class="medcard-top">
+          <span class="medcard-specialty">${card.specialty}</span>
+          <span class="medcard-rarity">${card.rarity}</span>
+        </div>
+        <div class="medcard-word">${card.word}</div>
+        <div class="medcard-badge">${card.badge}</div>
+        <p class="medcard-detail"><strong>Dx:</strong> ${card.diagnosis || card.word}</p>
+        <p class="medcard-detail"><strong>Clue:</strong> ${card.hint || "High-yield clinical pattern"}</p>
+        <p class="medcard-detail"><strong>Next:</strong> ${card.nextStep || "Recognize the pattern and choose the safest next step."}</p>
+      `;
+      cardsGrid.appendChild(el);
+    });
 }
 
 function initGame() {
@@ -2171,20 +2311,6 @@ function showPearl() {
   pearlBox.classList.remove("hidden");
 }
 
-
-function unlockCard() {
-  const existing = JSON.parse(localStorage.getItem("medwordleCards") || "[]");
-  if (!existing.find(c => c.word === answerObj.word)) {
-    existing.push({
-      word: answerObj.word,
-      specialty: answerObj.specialty,
-      rarity: answerObj.mode === "High Yield" ? "Rare" : "Common",
-      badge: "Unlocked via Daily Challenge"
-    });
-    localStorage.setItem("medwordleCards", JSON.stringify(existing));
-  }
-}
-
 function recordResult(won) {
   if (currentResult !== null) return;
   currentResult = won;
@@ -2255,8 +2381,7 @@ function submitGuess(rawGuess) {
     gameOver = true; input.disabled = true;
     messageEl.textContent = `Correct — ${answer}.`;
     messageEl.className = "message win";
-    showPearl(); unlockCard();
-    recordResult(true); return;
+    showPearl(); unlockCard(); recordResult(true); trackEvent('medwordle_completed', { result: 'win', specialty: answerObj.specialty, play_type: playType }); return;
   }
 
   currentRow++;
@@ -2264,7 +2389,7 @@ function submitGuess(rawGuess) {
     gameOver = true; input.disabled = true;
     messageEl.textContent = `Good try. The answer was ${answer}.`;
     messageEl.className = "message loss";
-    showPearl(); recordResult(false);
+    showPearl(); recordResult(false); trackEvent('medwordle_completed', { result: 'loss', specialty: answerObj.specialty, play_type: playType });
   } else {
     messageEl.textContent = `${MAX_ATTEMPTS - currentRow} guesses remaining.`;
   }
@@ -2294,7 +2419,15 @@ specialtySelect.addEventListener("change", () => {
   }
   selectedSpecialty = specialtySelect.value;
   localStorage.setItem("medwordleSpecialty", selectedSpecialty);
-  initGame();
+  
+if (cardsBtn) cardsBtn.addEventListener("click", openCardsModal);
+if (closeCardsBtn) closeCardsBtn.addEventListener("click", closeCardsModal);
+if (cardFilter) cardFilter.addEventListener("change", renderCards);
+if (cardsModal) cardsModal.addEventListener("click", (event) => {
+  if (event.target === cardsModal) closeCardsModal();
+});
+
+initGame();
 });
 modeSelect.addEventListener("change", () => {
   if (playType === "Daily Challenge") {
