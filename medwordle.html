@@ -1,36 +1,206 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>MedWordle | Lionel Sam</title>
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NSW6R43VFE"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-NSW6R43VFE');
+  </script>
 
-<!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-NSW6R43VFE"></script>
-<script>
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', 'G-NSW6R43VFE');
-</script>
-
-<link rel="stylesheet" href="medwordle.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MedWordle | Step 2 Study Game | Lionel Sam</title>
+  <meta name="description" content="MedWordle is a daily medical Wordle-style game for Step 2 learning, NBME-style practice, and collectible MedCards by Lionel Sam.">
+  <link rel="stylesheet" href="medwordle.css" />
 </head>
-
 <body>
-<h1>MedWordle</h1>
+  <header class="site-header">
+    <a class="brand" href="index.html">Lionel Sam</a>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="medwordle.html" class="active">MedWordle</a>
+    </nav>
+  </header>
 
-<button id="statsBtn">🏆 Your Stats</button>
+  <main>
+    <section class="hero">
+      <div class="hero-badge">Step 2 Study Tool</div>
+      <h1>MedWordle</h1>
+      <p class="subtitle">
+        A bright, specialty-themed medical Wordle game with hints, diagnosis-based pearls,
+        management, next-step reasoning, scoring, weak-topic tracking, and adaptive practice.
+      </p>
+    </section>
 
-<div id="statsModal" class="hidden">
-  <h2>Your Performance</h2>
-  <p>Points: <span id="points">0</span></p>
-  <p>Streak: <span id="streak">0</span></p>
+    <section class="stats-grid">
+      <div class="stat-card"><span id="gamesPlayed">0</span><p>Played</p></div>
+      <div class="stat-card"><span id="winRate">0%</span><p>Win Rate</p></div>
+      <div class="stat-card"><span id="currentStreak">0</span><p>Streak</p></div>
+      <div class="stat-card"><span id="weakTopic">None yet</span><p>Weak Topic</p></div>
+    </section>
 
-  <div id="heatmapGrid" class="heatmap-grid"></div>
+    <section class="game-card">
+      <div class="game-header">
+        <div>
+          <p class="label">Current Focus</p>
+          <h2 id="category">All Medicine</h2>
+          <p id="modeDescription" class="mode-description">High-yield Step 2 terms across systems.</p>
+        </div>
 
-  <button onclick="closeStats()">Close</button>
-</div>
+        <div class="settings-grid">
+          <div class="settings">
+            <label for="playTypeSelect">Play Type</label>
+            <select id="playTypeSelect">
+              <option value="Practice">Practice</option>
+              <option value="Daily Challenge">Daily Challenge</option>
+              <option value="Adaptive">Adaptive Weak Topics</option>
+            </select>
+          </div>
+          <div class="settings">
+            <label for="specialtySelect">Specialty</label>
+            <select id="specialtySelect">
+              <option value="All Medicine">All Medicine</option>
+              <option value="Cardiology">Cardiology</option>
+              <option value="Neurology">Neurology</option>
+              <option value="Radiology">Radiology</option>
+              <option value="Surgery">Surgery</option>
+              <option value="Pediatrics">Pediatrics</option>
+              <option value="OB/GYN">OB/GYN</option>
+              <option value="Oncology">Oncology</option>
+              <option value="Infectious Disease">Infectious Disease</option>
+              <option value="Emergency Medicine">Emergency Medicine</option>
+              <option value="Psychiatry">Psychiatry</option>
+              <option value="Dermatology">Dermatology</option>
+              <option value="Nephrology">Nephrology</option>
+              <option value="Pulmonology">Pulmonology</option>
+              <option value="Endocrinology">Endocrinology</option>
+              <option value="Hematology">Hematology</option>
+              <option value="Pharmacology">Pharmacology</option>
+              <option value="Pathology">Pathology</option>
+              <option value="Anatomy">Anatomy</option>
+              <option value="Gastroenterology">Gastroenterology</option>
+              <option value="Rheumatology">Rheumatology</option>
+            </select>
+          </div>
+          <div class="settings">
+            <label for="modeSelect">Difficulty</label>
+            <select id="modeSelect">
+              <option value="High Yield">High Yield</option>
+              <option value="All Outline">All Outline</option>
+              <option value="Hard Mode">Hard Mode</option>
+            </select>
+          </div>
+        </div>
+      </div>
 
-<script src="medwordle.js"></script>
+      <div id="dailyBanner" class="daily-banner hidden">
+        <div>
+          <p class="daily-kicker">Official Daily Challenge</p>
+          <h3 id="dailyTitle">MedWordle Daily</h3>
+          <p id="dailySubtext">One universal word per day. Same challenge for everyone.</p>
+        </div>
+        <div class="daily-pill" id="dailyStatus">Today</div>
+      </div>
+
+      <div class="controls-row">
+        <button id="hintBtn" class="secondary" type="button">Show Hint</button>
+        <button id="shareBtn" class="secondary" type="button">Share Result</button>
+        <button id="statsBtn" class="secondary" type="button">🏆 Your Stats</button>
+        <button id="practiceWeakBtn" class="secondary hidden" type="button">Practice Weak Topic</button>
+        <button id="newGameBtn" type="button">New Word</button>
+      </div>
+
+      <p id="hint" class="hint hidden"></p>
+      <p id="message" class="message"></p>
+
+      <div id="board" class="board" aria-label="MedWordle board"></div>
+
+      <form id="guessForm" class="guess-form">
+        <input id="guessInput" type="text" autocomplete="off" placeholder="Enter medical term" aria-label="Enter guess" />
+        <button type="submit">Submit</button>
+      </form>
+
+      <div id="pearlBox" class="pearl hidden">
+        <p class="pearl-title">NBME-Style Review</p>
+        <div id="pearlText"></div>
+      </div>
+
+      <div id="keyboard" class="keyboard" aria-label="Keyboard feedback"></div>
+
+      <div class="legend">
+        <span><b class="tile correct">A</b> correct</span>
+        <span><b class="tile present">A</b> wrong spot</span>
+        <span><b class="tile absent">A</b> not in word</span>
+      </div>
+    </section>
+
+    <section class="info-grid">
+      <article class="info-card"><h3>Daily Challenge</h3><p>One universal fixed word per day, same for every user, with a shareable emoji result.</p></article>
+      <article class="info-card"><h3>Practice Mode</h3><p>Unlimited specialty-based review with Step 2-style hints and pearls.</p></article>
+      <article class="info-card"><h3>Adaptive Mode</h3><p>Automatically emphasizes specialties you miss most often.</p></article>
+    </section>
+
+  
+    <div id="statsModal" class="stats-modal hidden" aria-hidden="true">
+      <div class="stats-content">
+        <div class="stats-header">
+          <div>
+            <p class="label">Performance Dashboard</p>
+            <h2>🏆 Your MedWordle Stats</h2>
+            <p class="mode-description">Saved locally on this device/browser.</p>
+          </div>
+          <button id="closeStatsBtn" class="secondary" type="button">Close</button>
+        </div>
+
+        <div class="leaderboard-grid">
+          <div class="leader-card big">
+            <span id="totalPoints">0</span>
+            <p>Total Points</p>
+          </div>
+          <div class="leader-card">
+            <span id="leaderStreak">0</span>
+            <p>Current Streak</p>
+          </div>
+          <div class="leader-card">
+            <span id="daysPlayed">0</span>
+            <p>Days Played</p>
+          </div>
+          <div class="leader-card">
+            <span id="leaderWins">0</span>
+            <p>Wins</p>
+          </div>
+          <div class="leader-card">
+            <span id="bestSpecialty">None</span>
+            <p>Best Specialty</p>
+          </div>
+          <div class="leader-card">
+            <span id="dailyCompletions">0</span>
+            <p>Daily Challenges</p>
+          </div>
+        </div>
+
+        <div class="heatmap-section">
+          <h3>🔥 Activity Heatmap</h3>
+          <p>Last 28 days</p>
+          <div id="heatmapGrid" class="heatmap-grid"></div>
+        </div>
+
+        <div class="points-rules">
+          <h3>How points work</h3>
+          <p>Daily win: +100 • Practice win: +25 • Adaptive win: +35 • First-try bonus: +50 • Streak bonus: +10/day</p>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <footer>
+    <p>Created by Lionel Sam • <a href="index.html">Back to portfolio</a></p>
+  </footer>
+
+  <script src="medwordle.js"></script>
 </body>
 </html>
