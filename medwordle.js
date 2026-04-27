@@ -25,6 +25,8 @@ const WORDS = [
     "diagnosis": "ST-elevation myocardial infarction",
     "management": "Aspirin, anticoagulation, nitrates if appropriate, high-intensity statin, urgent reperfusion.",
     "nextStep": "Primary PCI if available within recommended window; otherwise fibrinolysis if no contraindications."
+ ,
+    "takeaway": "When a patient has ischemic chest pain with ST elevations in contiguous leads, the exam wants rapid reperfusion, not delayed testing."
   },
   {
     "word": "NSTEMI",
@@ -35,6 +37,8 @@ const WORDS = [
     "diagnosis": "Non-ST elevation myocardial infarction",
     "management": "Antiplatelet therapy, anticoagulation, statin, beta blocker when appropriate.",
     "nextStep": "Risk stratify for early invasive management."
+ ,
+    "takeaway": "Troponin-positive ACS without ST elevation is managed with antithrombotic therapy and risk stratification for invasive evaluation."
   },
   {
     "word": "AFIB",
@@ -45,6 +49,8 @@ const WORDS = [
     "diagnosis": "Atrial fibrillation",
     "management": "Rate/rhythm control and anticoagulation based on stroke risk.",
     "nextStep": "Assess hemodynamic stability first; unstable patients need synchronized cardioversion."
+ ,
+    "takeaway": "Always decide first whether the patient is unstable; unstable tachyarrhythmias require synchronized cardioversion."
   },
   {
     "word": "ANGINA",
@@ -65,6 +71,8 @@ const WORDS = [
     "diagnosis": "Heart failure",
     "management": "Diuresis for congestion; guideline-directed therapy when stable.",
     "nextStep": "Assess volume status and treat acute decompensation first."
+ ,
+    "takeaway": "In acute decompensated heart failure, volume overload is treated first with diuresis and respiratory support as needed."
   },
   {
     "word": "DVT",
@@ -75,6 +83,8 @@ const WORDS = [
     "diagnosis": "Deep venous thrombosis",
     "management": "Anticoagulation unless contraindicated.",
     "nextStep": "Compression ultrasound is the usual diagnostic next step."
+ ,
+    "takeaway": "Unilateral swelling with risk factors should trigger compression ultrasound and anticoagulation if confirmed or highly suspected."
   },
   {
     "word": "MURMUR",
@@ -105,6 +115,8 @@ const WORDS = [
     "diagnosis": "Cardiac tamponade",
     "management": "Urgent pericardiocentesis if unstable.",
     "nextStep": "Bedside echo is helpful but do not delay intervention in shock."
+ ,
+    "takeaway": "Obstructive shock from tamponade is a clinical emergency; unstable patients need drainage rather than prolonged workup."
   },
   {
     "word": "TORSADES",
@@ -175,6 +187,8 @@ const WORDS = [
     "diagnosis": "Asthma exacerbation",
     "management": "Inhaled beta agonist, steroids for moderate/severe exacerbation.",
     "nextStep": "Assess severity; oxygen and bronchodilators first."
+ ,
+    "takeaway": "Step 2 often tests acute severity and escalation: oxygen, inhaled bronchodilator, systemic steroid, and airway support if failing."
   },
   {
     "word": "COPD",
@@ -185,6 +199,8 @@ const WORDS = [
     "diagnosis": "COPD",
     "management": "Bronchodilators, smoking cessation, steroids/antibiotics for selected exacerbations.",
     "nextStep": "Use spirometry to confirm diagnosis."
+ ,
+    "takeaway": "COPD exacerbation management hinges on bronchodilators, steroids, oxygen target, and antibiotics when sputum/purulence criteria fit."
   },
   {
     "word": "ARDS",
@@ -195,6 +211,8 @@ const WORDS = [
     "diagnosis": "Acute respiratory distress syndrome",
     "management": "Low tidal volume ventilation and supportive care.",
     "nextStep": "Treat the underlying trigger and optimize oxygenation."
+ ,
+    "takeaway": "The key management principle is lung-protective ventilation while treating the underlying trigger."
   },
   {
     "word": "PNEUMONIA",
@@ -205,6 +223,8 @@ const WORDS = [
     "diagnosis": "Pneumonia",
     "management": "Empiric antibiotics based on setting and severity.",
     "nextStep": "Chest x-ray supports diagnosis; assess need for admission."
+ ,
+    "takeaway": "Use severity and setting to choose empiric antibiotics and determine outpatient versus inpatient treatment."
   },
   {
     "word": "EMBOLUS",
@@ -215,6 +235,8 @@ const WORDS = [
     "diagnosis": "Pulmonary embolism",
     "management": "Anticoagulation; thrombolysis if massive PE with instability.",
     "nextStep": "Use CT pulmonary angiography if appropriate."
+ ,
+    "takeaway": "Suspected PE requires risk stratification; unstable patients may need thrombolysis, while stable patients often get CT angiography."
   },
   {
     "word": "HYPOXIA",
@@ -285,6 +307,8 @@ const WORDS = [
     "diagnosis": "Upper GI bleeding",
     "management": "Stabilize, IV PPI if suspected ulcer bleed, endoscopy.",
     "nextStep": "Assess hemodynamics and resuscitate first."
+ ,
+    "takeaway": "Upper GI bleeding questions prioritize hemodynamic stabilization before diagnostic endoscopy."
   },
   {
     "word": "GERD",
@@ -305,6 +329,8 @@ const WORDS = [
     "diagnosis": "Cirrhosis",
     "management": "Manage complications and screen for HCC/varices.",
     "nextStep": "New ascites warrants diagnostic paracentesis."
+ ,
+    "takeaway": "Cirrhosis questions often test complications: ascites, varices, encephalopathy, SBP, and HCC screening."
   },
   {
     "word": "ASCITES",
@@ -315,6 +341,8 @@ const WORDS = [
     "diagnosis": "Ascites",
     "management": "Salt restriction, diuretics; paracentesis when new or concerning.",
     "nextStep": "Check SAAG to classify cause."
+ ,
+    "takeaway": "New ascites in cirrhosis should be tapped to evaluate for SBP and classify fluid with SAAG."
   },
   {
     "word": "JAUNDICE",
@@ -345,6 +373,8 @@ const WORDS = [
     "diagnosis": "Appendicitis",
     "management": "Appendectomy or antibiotics in select cases.",
     "nextStep": "CT abdomen in many adults if diagnosis uncertain."
+ ,
+    "takeaway": "Migratory RLQ pain is classic; imaging is common in adults when diagnosis is uncertain."
   },
   {
     "word": "DIVERTICULITIS",
@@ -465,6 +495,8 @@ const WORDS = [
     "diagnosis": "Diabetic ketoacidosis",
     "management": "IV fluids, insulin, potassium management.",
     "nextStep": "Check potassium before insulin."
+ ,
+    "takeaway": "DKA treatment is fluids first, then insulin after potassium is assessed; hypokalemia can be fatal."
   },
   {
     "word": "HHS",
@@ -475,6 +507,8 @@ const WORDS = [
     "diagnosis": "Hyperosmolar hyperglycemic state",
     "management": "Aggressive fluids, insulin after volume resuscitation.",
     "nextStep": "Older type 2 diabetic patient with altered mental status is classic."
+ ,
+    "takeaway": "HHS is mainly profound dehydration and hyperosmolarity, so aggressive fluids are central."
   },
   {
     "word": "GRAVES",
@@ -485,6 +519,8 @@ const WORDS = [
     "diagnosis": "Graves disease",
     "management": "Beta blocker for symptoms; methimazole/PTU, radioiodine, or surgery.",
     "nextStep": "Check TSH and free T4; TSI supports diagnosis."
+ ,
+    "takeaway": "Hyperthyroid symptoms plus eye findings point to Graves; beta blockers address symptoms quickly."
   },
   {
     "word": "ADDISON",
@@ -495,6 +531,8 @@ const WORDS = [
     "diagnosis": "Primary adrenal insufficiency",
     "management": "Glucocorticoid and mineralocorticoid replacement.",
     "nextStep": "Adrenal crisis needs immediate stress-dose steroids."
+ ,
+    "takeaway": "Adrenal crisis is treated immediately with stress-dose steroids and fluids; do not wait for confirmatory tests."
   },
   {
     "word": "CUSHING",
@@ -545,6 +583,8 @@ const WORDS = [
     "diagnosis": "Stroke",
     "management": "Reperfusion when eligible; secondary prevention afterward.",
     "nextStep": "Time last known well is critical."
+ ,
+    "takeaway": "The time last known well drives eligibility for acute reperfusion therapy."
   },
   {
     "word": "SEIZURE",
@@ -555,6 +595,8 @@ const WORDS = [
     "diagnosis": "Seizure",
     "management": "Stabilize airway; benzodiazepines for active prolonged seizure.",
     "nextStep": "Evaluate reversible triggers after stabilization."
+ ,
+    "takeaway": "Active prolonged seizure is treated first with benzodiazepines, then antiseizure loading if persistent."
   },
   {
     "word": "MIGRAINE",
@@ -575,6 +617,8 @@ const WORDS = [
     "diagnosis": "Delirium",
     "management": "Treat underlying medical cause; reorientation and sleep hygiene.",
     "nextStep": "Look for infection, meds, metabolic causes."
+ ,
+    "takeaway": "Delirium is acute and fluctuating; search for medical causes and avoid assuming primary psychiatric disease."
   },
   {
     "word": "APHASIA",
@@ -645,6 +689,8 @@ const WORDS = [
     "diagnosis": "Ectopic pregnancy",
     "management": "Methotrexate if stable and eligible; surgery if unstable/ruptured.",
     "nextStep": "Pregnancy test first in reproductive-age patient."
+ ,
+    "takeaway": "In reproductive-age patients with abdominal pain or bleeding, pregnancy test comes first."
   },
   {
     "word": "PREVIA",
@@ -655,6 +701,8 @@ const WORDS = [
     "diagnosis": "Placenta previa",
     "management": "Avoid digital exam; cesarean delivery if persistent.",
     "nextStep": "Ultrasound confirms placental location."
+ ,
+    "takeaway": "Painless third-trimester bleeding means avoid digital cervical exam until placenta previa is excluded by ultrasound."
   },
   {
     "word": "ABRUPTION",
@@ -665,6 +713,8 @@ const WORDS = [
     "diagnosis": "Placental abruption",
     "management": "Maternal stabilization and delivery depending severity.",
     "nextStep": "Can be associated with hypertension or trauma."
+ ,
+    "takeaway": "Painful bleeding with uterine tenderness suggests abruption; prioritize maternal stabilization."
   },
   {
     "word": "HELLP",
@@ -675,6 +725,8 @@ const WORDS = [
     "diagnosis": "HELLP syndrome",
     "management": "Magnesium, BP control, delivery after stabilization.",
     "nextStep": "Severe preeclampsia spectrum."
+ ,
+    "takeaway": "HELLP is a severe preeclampsia variant; delivery is definitive after stabilization."
   },
   {
     "word": "ECLAMPSIA",
@@ -685,6 +737,8 @@ const WORDS = [
     "diagnosis": "Eclampsia",
     "management": "Magnesium sulfate and delivery after stabilization.",
     "nextStep": "Protect airway and control seizures first."
+ ,
+    "takeaway": "Seizure in preeclampsia is treated with magnesium sulfate and delivery after stabilization."
   },
   {
     "word": "LOCHIA",
@@ -805,6 +859,8 @@ const WORDS = [
     "diagnosis": "Sepsis",
     "management": "Early fluids, antibiotics, cultures, source control.",
     "nextStep": "Do not delay antibiotics in shock."
+ ,
+    "takeaway": "Sepsis questions reward early recognition, prompt antibiotics, fluids, cultures, and source control."
   },
   {
     "word": "HIV",
@@ -815,6 +871,8 @@ const WORDS = [
     "diagnosis": "HIV infection",
     "management": "Antiretroviral therapy for all; prophylaxis by CD4 count.",
     "nextStep": "Test with Ag/Ab screening followed by confirmatory testing."
+ ,
+    "takeaway": "CD4 count predicts opportunistic infection risk, but ART is recommended for essentially all patients."
   },
   {
     "word": "AIDS",
@@ -835,6 +893,8 @@ const WORDS = [
     "diagnosis": "Lyme disease",
     "management": "Doxycycline for many nonpregnant patients.",
     "nextStep": "Clinical diagnosis with classic rash."
+ ,
+    "takeaway": "Classic erythema migrans is a clinical diagnosis and does not require serology before treatment."
   },
   {
     "word": "SYPHILIS",
@@ -885,6 +945,8 @@ const WORDS = [
     "diagnosis": "Anemia",
     "management": "Treat cause; transfuse if severe/symptomatic.",
     "nextStep": "Use MCV and reticulocyte count."
+ ,
+    "takeaway": "Classify anemia by MCV and reticulocyte response before jumping to treatment."
   },
   {
     "word": "SICKLE",
@@ -895,6 +957,8 @@ const WORDS = [
     "diagnosis": "Sickle cell disease",
     "management": "Hydration, analgesia, hydroxyurea prevention, vaccines.",
     "nextStep": "Fever needs urgent evaluation for infection."
+ ,
+    "takeaway": "Fever in sickle cell disease is urgent because functional asplenia increases risk from encapsulated organisms."
   },
   {
     "word": "ITP",
@@ -905,6 +969,8 @@ const WORDS = [
     "diagnosis": "Immune thrombocytopenia",
     "management": "Steroids or IVIG if treatment needed.",
     "nextStep": "Platelets low with otherwise normal labs."
+ ,
+    "takeaway": "Isolated thrombocytopenia with mucosal bleeding and otherwise normal labs is classic for ITP."
   },
   {
     "word": "DIC",
@@ -915,6 +981,8 @@ const WORDS = [
     "diagnosis": "Disseminated intravascular coagulation",
     "management": "Treat underlying cause and support with blood products.",
     "nextStep": "Low fibrinogen and high D-dimer are clues."
+ ,
+    "takeaway": "DIC shows simultaneous bleeding and clotting with consumption of platelets and coagulation factors."
   },
   {
     "word": "MYELOMA",
@@ -945,6 +1013,8 @@ const WORDS = [
     "diagnosis": "Gout",
     "management": "NSAIDs/colchicine/steroids acutely; urate-lowering chronically if indicated.",
     "nextStep": "Negatively birefringent needle-shaped crystals."
+ ,
+    "takeaway": "Acute monoarthritis is confirmed by arthrocentesis when diagnosis is uncertain; crystals guide diagnosis."
   },
   {
     "word": "LUPUS",
@@ -955,6 +1025,8 @@ const WORDS = [
     "diagnosis": "Systemic lupus erythematosus",
     "management": "Hydroxychloroquine baseline; steroids/immunosuppression for organ disease.",
     "nextStep": "Renal involvement changes management."
+ ,
+    "takeaway": "SLE management depends heavily on organ involvement, especially kidney and CNS disease."
   },
   {
     "word": "RAYNAUD",
@@ -1305,6 +1377,8 @@ const WORDS = [
     "diagnosis": "Anaphylaxis",
     "management": "IM epinephrine first-line.",
     "nextStep": "Do not delay epinephrine."
+ ,
+    "takeaway": "IM epinephrine is the first and most important treatment; antihistamines are adjuncts, not first-line."
   },
   {
     "word": "HYPERKALEMIA",
@@ -1315,6 +1389,8 @@ const WORDS = [
     "diagnosis": "Hyperkalemia",
     "management": "Calcium for ECG changes, insulin/glucose, shift/remove potassium.",
     "nextStep": "Stabilize myocardium first if ECG changes."
+ ,
+    "takeaway": "ECG changes from hyperkalemia require calcium first to stabilize the myocardium."
   },
   {
     "word": "HYPONATREMIA",
@@ -1425,6 +1501,8 @@ const WORDS = [
     "diagnosis": "Acute pancreatitis",
     "management": "IV fluids, analgesia, early nutrition.",
     "nextStep": "Gallstones and alcohol are common causes."
+ ,
+    "takeaway": "Acute pancreatitis is a clinical/lab diagnosis; management is fluids, pain control, and treating the cause."
   },
   {
     "word": "HEPATITIS",
@@ -1890,6 +1968,9 @@ function updateControlsForPlayType() {
   dailyBanner.classList.toggle("hidden", !isDaily);
 
   if (isDaily) {
+    // Display locked universal settings while preserving the user's practice preferences in localStorage.
+    specialtySelect.value = "All Medicine";
+    modeSelect.value = "High Yield";
     dailyTitle.textContent = "MedWordle Daily • " + friendlyDate();
     dailySubtext.textContent = "One universal word per day. Specialty and difficulty are locked for the official challenge.";
     const rec = getDailyRecord();
@@ -1897,6 +1978,8 @@ function updateControlsForPlayType() {
     newGameBtn.disabled = true;
     practiceWeakBtn.classList.remove("hidden");
   } else {
+    specialtySelect.value = selectedSpecialty;
+    modeSelect.value = selectedMode;
     newGameBtn.disabled = false;
     practiceWeakBtn.classList.add("hidden");
   }
@@ -1988,11 +2071,18 @@ function updateKeyboard(letter, status) {
   }
 }
 
+function nbmeWhyText() {
+  const specialty = answerObj.specialty || "Medicine";
+  return `This is high-yield for Step 2 because ${specialty.toLowerCase()} questions often test recognition of the clinical clue, followed by the safest next step.`;
+}
+
 function showPearl() {
   pearlText.innerHTML = `
-    <div class="pearl-row"><strong>Diagnosis:</strong> ${answerObj.diagnosis}</div>
-    <div class="pearl-row"><strong>Management:</strong> ${answerObj.management}</div>
-    <div class="pearl-row"><strong>Next Step:</strong> ${answerObj.nextStep}</div>
+    <div class="pearl-row key-clue"><strong>Key Clue:</strong> ${answerObj.hint}</div>
+    <div class="pearl-row"><strong>Most Likely Diagnosis:</strong> ${answerObj.diagnosis}</div>
+    <div class="pearl-row"><strong>Initial Management:</strong> ${answerObj.management}</div>
+    <div class="pearl-row next-step"><strong>Next Best Step:</strong> ${answerObj.nextStep}</div>
+    <div class="pearl-row why"><strong>NBME Takeaway:</strong> ${answerObj.takeaway || nbmeWhyText()}</div>
   `;
   pearlBox.classList.remove("hidden");
 }
@@ -2099,11 +2189,19 @@ modeSelect.value = selectedMode;
 playTypeSelect.value = playType;
 
 specialtySelect.addEventListener("change", () => {
+  if (playType === "Daily Challenge") {
+    specialtySelect.value = selectedSpecialty;
+    return;
+  }
   selectedSpecialty = specialtySelect.value;
   localStorage.setItem("medwordleSpecialty", selectedSpecialty);
   initGame();
 });
 modeSelect.addEventListener("change", () => {
+  if (playType === "Daily Challenge") {
+    modeSelect.value = selectedMode;
+    return;
+  }
   selectedMode = modeSelect.value;
   localStorage.setItem("medwordleMode", selectedMode);
   initGame();
