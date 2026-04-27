@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MedWordle | Lionel Sam</title>
+  <link rel="stylesheet" href="medwordle.css" />
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html">Lionel Sam</a>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="medwordle.html" class="active">MedWordle</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <p class="eyebrow">Interactive Medical Learning</p>
+      <h1>MedWordle</h1>
+      <p class="subtitle">
+        A Wordle-style medical term game across specialties. Pick a specialty,
+        change the theme, and test your medical vocabulary.
+      </p>
+    </section>
+
+    <section class="game-card">
+      <div class="game-top">
+        <div>
+          <p class="label">Current Specialty</p>
+          <h2 id="category">All Medicine</h2>
+        </div>
+
+        <div class="settings">
+          <label for="specialtySelect">Specialty theme</label>
+          <select id="specialtySelect">
+            <option value="All Medicine">All Medicine</option>
+            <option value="Cardiology">Cardiology</option>
+            <option value="Neurology">Neurology</option>
+            <option value="Radiology">Radiology</option>
+            <option value="Surgery">Surgery</option>
+            <option value="Pediatrics">Pediatrics</option>
+            <option value="OB/GYN">OB/GYN</option>
+            <option value="Oncology">Oncology</option>
+            <option value="Infectious Disease">Infectious Disease</option>
+            <option value="Emergency Medicine">Emergency Medicine</option>
+            <option value="Psychiatry">Psychiatry</option>
+            <option value="Dermatology">Dermatology</option>
+            <option value="Nephrology">Nephrology</option>
+            <option value="Pulmonology">Pulmonology</option>
+            <option value="Endocrinology">Endocrinology</option>
+            <option value="Hematology">Hematology</option>
+            <option value="Pharmacology">Pharmacology</option>
+            <option value="Pathology">Pathology</option>
+            <option value="Anatomy">Anatomy</option>
+          </select>
+        </div>
+
+        <div class="controls">
+          <button id="hintBtn" class="secondary" type="button">Hint</button>
+          <button id="newGameBtn" type="button">New Word</button>
+        </div>
+      </div>
+
+      <p id="hint" class="hint hidden"></p>
+      <p id="message" class="message"></p>
+
+      <div id="board" class="board" aria-label="MedWordle board"></div>
+
+      <form id="guessForm" class="guess-form">
+        <input
+          id="guessInput"
+          type="text"
+          autocomplete="off"
+          placeholder="Enter medical term"
+          aria-label="Enter guess"
+        />
+        <button type="submit">Submit</button>
+      </form>
+
+      <div id="keyboard" class="keyboard" aria-label="Keyboard feedback"></div>
+
+      <div class="legend">
+        <span><b class="tile correct">A</b> correct</span>
+        <span><b class="tile present">A</b> wrong spot</span>
+        <span><b class="tile absent">A</b> not in word</span>
+      </div>
+    </section>
+
+    <section class="about-card">
+      <h2>Specialty Themes</h2>
+      <p>
+        Each specialty has a distinct color palette. Use “All Medicine” for a
+        random mix, or choose a specialty to focus your practice.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p>Created by Lionel Sam • <a href="index.html">Back to portfolio</a></p>
+  </footer>
+
+  <script src="medwordle.js"></script>
+</body>
+</html>
